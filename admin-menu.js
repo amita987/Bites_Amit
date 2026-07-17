@@ -437,3 +437,110 @@ function editMenuItem(categoryIndex, itemIndex){
     displayAdminMenu();
 
 }
+
+/* ==========================================================
+   SAVE MENU ITEM
+
+   PURPOSE:
+   Saves the edited values into Local Storage
+   and refreshes the Admin Menu.
+   ========================================================== */
+
+function saveMenuItem(){
+
+    /* ======================================================
+       LOAD LATEST MENU
+       ====================================================== */
+
+    const restaurantMenu =
+
+    JSON.parse(
+
+        localStorage.getItem("restaurantMenu")
+
+    );
+
+
+    /* ======================================================
+       GET EDITED VALUES
+       ====================================================== */
+
+    const itemName =
+
+    document.getElementById("edit-name").value;
+
+
+    const price =
+
+    Number(
+
+        document.getElementById("edit-price").value
+
+    );
+
+
+    const discount =
+
+    Number(
+
+        document.getElementById("edit-discount").value
+
+    );
+
+
+    /* ======================================================
+       FIND SELECTED ITEM
+       ====================================================== */
+
+    const item =
+
+    restaurantMenu
+
+    [editIndex.categoryIndex]
+
+    .items
+
+    [editIndex.itemIndex];
+
+
+    /* ======================================================
+       UPDATE ITEM
+       ====================================================== */
+
+    item.name = itemName;
+
+    item.price = price;
+
+    item.discount = discount;
+
+
+    /* ======================================================
+       SAVE TO LOCAL STORAGE
+       ====================================================== */
+
+    localStorage.setItem(
+
+        "restaurantMenu",
+
+        JSON.stringify(restaurantMenu)
+
+    );
+
+
+    /* ======================================================
+       EXIT EDIT MODE
+       ====================================================== */
+
+    editIndex = null;
+
+
+    /* ======================================================
+       REFRESH TABLE
+       ====================================================== */
+
+    displayAdminMenu();
+
+}
+
+
+
