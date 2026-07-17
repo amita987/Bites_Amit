@@ -790,6 +790,249 @@ function showAddItemForm(){
 
 }
 
+/* ==========================================================
+   SAVE NEW MENU ITEM
+
+   PURPOSE:
+
+   Saves a new menu item created from
+   the Add New Item form.
+
+   PROCESS:
+
+   1. Read values entered by admin.
+   2. Validate input.
+   3. Find selected category.
+   4. Add new item into that category.
+   5. Save updated menu into Local Storage.
+   6. Refresh admin menu table.
+
+   ========================================================== */
+
+
+function saveNewItem(){
+
+
+    console.log("Save New Item button clicked");
+
+
+
+    /* ======================================================
+       GET VALUES FROM ADD ITEM FORM
+
+       PURPOSE:
+
+       Reads the values entered by administrator.
+
+       ====================================================== */
+
+
+    const itemName =
+
+    document.getElementById("itemName").value.trim();
+
+
+
+    const itemCategory =
+
+    document.getElementById("itemCategory").value;
+
+
+
+    const itemPrice =
+
+    Number(
+
+        document.getElementById("itemPrice").value
+
+    );
+
+
+
+    const itemImage =
+
+    document.getElementById("itemImage").value.trim();
+
+
+
+
+    /* ======================================================
+       VALIDATION
+
+       PURPOSE:
+
+       Prevent empty or invalid data.
+
+       ====================================================== */
+
+
+    if(itemName === ""){
+
+
+        alert("Please enter item name");
+
+
+        return;
+
+
+    }
+
+
+
+    if(itemCategory === ""){
+
+
+        alert("Please select category");
+
+
+        return;
+
+
+    }
+
+
+
+    if(itemPrice <= 0){
+
+
+        alert("Please enter valid price");
+
+
+        return;
+
+
+    }
+
+
+
+
+    /* ======================================================
+       LOAD EXISTING MENU
+
+       PURPOSE:
+
+       Gets latest menu data from Local Storage.
+
+       ====================================================== */
+
+
+    const restaurantMenu =
+
+    JSON.parse(
+
+        localStorage.getItem("restaurantMenu")
+
+    );
+
+
+
+
+    /* ======================================================
+       FIND SELECTED CATEGORY
+
+       PURPOSE:
+
+       Finds where the new item should be added.
+
+       ====================================================== */
+
+
+    const selectedCategory =
+
+    restaurantMenu.find(function(category){
+
+
+        return category.category === itemCategory;
+
+
+    });
+
+
+
+
+    /* ======================================================
+       CREATE NEW ITEM OBJECT
+
+       PURPOSE:
+
+       Creates the structure of a menu item.
+
+       ====================================================== */
+
+
+    const newItem = {
+
+
+        id: Date.now(),
+
+
+        name: itemName,
+
+
+        price: itemPrice,
+
+
+        discount: 0,
+
+
+        image: itemImage
+
+
+    };
+
+
+
+
+    /* ======================================================
+       ADD ITEM TO CATEGORY
+
+       ====================================================== */
+
+
+    selectedCategory.items.push(newItem);
+
+
+
+
+    /* ======================================================
+       SAVE UPDATED MENU
+
+       PURPOSE:
+
+       Stores new menu permanently.
+
+       ====================================================== */
+
+
+    localStorage.setItem(
+
+        "restaurantMenu",
+
+        JSON.stringify(restaurantMenu)
+
+    );
+
+
+
+
+    /* ======================================================
+       RETURN TO ADMIN MENU TABLE
+
+       ====================================================== */
+
+
+    alert("New Item Added Successfully");
+
+
+    displayAdminMenu();
+
+
+
+}
+
+
+
+
 
 
 
