@@ -216,7 +216,11 @@ onclick="saveMenuItem()"
 
 </button>
 
-<button>
+<button
+
+onclick="cancelEdit()"
+
+>
 
 ❌
 
