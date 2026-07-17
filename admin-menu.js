@@ -265,7 +265,31 @@ width="60">
 
 <td>
 
-${item.name}
+${
+
+isEditing
+
+?
+
+`
+
+<input
+
+type="text"
+
+id="edit-name"
+
+value="${item.name}"
+
+>
+
+`
+
+:
+
+item.name
+
+}
 
 </td>
 
