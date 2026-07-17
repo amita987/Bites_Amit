@@ -105,11 +105,33 @@ restaurantMenu.forEach(function(category){
 
 <tr>
 
+
+
+<!-- ==========================================================
+     ACTION BUTTONS
+
+     PURPOSE:
+     Displays Edit and Delete buttons.
+
+     FUTURE:
+     - Edit button will enable editing.
+     - Delete button will remove menu item.
+     ========================================================== -->
+
 <td>
+
+<button onclick="editMenuItem(${item.id})">
 
 ✏️
 
+</button>
+
+
+<button>
+
 🗑️
+
+</button>
 
 </td>
 
