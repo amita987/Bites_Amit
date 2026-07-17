@@ -153,6 +153,32 @@ restaurantMenu.forEach(function(category, categoryIndex){
 
         (item.price * item.discount / 100);
 
+       /* ==========================================================
+         CHECK EDIT MODE
+      
+         PURPOSE:
+         Checks whether the current row
+         is the row selected for editing.
+      
+         TRUE
+             Current row is being edited.
+      
+         FALSE
+             Current row is displayed normally.
+         ========================================================== */
+      
+      let isEditing =
+      
+      editIndex !== null
+      
+      &&
+      
+      editIndex.categoryIndex === categoryIndex
+      
+      &&
+      
+      editIndex.itemIndex === itemIndex;
+
 
 
         table += `
