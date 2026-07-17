@@ -54,11 +54,11 @@ menuData.forEach(category => {
 
             <td>
 
-                <button class="qty-btn" onclick="decreaseQuantity(this)">−</button>
+                <button class="qty-btn" onclick="decreaseMenuQuantity(this)">−</button>
 
                 <span class="quantity">1</span>
 
-                <button class="qty-btn" onclick="increaseQuantity(this)">+</button>
+                <button class="qty-btn" onclick="increaseMenuQuantity(this)">+</button>
 
             </td>
 
@@ -93,7 +93,7 @@ menuData.forEach(category => {
    Handles the + and − quantity buttons.
    ========================================================== */
 
-function increaseQuantity(button){
+function increaseMenuQuantity(button){
 
     const quantity =
         button.parentElement.querySelector(".quantity");
@@ -104,7 +104,7 @@ function increaseQuantity(button){
 }
 
 
-function decreaseQuantity(button){
+function decreaseMenuQuantity(button){
 
     const quantity =
         button.parentElement.querySelector(".quantity");
