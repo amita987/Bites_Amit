@@ -1,12 +1,39 @@
-/* ==========================================================
-   MENU TABLE GENERATION
 
-   Generates the restaurant menu dynamically from menu-data.js
+
+/* ==========================================================
+   LOAD RESTAURANT MENU
+
+   PURPOSE:
+   Loads restaurant menu from Local Storage.
+
+   If Local Storage is empty,
+   it falls back to menu-data.js.
    ========================================================== */
 
-const menuContainer = document.getElementById("menu-container");
+const menuContainer =
 
-menuData.forEach(category => {
+document.getElementById(
+
+    "menu-container"
+
+);
+
+
+const restaurantMenu =
+
+JSON.parse(
+
+    localStorage.getItem("restaurantMenu")
+
+)
+
+||
+
+menuData;
+
+
+
+restaurantMenu.forEach(category => {
 
     let html = `
         <h2>${category.category}</h2>
