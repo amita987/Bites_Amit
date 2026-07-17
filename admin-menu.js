@@ -1257,6 +1257,233 @@ function deleteMenuItem(categoryIndex, itemIndex){
 
 
 
+/* ==========================================================
+   CHECK NEW CATEGORY SELECTION
+
+   PURPOSE:
+
+   Shows or hides the new category input box.
+
+   When admin selects:
+
+   ➕ Add New Category
+
+   the input box becomes visible.
+
+   ========================================================== */
+
+
+function checkNewCategory(){
+
+
+    const selectedCategory =
+
+    document.getElementById("itemCategory").value;
+
+
+
+    const newCategoryBox =
+
+    document.getElementById("newCategoryBox");
+
+
+
+    if(selectedCategory === "NEW_CATEGORY"){
+
+
+        newCategoryBox.style.display = "block";
+
+
+    }
+
+    else{
+
+
+        newCategoryBox.style.display = "none";
+
+
+    }
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   SAVE NEW CATEGORY
+
+   PURPOSE:
+
+   Creates a new category and saves it.
+
+   PROCESS:
+
+   1. Read category name.
+   2. Check empty name.
+   3. Check duplicate category.
+   4. Create category object.
+   5. Save Local Storage.
+   6. Reload Add Item form.
+
+   ========================================================== */
+
+
+function saveNewCategory(){
+
+
+
+    console.log("Save New Category clicked");
+
+
+
+    /* ======================================================
+       GET CATEGORY NAME
+
+       ====================================================== */
+
+
+    const newCategoryName =
+
+    document.getElementById("newCategoryName")
+    .value
+    .trim();
+
+
+
+
+    if(newCategoryName === ""){
+
+
+        alert("Please enter category name");
+
+
+        return;
+
+
+    }
+
+
+
+
+    /* ======================================================
+       LOAD MENU
+
+       ====================================================== */
+
+
+    const restaurantMenu =
+
+    JSON.parse(
+
+        localStorage.getItem("restaurantMenu")
+
+    );
+
+
+
+
+    /* ======================================================
+       CHECK DUPLICATE CATEGORY
+
+       ====================================================== */
+
+
+    const categoryExists =
+
+    restaurantMenu.some(function(category){
+
+
+        return category.category.toLowerCase()
+
+        ===
+
+        newCategoryName.toLowerCase();
+
+
+    });
+
+
+
+
+
+    if(categoryExists){
+
+
+        alert("Category already exists");
+
+
+        return;
+
+
+    }
+
+
+
+
+    /* ======================================================
+       CREATE NEW CATEGORY
+
+       ====================================================== */
+
+
+    restaurantMenu.push({
+
+        category:newCategoryName,
+
+        items:[]
+
+    });
+
+
+
+
+
+    /* ======================================================
+       SAVE UPDATED MENU
+
+       ====================================================== */
+
+
+    localStorage.setItem(
+
+        "restaurantMenu",
+
+        JSON.stringify(restaurantMenu)
+
+    );
+
+
+
+
+
+    alert(
+        "New Category Added Successfully"
+    );
+
+
+
+
+    /* ======================================================
+       RELOAD ADD ITEM FORM
+
+       PURPOSE:
+
+       New category will now appear
+       in dropdown list.
+
+       ====================================================== */
+
+
+    showAddItemForm();
+
+
+
+}
+
+
+
 
 
 
