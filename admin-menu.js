@@ -673,7 +673,8 @@ function showAddItemForm(){
 function showAddItemForm(){
 
 
-    document.getElementById("menuTable").innerHTML = `
+    
+    document.getElementById("admin-menu-container").innerHTML = `
 
 
     <h3>Add New Menu Item</h3>
