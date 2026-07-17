@@ -39,7 +39,11 @@ menuData.forEach(category => {
 
             <td>₹${item.price}</td>
 
-            <td>${item.discount}% OFF</td>
+            <td>
+            <span class="discount-badge">
+            ${item.discount}% OFF
+            </span>
+            </td>
 
             <td>₹${finalPrice}</td>
 
