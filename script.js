@@ -49,11 +49,12 @@ menuData.forEach(category => {
 
 
 
-            /* ==========================================================
-               QUANTITY BUTTONS
-            
-               Creates the + and − buttons for each menu item.
-               ========================================================== */
+
+               <!-- ==========================================================
+                         QUANTITY BUTTONS
+                    
+                         Creates the + and − buttons for each menu item.
+                    ========================================================== -->
             
             <td>
             
