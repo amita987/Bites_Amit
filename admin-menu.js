@@ -18,13 +18,24 @@
 
 
 
+
 /* ==========================================================
-   DISPLAY MENU
+   LOAD MENU
 
    PURPOSE:
-   Reads menuData from menu-data.js
-   and creates an Admin Menu table.
+   Initializes restaurant menu if needed,
+   then loads it from Local Storage.
    ========================================================== */
+
+initializeRestaurantMenu();
+
+const restaurantMenu =
+
+JSON.parse(
+
+    localStorage.getItem("restaurantMenu")
+
+);
 
 const adminContainer =
 
@@ -33,8 +44,6 @@ document.getElementById(
     "admin-menu-container"
 
 );
-
-
 
 let table = `
 
