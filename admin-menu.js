@@ -137,12 +137,16 @@ restaurantMenu.forEach(function(category, categoryIndex){
 
 <td>
 
-<button onclick="editMenuItem(${item.id})">
+
+<button
+
+onclick="editMenuItem(${categoryIndex}, ${itemIndex})"
+
+>
 
 ✏️
 
 </button>
-
 
 <button>
 
@@ -230,32 +234,43 @@ table;
 
 
 
+
+
 /* ==========================================================
    EDIT MENU ITEM
 
    PURPOSE:
-   Stores which menu item is being edited.
-
-   CURRENT:
-   Displays the selected Item ID.
+   Stores the selected menu item using
+   Category Index and Item Index.
 
    FUTURE:
-   Opens the selected row in edit mode.
+   This will enable editing of the selected row.
    ========================================================== */
 
-function editMenuItem(itemId){
+function editMenuItem(categoryIndex, itemIndex){
 
-    editIndex = itemId;
+    editIndex = {
+
+        categoryIndex: categoryIndex,
+
+        itemIndex: itemIndex
+
+    };
+
 
     alert(
 
-        "Edit Item ID : " + itemId
+        "Category : " +
+
+        categoryIndex +
+
+        "\nItem : " +
+
+        itemIndex
 
     );
 
 }
-
-
 
 
 
