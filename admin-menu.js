@@ -315,6 +315,8 @@ table;
 }
 
 
+
+
 /* ==========================================================
    EDIT MENU ITEM
 
@@ -325,6 +327,12 @@ table;
 
 function editMenuItem(categoryIndex, itemIndex){
 
+    console.log("Edit button clicked");
+
+    console.log(categoryIndex);
+
+    console.log(itemIndex);
+
     editIndex = {
 
         categoryIndex: categoryIndex,
@@ -333,8 +341,8 @@ function editMenuItem(categoryIndex, itemIndex){
 
     };
 
+    console.log(editIndex);
 
     displayAdminMenu();
 
 }
-
