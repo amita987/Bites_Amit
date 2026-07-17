@@ -110,6 +110,17 @@ function updateCartCount(){
 }
 
 
+/* ==========================================================
+   INITIALIZE CART
+
+   Updates the cart counter when the page loads.
+   ========================================================== */
+
+updateCartCount();
+
+
+
+
 
 
 
