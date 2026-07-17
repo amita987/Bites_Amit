@@ -264,7 +264,10 @@ onclick="editMenuItem(${categoryIndex}, ${itemIndex})"
 ✏️
 </button>
 
-<button>
+<button
+type="button"
+onclick="deleteMenuItem(${categoryIndex}, ${itemIndex})"
+>
 
 🗑️
 
@@ -1035,7 +1038,176 @@ function saveNewItem(){
 }
 
 
+/* ==========================================================
+   DELETE MENU ITEM
 
+   PURPOSE:
+
+   Deletes a selected menu item.
+
+   PROCESS:
+
+   1. Ask admin for confirmation.
+   2. Load current menu.
+   3. Remove selected item.
+   4. Save updated menu.
+   5. Refresh admin table.
+
+   ========================================================== */
+
+
+function deleteMenuItem(categoryIndex, itemIndex){
+
+
+    console.log(
+        "Delete button clicked",
+        categoryIndex,
+        itemIndex
+    );
+
+
+
+    /* ======================================================
+       LOAD CURRENT MENU
+
+       PURPOSE:
+
+       Gets latest menu data from Local Storage.
+
+       ====================================================== */
+
+
+    const restaurantMenu =
+
+    JSON.parse(
+
+        localStorage.getItem("restaurantMenu")
+
+    );
+
+
+
+
+    /* ======================================================
+       GET ITEM NAME
+
+       PURPOSE:
+
+       Shows item name in confirmation message.
+
+       ====================================================== */
+
+
+    const itemName =
+
+    restaurantMenu
+
+    [categoryIndex]
+
+    .items
+
+    [itemIndex]
+
+    .name;
+
+
+
+
+    /* ======================================================
+       CONFIRM DELETE
+
+       PURPOSE:
+
+       Prevent accidental deletion.
+
+       ====================================================== */
+
+
+    const confirmDelete =
+
+    confirm(
+
+        "Are you sure you want to delete " 
+        + 
+        itemName 
+        +
+        "?"
+
+    );
+
+
+
+    if(confirmDelete === false){
+
+
+        return;
+
+
+    }
+
+
+
+
+    /* ======================================================
+       DELETE ITEM
+
+       PURPOSE:
+
+       Removes item from category array.
+
+       ====================================================== */
+
+
+    restaurantMenu
+
+    [categoryIndex]
+
+    .items
+
+    .splice(
+
+        itemIndex,
+
+        1
+
+    );
+
+
+
+
+    /* ======================================================
+       SAVE UPDATED MENU
+
+       ====================================================== */
+
+
+    localStorage.setItem(
+
+        "restaurantMenu",
+
+        JSON.stringify(restaurantMenu)
+
+    );
+
+
+
+
+    /* ======================================================
+       REFRESH TABLE
+
+       ====================================================== */
+
+
+    alert(
+        itemName + " deleted successfully"
+    );
+
+
+    displayAdminMenu();
+
+
+
+}
 
 
 
