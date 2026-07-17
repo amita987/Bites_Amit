@@ -3,7 +3,6 @@ const menuData = [
     {
         category: "Fast Food",
         items: [
-
             {
                 id: 1,
                 name: "Veg Burger",
@@ -11,7 +10,6 @@ const menuData = [
                 price: 180,
                 discount: 10
             },
-
             {
                 id: 2,
                 name: "French Fries",
@@ -19,14 +17,12 @@ const menuData = [
                 price: 120,
                 discount: 5
             }
-
         ]
     },
 
     {
         category: "Main Course",
         items: [
-
             {
                 id: 1,
                 name: "Paneer Butter Masala",
@@ -34,7 +30,6 @@ const menuData = [
                 price: 320,
                 discount: 15
             },
-
             {
                 id: 2,
                 name: "Veg Biryani",
@@ -42,14 +37,12 @@ const menuData = [
                 price: 280,
                 discount: 10
             }
-
         ]
     },
 
     {
         category: "Drinks",
         items: [
-
             {
                 id: 1,
                 name: "Mango Shake",
@@ -57,7 +50,6 @@ const menuData = [
                 price: 160,
                 discount: 10
             },
-
             {
                 id: 2,
                 name: "Cold Coffee",
@@ -65,7 +57,6 @@ const menuData = [
                 price: 180,
                 discount: 5
             }
-
         ]
     }
 
