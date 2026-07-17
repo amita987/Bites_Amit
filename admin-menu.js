@@ -215,14 +215,12 @@ isEditing
 
 `
 
+
 <button
-
+type="button"
 onclick="editMenuItem(${categoryIndex}, ${itemIndex})"
-
 >
-
 ✏️
-
 </button>
 
 <button>
@@ -312,6 +310,8 @@ adminContainer.innerHTML =
 
 table;
 
+console.log("Table Rendered");
+   
 }
 
 
