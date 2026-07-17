@@ -134,3 +134,115 @@ function updateCartCount(){
    ========================================================== */
 
 updateCartCount();
+
+
+/* ==========================================================
+   DISPLAY CART ITEMS
+
+   Reads shopping cart data and displays it
+   inside cart.html
+   ========================================================== */
+
+
+function displayCart(){
+
+    const cartContainer =
+        document.getElementById("cart-container");
+
+
+    // Run only on cart page
+    if(!cartContainer){
+
+        return;
+
+    }
+
+
+    // If cart is empty
+    if(cart.length === 0){
+
+        cartContainer.innerHTML =
+        `
+        <h3>Your cart is empty</h3>
+        `;
+
+        return;
+
+    }
+
+
+    let table = `
+
+    <table border="1">
+
+        <tr>
+
+            <th>S.No</th>
+
+            <th>Item</th>
+
+            <th>Price</th>
+
+            <th>Qty</th>
+
+            <th>Total</th>
+
+        </tr>
+
+    `;
+
+
+    cart.forEach(function(item,index){
+
+
+        let total =
+            Number(item.finalPrice.replace("₹",""))
+            *
+            item.quantity;
+
+
+        table +=
+
+        `
+
+        <tr>
+
+            <td>${index + 1}</td>
+
+            <td>${item.name}</td>
+
+            <td>${item.finalPrice}</td>
+
+            <td>${item.quantity}</td>
+
+            <td>₹${total}</td>
+
+        </tr>
+
+        `;
+
+
+    });
+
+
+    table +=
+
+    `
+
+    </table>
+
+    `;
+
+
+    cartContainer.innerHTML = table;
+
+
+}
+
+
+/* ==========================================================
+   LOAD CART PAGE
+   ========================================================== */
+
+displayCart();
+
