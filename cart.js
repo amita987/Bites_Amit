@@ -1,22 +1,28 @@
 /* ==========================================================
-   SAVE SHOPPING CART
+   FILE: cart.js
 
-   Saves the latest cart into the browser.
+   PURPOSE:
+   Handles all shopping cart functionality.
+
+   FEATURES:
+   - Load cart from browser
+   - Add items to cart
+   - Merge duplicate items
+   - Save cart
+   - Update cart counter
    ========================================================== */
 
-localStorage.setItem(
 
-    "cart",
+/* ==========================================================
+   SHOPPING CART
 
-    JSON.stringify(cart)
+   Loads the shopping cart from the browser.
+   If nothing is saved, an empty cart is created.
+   ========================================================== */
 
-);
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
 
-updateCartCount();
-
-console.log(cart);
-
-alert(itemName + " added to cart.");
 
 /* ==========================================================
    ADD TO CART
@@ -51,41 +57,51 @@ function addToCart(button){
     };
 
 
+    /* ==========================================================
+       UPDATE EXISTING ITEM
 
-      /* ==========================================================
-      UPDATE EXISTING ITEM
-   
-      If the item already exists in the shopping cart,
-      increase its quantity instead of creating a duplicate.
-      ========================================================== */
-   
-   const existingItem = cart.find(cartItem =>
-       cartItem.name === item.name
-   );
-   
-   if(existingItem){
-   
-       existingItem.quantity += quantity;
-   
-   }
-   else{
-   
-       cart.push(item);
-   
-   }
-   
+       If the item already exists, increase its quantity.
+       ========================================================== */
 
-   /* ==========================================================
-      CART COUNTER
-   
-      Updates the number displayed beside the Cart menu.
-      ========================================================== */
-   
-   updateCartCount();
-   
-   console.log(cart);
-   
-   alert(itemName + " added to cart.");
+    const existingItem =
+        cart.find(cartItem => cartItem.name === item.name);
+
+    if(existingItem){
+
+        existingItem.quantity += quantity;
+
+    }
+    else{
+
+        cart.push(item);
+
+    }
+
+
+    /* ==========================================================
+       SAVE SHOPPING CART
+
+       Saves the latest shopping cart into the browser.
+       ========================================================== */
+
+    localStorage.setItem(
+
+        "cart",
+
+        JSON.stringify(cart)
+
+    );
+
+
+    /* ==========================================================
+       UPDATE CART COUNTER
+       ========================================================== */
+
+    updateCartCount();
+
+    console.log(cart);
+
+    alert(itemName + " added to cart.");
 
 }
 
@@ -93,7 +109,7 @@ function addToCart(button){
 /* ==========================================================
    UPDATE CART COUNTER
 
-   Displays the total number of unique items in the cart.
+   Displays the total number of unique items.
    ========================================================== */
 
 function updateCartCount(){
@@ -103,7 +119,8 @@ function updateCartCount(){
 
     if(cartCount){
 
-        cartCount.textContent = "(" + cart.length + ")";
+        cartCount.textContent =
+            "(" + cart.length + ")";
 
     }
 
@@ -117,11 +134,3 @@ function updateCartCount(){
    ========================================================== */
 
 updateCartCount();
-
-
-
-
-
-
-
-
