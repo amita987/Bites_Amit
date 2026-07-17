@@ -47,14 +47,20 @@ menuData.forEach(category => {
 
             <td>₹${finalPrice}</td>
 
+
+            /* ==========================================================
+               QUANTITY BUTTONS
+               This creates + and − buttons for each menu item.
+               ========================================================== */
+            
             <td>
-
-                <button>-</button>
-
-                1
-
-                <button>+</button>
-
+            
+                <button onclick="decreaseQuantity(this)">−</button>
+            
+                <span class="quantity">1</span>
+            
+                <button onclick="increaseQuantity(this)">+</button>
+            
             </td>
 
             <td>
