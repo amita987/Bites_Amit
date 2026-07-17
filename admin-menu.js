@@ -187,10 +187,33 @@ restaurantMenu.forEach(function(category, categoryIndex){
 
 
 
-
-
 <td>
 
+${
+
+isEditing
+
+?
+
+`
+
+<button>
+
+💾
+
+</button>
+
+<button>
+
+❌
+
+</button>
+
+`
+
+:
+
+`
 
 <button
 
@@ -207,6 +230,10 @@ onclick="editMenuItem(${categoryIndex}, ${itemIndex})"
 🗑️
 
 </button>
+
+`
+
+}
 
 </td>
 
@@ -288,17 +315,12 @@ table;
 }
 
 
-
-
 /* ==========================================================
    EDIT MENU ITEM
 
    PURPOSE:
-   Stores the selected menu item using
-   Category Index and Item Index.
-
-   FUTURE:
-   This will enable editing of the selected row.
+   Stores the selected row and refreshes
+   the Admin Menu in Edit Mode.
    ========================================================== */
 
 function editMenuItem(categoryIndex, itemIndex){
@@ -312,19 +334,7 @@ function editMenuItem(categoryIndex, itemIndex){
     };
 
 
-    alert(
-
-        "Category : " +
-
-        categoryIndex +
-
-        "\nItem : " +
-
-        itemIndex
-
-    );
+    displayAdminMenu();
 
 }
-
-
 
