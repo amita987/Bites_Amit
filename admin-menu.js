@@ -666,7 +666,97 @@ function showAddItemForm(){
 }
 
 
+/* ==========================================================
+   SHOW ADD NEW ITEM FORM
+   ========================================================== */
 
+function showAddItemForm(){
+
+
+    document.getElementById("menuTable").innerHTML = `
+
+
+    <h3>Add New Menu Item</h3>
+
+
+    <label>
+    Item Name:
+    </label>
+
+    <br>
+
+    <input 
+    type="text"
+    id="itemName"
+    placeholder="Enter item name"
+    >
+
+
+    <br><br>
+
+
+    <label>
+    Category:
+    </label>
+
+    <br>
+
+    <input 
+    type="text"
+    id="itemCategory"
+    placeholder="Enter category"
+    >
+
+
+    <br><br>
+
+
+    <label>
+    Price:
+    </label>
+
+    <br>
+
+    <input 
+    type="number"
+    id="itemPrice"
+    placeholder="Enter price"
+    >
+
+
+    <br><br>
+
+
+    <label>
+    Image URL:
+    </label>
+
+    <br>
+
+    <input 
+    type="text"
+    id="itemImage"
+    placeholder="Enter image URL"
+    >
+
+
+    <br><br>
+
+
+    <button onclick="saveNewItem()">
+    💾 Save Item
+    </button>
+
+
+    <button onclick="loadMenu()">
+    ❌ Cancel
+    </button>
+
+
+    `;
+
+
+}
 
 
 
