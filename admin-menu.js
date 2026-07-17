@@ -132,30 +132,30 @@ function displayAdminMenu(){
    
    
    `;
-
-<table border="1" width="100%">
-
-<tr>
-
-<th>Action</th>
-
-<th>S.No</th>
-
-<th>Image</th>
-
-<th>Item</th>
-
-<th>Category</th>
-
-<th>Price</th>
-
-<th>Discount</th>
-
-<th>Final Price</th>
-
-</tr>
-
-`;
+   
+   <table border="1" width="100%">
+   
+   <tr>
+   
+   <th>Action</th>
+   
+   <th>S.No</th>
+   
+   <th>Image</th>
+   
+   <th>Item</th>
+   
+   <th>Category</th>
+   
+   <th>Price</th>
+   
+   <th>Discount</th>
+   
+   <th>Final Price</th>
+   
+   </tr>
+   
+   `;
 
 
 
