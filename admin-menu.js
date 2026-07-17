@@ -628,16 +628,7 @@ function cancelEdit(){
 }
 
 
-/* ==========================================================
-   DEBUG TEST
 
-   PURPOSE:
-   Check whether cancelEdit exists globally.
-   ========================================================== */
-
-console.log("admin-menu.js loaded");
-
-console.log("cancelEdit status:", typeof cancelEdit);
 
 
 
