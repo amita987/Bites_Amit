@@ -123,6 +123,11 @@ function placeOrder(){
     let address =
     document.getElementById("address").value;
 
+   let payment =
+   document.querySelector(
+   'input[name="payment"]:checked'
+   ).value;
+
 
 
     if(name==="" || mobile==="" || address===""){
@@ -161,7 +166,9 @@ function placeOrder(){
 
             mobile:mobile,
 
-            address:address
+             address:address,
+         
+             payment:payment
 
 
         },
