@@ -215,7 +215,22 @@ function displayCart(){
 
             <td>${item.finalPrice}</td>
 
-            <td>${item.quantity}</td>
+
+            <td>
+            
+            <button onclick="decreaseQuantity(${index})">
+            -
+            </button>
+            
+            
+            ${item.quantity}
+            
+            
+            <button onclick="increaseQuantity(${index})">
+            +
+            </button>
+            
+            </td>
 
             <td>₹${total}</td>
 
@@ -284,5 +299,65 @@ function removeFromCart(index){
 
 
 }
+
+/* ==========================================================
+   INCREASE QUANTITY
+   ========================================================== */
+
+function increaseQuantity(index){
+
+
+    cart[index].quantity++;
+
+
+    localStorage.setItem(
+
+        "cart",
+
+        JSON.stringify(cart)
+
+    );
+
+
+    displayCart();
+
+
+}
+
+
+/* ==========================================================
+   DECREASE QUANTITY
+   ========================================================== */
+
+function decreaseQuantity(index){
+
+
+    if(cart[index].quantity > 1){
+
+        cart[index].quantity--;
+
+    }
+
+
+    localStorage.setItem(
+
+        "cart",
+
+        JSON.stringify(cart)
+
+    );
+
+
+    displayCart();
+
+
+}
+
+
+
+
+
+
+
 
 
