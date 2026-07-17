@@ -206,7 +206,11 @@ isEditing
 
 `
 
-<button>
+<button
+
+onclick="saveMenuItem()"
+
+>
 
 💾
 
@@ -336,7 +340,35 @@ min="0"
 
 <td>
 
-${item.discount}%
+${
+
+isEditing
+
+?
+
+`
+
+<input
+
+type="number"
+
+id="edit-discount"
+
+value="${item.discount}"
+
+min="0"
+
+max="100"
+
+>
+
+`
+
+:
+
+`${item.discount}%`
+
+}
 
 </td>
 
