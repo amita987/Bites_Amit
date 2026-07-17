@@ -131,7 +131,6 @@ function displayAdminMenu(){
    <br><br>
    
    
-   `;
    
    <table border="1" width="100%">
    
