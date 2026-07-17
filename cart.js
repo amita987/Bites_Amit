@@ -273,6 +273,8 @@ function displayCart(){
 
 displayCart();
 
+calculateSummary();
+
 /* ==========================================================
    REMOVE ITEM FROM CART
    ========================================================== */
@@ -295,7 +297,13 @@ function removeFromCart(index){
     updateCartCount();
 
 
-    displayCart();
+   /* ==========================================================
+      LOAD CART PAGE
+      ========================================================== */
+   
+   displayCart();
+   
+   calculateSummary();
 
 
 }
@@ -319,7 +327,14 @@ function increaseQuantity(index){
     );
 
 
-    displayCart();
+
+   /* ==========================================================
+      LOAD CART PAGE
+      ========================================================== */
+   
+   displayCart();
+   
+   calculateSummary();
 
 
 }
@@ -348,10 +363,89 @@ function decreaseQuantity(index){
     );
 
 
-    displayCart();
+
+   /* ==========================================================
+      LOAD CART PAGE
+      ========================================================== */
+   
+   displayCart();
+   
+   calculateSummary();
 
 
 }
+
+/* ==========================================================
+   CART SUMMARY
+   ========================================================== */
+
+
+function calculateSummary(){
+
+
+    let subtotal = 0;
+
+
+    cart.forEach(function(item){
+
+
+        let price =
+        Number(item.finalPrice.replace("₹",""));
+
+
+        subtotal += price * item.quantity;
+
+
+    });
+
+
+
+    let discount = 0;
+
+
+    if(subtotal >= 500){
+
+        discount = 50;
+
+    }
+
+
+
+    let delivery = 40;
+
+
+
+    let grandTotal =
+    subtotal - discount + delivery;
+
+
+
+    const subtotalBox =
+    document.getElementById("subtotal");
+
+
+    if(subtotalBox){
+
+
+        subtotalBox.textContent = subtotal;
+
+
+        document.getElementById("discount").textContent = discount;
+
+
+        document.getElementById("delivery").textContent = delivery;
+
+
+        document.getElementById("grand-total").textContent = grandTotal;
+
+
+    }
+
+
+}
+
+
+
 
 
 
