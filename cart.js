@@ -444,8 +444,16 @@ function calculateSummary(){
 
 }
 
+/* ==========================================================
+   CONNECT CART BUTTON
+   ========================================================== */
 
 
+function goToCheckout(){
+
+    window.location.href="checkout.html";
+
+}
 
 
 
