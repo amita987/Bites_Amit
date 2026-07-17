@@ -488,19 +488,57 @@ function saveMenuItem(){
     );
 
 
-    /* ======================================================
-       FIND SELECTED ITEM
-       ====================================================== */
+/* ======================================================
+   VALIDATE INPUT
 
-    const item =
+   PURPOSE:
+   Prevent invalid values from being saved.
+   ====================================================== */
 
-    restaurantMenu
+if(itemName.trim() === ""){
 
-    [editIndex.categoryIndex]
+    alert("Item Name cannot be empty.");
 
-    .items
+    return;
 
-    [editIndex.itemIndex];
+}
+
+
+if(price < 0){
+
+    alert("Price cannot be negative.");
+
+    return;
+
+}
+
+
+if(discount < 0 || discount > 100){
+
+    alert("Discount must be between 0 and 100.");
+
+    return;
+
+}
+
+
+/* ======================================================
+   FIND SELECTED ITEM
+
+   PURPOSE:
+   Finds the selected menu item that
+   is currently being edited.
+   ====================================================== */
+
+const item =
+
+restaurantMenu
+
+[editIndex.categoryIndex]
+
+.items
+
+[editIndex.itemIndex];
 
 
     /* ======================================================
