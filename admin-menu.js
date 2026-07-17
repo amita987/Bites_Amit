@@ -447,6 +447,15 @@ function editMenuItem(categoryIndex, itemIndex){
    ========================================================== */
 
 function saveMenuItem(){
+   /* ==========================================================
+      DEBUG
+   
+      PURPOSE:
+      Checks whether Save button is calling
+      saveMenuItem().
+      ========================================================== */
+   
+   console.log("Save button clicked");
 
     /* ======================================================
        LOAD LATEST MENU
