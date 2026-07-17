@@ -1,3 +1,9 @@
+/* ==========================================================
+   MENU TABLE GENERATION
+
+   Generates the restaurant menu dynamically from menu-data.js
+   ========================================================== */
+
 const menuContainer = document.getElementById("menu-container");
 
 menuData.forEach(category => {
@@ -31,8 +37,7 @@ menuData.forEach(category => {
             <td>${item.id}</td>
 
             <td>
-                <img src="${item.image}"
-                     width="80">
+                <img src="${item.image}" width="80">
             </td>
 
             <td>${item.name}</td>
@@ -47,28 +52,21 @@ menuData.forEach(category => {
 
             <td>₹${finalPrice}</td>
 
-
-
-
-               <!-- ==========================================================
-                         QUANTITY BUTTONS
-                    
-                         Creates the + and − buttons for each menu item.
-                    ========================================================== -->
-            
             <td>
-            
+
                 <button class="qty-btn" onclick="decreaseQuantity(this)">−</button>
-            
+
                 <span class="quantity">1</span>
-            
+
                 <button class="qty-btn" onclick="increaseQuantity(this)">+</button>
-            
+
             </td>
 
             <td>
 
-                <button>Add to Cart</button>
+                <button class="cart-btn">
+                    Add to Cart
+                </button>
 
             </td>
 
@@ -88,8 +86,7 @@ menuData.forEach(category => {
 /* ==========================================================
    QUANTITY FUNCTIONS
 
-   Increases and decreases the quantity without reloading
-   the page.
+   Handles the + and − quantity buttons.
    ========================================================== */
 
 function increaseQuantity(button){
@@ -117,5 +114,3 @@ function decreaseQuantity(button){
     }
 
 }
-
-
