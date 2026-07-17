@@ -1,11 +1,22 @@
 /* ==========================================================
-   SHOPPING CART
+   SAVE SHOPPING CART
 
-   Stores items selected by the customer.
+   Saves the latest cart into the browser.
    ========================================================== */
 
-let cart = [];
+localStorage.setItem(
 
+    "cart",
+
+    JSON.stringify(cart)
+
+);
+
+updateCartCount();
+
+console.log(cart);
+
+alert(itemName + " added to cart.");
 
 /* ==========================================================
    ADD TO CART
