@@ -87,10 +87,27 @@ let table = `
 
 
 
-restaurantMenu.forEach(function(category){
 
 
-    category.items.forEach(function(item){
+/* ==========================================================
+   LOOP THROUGH MENU CATEGORIES
+
+   PURPOSE:
+   Reads every category and every menu item.
+
+   categoryIndex
+       Position of the category.
+
+   itemIndex
+       Position of the item inside that category.
+
+   These indexes uniquely identify every menu item.
+   ========================================================== */
+
+restaurantMenu.forEach(function(category, categoryIndex){
+
+
+    category.items.forEach(function(item, itemIndex){
 
 
         let finalPrice =
