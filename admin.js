@@ -77,3 +77,45 @@ function adminLogin(){
 
 
 }
+
+/* ==========================================================
+   INITIALIZE RESTAURANT MENU
+
+   PURPOSE:
+   Copies menuData into Local Storage only once.
+
+   WHY?
+   Future Admin changes (Add/Edit/Delete)
+   will be saved in Local Storage instead
+   of menu-data.js.
+   ========================================================== */
+
+function initializeRestaurantMenu(){
+
+    // Check whether menu already exists
+
+    if(
+
+        localStorage.getItem("restaurantMenu") === null
+
+    ){
+
+        // Save original menu into Local Storage
+
+        localStorage.setItem(
+
+            "restaurantMenu",
+
+            JSON.stringify(menuData)
+
+        );
+
+    }
+
+}
+
+
+
+
+
+
