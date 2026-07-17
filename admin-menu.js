@@ -661,6 +661,41 @@ function cancelEdit(){
 
 function showAddItemForm(){
 
+   /* ==========================================================
+      LOAD EXISTING CATEGORIES
+   
+      PURPOSE:
+   
+      Creates dropdown options from existing menu categories.
+   
+      ========================================================== */
+   
+   const restaurantMenu =
+   
+   JSON.parse(
+   
+       localStorage.getItem("restaurantMenu")
+   
+   );
+   
+   
+   let categoryOptions = "";
+   
+   
+   restaurantMenu.forEach(function(category){
+   
+       categoryOptions += `
+   
+       <option value="${category.category}">
+   
+       ${category.category}
+   
+       </option>
+   
+       `;
+   
+   });
+
 
     
     document.getElementById("admin-menu-container").innerHTML = `
@@ -685,17 +720,24 @@ function showAddItemForm(){
     <br><br>
 
 
+
+
     <label>
-    Category:
-    </label>
+   Category:
+   </label>
+   
+   <br>
+   
 
-    <br>
-
-    <input 
-    type="text"
-    id="itemCategory"
-    placeholder="Enter category"
-    >
+   <select id="itemCategory">
+   
+   <option value="">
+   Select Category
+   </option>
+   
+   ${categoryOptions}
+   
+   </select>
 
 
     <br><br>
