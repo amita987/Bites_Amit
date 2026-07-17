@@ -258,7 +258,25 @@ td button{
     border-radius:6px;
     cursor:pointer;
 }
+/* Discount Badge */
 
+.discount-badge{
+
+    background:#28a745;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    display:inline-block;
+
+}
 td button:hover{
     opacity:0.9;
 }
