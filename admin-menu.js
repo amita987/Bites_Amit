@@ -42,13 +42,18 @@ document.getElementById(
    EDIT MODE
 
    PURPOSE:
-   Stores which row is currently
-   being edited.
+   Stores the currently edited row.
 
-   -1 means no row is being edited.
+   categoryIndex
+       Category being edited.
+
+   itemIndex
+       Item being edited.
+
+   NULL means no row is being edited.
    ========================================================== */
 
-let editIndex = -1;
+let editIndex = null;
 
 /* ==========================================================
    INITIALIZE ADMIN MENU
