@@ -64,9 +64,13 @@ menuData.forEach(category => {
 
             <td>
 
-                <button class="cart-btn">
-                    Add to Cart
-                </button>
+                <button
+                   class="cart-btn"
+                   onclick="addToCart(this)">
+               
+                   🛒 Add to Cart
+               
+               </button>
 
             </td>
 
@@ -114,3 +118,19 @@ function decreaseQuantity(button){
     }
 
 }
+
+/* ==========================================================
+   SHOPPING CART
+
+   Stores selected food items in the shopping cart.
+   ========================================================== */
+
+let cart = [];
+
+function addToCart(button){
+
+    alert("Shopping cart coming next...");
+
+}
+
+
