@@ -48,6 +48,15 @@ document.getElementById(
 );
 
 /* ==========================================================
+   ADD ITEM MODE
+
+   PURPOSE:
+   Controls whether Add New Item form is visible.
+   ========================================================== */
+
+let addItemMode = false;
+
+/* ==========================================================
    EDIT MODE
 
    PURPOSE:
@@ -106,6 +115,23 @@ function displayAdminMenu(){
 
 
     let table = `
+   
+   
+   <button
+   
+   onclick="showAddItemForm()"
+   
+   >
+   
+   ➕ Add New Item
+   
+   </button>
+   
+   
+   <br><br>
+   
+   
+   `;
 
 <table border="1" width="100%">
 
