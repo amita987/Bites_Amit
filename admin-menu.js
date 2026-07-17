@@ -29,13 +29,6 @@
 
 initializeRestaurantMenu();
 
-const restaurantMenu =
-
-JSON.parse(
-
-    localStorage.getItem("restaurantMenu")
-
-);
 
 const adminContainer =
 
@@ -78,9 +71,27 @@ displayAdminMenu();
    Add, Edit, Delete, or Cancel.
    ========================================================== */
 
+
 function displayAdminMenu(){
 
-let table =
+    /* ==========================================================
+       LOAD LATEST RESTAURANT MENU
+
+       PURPOSE:
+       Reads the latest menu from Local Storage
+       every time the table is displayed.
+       ========================================================== */
+
+    const restaurantMenu =
+
+    JSON.parse(
+
+        localStorage.getItem("restaurantMenu")
+
+    );
+
+
+    let table = `
 
 <table border="1" width="100%">
 
