@@ -45,6 +45,20 @@ document.getElementById(
 
 );
 
+/* ==========================================================
+   EDIT MODE
+
+   PURPOSE:
+   Stores which row is currently
+   being edited.
+
+   -1 means no row is being edited.
+   ========================================================== */
+
+let editIndex = -1;
+
+
+
 let table = `
 
 <table border="1" width="100%">
