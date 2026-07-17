@@ -156,16 +156,7 @@ restaurantMenu.forEach(function(category, categoryIndex){
 
 
 
-<!-- ==========================================================
-     ACTION BUTTONS
 
-     PURPOSE:
-     Displays Edit and Delete buttons.
-
-     FUTURE:
-     - Edit button will enable editing.
-     - Delete button will remove menu item.
-     ========================================================== -->
 
 <td>
 
