@@ -732,7 +732,13 @@ function showAddItemForm(){
    <br>
    
 
-   <select id="itemCategory">
+
+
+
+   <select 
+   id="itemCategory"
+   onchange="checkNewCategory()"
+   >
    
    <option value="">
    Select Category
@@ -740,8 +746,48 @@ function showAddItemForm(){
    
    ${categoryOptions}
    
+   <option value="NEW_CATEGORY">
+   ➕ Add New Category
+   </option>
+   
    </select>
-
+   
+   
+   <br><br>
+   
+   
+   <div id="newCategoryBox"
+   style="display:none;"
+   >
+   
+   
+   <label>
+   New Category Name:
+   </label>
+   
+   
+   <br>
+   
+   
+   <input
+   type="text"
+   id="newCategoryName"
+   placeholder="Enter new category"
+   >
+   
+   
+   <br><br>
+   
+   
+   <button
+   type="button"
+   onclick="saveNewCategory()"
+   >
+   💾 Save Category
+   </button>
+   
+   
+   </div>
 
     <br><br>
 
