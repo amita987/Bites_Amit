@@ -11,7 +11,54 @@ document.getElementById("order-details");
 if(order){
 
 
+
+let itemsHTML = "";
+
+
+
+order.items.forEach(function(item){
+
+
+    let price =
+    Number(item.finalPrice.replace("₹",""));
+
+
+    let total =
+    price * item.quantity;
+
+
+
+    itemsHTML += `
+
+    <p>
+
+    ${item.name}
+
+    x
+
+    ${item.quantity}
+
+    =
+
+    ₹${total}
+
+    </p>
+
+
+    `;
+
+
+});
+
+
+
+
 container.innerHTML = `
+
+
+<h2>
+🎉 Order Confirmed!
+</h2>
 
 
 <h3>
@@ -20,8 +67,14 @@ ${order.orderId}
 </h3>
 
 
+
+<h3>
+Customer Details
+</h3>
+
+
 <p>
-Customer:
+Name:
 ${order.customer.name}
 </p>
 
@@ -38,19 +91,38 @@ ${order.customer.address}
 </p>
 
 
+<p>
+Payment:
+${order.customer.payment}
+</p>
+
+
+
 <h3>
-Total:
+Order Items
+</h3>
+
+
+${itemsHTML}
+
+
+
+<h3>
+Total Amount:
 ₹${order.total}
 </h3>
 
 
-<p>
+
+<h3>
 Status:
-${order.status}
-</p>
+🟡 ${order.status}
+</h3>
+
 
 
 `;
+
 
 
 }
