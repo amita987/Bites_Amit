@@ -114,7 +114,7 @@ function displayAdminMenu(){
     );
 
 
-    let table = `
+   let table = `
    
    
    <button
@@ -129,7 +129,6 @@ function displayAdminMenu(){
    
    
    <br><br>
-   
    
    
    <table border="1" width="100%">
