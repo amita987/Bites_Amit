@@ -652,18 +652,7 @@ function cancelEdit(){
 }
 
 
-/* ==========================================================
-   SHOW ADD ITEM FORM
 
-   PURPOSE:
-   Displays input fields for creating a new menu item.
-   ========================================================== */
-
-function showAddItemForm(){
-
-    alert("Add Item Form coming next");
-
-}
 
 
 /* ==========================================================
