@@ -187,6 +187,8 @@ function displayCart(){
 
             <th>Total</th>
 
+            <th>Remove</th>
+
         </tr>
 
     `;
@@ -217,6 +219,16 @@ function displayCart(){
 
             <td>₹${total}</td>
 
+            <td>
+            
+            <button onclick="removeFromCart(${index})">
+            
+            ❌
+            
+            </button>
+            
+            </td>
+
         </tr>
 
         `;
@@ -245,4 +257,32 @@ function displayCart(){
    ========================================================== */
 
 displayCart();
+
+/* ==========================================================
+   REMOVE ITEM FROM CART
+   ========================================================== */
+
+function removeFromCart(index){
+
+
+    cart.splice(index,1);
+
+
+    localStorage.setItem(
+
+        "cart",
+
+        JSON.stringify(cart)
+
+    );
+
+
+    updateCartCount();
+
+
+    displayCart();
+
+
+}
+
 
