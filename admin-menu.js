@@ -595,3 +595,50 @@ restaurantMenu
 
 
 
+
+/* ==========================================================
+   CANCEL EDIT
+
+   PURPOSE:
+   Exits edit mode without saving any changes.
+
+   The original values remain unchanged because
+   nothing is written to Local Storage.
+   ========================================================== */
+
+function cancelEdit(){
+
+    /* ======================================================
+       EXIT EDIT MODE
+       ====================================================== */
+
+    editIndex = null;
+
+
+    /* ======================================================
+       REFRESH TABLE
+
+       PURPOSE:
+       Reloads the original values from
+       Local Storage.
+       ====================================================== */
+
+    displayAdminMenu();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
