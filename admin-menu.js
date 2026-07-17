@@ -57,9 +57,30 @@ document.getElementById(
 
 let editIndex = -1;
 
+/* ==========================================================
+   INITIALIZE ADMIN MENU
+
+   PURPOSE:
+   Displays the menu table when the page loads.
+   ========================================================== */
+
+displayAdminMenu();
 
 
-let table = `
+/* ==========================================================
+   DISPLAY ADMIN MENU
+
+   PURPOSE:
+   Builds and displays the complete menu table.
+
+   WHY?
+   This function can be called again after
+   Add, Edit, Delete, or Cancel.
+   ========================================================== */
+
+function displayAdminMenu(){
+
+let table =
 
 <table border="1" width="100%">
 
@@ -231,7 +252,7 @@ adminContainer.innerHTML =
 
 table;
 
-
+}
 
 
 
