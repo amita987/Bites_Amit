@@ -39,11 +39,32 @@ function addToCart(button){
 
     };
 
-    // Add to shopping cart
-    cart.push(item);
 
-    console.log(cart);
 
-    alert(itemName + " added to cart.");
+      /* ==========================================================
+      UPDATE EXISTING ITEM
+   
+      If the item already exists in the shopping cart,
+      increase its quantity instead of creating a duplicate.
+      ========================================================== */
+   
+   const existingItem = cart.find(cartItem =>
+       cartItem.name === item.name
+   );
+   
+   if(existingItem){
+   
+       existingItem.quantity += quantity;
+   
+   }
+   else{
+   
+       cart.push(item);
+   
+   }
+   
+   console.log(cart);
+   
+   alert(itemName + " added to cart.");
 
 }
