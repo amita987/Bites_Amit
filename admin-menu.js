@@ -780,9 +780,13 @@ function showAddItemForm(){
     </button>
 
 
-    <button onclick="loadMenu()">
-    ❌ Cancel
-    </button>
+
+    <button 
+      type="button"
+      onclick="displayAdminMenu()"
+      >
+      ❌ Cancel
+      </button>
 
 
     `;
