@@ -109,8 +109,6 @@ function loadCheckoutSummary(){
 loadCheckoutSummary();
 
 
-
-
 function placeOrder(){
 
 
@@ -138,9 +136,66 @@ function placeOrder(){
 
 
 
-    alert(
-        "Order placed successfully!"
+    let total =
+    Number(
+        document.getElementById("checkout-total").textContent
     );
+
+
+
+    let orderId =
+    "BA" + Date.now();
+
+
+
+    let order = {
+
+
+        orderId: orderId,
+
+
+        customer:{
+
+
+            name:name,
+
+            mobile:mobile,
+
+            address:address
+
+
+        },
+
+
+        items: checkoutCart,
+
+
+        total: total,
+
+
+        status:"Preparing Food"
+
+
+    };
+
+
+
+    localStorage.setItem(
+
+        "latestOrder",
+
+        JSON.stringify(order)
+
+    );
+
+
+
+    localStorage.removeItem("cart");
+
+
+
+    window.location.href =
+    "order-confirmation.html";
 
 
 }
