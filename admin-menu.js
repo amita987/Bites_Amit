@@ -209,3 +209,36 @@ table +=
 adminContainer.innerHTML =
 
 table;
+
+
+
+
+/* ==========================================================
+   EDIT MENU ITEM
+
+   PURPOSE:
+   Stores which menu item is being edited.
+
+   CURRENT:
+   Displays the selected Item ID.
+
+   FUTURE:
+   Opens the selected row in edit mode.
+   ========================================================== */
+
+function editMenuItem(itemId){
+
+    editIndex = itemId;
+
+    alert(
+
+        "Edit Item ID : " + itemId
+
+    );
+
+}
+
+
+
+
+
