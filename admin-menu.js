@@ -73,7 +73,7 @@ let table = `
 
 
 
-menuData.forEach(function(category){
+restaurantMenu.forEach(function(category){
 
 
     category.items.forEach(function(item){
