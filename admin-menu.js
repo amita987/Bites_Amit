@@ -611,7 +611,7 @@ function cancelEdit(){
     /* ======================================================
        EXIT EDIT MODE
        ====================================================== */
-
+    console.log("Cancel button clicked");
     editIndex = null;
 
 
