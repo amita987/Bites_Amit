@@ -303,7 +303,33 @@ ${category.category}
 
 <td>
 
-₹${item.price}
+${
+
+isEditing
+
+?
+
+`
+
+<input
+
+type="number"
+
+id="edit-price"
+
+value="${item.price}"
+
+min="0"
+
+>
+
+`
+
+:
+
+`₹${item.price}`
+
+}
 
 </td>
 
