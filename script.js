@@ -48,18 +48,20 @@ menuData.forEach(category => {
             <td>₹${finalPrice}</td>
 
 
+
             /* ==========================================================
                QUANTITY BUTTONS
-               This creates + and − buttons for each menu item.
+            
+               Creates the + and − buttons for each menu item.
                ========================================================== */
             
             <td>
             
-                <button onclick="decreaseQuantity(this)">−</button>
+                <button class="qty-btn" onclick="decreaseQuantity(this)">−</button>
             
                 <span class="quantity">1</span>
             
-                <button onclick="increaseQuantity(this)">+</button>
+                <button class="qty-btn" onclick="increaseQuantity(this)">+</button>
             
             </td>
 
@@ -81,5 +83,38 @@ menuData.forEach(category => {
 
 });
 
+
+/* ==========================================================
+   QUANTITY FUNCTIONS
+
+   Increases and decreases the quantity without reloading
+   the page.
+   ========================================================== */
+
+function increaseQuantity(button){
+
+    const quantity =
+        button.parentElement.querySelector(".quantity");
+
+    quantity.textContent =
+        Number(quantity.textContent) + 1;
+
+}
+
+
+function decreaseQuantity(button){
+
+    const quantity =
+        button.parentElement.querySelector(".quantity");
+
+    let value = Number(quantity.textContent);
+
+    if(value > 1){
+
+        quantity.textContent = value - 1;
+
+    }
+
+}
 
 
