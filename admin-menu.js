@@ -29,6 +29,15 @@
 
 initializeRestaurantMenu();
 
+/* ==========================================================
+   DEBUG
+
+   PURPOSE:
+   Confirms admin-menu.js has loaded.
+   ========================================================== */
+
+console.log("admin-menu.js loaded");
+
 
 const adminContainer =
 
