@@ -257,8 +257,9 @@ function displayAdminMenu(){
    
    allMenuItems.sort(compareMenuItems);
    
-   
+
    let table = `
+   
    
    <button
    
@@ -269,6 +270,51 @@ function displayAdminMenu(){
    ➕ Add New Item
    
    </button>
+   
+   
+   <br><br>
+   
+   
+   <!-- ==========================================================
+        MENU SEARCH
+   
+        PURPOSE:
+        Allows admin to quickly find menu items.
+   
+        Searches:
+        - Item name
+        - Category
+        - Availability
+        - Price
+   
+        ========================================================== -->
+   
+   <label>
+   
+   🔍 Search Menu:
+   
+   </label>
+   
+   
+   <input
+   
+   type="text"
+   
+   id="menuSearch"
+   
+   placeholder="Search item, category, price..."
+   
+   onkeyup="searchAdminMenu()"
+   
+   >
+   
+   
+   <br><br>
+   
+   
+   <table border="1" width="100%">
+   
+   <tr>
    
    
    <br><br>
@@ -2090,6 +2136,80 @@ function deleteCategory(categoryIndex){
     alert("Category deleted successfully.");
 
     displayAdminMenu();
+
+}
+
+
+/* ==========================================================
+   SEARCH ADMIN MENU
+
+   PURPOSE:
+   Filters menu table rows while typing.
+
+   ========================================================== */
+
+
+function searchAdminMenu(){
+
+
+    const searchValue =
+
+    document.getElementById("menuSearch")
+
+    .value
+
+    .toLowerCase();
+
+
+
+    const table =
+
+    document.querySelector(
+
+        "#admin-menu-container table"
+
+    );
+
+
+
+    const rows =
+
+    table.getElementsByTagName("tr");
+
+
+
+    for(let i = 1; i < rows.length; i++){
+
+
+        const rowText =
+
+        rows[i]
+
+        .innerText
+
+        .toLowerCase();
+
+
+
+        if(
+
+            rowText.includes(searchValue)
+
+        ){
+
+            rows[i].style.display = "";
+
+        }
+
+        else{
+
+            rows[i].style.display = "none";
+
+        }
+
+
+    }
+
 
 }
 
