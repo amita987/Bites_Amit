@@ -1533,6 +1533,9 @@ function deleteCategory(categoryIndex){
         localStorage.getItem("restaurantMenu")
 
     );
+   console.log("Before delete:", restaurantMenu);
+    console.log("Category Index:", categoryIndex);
+    console.log("Category:", restaurantMenu[categoryIndex]);
 
     const category =
 
