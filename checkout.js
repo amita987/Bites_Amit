@@ -188,37 +188,92 @@ function placeOrder(){
    "BA" + lastOrderId;
 
 
-    let order = {
-
-
-        orderId: orderId,
-
-
-        customer:{
-
-
-            name:name,
-
-            mobile:mobile,
-
-             address:address,
-         
-             payment:payment
-
-
-        },
-
-
-        items: checkoutCart,
-
-
-        total: total,
-
-
-        status:"Preparing Food"
-
-
-    };
+   /* ==========================================================
+      ORDER DATE & TIME
+   
+      PURPOSE:
+      Stores when the customer placed the order.
+   
+      ========================================================== */
+   
+   const now = new Date();
+   
+   
+   const orderDate =
+   
+   now.toLocaleDateString(
+   
+   "en-GB",
+   
+   {
+   
+   day: "2-digit",
+   
+   month: "short",
+   
+   year: "numeric"
+   
+   }
+   
+   );
+   
+   
+   const orderTime =
+   
+   now.toLocaleTimeString(
+   
+   "en-IN",
+   
+   {
+   
+   hour: "2-digit",
+   
+   minute: "2-digit",
+   
+   hour12: true
+   
+   }
+   
+   );
+   
+   
+   let order = {
+   
+   
+       orderId: orderId,
+   
+   
+       orderDate: orderDate,
+   
+   
+       orderTime: orderTime,
+   
+   
+       customer:{
+   
+   
+           name:name,
+   
+           mobile:mobile,
+   
+           address:address,
+   
+           payment:payment
+   
+   
+       },
+   
+   
+       items: checkoutCart,
+   
+   
+       total: total,
+   
+   
+       status:"Preparing Food"
+   
+   
+   };
 
 
 
