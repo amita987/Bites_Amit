@@ -540,7 +540,141 @@ console.log("Table Rendered");
 }
 
 
+/* ==========================================================
+   SORT MENU
 
+   PURPOSE:
+   Sorts the menu based on the selected column.
+
+   Clicking the same column again changes
+   Ascending ↔ Descending.
+
+   ========================================================== */
+
+function sortMenu(column){
+
+    if(menuSort.column === column){
+
+        menuSort.direction =
+
+        menuSort.direction === "asc"
+
+        ?
+
+        "desc"
+
+        :
+
+        "asc";
+
+    }
+
+    else{
+
+        menuSort.column = column;
+
+        menuSort.direction = "asc";
+
+    }
+
+    displayAdminMenu();
+
+}
+
+
+
+/* ==========================================================
+   COMPARE MENU ITEMS
+
+   PURPOSE:
+   Used by JavaScript sort() to compare
+   two menu items.
+
+   ========================================================== */
+
+function compareMenuItems(a, b){
+
+    if(menuSort.column === ""){
+
+        return 0;
+
+    }
+
+    let valueA;
+
+    let valueB;
+
+    switch(menuSort.column){
+
+        case "name":
+
+            valueA = a.name.toLowerCase();
+
+            valueB = b.name.toLowerCase();
+
+            break;
+
+        case "price":
+
+            valueA = a.price;
+
+            valueB = b.price;
+
+            break;
+
+        case "discount":
+
+            valueA = a.discount;
+
+            valueB = b.discount;
+
+            break;
+
+        case "finalPrice":
+
+            valueA =
+
+            a.price -
+
+            (a.price * a.discount / 100);
+
+            valueB =
+
+            b.price -
+
+            (b.price * b.discount / 100);
+
+            break;
+
+        default:
+
+            return 0;
+
+    }
+
+    if(valueA < valueB){
+
+        return menuSort.direction === "asc"
+
+            ? -1
+
+            : 1;
+
+    }
+
+    if(valueA > valueB){
+
+        return menuSort.direction === "asc"
+
+            ? 1
+
+            : -1;
+
+    }
+
+    return 0;
+
+}
 
 /* ==========================================================
    EDIT MENU ITEM
