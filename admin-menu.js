@@ -1514,7 +1514,7 @@ function saveNewCategory(){
    document.getElementById("newCategoryBox").style.display = "none";
 
 
-
+}
 
 
 
