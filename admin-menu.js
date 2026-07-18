@@ -1545,10 +1545,42 @@ function saveNewItem(){
 
        ====================================================== */
 
-
+   /* ======================================================
+      GENERATE UNIQUE ITEM ID
+   
+      PURPOSE:
+      Creates a unique 4-digit Item ID.
+   
+      Example:
+      1001
+      1002
+      1003
+   
+      ====================================================== */
+   
+   let lastItemId =
+   
+   Number(
+   
+   localStorage.getItem("lastItemId")
+   
+   ) || 1000;
+   
+   
+   lastItemId++;
+   
+   localStorage.setItem(
+   
+   "lastItemId",
+   
+   lastItemId
+   
+   );
+   
+   
    const newItem = {
    
-       id: Date.now(),
+       id: lastItemId,
    
        name: itemName,
    
@@ -1557,6 +1589,8 @@ function saveNewItem(){
        discount: 0,
    
        image: itemImage,
+   
+
    
        /* ======================================================
           ITEM AVAILABILITY
