@@ -35,6 +35,47 @@ menuData;
 
 restaurantMenu.forEach(category => {
 
+
+    /*
+    ==========================================================
+    FILTER UNAVAILABLE ITEMS
+
+    PURPOSE:
+    Hide menu items from customers when admin marks
+    them as unavailable.
+
+    LOGIC:
+    available:false  = Hide item
+    available:true   = Show item
+    No available field = Show item (old items)
+    ==========================================================
+    */
+
+    const availableItems = category.items.filter(item => {
+
+        return item.available !== false;
+
+    });
+
+
+    /*
+    ==========================================================
+    SKIP EMPTY CATEGORIES
+
+    PURPOSE:
+    If all items in a category are unavailable,
+    don't show the category heading.
+    ==========================================================
+    */
+
+    if(availableItems.length === 0){
+
+        return;
+
+    }
+
+
+
     let html = `
         <h2>${category.category}</h2>
 
