@@ -177,7 +177,7 @@ function displayCart(){
 
         <tr>
 
-            <th>S.No</th>
+            <th>Item ID</th>
 
             <th>Item</th>
 
@@ -209,7 +209,7 @@ function displayCart(){
 
         <tr>
 
-            <td>${index + 1}</td>
+            <td>${item.serialNumber}</td>
 
             <td>${item.name}</td>
 
