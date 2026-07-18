@@ -195,9 +195,9 @@ function displayOrders(){
 
             <td>${order.orderTime || "-"}</td>
 
-            <td>${order.customer.name}</td>
-
-            <td>${order.customer.mobile}</td>
+            <td>${order.customer?.name || "-"}</td>
+            
+            <td>${order.customer?.mobile || "-"}</td>
 
             <td>₹${order.total}</td>
 
