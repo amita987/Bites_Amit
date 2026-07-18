@@ -147,8 +147,48 @@ function displayAdminMenu(){
    ========================================================== */
 
 
-   let table = `
+   /* ==========================================================
+      CREATE FLAT MENU LIST
    
+      PURPOSE:
+      Creates one list containing every menu item
+      along with its category information.
+   
+      ========================================================== */
+   
+   let allMenuItems = [];
+   
+   
+   restaurantMenu.forEach(function(category, categoryIndex){
+   
+       category.items.forEach(function(item, itemIndex){
+   
+           allMenuItems.push({
+   
+               categoryIndex: categoryIndex,
+   
+               itemIndex: itemIndex,
+   
+               category: category.category,
+   
+               item: item
+   
+           });
+   
+       });
+   
+   });
+   
+   
+   /* ==========================================================
+      SORT FLAT LIST
+   
+      ========================================================== */
+   
+   allMenuItems.sort(compareMenuItems);
+   
+   
+   let table = `
    
    <button
    
