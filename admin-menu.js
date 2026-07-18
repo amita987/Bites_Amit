@@ -1516,7 +1516,113 @@ function saveNewCategory(){
 
 }
 
+/* ==========================================================
+   DELETE CATEGORY
 
+   PURPOSE:
+   Deletes an empty category only.
+
+   ========================================================== */
+
+function deleteCategory(categoryIndex){
+
+    const restaurantMenu =
+
+    JSON.parse(
+
+        localStorage.getItem("restaurantMenu")
+
+    );
+
+    const category =
+
+    restaurantMenu[categoryIndex];
+
+    /* ======================================================
+       CATEGORY HAS ITEMS
+       ====================================================== */
+
+    if(category.items.length > 0){
+
+        let message =
+
+        "Cannot delete category.\n\n";
+
+        message +=
+
+        "Category: " +
+
+        category.category +
+
+        "\n\n";
+
+        message +=
+
+        "This category contains:\n\n";
+
+        category.items.forEach(function(item){
+
+            message +=
+
+            item.name +
+
+            "\n";
+
+        });
+
+        alert(message);
+
+        return;
+
+    }
+
+    /* ======================================================
+       CONFIRM DELETE
+       ====================================================== */
+
+    if(
+
+        confirm(
+
+            'Delete category "' +
+
+            category.category +
+
+            '" ?'
+
+        ) === false
+
+    ){
+
+        return;
+
+    }
+
+    /* ======================================================
+       DELETE CATEGORY
+       ====================================================== */
+
+    restaurantMenu.splice(
+
+        categoryIndex,
+
+        1
+
+    );
+
+    localStorage.setItem(
+
+        "restaurantMenu",
+
+        JSON.stringify(restaurantMenu)
+
+    );
+
+    alert("Category deleted successfully.");
+
+    displayAdminMenu();
+
+}
 
 
 
