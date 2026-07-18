@@ -188,6 +188,72 @@ function decreaseMenuQuantity(button){
 
 }
 
+/* ==========================================================
+   SEARCH CUSTOMER MENU
+
+   PURPOSE:
+   Filters menu items while customer types.
+
+   ========================================================== */
+
+function searchCustomerMenu(){
+
+    const searchValue =
+    document.getElementById("menuSearch")
+    .value
+    .toLowerCase();
+
+    const headings =
+    document.querySelectorAll("#menu-container h2");
+
+    headings.forEach(function(heading){
+
+        const table = heading.nextElementSibling;
+
+        const rows = table.getElementsByTagName("tr");
+
+        let visibleRows = 0;
+
+        for(let i = 1; i < rows.length; i++){
+
+            const rowText =
+            rows[i].innerText.toLowerCase();
+
+            if(rowText.includes(searchValue)){
+
+                rows[i].style.display = "";
+
+                visibleRows++;
+
+            }
+
+            else{
+
+                rows[i].style.display = "none";
+
+            }
+
+        }
+
+        if(visibleRows === 0){
+
+            heading.style.display = "none";
+            table.style.display = "none";
+
+        }
+
+        else{
+
+            heading.style.display = "";
+            table.style.display = "";
+
+        }
+
+    });
+
+}
+
+
 
 
 
