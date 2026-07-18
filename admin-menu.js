@@ -161,26 +161,83 @@ function displayAdminMenu(){
 
 
 
+
 /* ==========================================================
-   LOOP THROUGH MENU CATEGORIES
+   DISPLAY ALL CATEGORIES
 
    PURPOSE:
-   Reads every category and every menu item.
 
-   categoryIndex
-       Position of the category.
+   Shows every category.
 
-   itemIndex
-       Position of the item inside that category.
+   If a category has menu items,
+   display one row for each item.
 
-   These indexes uniquely identify every menu item.
+   If a category has NO menu items,
+   display a single empty row so that
+   the category can still be deleted.
+
    ========================================================== */
 
 restaurantMenu.forEach(function(category, categoryIndex){
 
+    /* ======================================================
+       EMPTY CATEGORY
+       ====================================================== */
+
+    if(category.items.length === 0){
+
+        table += `
+
+<tr>
+
+<td>-</td>
+
+<td>-</td>
+
+<td>-</td>
+
+<td>
+
+<i>No Items</i>
+
+</td>
+
+<td>
+
+${category.category}
+
+</td>
+
+<td>
+
+<button
+type="button"
+onclick="deleteCategory(${categoryIndex})"
+>
+
+🗑️
+
+</button>
+
+</td>
+
+<td>-</td>
+
+<td>-</td>
+
+<td>-</td>
+
+</tr>
+
+`;
+
+    }
+
+    /* ======================================================
+       CATEGORY HAS ITEMS
+       ====================================================== */
 
     category.items.forEach(function(item, itemIndex){
-
 
         let finalPrice =
 
@@ -188,39 +245,17 @@ restaurantMenu.forEach(function(category, categoryIndex){
 
         (item.price * item.discount / 100);
 
-       /* ==========================================================
-         CHECK EDIT MODE
-      
-         PURPOSE:
-         Checks whether the current row
-         is the row selected for editing.
-      
-         TRUE
-             Current row is being edited.
-      
-         FALSE
-             Current row is displayed normally.
-         ========================================================== */
-      
-      let isEditing =
-      
-      editIndex !== null
-      
-      &&
-      
-      editIndex.categoryIndex === categoryIndex
-      
-      &&
-      
-      editIndex.itemIndex === itemIndex;
+        let isEditing =
 
+        editIndex !== null &&
 
+        editIndex.categoryIndex === categoryIndex &&
+
+        editIndex.itemIndex === itemIndex;
 
         table += `
 
 <tr>
-
-
 
 <td>
 
@@ -232,25 +267,9 @@ isEditing
 
 `
 
-<button
+<button onclick="saveMenuItem()">💾</button>
 
-onclick="saveMenuItem()"
-
->
-
-💾
-
-</button>
-
-<button
-
-onclick="cancelEdit()"
-
->
-
-❌
-
-</button>
+<button onclick="cancelEdit()">❌</button>
 
 `
 
@@ -258,21 +277,16 @@ onclick="cancelEdit()"
 
 `
 
-
 <button
 type="button"
-onclick="editMenuItem(${categoryIndex}, ${itemIndex})"
->
+onclick="editMenuItem(${categoryIndex},${itemIndex})">
 ✏️
 </button>
 
 <button
 type="button"
-onclick="deleteMenuItem(${categoryIndex}, ${itemIndex})"
->
-
+onclick="deleteMenuItem(${categoryIndex},${itemIndex})">
 🗑️
-
 </button>
 
 `
@@ -281,24 +295,13 @@ onclick="deleteMenuItem(${categoryIndex}, ${itemIndex})"
 
 </td>
 
+<td>${item.id}</td>
 
 <td>
 
-${item.id}
+<img src="${item.image}" width="60">
 
 </td>
-
-
-<td>
-
-<img
-
-src="${item.image}"
-
-width="60">
-
-</td>
-
 
 <td>
 
@@ -308,19 +311,7 @@ isEditing
 
 ?
 
-`
-
-<input
-
-type="text"
-
-id="edit-name"
-
-value="${item.name}"
-
->
-
-`
+`<input type="text" id="edit-name" value="${item.name}">`
 
 :
 
@@ -330,13 +321,7 @@ item.name
 
 </td>
 
-
-<td>
-
-${category.category}
-
-</td>
-
+<td>${category.category}</td>
 
 <td>
 
@@ -350,8 +335,7 @@ itemIndex === 0
 
 <button
 type="button"
-onclick="deleteCategory(${categoryIndex})"
->
+onclick="deleteCategory(${categoryIndex})">
 
 🗑️
 
@@ -367,7 +351,6 @@ onclick="deleteCategory(${categoryIndex})"
 
 </td>
 
-
 <td>
 
 ${
@@ -376,21 +359,7 @@ isEditing
 
 ?
 
-`
-
-<input
-
-type="number"
-
-id="edit-price"
-
-value="${item.price}"
-
-min="0"
-
->
-
-`
+`<input type="number" id="edit-price" value="${item.price}">`
 
 :
 
@@ -400,7 +369,6 @@ min="0"
 
 </td>
 
-
 <td>
 
 ${
@@ -409,23 +377,7 @@ isEditing
 
 ?
 
-`
-
-<input
-
-type="number"
-
-id="edit-discount"
-
-value="${item.discount}"
-
-min="0"
-
-max="100"
-
->
-
-`
+`<input type="number" id="edit-discount" value="${item.discount}">`
 
 :
 
@@ -434,7 +386,6 @@ max="100"
 }
 
 </td>
-
 
 <td>
 
@@ -446,9 +397,7 @@ max="100"
 
 `;
 
-
     });
-
 
 });
 
