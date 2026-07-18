@@ -317,7 +317,8 @@ function displayAdminMenu(){
    
    <th>Action</th>
    
-   <th>S.No</th>
+
+   <th>Item ID</th>
    
    <th>Image</th>
    
