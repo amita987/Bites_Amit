@@ -265,6 +265,12 @@ function displayAdminMenu(){
    
    <th>Category Action</th>
    
+   <th>
+   
+   Available
+   
+   </th>
+   
    <th
    style="cursor:pointer;"
    onclick="sortMenu('price')"
@@ -554,6 +560,49 @@ onclick="deleteCategory(${categoryIndex})">
 :
 
 ``
+
+}
+
+</td>
+
+
+<td>
+
+${
+
+isEditing
+
+?
+
+`
+
+<label>
+
+<input
+type="checkbox"
+id="edit-available"
+
+${item.available !== false ? "checked" : ""}
+
+>
+
+Available
+
+</label>
+
+`
+
+:
+
+item.available !== false
+
+?
+
+"✅ Available"
+
+:
+
+"❌ Unavailable"
 
 }
 
