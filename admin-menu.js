@@ -145,6 +145,8 @@ function displayAdminMenu(){
    
    <th>Category</th>
    
+   <th>Category Action</th>
+   
    <th>Price</th>
    
    <th>Discount</th>
@@ -332,6 +334,36 @@ item.name
 <td>
 
 ${category.category}
+
+</td>
+
+
+<td>
+
+${
+
+itemIndex === 0
+
+?
+
+`
+
+<button
+type="button"
+onclick="deleteCategory(${categoryIndex})"
+>
+
+🗑️
+
+</button>
+
+`
+
+:
+
+``
+
+}
 
 </td>
 
