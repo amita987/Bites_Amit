@@ -260,4 +260,45 @@ function searchOrders(){
 }
 
 
+/* ==========================================================
+   SORT ORDERS
+
+   PURPOSE:
+   Changes Ascending ↔ Descending.
+
+   ========================================================== */
+
+function sortOrders(column){
+
+    if(orderSort.column === column){
+
+        orderSort.direction =
+
+        orderSort.direction === "asc"
+
+        ?
+
+        "desc"
+
+        :
+
+        "asc";
+
+    }
+
+    else{
+
+        orderSort.column = column;
+
+        orderSort.direction = "asc";
+
+    }
+
+    displayOrders();
+
+}
+
+
+
+
 
