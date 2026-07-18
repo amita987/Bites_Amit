@@ -148,9 +148,44 @@ function placeOrder(){
 
 
 
-    let orderId =
-    "BA" + Date.now();
-
+   /* ==========================================================
+      GENERATE UNIQUE ORDER ID
+   
+      PURPOSE:
+      Generates sequential Order IDs.
+   
+      Example:
+   
+      BA1001
+      BA1002
+      BA1003
+   
+      ========================================================== */
+   
+   let lastOrderId =
+   
+   Number(
+   
+   localStorage.getItem("lastOrderId")
+   
+   ) || 1000;
+   
+   
+   lastOrderId++;
+   
+   
+   localStorage.setItem(
+   
+   "lastOrderId",
+   
+   lastOrderId
+   
+   );
+   
+   
+   let orderId =
+   
+   "BA" + lastOrderId;
 
 
     let order = {
@@ -187,13 +222,51 @@ function placeOrder(){
 
 
 
-    localStorage.setItem(
-
-        "latestOrder",
-
-        JSON.stringify(order)
-
-    );
+   /* ==========================================================
+      SAVE ORDER
+   
+      PURPOSE:
+      Saves the latest order for the confirmation page
+      and stores all orders for Admin Order Management.
+   
+      ========================================================== */
+   
+   /* Save latest order */
+   
+   localStorage.setItem(
+   
+       "latestOrder",
+   
+       JSON.stringify(order)
+   
+   );
+   
+   
+   /* Load existing orders */
+   
+   let allOrders =
+   
+   JSON.parse(
+   
+   localStorage.getItem("orders")
+   
+   ) || [];
+   
+   
+   /* Add new order */
+   
+   allOrders.push(order);
+   
+   
+   /* Save all orders */
+   
+   localStorage.setItem(
+   
+       "orders",
+   
+       JSON.stringify(allOrders)
+   
+   );
 
 
 
