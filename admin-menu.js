@@ -49,6 +49,85 @@ let restaurantMenu = JSON.parse(
 );
 
 
+/* ==========================================================
+   GENERATE 4-DIGIT ITEM IDs FOR EXISTING ITEMS
+
+   PURPOSE:
+   Converts old Item IDs into sequential 4-digit IDs.
+
+   This runs only once.
+
+   ========================================================== */
+
+let nextItemId = 1001;
+
+let itemIdUpdated = false;
+
+restaurantMenu.forEach(function(category){
+
+    category.items.forEach(function(item){
+
+        if(
+
+            item.id < 1000 ||
+
+            item.id > 9999
+
+        ){
+
+            item.id = nextItemId;
+
+            nextItemId++;
+
+            itemIdUpdated = true;
+
+        }
+
+        else{
+
+            if(item.id >= nextItemId){
+
+                nextItemId = item.id + 1;
+
+            }
+
+        }
+
+    });
+
+});
+
+
+if(itemIdUpdated){
+
+    localStorage.setItem(
+
+        "restaurantMenu",
+
+        JSON.stringify(restaurantMenu)
+
+    );
+
+}
+
+
+/* ==========================================================
+   SAVE LAST ITEM ID
+
+   PURPOSE:
+   Ensures new items continue from
+   the highest existing Item ID.
+
+   ========================================================== */
+
+localStorage.setItem(
+
+    "lastItemId",
+
+    nextItemId - 1
+
+);
+
 restaurantMenu.forEach(function(category){
 
     category.items.forEach(function(item){
