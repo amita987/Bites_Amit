@@ -5,7 +5,21 @@
    Displays all customer orders.
 
    ========================================================== */
+/* ==========================================================
+   ORDER TABLE SORTING
 
+   PURPOSE:
+   Stores which column is currently sorted.
+
+   ========================================================== */
+
+let orderSort = {
+
+    column: "",
+
+    direction: "asc"
+
+};
 
 displayOrders();
 
@@ -22,13 +36,21 @@ function displayOrders(){
     );
 
 
-    let orders =
-
-    JSON.parse(
-
-        localStorage.getItem("orders")
-
-    ) || [];
+      let orders =
+      
+      JSON.parse(
+      
+          localStorage.getItem("orders")
+      
+      ) || [];
+      
+      
+      /* ==========================================================
+         SORT ORDERS
+      
+         ========================================================== */
+      
+      orders.sort(compareOrders);
 
 
     if(orders.length === 0){
@@ -83,19 +105,68 @@ function displayOrders(){
 
         <th>Action</th>
 
-        <th>Order ID</th>
-
-        <th>Date</th>
-
-        <th>Time</th>
-
-        <th>Customer</th>
-
-        <th>Mobile</th>
-
-        <th>Total</th>
-
-        <th>Status</th>
+         <th
+         style="cursor:pointer;"
+         onclick="sortOrders('orderId')"
+         >
+         
+         Order ID ▲▼
+         
+         </th>
+         
+         
+         <th
+         style="cursor:pointer;"
+         onclick="sortOrders('orderDate')"
+         >
+         
+         Date ▲▼
+         
+         </th>
+         
+         
+         <th>
+         
+         Time
+         
+         </th>
+         
+         
+         <th
+         style="cursor:pointer;"
+         onclick="sortOrders('customer')"
+         >
+         
+         Customer ▲▼
+         
+         </th>
+         
+         
+         <th>
+         
+         Mobile
+         
+         </th>
+         
+         
+         <th
+         style="cursor:pointer;"
+         onclick="sortOrders('total')"
+         >
+         
+         Total ▲▼
+         
+         </th>
+         
+         
+         <th
+         style="cursor:pointer;"
+         onclick="sortOrders('status')"
+         >
+         
+         Status ▲▼
+         
+         </th>
 
     </tr>
 
