@@ -1172,7 +1172,75 @@ if(discount < 0 || discount > 100){
 
 }
 
+/* ======================================================
+   CHECK DUPLICATE ITEM NAME
 
+   PURPOSE:
+   Prevents saving two menu items with the
+   same name in the same category.
+
+   NOTE:
+   The item currently being edited is ignored.
+
+   ====================================================== */
+
+const selectedCategory =
+
+restaurantMenu.find(function(category){
+
+    return category.category === newCategory;
+
+});
+
+
+const duplicateItem =
+
+selectedCategory.items.find(function(existingItem, index){
+
+    return (
+
+        existingItem.name.trim().toLowerCase()
+
+        ===
+
+        itemName.trim().toLowerCase()
+
+    )
+
+    &&
+
+    !(
+
+        editIndex.categoryIndex === restaurantMenu.indexOf(selectedCategory)
+
+        &&
+
+        editIndex.itemIndex === index
+
+    );
+
+});
+
+
+if(duplicateItem){
+
+    alert(
+
+        '"' +
+
+        itemName +
+
+        '" already exists in "' +
+
+        newCategory +
+
+        '" category.'
+
+    );
+
+    return;
+
+}
 /* ======================================================
    FIND SELECTED ITEM
 
