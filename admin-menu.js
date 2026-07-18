@@ -27,7 +27,47 @@
    then loads it from Local Storage.
    ========================================================== */
 
+
 initializeRestaurantMenu();
+
+
+/* ==========================================================
+   ADD DEFAULT AVAILABILITY
+
+   PURPOSE:
+   Older menu items created before availability
+   feature should automatically get:
+
+   available: true
+
+   so they work with customer menu filtering.
+
+   ========================================================== */
+
+let restaurantMenu = JSON.parse(
+    localStorage.getItem("restaurantMenu")
+);
+
+
+restaurantMenu.forEach(function(category){
+
+    category.items.forEach(function(item){
+
+        if(item.available === undefined){
+
+            item.available = true;
+
+        }
+
+    });
+
+});
+
+
+localStorage.setItem(
+    "restaurantMenu",
+    JSON.stringify(restaurantMenu)
+);
 
 /* ==========================================================
    DEBUG
