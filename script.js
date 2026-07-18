@@ -188,11 +188,12 @@ function decreaseMenuQuantity(button){
 
 }
 
+
 /* ==========================================================
    SEARCH CUSTOMER MENU
 
    PURPOSE:
-   Filters menu items while customer types.
+   Searches menu items while typing.
 
    ========================================================== */
 
@@ -201,32 +202,34 @@ function searchCustomerMenu(){
     const searchValue =
     document.getElementById("menuSearch")
     .value
+    .trim()
     .toLowerCase();
 
-    const headings =
+    const categoryHeadings =
     document.querySelectorAll("#menu-container h2");
 
-    headings.forEach(function(heading){
+    categoryHeadings.forEach(function(heading){
 
         const table = heading.nextElementSibling;
 
-        const rows = table.getElementsByTagName("tr");
+        const rows = table.querySelectorAll("tr");
 
-        let visibleRows = 0;
+        let foundItem = false;
+
+        /* Keep table header visible */
+        rows[0].style.display = "";
 
         for(let i = 1; i < rows.length; i++){
 
-            const rowText =
-            rows[i].innerText.toLowerCase();
+            const text =
+            rows[i].textContent.toLowerCase();
 
-            if(rowText.includes(searchValue)){
+            if(text.includes(searchValue)){
 
                 rows[i].style.display = "";
-
-                visibleRows++;
+                foundItem = true;
 
             }
-
             else{
 
                 rows[i].style.display = "none";
@@ -235,23 +238,24 @@ function searchCustomerMenu(){
 
         }
 
-        if(visibleRows === 0){
+        if(foundItem || searchValue === ""){
+
+            heading.style.display = "";
+            table.style.display = "";
+
+        }
+        else{
 
             heading.style.display = "none";
             table.style.display = "none";
 
         }
 
-        else{
-
-            heading.style.display = "";
-            table.style.display = "";
-
-        }
-
     });
 
 }
+
+   
 
 
 
