@@ -71,7 +71,30 @@ let addItemMode = false;
    NULL means no row is being edited.
    ========================================================== */
 
+
 let editIndex = null;
+
+/* ==========================================================
+   TABLE SORTING
+
+   PURPOSE:
+   Stores which column is currently sorted.
+
+   direction
+
+   asc  = Ascending
+
+   desc = Descending
+
+   ========================================================== */
+
+let menuSort = {
+
+    column: "",
+
+    direction: "asc"
+
+};
 
 /* ==========================================================
    INITIALIZE ADMIN MENU
@@ -141,17 +164,53 @@ function displayAdminMenu(){
    
    <th>Image</th>
    
-   <th>Item</th>
+
+   <th
+   style="cursor:pointer;"
+   onclick="sortMenu('name')"
+   >
    
-   <th>Category</th>
+   Item ▲▼
+   
+   </th>
+   
+   <th
+   style="cursor:pointer;"
+   onclick="sortMenu('category')"
+   >
+   
+   Category ▲▼
+   
+   </th>
    
    <th>Category Action</th>
    
-   <th>Price</th>
+   <th
+   style="cursor:pointer;"
+   onclick="sortMenu('price')"
+   >
    
-   <th>Discount</th>
+   Price ▲▼
    
-   <th>Final Price</th>
+   </th>
+   
+   <th
+   style="cursor:pointer;"
+   onclick="sortMenu('discount')"
+   >
+   
+   Discount ▲▼
+   
+   </th>
+
+   <th
+   style="cursor:pointer;"
+   onclick="sortMenu('finalPrice')"
+   >
+   
+   Final Price ▲▼
+   
+   </th>
    
    </tr>
    
