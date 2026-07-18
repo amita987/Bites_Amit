@@ -299,6 +299,97 @@ function sortOrders(column){
 }
 
 
+/* ==========================================================
+   COMPARE ORDERS
 
+   PURPOSE:
+   Used by JavaScript sort() to compare
+   two orders.
+
+   ========================================================== */
+
+function compareOrders(a, b){
+
+    if(orderSort.column === ""){
+
+        return 0;
+
+    }
+
+    let valueA;
+
+    let valueB;
+
+    switch(orderSort.column){
+
+        case "orderId":
+
+            valueA = a.orderId;
+
+            valueB = b.orderId;
+
+            break;
+
+        case "orderDate":
+
+            valueA = a.orderDate || "";
+
+            valueB = b.orderDate || "";
+
+            break;
+
+        case "customer":
+
+            valueA = a.customer.name.toLowerCase();
+
+            valueB = b.customer.name.toLowerCase();
+
+            break;
+
+        case "total":
+
+            valueA = a.total;
+
+            valueB = b.total;
+
+            break;
+
+        case "status":
+
+            valueA = a.status.toLowerCase();
+
+            valueB = b.status.toLowerCase();
+
+            break;
+
+        default:
+
+            return 0;
+
+    }
+
+    if(valueA < valueB){
+
+        return orderSort.direction === "asc"
+
+        ? -1
+
+        : 1;
+
+    }
+
+    if(valueA > valueB){
+
+        return orderSort.direction === "asc"
+
+        ? 1
+
+        : -1;
+
+    }
+
+    return 0;
+
+}
 
 
