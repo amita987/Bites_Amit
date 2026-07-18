@@ -82,7 +82,7 @@ restaurantMenu.forEach(category => {
         <table border="1" cellpadding="10" cellspacing="0" width="100%">
 
             <tr>
-                <th>S.No</th>
+                <th>Item ID</th>
                 <th>Image</th>
                 <th>Item</th>
                 <th>Price</th>
