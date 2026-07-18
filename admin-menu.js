@@ -1671,16 +1671,56 @@ function saveNewItem(){
 
        ====================================================== */
 
-
-    const selectedCategory =
-
-    restaurantMenu.find(function(category){
-
-
-        return category.category === itemCategory;
-
-
-    });
+   const selectedCategory =
+   
+   restaurantMenu.find(function(category){
+   
+       return category.category === itemCategory;
+   
+   });
+   
+   
+   /* ======================================================
+      CHECK DUPLICATE ITEM NAME
+   
+      PURPOSE:
+      Prevents adding two menu items with the
+      same name in the same category.
+   
+      ====================================================== */
+   
+   const duplicateItem =
+   
+   selectedCategory.items.find(function(item){
+   
+       return item.name.trim().toLowerCase()
+   
+       ===
+   
+       itemName.trim().toLowerCase();
+   
+   });
+   
+   
+   if(duplicateItem){
+   
+       alert(
+   
+           '"' +
+   
+           itemName +
+   
+           '" already exists in "' +
+   
+           itemCategory +
+   
+           '" category.'
+   
+       );
+   
+       return;
+   
+   }
 
 
 
