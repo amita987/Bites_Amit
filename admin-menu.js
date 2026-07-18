@@ -137,20 +137,14 @@ function displayAdminMenu(){
    );
    
    
-   /* ==========================================================
-      SORT MENU ITEMS
-   
-      PURPOSE:
-      Sorts every category's items before
-      displaying them in the table.
-   
-      ========================================================== */
-   
-   restaurantMenu.forEach(function(category){
-   
-       category.items.sort(compareMenuItems);
-   
-   });
+/* ==========================================================
+   PREPARE MENU FOR DISPLAY
+
+   PURPOSE:
+   Menu items will be sorted after creating
+   a single flat list of all menu items.
+
+   ========================================================== */
 
 
    let table = `
