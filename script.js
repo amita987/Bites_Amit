@@ -93,7 +93,8 @@ restaurantMenu.forEach(category => {
             </tr>
     `;
 
-    category.items.forEach(item => {
+   
+   availableItems.forEach(item => {
 
         const finalPrice =
             item.price - (item.price * item.discount / 100);
