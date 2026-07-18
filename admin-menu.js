@@ -905,6 +905,9 @@ function saveMenuItem(){
    const newCategory =
 
    document.getElementById("edit-category").value;
+   const available =
+   
+   document.getElementById("edit-available").checked;
 
 
 /* ======================================================
@@ -1023,7 +1026,10 @@ item.name = itemName;
 
 item.price = price;
 
+
 item.discount = discount;
+
+item.available = available;
 
 
     /* ======================================================
@@ -1034,7 +1040,9 @@ item.discount = discount;
 
     item.price = price;
 
-    item.discount = discount;
+   item.discount = discount;
+   
+   item.available = available;
 
 
     /* ======================================================
