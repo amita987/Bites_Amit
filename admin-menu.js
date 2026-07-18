@@ -158,24 +158,54 @@ function displayAdminMenu(){
    
    let allMenuItems = [];
    
-   
+
    restaurantMenu.forEach(function(category, categoryIndex){
    
-       category.items.forEach(function(item, itemIndex){
+       /* ======================================================
+          EMPTY CATEGORY
+   
+          PURPOSE:
+          Add a placeholder row so that an empty
+          category is still displayed and can be
+          deleted.
+   
+          ====================================================== */
+   
+       if(category.items.length === 0){
    
            allMenuItems.push({
    
                categoryIndex: categoryIndex,
    
-               itemIndex: itemIndex,
+               itemIndex: -1,
    
                category: category.category,
    
-               item: item
+               item: null
    
            });
    
-       });
+       }
+   
+       else{
+   
+           category.items.forEach(function(item, itemIndex){
+   
+               allMenuItems.push({
+   
+                   categoryIndex: categoryIndex,
+   
+                   itemIndex: itemIndex,
+   
+                   category: category.category,
+   
+                   item: item
+   
+               });
+   
+           });
+   
+       }
    
    });
    
