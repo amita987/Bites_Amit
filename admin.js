@@ -115,6 +115,31 @@ function initializeRestaurantMenu(){
 }
 
 
+/* ==========================================================
+   HANDLE ENTER KEY FOR LOGIN
+
+   PURPOSE:
+   Allows administrator to press Enter
+   instead of clicking the Login button.
+
+   ========================================================== */
+
+function handleAdminLogin(event){
+
+    if(event.key === "Enter"){
+
+        adminLogin();
+
+    }
+
+}
+
+
+
+
+
+
+
 
 
 
