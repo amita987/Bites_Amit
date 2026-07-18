@@ -128,13 +128,29 @@ function displayAdminMenu(){
        every time the table is displayed.
        ========================================================== */
 
-    const restaurantMenu =
-
-    JSON.parse(
-
-        localStorage.getItem("restaurantMenu")
-
-    );
+   const restaurantMenu =
+   
+   JSON.parse(
+   
+       localStorage.getItem("restaurantMenu")
+   
+   );
+   
+   
+   /* ==========================================================
+      SORT MENU ITEMS
+   
+      PURPOSE:
+      Sorts every category's items before
+      displaying them in the table.
+   
+      ========================================================== */
+   
+   restaurantMenu.forEach(function(category){
+   
+       category.items.sort(compareMenuItems);
+   
+   });
 
 
    let table = `
