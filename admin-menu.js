@@ -577,53 +577,61 @@ function compareMenuItems(a, b){
 
     let valueB;
 
-    switch(menuSort.column){
-
-        case "name":
-
-            valueA = a.name.toLowerCase();
-
-            valueB = b.name.toLowerCase();
-
-            break;
-
-        case "price":
-
-            valueA = a.price;
-
-            valueB = b.price;
-
-            break;
-
-        case "discount":
-
-            valueA = a.discount;
-
-            valueB = b.discount;
-
-            break;
-
-        case "finalPrice":
-
-            valueA =
-
-            a.price -
-
-            (a.price * a.discount / 100);
-
-            valueB =
-
-            b.price -
-
-            (b.price * b.discount / 100);
-
-            break;
-
-        default:
-
-            return 0;
-
-    }
+     switch(menuSort.column){
+   
+       case "name":
+   
+           valueA = a.item.name.toLowerCase();
+   
+           valueB = b.item.name.toLowerCase();
+   
+           break;
+   
+       case "category":
+   
+           valueA = a.category.toLowerCase();
+   
+           valueB = b.category.toLowerCase();
+   
+           break;
+   
+       case "price":
+   
+           valueA = a.item.price;
+   
+           valueB = b.item.price;
+   
+           break;
+   
+       case "discount":
+   
+           valueA = a.item.discount;
+   
+           valueB = b.item.discount;
+   
+           break;
+   
+       case "finalPrice":
+   
+           valueA =
+   
+           a.item.price -
+   
+           (a.item.price * a.item.discount / 100);
+   
+           valueB =
+   
+           b.item.price -
+   
+           (b.item.price * b.item.discount / 100);
+   
+           break;
+   
+       default:
+   
+           return 0;
+   
+   }
 
     if(valueA < valueB){
 
