@@ -1409,25 +1409,30 @@ function saveNewItem(){
        ====================================================== */
 
 
-    const newItem = {
-
-
-        id: Date.now(),
-
-
-        name: itemName,
-
-
-        price: itemPrice,
-
-
-        discount: 0,
-
-
-        image: itemImage
-
-
-    };
+   const newItem = {
+   
+       id: Date.now(),
+   
+       name: itemName,
+   
+       price: itemPrice,
+   
+       discount: 0,
+   
+       image: itemImage,
+   
+       /* ======================================================
+          ITEM AVAILABILITY
+   
+          PURPOSE:
+          Every newly added item is available
+          by default.
+   
+          ====================================================== */
+   
+       available: true
+   
+   };
 
 
 
