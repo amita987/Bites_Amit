@@ -408,7 +408,8 @@ function displayAdminMenu(){
 
    ========================================================== */
 
-allMenuItems.forEach(function(menuRow){
+
+allMenuItems.forEach(function(menuRow, index){
 
     const categoryIndex = menuRow.categoryIndex;
 
