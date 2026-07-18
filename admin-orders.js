@@ -173,7 +173,7 @@ function displayOrders(){
     `;
 
 
-    orders.forEach(function(order,index){
+    orders.forEach(function(order){
 
         table += `
 
