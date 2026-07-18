@@ -333,23 +333,76 @@ allMenuItems.forEach(function(menuRow){
 
     const category = restaurantMenu[categoryIndex];
 
-    const item = menuRow.item;
-
-    let finalPrice =
-
-    item.price -
-
-    (item.price * item.discount / 100);
-
-    let isEditing =
-
-    editIndex !== null &&
-
-    editIndex.categoryIndex === categoryIndex &&
-
-    editIndex.itemIndex === itemIndex;
-
-    table += `
+   const item = menuRow.item;
+   
+   
+   /* ======================================================
+      EMPTY CATEGORY
+   
+      PURPOSE:
+      Display a placeholder row so the category
+      can still be deleted.
+   
+      ====================================================== */
+   
+   if(item === null){
+   
+       table += `
+   
+   <tr>
+   
+   <td>-</td>
+   
+   <td>-</td>
+   
+   <td>-</td>
+   
+   <td><i>No Items</i></td>
+   
+   <td>${category.category}</td>
+   
+   <td>
+   
+   <button
+   type="button"
+   onclick="deleteCategory(${categoryIndex})">
+   
+   🗑️
+   
+   </button>
+   
+   </td>
+   
+   <td>-</td>
+   
+   <td>-</td>
+   
+   <td>-</td>
+   
+   </tr>
+   
+   `;
+   
+       return;
+   
+   }
+   
+   
+   let finalPrice =
+   
+   item.price -
+   
+   (item.price * item.discount / 100);
+   
+   let isEditing =
+   
+   editIndex !== null &&
+   
+   editIndex.categoryIndex === categoryIndex &&
+   
+   editIndex.itemIndex === itemIndex;
+   
+   table += `
 
 <tr>
 
