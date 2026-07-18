@@ -287,82 +287,39 @@ function displayAdminMenu(){
 
    ========================================================== */
 
-restaurantMenu.forEach(function(category, categoryIndex){
+/* ==========================================================
+   DISPLAY SORTED MENU ITEMS
 
-    /* ======================================================
-       EMPTY CATEGORY
-       ====================================================== */
+   PURPOSE:
+   Displays all menu items from the flat list.
 
-    if(category.items.length === 0){
+   ========================================================== */
 
-        table += `
+allMenuItems.forEach(function(menuRow){
 
-<tr>
+    const categoryIndex = menuRow.categoryIndex;
 
-<td>-</td>
+    const itemIndex = menuRow.itemIndex;
 
-<td>-</td>
+    const category = restaurantMenu[categoryIndex];
 
-<td>-</td>
+    const item = menuRow.item;
 
-<td>
+    let finalPrice =
 
-<i>No Items</i>
+    item.price -
 
-</td>
+    (item.price * item.discount / 100);
 
-<td>
+    let isEditing =
 
-${category.category}
+    editIndex !== null &&
 
-</td>
+    editIndex.categoryIndex === categoryIndex &&
 
-<td>
+    editIndex.itemIndex === itemIndex;
 
-<button
-type="button"
-onclick="deleteCategory(${categoryIndex})"
->
-
-🗑️
-
-</button>
-
-</td>
-
-<td>-</td>
-
-<td>-</td>
-
-<td>-</td>
-
-</tr>
-
-`;
-
-    }
-
-    /* ======================================================
-       CATEGORY HAS ITEMS
-       ====================================================== */
-
-    category.items.forEach(function(item, itemIndex){
-
-        let finalPrice =
-
-        item.price -
-
-        (item.price * item.discount / 100);
-
-        let isEditing =
-
-        editIndex !== null &&
-
-        editIndex.categoryIndex === categoryIndex &&
-
-        editIndex.itemIndex === itemIndex;
-
-        table += `
+    table += `
 
 <tr>
 
@@ -389,13 +346,17 @@ isEditing
 <button
 type="button"
 onclick="editMenuItem(${categoryIndex},${itemIndex})">
+
 ✏️
+
 </button>
 
 <button
 type="button"
 onclick="deleteMenuItem(${categoryIndex},${itemIndex})">
+
 🗑️
+
 </button>
 
 `
@@ -430,10 +391,10 @@ item.name
 
 </td>
 
-
 <td>
 
 ${
+
 isEditing
 
 ?
@@ -447,8 +408,8 @@ restaurantMenu.forEach(function(cat){
 categoryOptions += `
 
 <option value="${cat.category}"
-${cat.category === category.category ? "selected" : ""}
->
+
+${cat.category === category.category ? "selected" : ""}>
 
 ${cat.category}
 
@@ -457,7 +418,6 @@ ${cat.category}
 `;
 
 });
-
 
 return `
 
@@ -481,14 +441,6 @@ category.category
 
 <td>
 
-${
-
-itemIndex === 0
-
-?
-
-`
-
 <button
 type="button"
 onclick="deleteCategory(${categoryIndex})">
@@ -496,14 +448,6 @@ onclick="deleteCategory(${categoryIndex})">
 🗑️
 
 </button>
-
-`
-
-:
-
-``
-
-}
 
 </td>
 
@@ -553,12 +497,7 @@ isEditing
 
 `;
 
-    });
-
 });
-
-
-
 table +=
 
 "</table>";
