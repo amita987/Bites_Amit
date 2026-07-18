@@ -42,11 +42,44 @@ function displayOrders(){
     }
 
 
-    let table = `
 
-    <table border="1" width="100%">
-
-    <tr>
+   let table = `
+   
+   <!-- ==========================================================
+        ORDER SEARCH
+   
+        PURPOSE:
+        Search orders by:
+        - Order ID
+        - Customer Name
+        - Mobile Number
+        - Status
+   
+        ========================================================== -->
+   
+   <label>
+   
+   🔍 Search Orders:
+   
+   </label>
+   
+   <input
+   
+   type="text"
+   
+   id="orderSearch"
+   
+   placeholder="Search Order ID, Customer, Mobile..."
+   
+   onkeyup="searchOrders()"
+   
+   >
+   
+   <br><br>
+   
+   <table border="1" width="100%">
+   
+   <tr>
 
         <th>Action</th>
 
@@ -112,3 +145,48 @@ function displayOrders(){
     container.innerHTML = table;
 
 }
+
+
+/* ==========================================================
+   SEARCH ORDERS
+
+   PURPOSE:
+   Filters the order table while typing.
+
+   ========================================================== */
+
+function searchOrders(){
+
+    const searchValue =
+    document.getElementById("orderSearch")
+    .value
+    .toLowerCase();
+
+    const table =
+    document.querySelector("#admin-orders-container table");
+
+    const rows =
+    table.getElementsByTagName("tr");
+
+    for(let i = 1; i < rows.length; i++){
+
+        const rowText =
+        rows[i].innerText.toLowerCase();
+
+        if(rowText.includes(searchValue)){
+
+            rows[i].style.display = "";
+
+        }
+        else{
+
+            rows[i].style.display = "none";
+
+        }
+
+    }
+
+}
+
+
+
