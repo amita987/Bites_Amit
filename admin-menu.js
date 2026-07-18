@@ -532,7 +532,8 @@ onclick="deleteMenuItem(${categoryIndex},${itemIndex})">
 
 </td>
 
-<td>${item.id}</td>
+
+<td>${index + 1}</td>
 
 <td>
 
