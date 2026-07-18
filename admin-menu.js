@@ -321,7 +321,54 @@ item.name
 
 </td>
 
-<td>${category.category}</td>
+
+<td>
+
+${
+isEditing
+
+?
+
+(() => {
+
+let categoryOptions = "";
+
+restaurantMenu.forEach(function(cat){
+
+categoryOptions += `
+
+<option value="${cat.category}"
+${cat.category === category.category ? "selected" : ""}
+>
+
+${cat.category}
+
+</option>
+
+`;
+
+});
+
+
+return `
+
+<select id="edit-category">
+
+${categoryOptions}
+
+</select>
+
+`;
+
+})()
+
+:
+
+category.category
+
+}
+
+</td>
 
 <td>
 
@@ -508,6 +555,10 @@ function saveMenuItem(){
 
     );
 
+   const newCategory =
+
+   document.getElementById("edit-category").value;
+
 
 /* ======================================================
    VALIDATE INPUT
@@ -551,6 +602,7 @@ if(discount < 0 || discount > 100){
    is currently being edited.
    ====================================================== */
 
+
 const item =
 
 restaurantMenu
@@ -560,6 +612,71 @@ restaurantMenu
 .items
 
 [editIndex.itemIndex];
+
+
+
+/* ======================================================
+   CHECK CATEGORY CHANGE
+
+   PURPOSE:
+
+   If admin selects a different category,
+   move the item to the new category.
+
+   ====================================================== */
+
+
+if(newCategory !== restaurantMenu[editIndex.categoryIndex].category){
+
+
+    /* Remove item from old category */
+
+    restaurantMenu
+
+    [editIndex.categoryIndex]
+
+    .items
+
+    .splice(
+
+        editIndex.itemIndex,
+
+        1
+
+    );
+
+
+    /* Find new category */
+
+    const targetCategory =
+
+    restaurantMenu.find(function(cat){
+
+        return cat.category === newCategory;
+
+    });
+
+
+    /* Add item to new category */
+
+    targetCategory.items.push(item);
+
+
+}
+
+
+
+/* ======================================================
+   UPDATE ITEM DETAILS
+
+   ====================================================== */
+
+
+item.name = itemName;
+
+item.price = price;
+
+item.discount = discount;
 
 
     /* ======================================================
