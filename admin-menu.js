@@ -1458,29 +1458,28 @@ function saveNewCategory(){
 
 
 
-    alert(
-        "New Category Added Successfully"
-    );
 
-
-
-
-    /* ======================================================
-       RELOAD ADD ITEM FORM
-
-       PURPOSE:
-
-       New category will now appear
-       in dropdown list.
-
-       ====================================================== */
-
-
-    showAddItemForm();
-
-
-
-}
+   alert(
+       "New Category Added Successfully"
+   );
+   
+   /* ======================================================
+      RELOAD FORM
+      ====================================================== */
+   
+   showAddItemForm();
+   
+   /* ======================================================
+      AUTO SELECT NEW CATEGORY
+      ====================================================== */
+   
+   document.getElementById("itemCategory").value = newCategoryName;
+   
+   /* ======================================================
+      HIDE NEW CATEGORY BOX
+      ====================================================== */
+   
+   document.getElementById("newCategoryBox").style.display = "none";
 
 
 
