@@ -49,19 +49,34 @@ let restaurantMenu = JSON.parse(
 );
 
 
+
 /* ==========================================================
-   GENERATE 4-DIGIT ITEM IDs FOR EXISTING ITEMS
+   ITEM ID MIGRATION
 
    PURPOSE:
-   Converts old Item IDs into sequential 4-digit IDs.
+   Ensures every menu item has a unique
+   4-digit Item ID.
 
-   This runs only once.
+   This migration runs only once.
+
+   Existing invalid IDs are replaced.
+
+   Future items continue from the
+   highest Item ID.
 
    ========================================================== */
+
+let usedItemIds = [];
 
 let nextItemId = 1001;
 
 let itemIdUpdated = false;
+
+
+/* ==========================================================
+   COLLECT EXISTING VALID ITEM IDs
+
+   ========================================================== */
 
 restaurantMenu.forEach(function(category){
 
@@ -69,27 +84,19 @@ restaurantMenu.forEach(function(category){
 
         if(
 
-            item.id < 1000 ||
+            Number.isInteger(item.id)
 
-            item.id > 9999
+            &&
+
+            item.id >= 1001
+
+            &&
+
+            item.id <= 9999
 
         ){
 
-            item.id = nextItemId;
-
-            nextItemId++;
-
-            itemIdUpdated = true;
-
-        }
-
-        else{
-
-            if(item.id >= nextItemId){
-
-                nextItemId = item.id + 1;
-
-            }
+            usedItemIds.push(item.id);
 
         }
 
@@ -97,6 +104,73 @@ restaurantMenu.forEach(function(category){
 
 });
 
+
+/* ==========================================================
+   FIND NEXT AVAILABLE ITEM ID
+
+   ========================================================== */
+
+if(usedItemIds.length > 0){
+
+    nextItemId =
+
+    Math.max(...usedItemIds) + 1;
+
+}
+
+
+/* ==========================================================
+   UPDATE INVALID ITEM IDs
+
+   ========================================================== */
+
+restaurantMenu.forEach(function(category){
+
+    category.items.forEach(function(item){
+
+        if(
+
+            !Number.isInteger(item.id)
+
+            ||
+
+            item.id < 1001
+
+            ||
+
+            item.id > 9999
+
+        ){
+
+            while(
+
+                usedItemIds.includes(nextItemId)
+
+            ){
+
+                nextItemId++;
+
+            }
+
+            item.id = nextItemId;
+
+            usedItemIds.push(nextItemId);
+
+            nextItemId++;
+
+            itemIdUpdated = true;
+
+        }
+
+    });
+
+});
+
+
+/* ==========================================================
+   SAVE UPDATED MENU
+
+   ========================================================== */
 
 if(itemIdUpdated){
 
@@ -112,11 +186,7 @@ if(itemIdUpdated){
 
 
 /* ==========================================================
-   SAVE LAST ITEM ID
-
-   PURPOSE:
-   Ensures new items continue from
-   the highest existing Item ID.
+   SAVE LAST USED ITEM ID
 
    ========================================================== */
 
@@ -124,7 +194,7 @@ localStorage.setItem(
 
     "lastItemId",
 
-    nextItemId - 1
+    Math.max(...usedItemIds)
 
 );
 
