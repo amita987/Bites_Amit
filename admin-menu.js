@@ -439,7 +439,24 @@ category.category
 
 </td>
 
+
 <td>
+
+${
+
+allMenuItems.findIndex(function(row){
+
+    return row.categoryIndex === categoryIndex;
+
+})
+
+===
+
+allMenuItems.indexOf(menuRow)
+
+?
+
+`
 
 <button
 type="button"
@@ -448,6 +465,14 @@ onclick="deleteCategory(${categoryIndex})">
 🗑️
 
 </button>
+
+`
+
+:
+
+``
+
+}
 
 </td>
 
