@@ -393,3 +393,8 @@ function compareOrders(a, b){
 }
 
 
+console.log("admin-orders.js loaded");
+console.log(typeof compareOrders);
+
+
+
