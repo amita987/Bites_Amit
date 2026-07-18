@@ -409,7 +409,7 @@ function displayAdminMenu(){
    ========================================================== */
 
 
-allMenuItems.forEach(function(menuRow, index){
+allMenuItems.forEach(function(menuRow){
 
     const categoryIndex = menuRow.categoryIndex;
 
@@ -532,8 +532,8 @@ onclick="deleteMenuItem(${categoryIndex},${itemIndex})">
 
 </td>
 
+<td>${item.id}</td>
 
-<td>${index + 1}</td>
 
 <td>
 
