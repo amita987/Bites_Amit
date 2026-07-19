@@ -472,57 +472,198 @@ function viewOrder(orderId){
 
 
    /* ----------------------------------------------------------
-      Build Ordered Items Table
+      BUILD PROFESSIONAL ORDERED ITEMS TABLE
+   
+      PURPOSE:
+      Displays invoice item details:
+   
+      - Item Name
+      - Quantity
+      - Unit Price
+      - Total Price
+   
    ---------------------------------------------------------- */
+   
    
    let itemsTable = "";
    
+   
    if(order.items && order.items.length > 0){
+   
    
        itemsTable = `
    
-           <table width="100%" border="1">
+   
+       <!-- ==========================================================
+            ORDER ITEMS TABLE
+   
+            PURPOSE:
+            Professional invoice style item listing.
+   
+       ========================================================== -->
+   
+   
+       <table 
+   
+           width="100%" 
+   
+           border="1"
+   
+           cellspacing="0"
+   
+           cellpadding="8"
+   
+       >
+   
+   
+           <thead>
+   
    
                <tr>
    
-                   <th>Item</th>
    
-                   <th>Qty</th>
+                   <th align="left">
    
-                   <th>Price</th>
+                       Item
    
-                   <th>Subtotal</th>
+                   </th>
+   
+   
+   
+                   <th>
+   
+                       Qty
+   
+                   </th>
+   
+   
+   
+                   <th align="right">
+   
+                       Unit Price
+   
+                   </th>
+   
+   
+   
+                   <th align="right">
+   
+                       Total
+   
+                   </th>
+   
    
                </tr>
+   
+   
+           </thead>
+   
+   
+   
+           <tbody>
+   
    
        `;
    
+   
+   
        order.items.forEach(function(item){
+   
+   
+   
+           const itemTotal =
+   
+               Number(item.quantity || 0) *
+   
+               Number(item.price || 0);
+   
+   
    
            itemsTable += `
    
+   
                <tr>
    
-                   <td>${item.name}</td>
    
-                   <td>${item.quantity}</td>
+                   <td>
    
-                   <td>₹${item.price}</td>
+                       ${item.name || "-"}
    
-                   <td>₹${item.quantity * item.price}</td>
+                   </td>
+   
+   
+   
+                   <td align="center">
+   
+                       ${item.quantity || 0}
+   
+                   </td>
+   
+   
+   
+                   <td align="right">
+   
+                       ₹${item.price || 0}
+   
+                   </td>
+   
+   
+   
+                   <td align="right">
+   
+                       ₹${itemTotal}
+   
+                   </td>
+   
    
                </tr>
    
+   
            `;
+   
    
        });
    
-       itemsTable += "</table>";
+   
+   
+       itemsTable += `
+   
+   
+           </tbody>
+   
+   
+       </table>
+   
+   
+       `;
+   
    
    }
+   
    else{
    
-       itemsTable = "<p>No items found.</p>";
+   
+       itemsTable = `
+   
+   
+           <!-- ==========================================================
+                EMPTY ORDER MESSAGE
+   
+                PURPOSE:
+                Shows message when no items exist.
+   
+           ========================================================== -->
+   
+   
+           <p>
+   
+               No items found.
+   
+           </p>
+   
+   
+       `;
+   
    
    }
    
