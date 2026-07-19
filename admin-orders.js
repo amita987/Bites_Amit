@@ -1060,11 +1060,20 @@ function viewOrder(orderId){
                   Tax (${localStorage.getItem("restaurantTax") || 5}%) :
       
               </strong>
-      
-      
-              ₹${Math.round(
+
+               ₹${Math.round(
                
-                   order.total *
+                   (
+               
+                       (order.subtotal ?? order.total)
+               
+                       +
+               
+                       (order.delivery ?? 0)
+               
+                   )
+               
+                   *
                
                    (
                
@@ -1076,11 +1085,11 @@ function viewOrder(orderId){
                
                            )
                
-                       || 5)
-               
-                       / 100
+                       ) || 5
                
                    )
+               
+                   / 100
                
                )}
       
@@ -1104,42 +1113,62 @@ function viewOrder(orderId){
           ------------------------------------------------------- -->
       
       
-          <h3 style="color:#8B0000;">
-      
-      
-              Grand Total :
-      
-
-               ₹${
-               
-                   order.total +
-               
-                   Math.round(
-               
-                       order.total *
-               
-                       (
-               
-                           Number(
-               
-                               localStorage.getItem(
-               
-                                   "restaurantTax"
-               
-                               )
-               
-                           || 5)
-               
-                           /100
-               
-                       )
-               
-                   )
-               
-               }
-      
-      
-          </h3>
+         <h3 style="color:#8B0000;">
+         
+         
+             Grand Total :
+         
+         
+              ₹${
+         
+                 (
+         
+                     (order.subtotal ?? order.total)
+         
+                     +
+         
+                     (order.delivery ?? 0)
+         
+                 )
+         
+                 +
+         
+                 Math.round(
+         
+                     (
+         
+                         (order.subtotal ?? order.total)
+         
+                         +
+         
+                         (order.delivery ?? 0)
+         
+                     )
+         
+                     *
+         
+                     (
+         
+                         Number(
+         
+                             localStorage.getItem(
+         
+                                 "restaurantTax"
+         
+                             )
+         
+                         ) || 5
+         
+                     )
+         
+                     / 100
+         
+                 )
+         
+              }
+         
+         
+         </h3>
       
       
       </div>
