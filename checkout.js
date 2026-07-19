@@ -417,13 +417,29 @@ function placeOrder(){
           };
       
       }),
-   
 
+         /* ==========================================================
+            ORDER TOTAL SNAPSHOT
+         
+            PURPOSE:
+            Stores the financial details exactly as they
+            appeared when the customer placed the order.
+         
+            These values never change even if the
+            restaurant updates tax, delivery charges,
+            menu prices or discounts later.
+         
+         ========================================================== */
+         
          subtotal: subtotal,
          
          discount: discount,
          
          delivery: delivery,
+         
+         taxPercentage: taxPercentage,
+         
+         taxAmount: taxAmount,
          
          total: total,
          
