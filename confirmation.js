@@ -97,6 +97,27 @@ ${order.customer.payment}
 </p>
 
 
+<!-- ==========================================================
+     ORDER TYPE
+
+     PURPOSE:
+     Displays how the customer chose to receive
+     the order.
+
+     Possible values:
+
+     🍽️ Dine In
+     🛍️ Customer Take Away
+     🚚 Home Delivery
+
+========================================================== -->
+
+<p>
+Order Type:
+${order.orderType || "🚚 Home Delivery"}
+</p>
+
+
 
 <h3>
 Order Items
