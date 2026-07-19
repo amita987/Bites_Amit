@@ -308,6 +308,23 @@ displayCart();
 calculateSummary();
 
 /* ==========================================================
+   REFRESH CART
+
+   PURPOSE:
+   Updates the shopping cart display and summary
+   after any change.
+
+========================================================== */
+
+function refreshCart(){
+
+    displayCart();
+
+    calculateSummary();
+
+}
+
+/* ==========================================================
    REMOVE ITEM FROM CART
    ========================================================== */
 
@@ -329,13 +346,7 @@ function removeFromCart(index){
     updateCartCount();
 
 
-   /* ==========================================================
-      LOAD CART PAGE
-      ========================================================== */
-   
-   displayCart();
-   
-   calculateSummary();
+      refreshCart();
 
 
 }
@@ -358,15 +369,7 @@ function increaseQuantity(index){
 
     );
 
-
-
-   /* ==========================================================
-      LOAD CART PAGE
-      ========================================================== */
-   
-   displayCart();
-   
-   calculateSummary();
+   refreshCart();
 
 
 }
@@ -393,16 +396,7 @@ function decreaseQuantity(index){
         JSON.stringify(cart)
 
     );
-
-
-
-   /* ==========================================================
-      LOAD CART PAGE
-      ========================================================== */
-   
-   displayCart();
-   
-   calculateSummary();
+   refreshCart();
 
 
 }
@@ -590,9 +584,7 @@ function clearCart(){
 
     updateCartCount();
 
-    displayCart();
-
-    calculateSummary();
+   refreshCart();
 
 }
 
