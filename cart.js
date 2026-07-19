@@ -557,6 +557,28 @@ function goToCheckout(){
 }
 
 
+/* ==========================================================
+   CANCEL CART
+
+   PURPOSE:
+   Clears the shopping cart and returns
+   the customer to the menu page.
+
+========================================================== */
+
+function cancelCart(){
+
+    localStorage.removeItem("cart");
+
+    cart = [];
+
+    updateCartCount();
+
+    window.location.href = "menu.html";
+
+}
+
+
 
 
 
