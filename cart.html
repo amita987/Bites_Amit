@@ -132,7 +132,102 @@ Continue Shopping
 
 </main>
 
+</div>
 
+</main>
+
+<!-- ==========================================================
+     ORDER TYPE SELECTION POPUP
+
+     PURPOSE:
+     Before proceeding to Checkout, the customer must
+     choose how they want to receive the order.
+
+========================================================== -->
+
+<div
+
+id="order-type-modal"
+
+style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+z-index:9999;
+"
+
+>
+
+    <div
+
+    style="
+    width:380px;
+    margin:120px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    "
+
+    >
+
+        <h2>
+
+            Select Order Type
+
+        </h2>
+
+        <br>
+
+        <button
+        onclick="selectOrderType('Dine In')"
+        style="width:100%;margin-bottom:10px;"
+        >
+            🍽️ Dine In
+        </button>
+
+        <button
+        onclick="selectOrderType('Customer Take Away')"
+        style="width:100%;margin-bottom:10px;"
+        >
+            🛍️ Customer Take Away
+        </button>
+
+        <button
+        onclick="selectOrderType('Home Delivery')"
+        style="width:100%;"
+        >
+            🚚 Home Delivery
+        </button>
+
+        <br><br>
+
+        <button
+        onclick="closeOrderTypePopup()"
+        >
+            ❌ Cancel
+        </button>
+
+    </div>
+
+</div>
+
+<footer>
+
+<p>
+© 2026 Bite Amit Restaurant
+</p>
+
+</footer>
+
+<script src="cart.js"></script>
+
+</body>
+</html>
 
 <footer>
 
