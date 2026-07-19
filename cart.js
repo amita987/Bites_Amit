@@ -569,7 +569,7 @@ function goToCheckout(){
 
 ========================================================== */
 
-function cancelCart(){
+function continueShopping(){
 
     window.location.href = "menu.html";
 
