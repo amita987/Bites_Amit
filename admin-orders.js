@@ -1582,7 +1582,49 @@ function saveTaxPercentage(){
 
 }
 
+/* ==========================================================
+   SAVE DELIVERY CHARGE
 
+   PURPOSE:
+   Saves the restaurant delivery charge selected by admin.
+
+========================================================== */
+
+function saveDeliveryCharge(){
+
+    const deliveryInput =
+
+        document.getElementById(
+            "deliveryCharge"
+        );
+
+    if(!deliveryInput){
+
+        return;
+
+    }
+
+    const delivery =
+
+        Number(
+            deliveryInput.value
+        ) || 0;
+
+    localStorage.setItem(
+
+        "restaurantDeliveryCharge",
+
+        delivery
+
+    );
+
+    alert(
+
+        "Delivery charge saved successfully."
+
+    );
+
+}
 
 
 
@@ -1636,7 +1678,42 @@ function loadTaxPercentage(){
 }
 
 
+/* ==========================================================
+   LOAD DELIVERY CHARGE
 
+   PURPOSE:
+   Automatically loads the saved delivery charge
+   when the Order Management page opens.
+
+========================================================== */
+
+function loadDeliveryCharge(){
+
+    const deliveryInput =
+
+        document.getElementById(
+            "deliveryCharge"
+        );
+
+    if(!deliveryInput){
+
+        return;
+
+    }
+
+    const savedDelivery =
+
+        localStorage.getItem(
+            "restaurantDeliveryCharge"
+        );
+
+    if(savedDelivery !== null){
+
+        deliveryInput.value = savedDelivery;
+
+    }
+
+}
 
 
 /* ==========================================================
@@ -1652,10 +1729,15 @@ window.addEventListener(
 
     "load",
 
-    loadTaxPercentage
+    function(){
+
+        loadTaxPercentage();
+
+        loadDeliveryCharge();
+
+    }
 
 );
-
 
 
 
