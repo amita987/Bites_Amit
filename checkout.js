@@ -186,7 +186,51 @@ function placeOrder(){
     Number(
         document.getElementById("checkout-total").textContent
     );
-
+   /* ==========================================================
+      ORDER TOTALS SNAPSHOT
+   
+      PURPOSE:
+      Stores the checkout totals exactly as shown to the customer.
+      These values remain unchanged even if menu prices,
+      discounts or delivery charges are changed later.
+   
+   ========================================================== */
+   
+   let subtotal =
+   
+   Number(
+   
+       document.getElementById(
+   
+           "checkout-subtotal"
+   
+       ).textContent
+   
+   );
+   
+   let discount =
+   
+   Number(
+   
+       document.getElementById(
+   
+           "checkout-discount"
+   
+       ).textContent
+   
+   );
+   
+   let delivery =
+   
+   Number(
+   
+       document.getElementById(
+   
+           "checkout-delivery"
+   
+       ).textContent
+   
+   );
 
 
    /* ==========================================================
@@ -335,11 +379,16 @@ function placeOrder(){
       
       }),
    
-   
-       total: total,
-   
-   
-       status:"Preparing Food"
+
+         subtotal: subtotal,
+         
+         discount: discount,
+         
+         delivery: delivery,
+         
+         total: total,
+         
+         status:"Preparing Food"
    
    
    };
