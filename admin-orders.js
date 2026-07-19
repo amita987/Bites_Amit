@@ -1095,20 +1095,17 @@ function viewOrder(orderId){
       
       
           <hr>
-      
-      
 
          <!-- ==========================================================
-              GRAND TOTAL
+              GRAND TOTAL SNAPSHOT
          
               PURPOSE:
-              Calculates the final payable amount.
+              Displays the final payable amount using the
+              values saved when the customer placed the order.
          
-              Formula:
-         
-              Food Subtotal
-              + Delivery Charge
-              + Tax on Food Only
+              For older orders that don't have saved tax,
+              the invoice automatically calculates it using
+              the current tax settings.
          
          ========================================================== -->
          
@@ -1126,27 +1123,33 @@ function viewOrder(orderId){
          
                  +
          
-                 Math.round(
+                 (
          
-                     (order.subtotal ?? order.total)
+                     order.taxAmount ??
          
-                     *
+                     Math.round(
          
-                     (
+                         (order.subtotal ?? order.total)
          
-                         Number(
+                         *
          
-                             localStorage.getItem(
+                         (
          
-                                 "restaurantTax"
+                             Number(
          
-                             )
+                                 localStorage.getItem(
          
-                         ) || 5
+                                     "restaurantTax"
+         
+                                 )
+         
+                             ) || 5
+         
+                         )
+         
+                         / 100
          
                      )
-         
-                     / 100
          
                  )
          
