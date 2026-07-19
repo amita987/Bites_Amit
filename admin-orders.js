@@ -1015,18 +1015,57 @@ function viewOrder(orderId){
                     <td>${order.orderDate || "-"}</td>
             
                 </tr>
-            
-                <tr>
-            
-                    <td><strong>Time</strong></td>
-            
-                    <td>${order.orderTime || "-"}</td>
-            
-                </tr>
-            
-            </table>
-            
-            <hr>
+
+               <tr>
+               
+                   <td><strong>Time</strong></td>
+               
+                   <td>${order.orderTime || "-"}</td>
+               
+               </tr>
+               
+               
+               <!-- ==========================================================
+                    ORDER TYPE
+               
+                    PURPOSE:
+                    Displays how the customer chose to
+                    receive the order.
+               
+                    Possible values:
+               
+                    🍽️ Dine In
+                    🛍️ Customer Take Away
+                    🚚 Home Delivery
+               
+                    Older orders that don't contain this
+                    value will display Home Delivery.
+               
+               ========================================================== -->
+               
+               <tr>
+               
+                   <td>
+               
+                       <strong>Order Type</strong>
+               
+                   </td>
+               
+                   <td>
+               
+                       ${
+               
+                           order.orderType || "Home Delivery"
+               
+                       }
+               
+                   </td>
+               
+               </tr>
+               
+               </table>
+               
+               <hr>
    
    
             <!-- ==========================================================
