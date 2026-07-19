@@ -179,14 +179,28 @@ function displayOrders(){
 
         <tr>
 
+            /* ==========================================================
+               VIEW ORDER BUTTON
+            
+               PURPOSE:
+               Opens the Order Details popup for the selected order.
+            
+               ========================================================== */
+            
             <td>
-
-            <button>
-
-            👁
-
-            </button>
-
+            
+                <button
+            
+                    onclick="viewOrder('${order.orderId}')"
+            
+                    title="View Order"
+            
+                >
+            
+                    👁
+            
+                </button>
+            
             </td>
 
             <td>${order.orderId}</td>
