@@ -676,48 +676,53 @@ function viewOrder(orderId){
          
 
          /* ==========================================================
-            GET CURRENT MENU PRICE
+            PURCHASED PRICE
          
             PURPOSE:
          
-            Uses Manage Menu as the
-            single source of truth.
+            If the order already contains the price that the
+            customer paid, always use that.
          
-            Final Price =
-            Price - Discount
+            Otherwise, fall back to the current menu.
          
          ========================================================== */
          
+         let price =
          
-         const menuItem =
-         
-         getMenuItem(
-             item.name
-         );
+         Number(item.purchasedFinalPrice);
          
          
          
-         let price = 0;
+         if(isNaN(price)){
+         
+             const menuItem =
+         
+             getMenuItem(item.id);
          
          
+             if(menuItem){
          
-         if(menuItem){
+                 price =
          
+                 menuItem.price -
          
-             price =
+                 (
          
-             menuItem.price -
+                     menuItem.price *
          
-             (
+                     menuItem.discount /
          
-                 menuItem.price *
+                     100
          
-                 menuItem.discount /
+                 );
          
-                 100
+             }
          
-             );
+             else{
          
+                 price = 0;
+         
+             }
          
          }
          
