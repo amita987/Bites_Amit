@@ -527,35 +527,62 @@ function viewOrder(orderId){
    }
    
    
+
    /* ----------------------------------------------------------
-      Display Order Information
+      Display Order Details
    ---------------------------------------------------------- */
    
    content.innerHTML = `
    
-       <h3>Order ID : ${order.orderId}</h3>
+       <div class="order-invoice">
    
-       <hr><br>
+           <h2 style="text-align:center;color:#8B0000;">
    
-       <p><strong>Date :</strong> ${order.orderDate || "-"}</p>
+               🍽️ Bite Amit Restaurant
    
-       <p><strong>Time :</strong> ${order.orderTime || "-"}</p>
+           </h2>
    
-       <p><strong>Customer :</strong> ${order.customer?.name || "-"}</p>
+           <hr>
    
-       <p><strong>Mobile :</strong> ${order.customer?.mobile || "-"}</p>
+           <h3>Order Information</h3>
    
-       <p><strong>Status :</strong> ${order.status}</p>
+           <p><strong>Order ID :</strong> ${order.orderId}</p>
    
-       <br>
+           <p><strong>Date :</strong> ${order.orderDate || "-"}</p>
    
-       <h3>Ordered Items</h3>
+           <p><strong>Time :</strong> ${order.orderTime || "-"}</p>
    
-       ${itemsTable}
+           <hr>
    
-       <br>
+           <h3>Customer Information</h3>
    
-       <h3>Total : ₹${order.total}</h3>
+           <p><strong>Name :</strong> ${order.customer?.name || "-"}</p>
+   
+           <p><strong>Mobile :</strong> ${order.customer?.mobile || "-"}</p>
+   
+           <hr>
+   
+           <h3>Ordered Items</h3>
+   
+           ${itemsTable}
+   
+           <hr>
+   
+           <h3 style="color:#8B0000;">
+   
+               Grand Total : ₹${order.total}
+   
+           </h3>
+   
+           <p>
+   
+               <strong>Status :</strong>
+   
+               ${order.status}
+   
+           </p>
+   
+       </div>
    
    `;
 
