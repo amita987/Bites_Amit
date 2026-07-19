@@ -1278,6 +1278,141 @@ function printInvoice(){
 }
 
 
+/* ==========================================================
+   RESTAURANT TAX SETTINGS
+
+   PURPOSE:
+   Saves the tax percentage selected by admin.
+
+   Storage:
+   Browser localStorage
+
+   Example:
+   Tax = 5
+   means invoice tax will be 5%
+
+========================================================== */
+
+
+function saveTaxPercentage(){
+
+
+    const taxInput =
+
+        document.getElementById(
+            "taxPercentage"
+        );
+
+
+    if(!taxInput){
+
+        return;
+
+    }
+
+
+
+    const tax =
+
+        Number(
+            taxInput.value
+        ) || 0;
+
+
+
+    localStorage.setItem(
+
+        "restaurantTax",
+
+        tax
+
+    );
+
+
+
+    alert(
+
+        "Tax percentage saved successfully."
+
+    );
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   LOAD TAX PERCENTAGE
+
+   PURPOSE:
+   Automatically loads saved tax value
+   when Order Management page opens.
+
+========================================================== */
+
+
+function loadTaxPercentage(){
+
+
+    const taxInput =
+
+        document.getElementById(
+            "taxPercentage"
+        );
+
+
+    if(!taxInput){
+
+        return;
+
+    }
+
+
+
+    const savedTax =
+
+        localStorage.getItem(
+
+            "restaurantTax"
+
+        );
+
+
+
+    if(savedTax !== null){
+
+
+        taxInput.value = savedTax;
+
+
+    }
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   PAGE LOAD EVENT
+
+   PURPOSE:
+   Loads restaurant tax settings.
+
+========================================================== */
+
+
+window.addEventListener(
+
+    "load",
+
+    loadTaxPercentage
+
+);
+
 
 
 
