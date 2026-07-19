@@ -366,15 +366,15 @@ function placeOrder(){
 
 
 /* ==========================================================
-   BACK TO SHOPPING CART
+   BACK TO CHECKOUT
 
    PURPOSE:
-   Returns the customer to the shopping cart without
+   Returns the customer to the CHECK OUT page (shopping cart) without
    changing any cart contents.
 
    ========================================================== */
 
-function backToCart(){
+function backToCheckout(){
 
     window.location.href = "cart.html";
 
