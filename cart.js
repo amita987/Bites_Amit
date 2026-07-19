@@ -60,10 +60,10 @@ function addToCart(button){
       historical invoices remain accurate.
    
    ========================================================== */
-   
+
    const item = {
    
-       id: id,
+       id: itemId,
    
        name: itemName,
    
