@@ -301,8 +301,18 @@ function loadCheckoutSummary(){
 }
 
 
+/* ==========================================================
+   INITIALIZE CHECKOUT PAGE
+
+   PURPOSE:
+   Loads the checkout summary and then applies
+   the selected Order Type settings.
+
+========================================================== */
 
 loadCheckoutSummary();
+
+applyOrderType();
 
 
 function placeOrder(){
@@ -660,6 +670,108 @@ function placeOrder(){
     window.location.href =
     "order-confirmation.html";
 
+
+}
+
+
+
+
+/* ==========================================================
+   APPLY ORDER TYPE TO CHECKOUT
+
+   PURPOSE:
+   Automatically updates the Address field based
+   on the selected Order Type.
+
+   RULES
+
+   🍽️ Dine In
+       - Address = "Dine In"
+       - Address cannot be edited
+
+   🛍️ Customer Take Away
+       - Address = "Customer Take Away"
+       - Address cannot be edited
+
+   🚚 Home Delivery
+       - Address is empty
+       - Customer enters delivery address
+
+========================================================== */
+
+function applyOrderType(){
+
+    /* ------------------------------------------------------
+       Get selected Order Type
+    ------------------------------------------------------ */
+
+    const orderType =
+
+        localStorage.getItem(
+
+            "orderType"
+
+        ) || "Home Delivery";
+
+
+
+    /* ------------------------------------------------------
+       Address Text Box
+    ------------------------------------------------------ */
+
+    const addressBox =
+
+        document.getElementById(
+
+            "address"
+
+        );
+
+
+
+    if(!addressBox){
+
+        return;
+
+    }
+
+
+
+    /* ------------------------------------------------------
+       Dine In
+    ------------------------------------------------------ */
+
+    if(orderType === "Dine In"){
+
+        addressBox.value = "Dine In";
+
+        addressBox.readOnly = true;
+
+    }
+
+    /* ------------------------------------------------------
+       Customer Take Away
+    ------------------------------------------------------ */
+
+    else if(orderType === "Customer Take Away"){
+
+        addressBox.value = "Customer Take Away";
+
+        addressBox.readOnly = true;
+
+    }
+
+    /* ------------------------------------------------------
+       Home Delivery
+    ------------------------------------------------------ */
+
+    else{
+
+        addressBox.value = "";
+
+        addressBox.readOnly = false;
+
+    }
 
 }
 
