@@ -410,5 +410,24 @@ function compareOrders(a, b){
 console.log("admin-orders.js loaded");
 console.log(typeof compareOrders);
 
+/* ==========================================================
+   VIEW ORDER
+
+   PURPOSE:
+   Receives the selected Order ID.
+
+   NOTE:
+   In the next step this function will load and
+   display the complete order information.
+
+   ========================================================== */
+
+function viewOrder(orderId){
+
+    console.log("Selected Order :", orderId);
+
+}
+
+
 
 
