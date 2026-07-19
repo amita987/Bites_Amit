@@ -935,7 +935,8 @@ function viewOrder(orderId){
                 </select>
             
             </p>
-               <!-- ==========================================================
+
+            <!-- ==========================================================
                  SAVE STATUS BUTTON
             
                  PURPOSE:
@@ -943,7 +944,9 @@ function viewOrder(orderId){
             
             ========================================================== -->
             
+            
             <br>
+            
             
             <button
             
@@ -954,6 +957,86 @@ function viewOrder(orderId){
                 💾 Save Status
             
             </button>
+            
+            
+            
+            <br><br>
+            
+            
+            
+            <!-- ==========================================================
+                 INVOICE FOOTER
+            
+                 PURPOSE:
+                 Displays thank you message.
+            
+            ========================================================== -->
+            
+            
+            <div class="invoice-footer">
+            
+            
+                <hr>
+            
+            
+                <h4>
+            
+                    Thank you for ordering!
+            
+                </h4>
+            
+            
+                <p>
+            
+                    Visit Again ❤️
+            
+                </p>
+            
+            
+            </div>
+            
+            
+            
+            
+            <!-- ==========================================================
+                 INVOICE ACTION BUTTONS
+            
+                 PURPOSE:
+                 Provides:
+            
+                 1. Print Invoice
+                 2. Close Invoice Popup
+            
+            ========================================================== -->
+            
+            
+            <div class="invoice-buttons">
+            
+            
+                <button
+            
+                    onclick="printInvoice()"
+            
+                >
+            
+                    🖨 Print Invoice
+            
+                </button>
+            
+            
+            
+                <button
+            
+                    onclick="closeOrderModal()"
+            
+                >
+            
+                    ❌ Close
+            
+                </button>
+            
+            
+            </div>
        </div>
    
    `;
@@ -1067,6 +1150,130 @@ function saveOrderStatus(orderId){
     viewOrder(orderId);
 
     alert("Order status updated successfully.");
+
+}
+
+
+/* ==========================================================
+   PRINT INVOICE
+
+   PURPOSE:
+   Opens browser print dialog for invoice.
+
+========================================================== */
+
+
+function printInvoice(){
+
+
+    const invoice =
+
+        document.querySelector(
+            ".order-invoice"
+        );
+
+
+    if(!invoice){
+
+
+        alert(
+            "Invoice not found."
+        );
+
+
+        return;
+
+
+    }
+
+
+    const printWindow =
+
+        window.open(
+            "",
+            "",
+            "width=800,height=600"
+        );
+
+
+
+    printWindow.document.write(`
+
+
+        <html>
+
+
+        <head>
+
+
+            <title>
+
+                Restaurant Invoice
+
+            </title>
+
+
+
+            <style>
+
+
+                body{
+
+                    font-family:Arial;
+
+                    padding:20px;
+
+                }
+
+
+                table{
+
+                    width:100%;
+
+                    border-collapse:collapse;
+
+                }
+
+
+                td,th{
+
+                    border:1px solid #000;
+
+                    padding:8px;
+
+                }
+
+
+            </style>
+
+
+        </head>
+
+
+
+        <body>
+
+
+            ${invoice.innerHTML}
+
+
+        </body>
+
+
+
+        </html>
+
+
+    `);
+
+
+
+    printWindow.document.close();
+
+
+
+    printWindow.print();
+
 
 }
 
