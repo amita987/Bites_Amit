@@ -415,17 +415,65 @@ console.log(typeof compareOrders);
    VIEW ORDER
 
    PURPOSE:
-   Receives the selected Order ID.
-
-   NOTE:
-   In the next step this function will load and
-   display the complete order information.
+   Opens the Order Details popup for the
+   selected order.
 
    ========================================================== */
 
 function viewOrder(orderId){
 
-    console.log("Selected Order :", orderId);
+    /* ----------------------------------------------------------
+       Get the popup elements
+    ---------------------------------------------------------- */
+
+    const modal =
+
+        document.getElementById(
+            "order-details-modal"
+        );
+
+    const content =
+
+        document.getElementById(
+            "order-details-content"
+        );
+
+    /* ----------------------------------------------------------
+       Display temporary information
+    ---------------------------------------------------------- */
+
+    content.innerHTML = `
+
+        <h3>
+
+            Order ID : ${orderId}
+
+        </h3>
+
+    `;
+
+    /* ----------------------------------------------------------
+       Show the popup
+    ---------------------------------------------------------- */
+
+    modal.style.display = "block";
+
+}
+
+
+/* ==========================================================
+   CLOSE ORDER MODAL
+
+   PURPOSE:
+   Closes the Order Details popup.
+
+   ========================================================== */
+
+function closeOrderModal(){
+
+    document.getElementById(
+        "order-details-modal"
+    ).style.display = "none";
 
 }
 
