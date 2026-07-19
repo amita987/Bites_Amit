@@ -411,19 +411,50 @@ function compareOrders(a, b){
 console.log("admin-orders.js loaded");
 console.log(typeof compareOrders);
 
+
 /* ==========================================================
    VIEW ORDER
 
    PURPOSE:
-   Opens the Order Details popup for the
-   selected order.
+   Opens the Order Details popup and displays
+   the selected order information.
 
    ========================================================== */
 
 function viewOrder(orderId){
 
     /* ----------------------------------------------------------
-       Get the popup elements
+       Get all saved orders
+    ---------------------------------------------------------- */
+
+    const orders =
+
+        JSON.parse(
+            localStorage.getItem("orders")
+        ) || [];
+
+    /* ----------------------------------------------------------
+       Find the selected order
+    ---------------------------------------------------------- */
+
+    const order =
+
+        orders.find(function(item){
+
+            return item.orderId === orderId;
+
+        });
+
+    if(!order){
+
+        alert("Order not found.");
+
+        return;
+
+    }
+
+    /* ----------------------------------------------------------
+       Get popup elements
     ---------------------------------------------------------- */
 
     const modal =
@@ -439,21 +470,31 @@ function viewOrder(orderId){
         );
 
     /* ----------------------------------------------------------
-       Display temporary information
+       Display Order Information
     ---------------------------------------------------------- */
 
     content.innerHTML = `
 
-        <h3>
+        <h3>Order ID : ${order.orderId}</h3>
 
-            Order ID : ${orderId}
+        <hr><br>
 
-        </h3>
+        <p><strong>Date :</strong> ${order.orderDate || "-"}</p>
+
+        <p><strong>Time :</strong> ${order.orderTime || "-"}</p>
+
+        <p><strong>Customer :</strong> ${order.customer?.name || "-"}</p>
+
+        <p><strong>Mobile :</strong> ${order.customer?.mobile || "-"}</p>
+
+        <p><strong>Total :</strong> ₹${order.total}</p>
+
+        <p><strong>Status :</strong> ${order.status}</p>
 
     `;
 
     /* ----------------------------------------------------------
-       Show the popup
+       Show Popup
     ---------------------------------------------------------- */
 
     modal.style.display = "block";
