@@ -999,23 +999,42 @@ function viewOrder(orderId){
       
           ------------------------------------------------------- -->
       
+
+            <p>
+            
+                <strong>
+            
+                    Subtotal :
+            
+                </strong>
+            
+                ₹${order.subtotal ?? order.total}
+            
+            </p>
       
-          <p>
+            <p>
       
+          <strong>
       
-              <strong>
+              Discount :
       
-                  Subtotal :
+          </strong>
       
-              </strong>
+          ₹${order.discount ?? 0}
       
+      </p>
       
-              ₹${order.total}
+      <p>
       
+          <strong>
       
-          </p>
+              Delivery :
       
+          </strong>
       
+          ₹${order.delivery ?? 0}
+      
+      </p>
       
       
           <!-- ------------------------------------------------------
