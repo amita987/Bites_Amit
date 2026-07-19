@@ -525,6 +525,22 @@ function placeOrder(){
    
    );
    
+
+   /* ==========================================================
+      ORDER OBJECT
+   
+      PURPOSE:
+      Creates a permanent snapshot of the customer's
+      order.
+   
+      This includes:
+   
+      - Customer Details
+      - Order Type
+      - Ordered Items
+      - Financial Totals
+   
+   ========================================================== */
    
    let order = {
    
@@ -536,6 +552,32 @@ function placeOrder(){
    
    
        orderTime: orderTime,
+   
+   
+       /* ------------------------------------------------------
+          ORDER TYPE
+   
+          PURPOSE:
+          Stores how the customer receives the order.
+   
+          Possible values:
+   
+          - Dine In
+          - Customer Take Away
+          - Home Delivery
+   
+          This value is permanently saved with the order
+          for Order Management, Invoice and Reports.
+   
+       ------------------------------------------------------- */
+   
+       orderType:
+   
+           localStorage.getItem(
+   
+               "orderType"
+   
+           ) || "Home Delivery",
    
    
        customer:{
