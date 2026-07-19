@@ -627,7 +627,25 @@ function viewOrder(orderId){
                 </select>
             
             </p>
-   
+               <!-- ==========================================================
+                 SAVE STATUS BUTTON
+            
+                 PURPOSE:
+                 Saves the updated order status.
+            
+            ========================================================== -->
+            
+            <br>
+            
+            <button
+            
+                onclick="saveOrderStatus('${order.orderId}')"
+            
+            >
+            
+                💾 Save Status
+            
+            </button>
        </div>
    
    `;
