@@ -546,9 +546,6 @@ function calculateSummary(){
         subtotalBox.textContent = subtotal;
 
 
-        document.getElementById("discount").textContent =
-         savedOnOrder;
-
        document.getElementById(
          "saved-highlight"
          ).textContent = savedOnOrder;
