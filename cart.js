@@ -545,13 +545,90 @@ function calculateSummary(){
 }
 
 /* ==========================================================
-   CONNECT CART BUTTON
-   ========================================================== */
+   PROCEED TO CHECKOUT
 
+   PURPOSE:
+   Opens the Order Type popup instead of
+   immediately navigating to the Checkout page.
+
+   The customer must first choose one of:
+
+   - 🍽️ Dine In
+   - 🛍️ Customer Take Away
+   - 🚚 Home Delivery
+
+========================================================== */
 
 function goToCheckout(){
 
-    window.location.href="checkout.html";
+    document.getElementById(
+
+        "order-type-modal"
+
+    ).style.display = "block";
+
+}
+
+
+/* ==========================================================
+   CLOSE ORDER TYPE POPUP
+
+   PURPOSE:
+   Closes the Order Type selection popup.
+
+========================================================== */
+
+function closeOrderTypePopup(){
+
+    document.getElementById(
+
+        "order-type-modal"
+
+    ).style.display = "none";
+
+}
+
+
+/* ==========================================================
+   SELECT ORDER TYPE
+
+   PURPOSE:
+   Saves the selected Order Type and then
+   takes the customer to the Checkout page.
+
+========================================================== */
+
+function selectOrderType(orderType){
+
+    /* ------------------------------------------------------
+       Save customer selection
+    ------------------------------------------------------ */
+
+    localStorage.setItem(
+
+        "orderType",
+
+        orderType
+
+    );
+
+
+
+    /* ------------------------------------------------------
+       Close popup
+    ------------------------------------------------------ */
+
+    closeOrderTypePopup();
+
+
+
+    /* ------------------------------------------------------
+       Open Checkout
+    ------------------------------------------------------ */
+
+    window.location.href =
+
+        "checkout.html";
 
 }
 
