@@ -539,6 +539,39 @@ function calculateSummary(){
 
         document.getElementById("grand-total").textContent = grandTotal;
 
+         /* ==========================================================
+            SHOW / HIDE CART BUTTONS
+         
+            PURPOSE:
+            Hide Checkout and Clear Cart when cart is empty.
+         
+         ========================================================== */
+         
+         const checkoutButton =
+         document.querySelector(
+         '#cart-buttons button:first-child'
+         );
+         
+         const clearCartButton =
+         document.getElementById(
+         "clear-cart-btn"
+         );
+         
+         if(cart.length === 0){
+         
+             checkoutButton.style.display = "none";
+         
+             clearCartButton.style.display = "none";
+         
+         }
+         else{
+         
+             checkoutButton.style.display = "";
+         
+             clearCartButton.style.display = "";
+         
+         }
+
 
     }
 
@@ -575,7 +608,33 @@ function continueShopping(){
 
 }
 
+/* ==========================================================
+   CLEAR CART
 
+   PURPOSE:
+   Removes all items from the shopping cart.
+
+========================================================== */
+
+function clearCart(){
+
+    if(!confirm("Clear the entire cart?")){
+
+        return;
+
+    }
+
+    cart = [];
+
+    localStorage.removeItem("cart");
+
+    updateCartCount();
+
+    displayCart();
+
+    calculateSummary();
+
+}
 
 
 
