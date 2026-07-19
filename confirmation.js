@@ -15,38 +15,68 @@ if(order){
 let itemsHTML = "";
 
 
+/* ==========================================================
+   ORDER ITEMS
+
+   PURPOSE:
+   Displays the purchased items exactly as they
+   were when the customer placed the order.
+
+   Uses the saved purchase price snapshot so that
+   future menu price changes never affect old
+   order confirmations.
+
+========================================================== */
 
 order.items.forEach(function(item){
 
+    /* ------------------------------------------------------
+       PURCHASED PRICE
 
-    let price =
-    Number(item.finalPrice.replace("₹",""));
+       New Orders:
+       Uses the saved purchasedFinalPrice.
 
+       Old Orders:
+       Falls back to finalPrice for compatibility.
+    ------------------------------------------------------ */
 
-    let total =
-    price * item.quantity;
+    let price;
 
+    if(item.purchasedFinalPrice !== undefined){
+
+        price = Number(item.purchasedFinalPrice);
+
+    }
+    else{
+
+        price = Number(
+            item.finalPrice.replace("₹","")
+        );
+
+    }
+
+    const total =
+
+        price * item.quantity;
 
 
     itemsHTML += `
 
     <p>
 
-    ${item.name}
+        ${item.name}
 
-    x
+        x
 
-    ${item.quantity}
+        ${item.quantity}
 
-    =
+        =
 
-    ₹${total}
+        ₹${total}
 
     </p>
 
-
     `;
-
 
 });
 
