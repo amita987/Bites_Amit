@@ -498,9 +498,21 @@ function calculateSummary(){
 
     }
 
-
-
-    let delivery = 40;
+      /* ==========================================================
+      DELIVERY CHARGES
+   
+      PURPOSE:
+      No delivery charge when the cart is empty.
+   
+   ========================================================== */
+   
+   let delivery = 0;
+   
+   if(cart.length > 0){
+   
+       delivery = 40;
+   
+   }
 
 
 
