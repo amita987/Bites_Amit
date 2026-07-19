@@ -574,13 +574,59 @@ function viewOrder(orderId){
    
            </h3>
    
-           <p>
-   
-               <strong>Status :</strong>
-   
-               ${order.status}
-   
-           </p>
+
+            <!-- ----------------------------------------------------------
+                 ORDER STATUS
+            
+                 PURPOSE:
+                 Allows the administrator to change the order status.
+            
+            ----------------------------------------------------------- -->
+            
+            <p>
+            
+                <strong>Status :</strong>
+            
+                <select id="orderStatus">
+            
+                    <option
+                        value="Pending"
+                        ${order.status === "Pending" ? "selected" : ""}
+                    >
+                        Pending
+                    </option>
+            
+                    <option
+                        value="Preparing"
+                        ${order.status === "Preparing" ? "selected" : ""}
+                    >
+                        Preparing
+                    </option>
+            
+                    <option
+                        value="Ready"
+                        ${order.status === "Ready" ? "selected" : ""}
+                    >
+                        Ready
+                    </option>
+            
+                    <option
+                        value="Delivered"
+                        ${order.status === "Delivered" ? "selected" : ""}
+                    >
+                        Delivered
+                    </option>
+            
+                    <option
+                        value="Cancelled"
+                        ${order.status === "Cancelled" ? "selected" : ""}
+                    >
+                        Cancelled
+                    </option>
+            
+                </select>
+            
+            </p>
    
        </div>
    
