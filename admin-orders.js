@@ -536,31 +536,95 @@ function viewOrder(orderId){
    
        <div class="order-invoice">
    
-           <h2 style="text-align:center;color:#8B0000;">
+      <!-- ==========================================================
+           INVOICE HEADER
+      
+           PURPOSE:
+           Displays the restaurant name and invoice title.
+      
+      ========================================================== -->
+      
+      <div class="invoice-header">
+      
+          <h2>
+      
+              🍽️ Bite Amit Restaurant
+      
+          </h2>
+      
+          <h4>
+      
+              Restaurant Order Invoice
+      
+          </h4>
+      
+      </div>
+      
+      <hr>
    
-               🍽️ Bite Amit Restaurant
+            <!-- ==========================================================
+                 ORDER INFORMATION
+            
+            ========================================================== -->
+            
+            <table width="100%">
+            
+                <tr>
+            
+                    <td><strong>Order ID</strong></td>
+            
+                    <td>${order.orderId}</td>
+            
+                </tr>
+            
+                <tr>
+            
+                    <td><strong>Date</strong></td>
+            
+                    <td>${order.orderDate || "-"}</td>
+            
+                </tr>
+            
+                <tr>
+            
+                    <td><strong>Time</strong></td>
+            
+                    <td>${order.orderTime || "-"}</td>
+            
+                </tr>
+            
+            </table>
+            
+            <hr>
    
-           </h2>
    
-           <hr>
+            <!-- ==========================================================
+                 CUSTOMER INFORMATION
+            
+            ========================================================== -->
+            
+            <table width="100%">
+            
+                <tr>
+            
+                    <td><strong>Customer</strong></td>
+            
+                    <td>${order.customer?.name || "-"}</td>
+            
+                </tr>
+            
+                <tr>
+            
+                    <td><strong>Mobile</strong></td>
+            
+                    <td>${order.customer?.mobile || "-"}</td>
+            
+                </tr>
+            
+            </table>
+            
+            <hr>
    
-           <h3>Order Information</h3>
-   
-           <p><strong>Order ID :</strong> ${order.orderId}</p>
-   
-           <p><strong>Date :</strong> ${order.orderDate || "-"}</p>
-   
-           <p><strong>Time :</strong> ${order.orderTime || "-"}</p>
-   
-           <hr>
-   
-           <h3>Customer Information</h3>
-   
-           <p><strong>Name :</strong> ${order.customer?.name || "-"}</p>
-   
-           <p><strong>Mobile :</strong> ${order.customer?.mobile || "-"}</p>
-   
-           <hr>
    
            <h3>Ordered Items</h3>
    
