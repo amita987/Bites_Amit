@@ -362,3 +362,25 @@ function placeOrder(){
 
 
 }
+
+
+
+/* ==========================================================
+   BACK TO SHOPPING CART
+
+   PURPOSE:
+   Returns the customer to the shopping cart without
+   changing any cart contents.
+
+   ========================================================== */
+
+function backToCart(){
+
+    window.location.href = "cart.html";
+
+}
+
+
+
+
+
