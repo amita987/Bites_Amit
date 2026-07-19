@@ -186,9 +186,27 @@ function displayOrders(){
 
         <tr>
 
-
+            <!-- ==========================================================
+                 ORDER ACTION BUTTONS
+            
+                 PURPOSE:
+                 Provides action buttons for every order.
+            
+                 VIEW:
+                 Opens complete invoice details.
+            
+                 DELETE:
+                 Permanently removes the order from:
+                 - Order Management table
+                 - Browser Local Storage
+            
+            ========================================================== -->
+            
             
             <td>
+            
+            
+                <!-- VIEW ORDER BUTTON -->
             
                 <button
             
@@ -201,6 +219,29 @@ function displayOrders(){
                     👁
             
                 </button>
+            
+            
+            
+                <!-- DELETE ORDER BUTTON -->
+            
+                <button
+            
+                    onclick="deleteOrder('${order.orderId}')"
+            
+                    title="Delete Order"
+            
+                    style="
+                        margin-left:5px;
+                        background:#b30000;
+                        color:white;
+                    "
+            
+                >
+            
+                    🗑
+            
+                </button>
+            
             
             </td>
 
@@ -1428,6 +1469,116 @@ function saveOrderStatus(orderId){
     viewOrder(orderId);
 
     alert("Order status updated successfully.");
+
+}
+
+/* ==========================================================
+   DELETE ORDER
+
+   PURPOSE:
+   Permanently deletes an order.
+
+   This removes the order from:
+   - Admin Order Management
+   - Browser Local Storage
+
+   IMPORTANT:
+   Uses Order ID instead of array index.
+
+   Reason:
+   Sorting and searching can change row positions,
+   but Order ID always remains unique.
+
+========================================================== */
+
+
+function deleteOrder(orderId){
+
+
+
+    /* ----------------------------------------------------------
+       Ask for confirmation before permanent deletion
+    ---------------------------------------------------------- */
+
+
+    const confirmDelete = confirm(
+
+        "Are you sure you want to permanently delete this order?"
+
+    );
+
+
+
+    if(!confirmDelete){
+
+        return;
+
+    }
+
+
+
+    /* ----------------------------------------------------------
+       Load existing orders
+    ---------------------------------------------------------- */
+
+
+    let orders =
+
+        JSON.parse(
+
+            localStorage.getItem("orders")
+
+        ) || [];
+
+
+
+    /* ----------------------------------------------------------
+       Remove selected order
+    ---------------------------------------------------------- */
+
+
+    orders =
+
+        orders.filter(function(order){
+
+
+            return order.orderId !== orderId;
+
+
+        });
+
+
+
+    /* ----------------------------------------------------------
+       Save updated order list back to storage
+    ---------------------------------------------------------- */
+
+
+    localStorage.setItem(
+
+        "orders",
+
+        JSON.stringify(orders)
+
+    );
+
+
+
+    /* ----------------------------------------------------------
+       Refresh Order Management table
+    ---------------------------------------------------------- */
+
+
+    displayOrders();
+
+
+
+    alert(
+
+        "Order deleted successfully."
+
+    );
+
 
 }
 
