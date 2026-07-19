@@ -88,19 +88,53 @@ function loadCheckoutSummary(){
    });
    
 
+
    /* ==========================================================
-      DELIVERY CHARGES
+      DELIVERY CHARGE
    
       PURPOSE:
-      Uses the delivery charge saved by the admin.
-      No delivery charge is applied when there are
-      no items in the checkout.
+      Applies delivery charges based on the
+      customer's selected Order Type.
+   
+      🍽️ Dine In              -> ₹0
+      🛍️ Customer Take Away   -> ₹0
+      🚚 Home Delivery        -> Admin Delivery Charge
    
    ========================================================== */
    
+   /* ----------------------------------------------------------
+      Load selected Order Type
+   ---------------------------------------------------------- */
+   
+   const orderType =
+   
+       localStorage.getItem(
+   
+           "orderType"
+   
+       ) || "Home Delivery";
+   
+   
+   /* ----------------------------------------------------------
+      Default delivery charge
+   ---------------------------------------------------------- */
+   
    let delivery = 0;
    
-   if(checkoutCart.length > 0){
+   
+   /* ----------------------------------------------------------
+      Apply delivery only for Home Delivery
+   ---------------------------------------------------------- */
+   
+   if(
+   
+       checkoutCart.length > 0
+   
+       &&
+   
+       orderType === "Home Delivery"
+   
+   ){
    
        delivery =
    
