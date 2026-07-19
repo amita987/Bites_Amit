@@ -47,11 +47,27 @@ function addToCart(button){
 
     // Create shopping cart object
 
+   /* ==========================================================
+      CART ITEM
+   
+      PURPOSE:
+      Stores both:
+   
+      - Current menu values
+      - Purchased values
+   
+      Purchased values are copied into the order so
+      historical invoices remain accurate.
+   
+   ========================================================== */
+   
    const item = {
    
-       id: itemId,
+       id: id,
    
        name: itemName,
+   
+       quantity: quantity,
    
        price: price,
    
@@ -59,7 +75,11 @@ function addToCart(button){
    
        finalPrice: finalPrice,
    
-       quantity: quantity
+       purchasedPrice: Number(price.replace("₹","")),
+   
+       purchasedDiscount: Number(discount.replace("% OFF","")),
+   
+       purchasedFinalPrice: Number(finalPrice.replace("₹",""))
    
    };
 
