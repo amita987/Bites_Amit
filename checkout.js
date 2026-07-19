@@ -262,9 +262,37 @@ function placeOrder(){
    
    
        },
-   
-   
-       items: checkoutCart,
+
+      /* ==========================================================
+         ORDER ITEM SNAPSHOT
+      
+         PURPOSE:
+         Creates a permanent copy of the purchased item details.
+      
+         This ensures future menu price changes never affect
+         historical orders.
+      
+      ========================================================== */
+      
+      items: checkoutCart.map(function(item){
+      
+          return {
+      
+              id: item.id,
+      
+              name: item.name,
+      
+              quantity: item.quantity,
+      
+              purchasedPrice: item.purchasedPrice,
+      
+              purchasedDiscount: item.purchasedDiscount,
+      
+              purchasedFinalPrice: item.purchasedFinalPrice
+      
+          };
+      
+      }),
    
    
        total: total,
