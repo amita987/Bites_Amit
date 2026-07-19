@@ -675,6 +675,94 @@ function closeOrderModal(){
 
 }
 
+/* ==========================================================
+   SAVE ORDER STATUS
+
+   PURPOSE:
+   Updates the selected order status and
+   refreshes the Order Management table.
+
+   ========================================================== */
+
+function saveOrderStatus(orderId){
+
+    /* ----------------------------------------------------------
+       Load Orders
+    ---------------------------------------------------------- */
+
+    const orders =
+
+        JSON.parse(
+
+            localStorage.getItem("orders")
+
+        ) || [];
+
+    /* ----------------------------------------------------------
+       Find Selected Order
+    ---------------------------------------------------------- */
+
+    const order =
+
+        orders.find(function(item){
+
+            return item.orderId === orderId;
+
+        });
+
+    if(!order){
+
+        alert("Order not found.");
+
+        return;
+
+    }
+
+    /* ----------------------------------------------------------
+       Get Selected Status
+    ---------------------------------------------------------- */
+
+    const newStatus =
+
+        document.getElementById(
+            "orderStatus"
+        ).value;
+
+    /* ----------------------------------------------------------
+       Update Status
+    ---------------------------------------------------------- */
+
+    order.status = newStatus;
+
+    /* ----------------------------------------------------------
+       Save Orders
+    ---------------------------------------------------------- */
+
+    localStorage.setItem(
+
+        "orders",
+
+        JSON.stringify(orders)
+
+    );
+
+    /* ----------------------------------------------------------
+       Refresh Order Table
+    ---------------------------------------------------------- */
+
+    displayOrders();
+
+    /* ----------------------------------------------------------
+       Reopen Updated Order
+    ---------------------------------------------------------- */
+
+    viewOrder(orderId);
+
+    alert("Order status updated successfully.");
+
+}
+
+
 
 
 
