@@ -116,14 +116,80 @@ function loadCheckoutSummary(){
    
    }
    
+
+   /* ==========================================================
+      TAX CALCULATION
+   
+      PURPOSE:
+      Calculates the restaurant tax using the
+      current tax percentage saved by the admin.
+   
+      This tax is shown to the customer and
+      becomes part of the final amount payable.
+   
+   ========================================================== */
+   
+   let taxPercentage =
+   
+       Number(
+   
+           localStorage.getItem(
+   
+               "restaurantTax"
+   
+           )
+   
+       ) || 0;
+   
+   
+   /* ==========================================================
+      TAX AMOUNT
+   
+      PURPOSE:
+      Calculates the tax on the food subtotal only.
+   
+   ========================================================== */
+   
+   let taxAmount =
+   
+       Math.round(
+   
+           subtotal
+   
+           *
+   
+           taxPercentage
+   
+           / 100
+   
+       );
+   
    
    /* ==========================================================
       GRAND TOTAL
    
+      PURPOSE:
+      Final amount payable by the customer.
+   
+      Formula:
+   
+      Subtotal
+      + Delivery
+      + Tax
+   
    ========================================================== */
    
    let grandTotal =
-   subtotal + delivery;
+   
+       subtotal
+   
+       +
+   
+       delivery
+   
+       +
+   
+       taxAmount;
 
 
 
