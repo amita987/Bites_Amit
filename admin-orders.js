@@ -469,29 +469,95 @@ function viewOrder(orderId){
             "order-details-content"
         );
 
-    /* ----------------------------------------------------------
-       Display Order Information
-    ---------------------------------------------------------- */
 
-    content.innerHTML = `
 
-        <h3>Order ID : ${order.orderId}</h3>
-
-        <hr><br>
-
-        <p><strong>Date :</strong> ${order.orderDate || "-"}</p>
-
-        <p><strong>Time :</strong> ${order.orderTime || "-"}</p>
-
-        <p><strong>Customer :</strong> ${order.customer?.name || "-"}</p>
-
-        <p><strong>Mobile :</strong> ${order.customer?.mobile || "-"}</p>
-
-        <p><strong>Total :</strong> ₹${order.total}</p>
-
-        <p><strong>Status :</strong> ${order.status}</p>
-
-    `;
+   /* ----------------------------------------------------------
+      Build Ordered Items Table
+   ---------------------------------------------------------- */
+   
+   let itemsTable = "";
+   
+   if(order.items && order.items.length > 0){
+   
+       itemsTable = `
+   
+           <table width="100%" border="1">
+   
+               <tr>
+   
+                   <th>Item</th>
+   
+                   <th>Qty</th>
+   
+                   <th>Price</th>
+   
+                   <th>Subtotal</th>
+   
+               </tr>
+   
+       `;
+   
+       order.items.forEach(function(item){
+   
+           itemsTable += `
+   
+               <tr>
+   
+                   <td>${item.name}</td>
+   
+                   <td>${item.quantity}</td>
+   
+                   <td>₹${item.price}</td>
+   
+                   <td>₹${item.quantity * item.price}</td>
+   
+               </tr>
+   
+           `;
+   
+       });
+   
+       itemsTable += "</table>";
+   
+   }
+   else{
+   
+       itemsTable = "<p>No items found.</p>";
+   
+   }
+   
+   
+   /* ----------------------------------------------------------
+      Display Order Information
+   ---------------------------------------------------------- */
+   
+   content.innerHTML = `
+   
+       <h3>Order ID : ${order.orderId}</h3>
+   
+       <hr><br>
+   
+       <p><strong>Date :</strong> ${order.orderDate || "-"}</p>
+   
+       <p><strong>Time :</strong> ${order.orderTime || "-"}</p>
+   
+       <p><strong>Customer :</strong> ${order.customer?.name || "-"}</p>
+   
+       <p><strong>Mobile :</strong> ${order.customer?.mobile || "-"}</p>
+   
+       <p><strong>Status :</strong> ${order.status}</p>
+   
+       <br>
+   
+       <h3>Ordered Items</h3>
+   
+       ${itemsTable}
+   
+       <br>
+   
+       <h3>Total : ₹${order.total}</h3>
+   
+   `;
 
     /* ----------------------------------------------------------
        Show Popup
