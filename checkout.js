@@ -87,9 +87,14 @@ function loadCheckoutSummary(){
    
    });
    
-   
+
    /* ==========================================================
       DELIVERY CHARGES
+   
+      PURPOSE:
+      Uses the delivery charge saved by the admin.
+      No delivery charge is applied when there are
+      no items in the checkout.
    
    ========================================================== */
    
@@ -97,7 +102,17 @@ function loadCheckoutSummary(){
    
    if(checkoutCart.length > 0){
    
-       delivery = 40;
+       delivery =
+   
+           Number(
+   
+               localStorage.getItem(
+   
+                   "restaurantDeliveryCharge"
+   
+               )
+   
+           ) || 0;
    
    }
    
