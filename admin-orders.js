@@ -453,21 +453,103 @@ function viewOrder(orderId){
 
     }
 
-    /* ----------------------------------------------------------
-       Get popup elements
-    ---------------------------------------------------------- */
 
-    const modal =
-
-        document.getElementById(
-            "order-details-modal"
-        );
-
-    const content =
-
-        document.getElementById(
-            "order-details-content"
-        );
+   /* ----------------------------------------------------------
+      Get popup elements
+   ---------------------------------------------------------- */
+   
+   const modal =
+   
+       document.getElementById(
+           "order-details-modal"
+       );
+   
+   
+   const content =
+   
+       document.getElementById(
+           "order-details-content"
+       );
+   
+   
+   
+   /* ==========================================================
+      LOAD CURRENT MENU
+   
+      PURPOSE:
+   
+      Single source of truth.
+   
+      Invoice prices always come from
+      Manage Menu data.
+   
+   ========================================================== */
+   
+   
+   const restaurantMenu =
+   
+       JSON.parse(
+   
+           localStorage.getItem(
+               "restaurantMenu"
+           )
+   
+       ) || [];
+   
+   
+   
+   /* ==========================================================
+      FIND CURRENT MENU ITEM
+   
+      PURPOSE:
+   
+      Searches menu by item name.
+   
+   ========================================================== */
+   
+   
+   function getMenuItem(itemName){
+   
+   
+       for(let category of restaurantMenu){
+   
+   
+           const foundItem =
+   
+           category.items.find(function(menuItem){
+   
+   
+               return (
+   
+                   menuItem.name.trim().toLowerCase()
+   
+                   ===
+   
+                   itemName.trim().toLowerCase()
+   
+               );
+   
+   
+           });
+   
+   
+   
+           if(foundItem){
+   
+   
+               return foundItem;
+   
+   
+           }
+   
+   
+       }
+   
+   
+       return null;
+   
+   
+   }
 
 
 
@@ -592,21 +674,64 @@ function viewOrder(orderId){
          
              ) || 0;
          
+
+         /* ==========================================================
+            GET CURRENT MENU PRICE
+         
+            PURPOSE:
+         
+            Uses Manage Menu as the
+            single source of truth.
+         
+            Final Price =
+            Price - Discount
+         
+         ========================================================== */
          
          
-         const price =
+         const menuItem =
          
-             Number(
+         getMenuItem(
+             item.name
+         );
          
-                 item.price
          
-             ) || 0;
          
+         let price = 0;
+         
+         
+         
+         if(menuItem){
+         
+         
+             price =
+         
+             menuItem.price -
+         
+             (
+         
+                 menuItem.price *
+         
+                 menuItem.discount /
+         
+                 100
+         
+             );
+         
+         
+         }
+         
+         
+         
+         /* ==========================================================
+            ITEM TOTAL
+         
+         ========================================================== */
          
          
          const itemTotal =
          
-             quantity * price;
+         quantity * price;
    
    
    
@@ -630,9 +755,10 @@ function viewOrder(orderId){
                      </td>
    
 
+
                      <td align="right">
                      
-                         ₹${Number(item.price) || 0}
+                     ₹${price}
                      
                      </td>
    
