@@ -450,11 +450,13 @@ function calculateSummary(){
    
    });
 
-      /* ==========================================================
-      DELIVERY CHARGES
+
+   /* ==========================================================
+      DELIVERY CHARGE
    
       PURPOSE:
-      No delivery charge when the cart is empty.
+      Uses the delivery charge saved by the admin.
+      No delivery charge is applied when the cart is empty.
    
    ========================================================== */
    
@@ -462,7 +464,17 @@ function calculateSummary(){
    
    if(cart.length > 0){
    
-       delivery = 40;
+       delivery =
+   
+           Number(
+   
+               localStorage.getItem(
+   
+                   "restaurantDeliveryCharge"
+   
+               )
+   
+           ) || 0;
    
    }
 
