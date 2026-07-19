@@ -34,6 +34,75 @@ Bite Amit Restaurant | Order Management
 
 </h2>
 
+
+
+<!-- ==========================================================
+     RESTAURANT TAX SETTINGS
+
+     PURPOSE:
+     Allows administrator to set invoice tax percentage.
+
+     Example:
+     Tax = 5 means all invoices apply 5% tax.
+
+========================================================== -->
+
+
+<div class="tax-settings">
+
+
+    <h3>
+
+        Restaurant Settings
+
+    </h3>
+
+
+    <label>
+
+        Tax Percentage:
+
+    </label>
+
+
+    <input
+
+        type="number"
+
+        id="taxPercentage"
+
+        value="5"
+
+        min="0"
+
+        max="100"
+
+    >
+
+
+    %
+
+
+
+    <button
+
+        onclick="saveTaxPercentage()"
+
+    >
+
+        💾 Save Tax
+
+    </button>
+
+
+</div>
+
+
+
+<br>
+
+
+
 <div id="admin-orders-container">
 
 </div>
