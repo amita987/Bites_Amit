@@ -489,14 +489,29 @@ function calculateSummary(){
 
 
 
-    let discount = 0;
-
-
-    if(subtotal >= 500){
-
-        discount = 50;
-
-    }
+   /* ==========================================================
+      CALCULATE TOTAL SAVINGS
+   
+      PURPOSE:
+      Shows how much the customer saved because of
+      menu item discounts.
+   
+   ========================================================== */
+   
+   let savedOnOrder = 0;
+   
+   cart.forEach(function(item){
+   
+       const originalPrice =
+       Number(item.price.replace("₹",""));
+   
+       const finalPrice =
+       Number(item.finalPrice.replace("₹",""));
+   
+       savedOnOrder +=
+       (originalPrice - finalPrice) * item.quantity;
+   
+   });
 
       /* ==========================================================
       DELIVERY CHARGES
@@ -517,7 +532,7 @@ function calculateSummary(){
 
 
     let grandTotal =
-    subtotal - discount + delivery;
+    subtotal + delivery;
 
 
 
@@ -531,7 +546,8 @@ function calculateSummary(){
         subtotalBox.textContent = subtotal;
 
 
-        document.getElementById("discount").textContent = discount;
+        document.getElementById("discount").textContent =
+         savedOnOrder;
 
 
         document.getElementById("delivery").textContent = delivery;
