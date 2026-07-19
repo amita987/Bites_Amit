@@ -548,7 +548,7 @@ function viewOrder(orderId){
    
                    <th align="right">
    
-                       Total
+                       Item Total
    
                    </th>
    
@@ -570,12 +570,43 @@ function viewOrder(orderId){
        order.items.forEach(function(item){
    
    
-   
-           const itemTotal =
-   
-               Number(item.quantity || 0) *
-   
-               Number(item.price || 0);
+         /* ==========================================================
+            ITEM TOTAL CALCULATION
+         
+            PURPOSE:
+            Prevents NaN errors.
+         
+            Handles:
+            - Missing quantity
+            - Missing price
+            - Old orders with text values
+         
+         ========================================================== */
+         
+         
+         const quantity =
+         
+             Number(
+         
+                 item.quantity
+         
+             ) || 0;
+         
+         
+         
+         const price =
+         
+             Number(
+         
+                 item.price
+         
+             ) || 0;
+         
+         
+         
+         const itemTotal =
+         
+             quantity * price;
    
    
    
@@ -592,20 +623,18 @@ function viewOrder(orderId){
                    </td>
    
    
+                     <td align="center">
+                     
+                         ${Number(item.quantity) || 0}
+                     
+                     </td>
    
-                   <td align="center">
-   
-                       ${item.quantity || 0}
-   
-                   </td>
-   
-   
-   
-                   <td align="right">
-   
-                       ₹${item.price || 0}
-   
-                   </td>
+
+                     <td align="right">
+                     
+                         ₹${Number(item.price) || 0}
+                     
+                     </td>
    
    
    
