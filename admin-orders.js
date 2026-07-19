@@ -836,12 +836,33 @@ function viewOrder(orderId){
       
               <strong>
       
-                  Tax (5%) :
+                  
+                  Tax (${localStorage.getItem("restaurantTax") || 5}%) :
       
               </strong>
       
       
-              ₹${Math.round(order.total * 0.05)}
+              ₹${Math.round(
+               
+                   order.total *
+               
+                   (
+               
+                       Number(
+               
+                           localStorage.getItem(
+               
+                               "restaurantTax"
+               
+                           )
+               
+                       || 5)
+               
+                       / 100
+               
+                   )
+               
+               )}
       
       
           </p>
@@ -868,13 +889,34 @@ function viewOrder(orderId){
       
               Grand Total :
       
-              ₹${
-      
-                  order.total +
-      
-                  Math.round(order.total * 0.05)
-      
-              }
+
+               ₹${
+               
+                   order.total +
+               
+                   Math.round(
+               
+                       order.total *
+               
+                       (
+               
+                           Number(
+               
+                               localStorage.getItem(
+               
+                                   "restaurantTax"
+               
+                               )
+               
+                           || 5)
+               
+                           /100
+               
+                       )
+               
+                   )
+               
+               }
       
       
           </h3>
