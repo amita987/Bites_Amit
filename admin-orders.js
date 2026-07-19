@@ -172,13 +172,6 @@ function displayOrders(){
 
     `;
 
-
-    orders.forEach(function(order){
-
-        table += `
-
-        <tr>
-
             /* ==========================================================
                VIEW ORDER BUTTON
             
@@ -186,6 +179,13 @@ function displayOrders(){
                Opens the Order Details popup for the selected order.
             
                ========================================================== */
+    orders.forEach(function(order){
+
+        table += `
+
+        <tr>
+
+
             
             <td>
             
