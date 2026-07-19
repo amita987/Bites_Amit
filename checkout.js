@@ -65,24 +65,50 @@ function loadCheckoutSummary(){
     });
 
 
-
-    let discount = 0;
-
-
-    if(subtotal >= 500){
-
-        discount = 50;
-
-    }
-
-
-
-    let delivery = 40;
-
-
-
-    let grandTotal =
-    subtotal - discount + delivery;
+   /* ==========================================================
+      CALCULATE TOTAL SAVINGS
+   
+      PURPOSE:
+      Shows how much the customer saved from menu discounts.
+   ========================================================== */
+   
+   let savedOnOrder = 0;
+   
+   checkoutCart.forEach(function(item){
+   
+       const originalPrice =
+       Number(item.price.replace("₹",""));
+   
+       const finalPrice =
+       Number(item.finalPrice.replace("₹",""));
+   
+       savedOnOrder +=
+       (originalPrice - finalPrice) * item.quantity;
+   
+   });
+   
+   
+   /* ==========================================================
+      DELIVERY CHARGES
+   
+   ========================================================== */
+   
+   let delivery = 0;
+   
+   if(checkoutCart.length > 0){
+   
+       delivery = 40;
+   
+   }
+   
+   
+   /* ==========================================================
+      GRAND TOTAL
+   
+   ========================================================== */
+   
+   let grandTotal =
+   subtotal + delivery;
 
 
 
@@ -93,7 +119,7 @@ function loadCheckoutSummary(){
     document.getElementById("checkout-subtotal").textContent = subtotal;
 
 
-    document.getElementById("checkout-discount").textContent = discount;
+    document.getElementById("checkout-discount").textContent = savedOnOrder;
 
 
     document.getElementById("checkout-delivery").textContent = delivery;
