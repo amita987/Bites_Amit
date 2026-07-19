@@ -1036,13 +1036,18 @@ function viewOrder(orderId){
       
       </p>
 
+
          <!-- ==========================================================
-              TAX CALCULATION
+              TAX SNAPSHOT
          
               PURPOSE:
-              Calculates tax only on the food subtotal.
+              Displays the tax percentage and tax amount
+              that were saved when the customer placed
+              the order.
          
-              Delivery charge is NOT taxable.
+              For older orders that do not contain these
+              values, calculate the tax using the current
+              restaurant tax percentage.
          
          ========================================================== -->
          
@@ -1050,11 +1055,13 @@ function viewOrder(orderId){
          
              <strong>
          
-                 Tax (${localStorage.getItem("restaurantTax") || 5}%) :
+                 Tax (${order.taxPercentage ?? (localStorage.getItem("restaurantTax") || 5)}%) :
          
              </strong>
          
              ₹${
+         
+                 order.taxAmount ??
          
                  Math.round(
          
