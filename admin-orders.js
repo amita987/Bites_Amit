@@ -496,58 +496,44 @@ function viewOrder(orderId){
    
        ) || [];
    
-   
-   
+
    /* ==========================================================
-      FIND CURRENT MENU ITEM
+      GET MENU ITEM
    
       PURPOSE:
+      Finds the current menu item using Item ID.
    
-      Searches menu by item name.
+      Item ID is now the single source of truth
+      shared by:
+      - Customer Menu
+      - Cart
+      - Checkout
+      - Orders
+      - Invoice
    
-   ========================================================== */
+      ========================================================== */
    
-   
-   function getMenuItem(itemName){
-   
+   function getMenuItem(itemId){
    
        for(let category of restaurantMenu){
-   
    
            const foundItem =
    
            category.items.find(function(menuItem){
    
-   
-               return (
-   
-                   menuItem.name.trim().toLowerCase()
-   
-                   ===
-   
-                   itemName.trim().toLowerCase()
-   
-               );
-   
+               return menuItem.id === Number(itemId);
    
            });
    
-   
-   
            if(foundItem){
-   
    
                return foundItem;
    
-   
            }
-   
    
        }
    
-   
        return null;
-   
    
    }
 
