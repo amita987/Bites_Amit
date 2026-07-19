@@ -193,20 +193,75 @@ function loadCheckoutSummary(){
 
 
 
-    itemsBox.innerHTML = html;
-
-
-
-    document.getElementById("checkout-subtotal").textContent = subtotal;
-
-
-    document.getElementById("checkout-discount").textContent = savedOnOrder;
-
-
-    document.getElementById("checkout-delivery").textContent = delivery;
-
-
-    document.getElementById("checkout-total").textContent = grandTotal;
+   itemsBox.innerHTML = html;
+   
+   
+   /* ==========================================================
+      CHECKOUT SUMMARY
+   
+      PURPOSE:
+      Displays the complete bill exactly as the
+      customer will pay it.
+   
+   ========================================================== */
+   
+   document.getElementById(
+   
+       "checkout-subtotal"
+   
+   ).textContent = subtotal;
+   
+   
+   document.getElementById(
+   
+       "checkout-discount"
+   
+   ).textContent = savedOnOrder;
+   
+   
+   document.getElementById(
+   
+       "checkout-delivery"
+   
+   ).textContent = delivery;
+   
+   
+   /* ==========================================================
+      TAX DISPLAY
+   
+      PURPOSE:
+      Shows the tax percentage and tax amount
+      charged to the customer.
+   
+   ========================================================== */
+   
+   document.getElementById(
+   
+       "checkout-tax-percentage"
+   
+   ).textContent = taxPercentage;
+   
+   
+   document.getElementById(
+   
+       "checkout-tax"
+   
+   ).textContent = taxAmount;
+   
+   
+   /* ==========================================================
+      GRAND TOTAL DISPLAY
+   
+      PURPOSE:
+      Shows the final payable amount.
+   
+   ========================================================== */
+   
+   document.getElementById(
+   
+       "checkout-total"
+   
+   ).textContent = grandTotal;
 
 
 }
