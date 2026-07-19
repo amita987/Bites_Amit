@@ -719,36 +719,39 @@ function viewOrder(orderId){
             Otherwise, fall back to the current menu.
          
          ========================================================== */
+
+         /* ==========================================================
+            FIND MENU ITEM
          
-         let price =
+            PURPOSE:
+            Gets menu details like category and current price.
          
-         Number(item.purchasedFinalPrice);
+         ========================================================== */
          
+         const menuData = getMenuItem(item);
+         
+         
+         /* ==========================================================
+            PURCHASED PRICE
+         
+         ========================================================== */
+         
+         let price = Number(item.purchasedFinalPrice);
          
          
          if(isNaN(price)){
          
-
-
-            const menuData = getMenuItem(item);
-
-               if(menuData){
-               
-                   price =
-               
-                   menuData.item.price -
-               
-                   (
-               
-                       menuData.item.price *
-               
-                       menuData.item.discount /
-               
-                       100
-               
-                   );
-               
-               }
+             if(menuData){
+         
+                 price =
+                 menuData.item.price -
+                 (
+                     menuData.item.price *
+                     menuData.item.discount /
+                     100
+                 );
+         
+             }
          
              else{
          
