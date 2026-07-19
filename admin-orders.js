@@ -1035,115 +1035,30 @@ function viewOrder(orderId){
           ₹${order.delivery ?? 0}
       
       </p>
-      
-      
-          <!-- ------------------------------------------------------
-               TAX CALCULATION
-      
-               PURPOSE:
-               Calculates restaurant tax.
-      
-               Currently:
-               5% tax
-      
-               This can be changed later.
-      
-          ------------------------------------------------------- -->
-      
-      
-          <p>
-      
-      
-              <strong>
-      
-                  
-                  Tax (${localStorage.getItem("restaurantTax") || 5}%) :
-      
-              </strong>
 
-               ₹${Math.round(
-               
-                   (
-               
-                       (order.subtotal ?? order.total)
-               
-                       +
-               
-                       (order.delivery ?? 0)
-               
-                   )
-               
-                   *
-               
-                   (
-               
-                       Number(
-               
-                           localStorage.getItem(
-               
-                               "restaurantTax"
-               
-                           )
-               
-                       ) || 5
-               
-                   )
-               
-                   / 100
-               
-               )}
-      
-      
-          </p>
-      
-      
-      
-      
-          <hr>
-      
-      
-      
-      
-          <!-- ------------------------------------------------------
-               FINAL GRAND TOTAL
-      
-               PURPOSE:
-               Shows final payable amount.
-      
-          ------------------------------------------------------- -->
-      
-      
-         <h3 style="color:#8B0000;">
+         <!-- ==========================================================
+              TAX CALCULATION
          
+              PURPOSE:
+              Calculates tax only on the food subtotal.
          
-             Grand Total :
+              Delivery charge is NOT taxable.
          
+         ========================================================== -->
          
-              ₹${
+         <p>
          
-                 (
+             <strong>
          
-                     (order.subtotal ?? order.total)
+                 Tax (${localStorage.getItem("restaurantTax") || 5}%) :
          
-                     +
+             </strong>
          
-                     (order.delivery ?? 0)
-         
-                 )
-         
-                 +
+             ₹${
          
                  Math.round(
          
-                     (
-         
-                         (order.subtotal ?? order.total)
-         
-                         +
-         
-                         (order.delivery ?? 0)
-         
-                     )
+                     (order.subtotal ?? order.total)
          
                      *
          
@@ -1165,8 +1080,70 @@ function viewOrder(orderId){
          
                  )
          
-              }
+             }
          
+         </p>
+      
+      
+      
+      
+          <hr>
+      
+      
+
+         <!-- ==========================================================
+              GRAND TOTAL
+         
+              PURPOSE:
+              Calculates the final payable amount.
+         
+              Formula:
+         
+              Food Subtotal
+              + Delivery Charge
+              + Tax on Food Only
+         
+         ========================================================== -->
+         
+         <h3 style="color:#8B0000;">
+         
+             Grand Total :
+         
+             ₹${
+         
+                 (order.subtotal ?? order.total)
+         
+                 +
+         
+                 (order.delivery ?? 0)
+         
+                 +
+         
+                 Math.round(
+         
+                     (order.subtotal ?? order.total)
+         
+                     *
+         
+                     (
+         
+                         Number(
+         
+                             localStorage.getItem(
+         
+                                 "restaurantTax"
+         
+                             )
+         
+                         ) || 5
+         
+                     )
+         
+                     / 100
+         
+                 )
+         
+             }
          
          </h3>
       
