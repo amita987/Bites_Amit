@@ -36,7 +36,8 @@ function addToCart(button){
     const row = button.closest("tr");
 
     // Read values from the table
-    const serialNumber = row.cells[0].textContent;
+    
+   const itemId = Number(row.cells[0].textContent);
     const itemName = row.cells[2].textContent;
     const price = row.cells[3].textContent;
     const discount = row.cells[4].textContent;
@@ -45,16 +46,22 @@ function addToCart(button){
         Number(row.querySelector(".quantity").textContent);
 
     // Create shopping cart object
-    const item = {
 
-        serialNumber: serialNumber,
-        name: itemName,
-        price: price,
-        discount: discount,
-        finalPrice: finalPrice,
-        quantity: quantity
-
-    };
+   const item = {
+   
+       id: itemId,
+   
+       name: itemName,
+   
+       price: price,
+   
+       discount: discount,
+   
+       finalPrice: finalPrice,
+   
+       quantity: quantity
+   
+   };
 
 
     /* ==========================================================
@@ -64,7 +71,8 @@ function addToCart(button){
        ========================================================== */
 
     const existingItem =
-        cart.find(cartItem => cartItem.name === item.name);
+
+         cart.find(cartItem => cartItem.id === item.id);
 
     if(existingItem){
 
@@ -209,7 +217,8 @@ function displayCart(){
 
         <tr>
 
-            <td>${item.serialNumber}</td>
+            
+            <td>${item.id}</td>
 
             <td>${item.name}</td>
 
