@@ -1052,18 +1052,30 @@ function viewOrder(orderId){
                 ₹${order.subtotal ?? order.total}
             
             </p>
-      
+
+            <!-- ==========================================================
+                 CUSTOMER SAVINGS
+            
+                 PURPOSE:
+                 Shows how much the customer saved on
+                 this order instead of displaying it as
+                 a discount line in the invoice.
+            
+            ========================================================== -->
+            
             <p>
-      
-          <strong>
-      
-              Discount :
-      
-          </strong>
-      
-          ₹${order.discount ?? 0}
-      
-      </p>
+            
+                🎉 You saved
+            
+                <strong>
+            
+                    ₹${order.discount ?? 0}
+            
+                </strong>
+            
+                today!
+            
+            </p>
       
       <p>
       
