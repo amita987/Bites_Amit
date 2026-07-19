@@ -141,7 +141,7 @@ function displayOrders(){
          
          </th>
          
-         
+
          <th>
          
          Mobile
@@ -149,9 +149,34 @@ function displayOrders(){
          </th>
          
          
+         <!-- ==========================================================
+              ORDER TYPE
+         
+              PURPOSE:
+              Shows how the customer chose to receive
+              the order.
+         
+              Possible values:
+         
+              🍽️ Dine In
+              🛍️ Customer Take Away
+              🚚 Home Delivery
+         
+         ========================================================== -->
+         
+         <th>
+         
+         Order Type
+         
+         </th>
+         
+         
          <th
+         
          style="cursor:pointer;"
+         
          onclick="sortOrders('total')"
+         
          >
          
          Total ▲▼
@@ -254,9 +279,32 @@ function displayOrders(){
             <td>${order.customer?.name || "-"}</td>
             
             <td>${order.customer?.mobile || "-"}</td>
-
+            
+            
+            <!-- ==========================================================
+                 ORDER TYPE VALUE
+            
+                 PURPOSE:
+                 Displays the saved Order Type.
+            
+                 Older orders that don't contain this value
+                 will display Home Delivery as the default.
+            
+            ========================================================== -->
+            
+            <td>
+            
+            ${
+            
+                order.orderType || "Home Delivery"
+            
+            }
+            
+            </td>
+            
+            
             <td>₹${order.total}</td>
-
+            
             <td>${order.status}</td>
 
         </tr>
