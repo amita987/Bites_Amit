@@ -1495,17 +1495,29 @@ function saveOrderStatus(orderId){
 function deleteOrder(orderId){
 
 
-
-    /* ----------------------------------------------------------
-       Ask for confirmation before permanent deletion
-    ---------------------------------------------------------- */
-
-
-    const confirmDelete = confirm(
-
-        "Are you sure you want to permanently delete this order?"
-
-    );
+   /* ==========================================================
+      DELETE CONFIRMATION
+   
+      PURPOSE:
+      Shows the exact Order ID before deletion.
+   
+      This prevents accidental deletion
+      of the wrong order.
+   
+   ========================================================== */
+   
+   
+   const confirmDelete = confirm(
+   
+       "Are you sure you want to permanently delete Order ID: "
+   
+       + orderId
+   
+       +
+   
+       "?\n\nThis action cannot be undone."
+   
+   );
 
 
 
