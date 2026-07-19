@@ -231,6 +231,45 @@ function placeOrder(){
        ).textContent
    
    );
+      /* ==========================================================
+      TAX SNAPSHOT
+   
+      PURPOSE:
+      Stores the restaurant tax percentage and the
+      tax amount charged when the customer places
+      the order.
+   
+      This ensures future tax changes never affect
+      historical orders.
+   
+   ========================================================== */
+   
+   let taxPercentage =
+   
+   Number(
+   
+       localStorage.getItem(
+   
+           "restaurantTax"
+   
+       )
+   
+   ) || 0;
+   
+   
+   let taxAmount =
+   
+   Math.round(
+   
+       subtotal
+   
+       *
+   
+       taxPercentage
+   
+       / 100
+   
+   );
 
 
    /* ==========================================================
