@@ -195,70 +195,13 @@ function displayCart(){
           <h3>Your cart is empty</h3>
           `;
       
-          /* ==========================================================
-             RESET CART SUMMARY
-      
-             PURPOSE:
-             Clears all totals when no items remain.
-          ========================================================== */
-      
-          const subtotal = document.getElementById("subtotal");
-          const discount = document.getElementById("discount");
-          const delivery = document.getElementById("delivery");
-          const grandTotal = document.getElementById("grand-total");
-      
-          if(subtotal){
-      
-              subtotal.textContent = "0";
-              discount.textContent = "0";
-              delivery.textContent = "0";
-              grandTotal.textContent = "0";
-      
-          }
-      
-          /* ==========================================================
-             HIDE CHECKOUT BUTTON
-      
-             PURPOSE:
-             Prevent checkout when cart is empty.
-          ========================================================== */
-      
-          const checkoutButton =
-          document.querySelector(
-              'button[onclick="goToCheckout()"]'
-          );
-      
-          if(checkoutButton){
-      
-              checkoutButton.style.display = "none";
-      
-          }
+          calculateSummary();
       
           return;
       
       }
 
 
-/* ==========================================================
-   SHOW CHECKOUT BUTTON
-
-   PURPOSE:
-   Displays the checkout button whenever
-   the cart contains items.
-========================================================== */
-
-const checkoutButton =
-document.querySelector(
-    'button[onclick="goToCheckout()"]'
-);
-
-if(checkoutButton){
-
-    checkoutButton.style.display = "";
-
-}
-
-   
     let table = `
 
     <table border="1">
