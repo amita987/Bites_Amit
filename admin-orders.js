@@ -773,11 +773,114 @@ function viewOrder(orderId){
    
            <hr>
    
-           <h3 style="color:#8B0000;">
-   
-               Grand Total : ₹${order.total}
-   
-           </h3>
+
+      <!-- ==========================================================
+           INVOICE CALCULATION SECTION
+      
+           PURPOSE:
+           Displays:
+      
+           - Subtotal
+           - Tax
+           - Final Grand Total
+      
+      ========================================================== -->
+      
+      
+      <div class="invoice-summary">
+      
+      
+          <!-- ------------------------------------------------------
+               SUBTOTAL CALCULATION
+      
+               PURPOSE:
+               Adds all item prices before tax.
+      
+          ------------------------------------------------------- -->
+      
+      
+          <p>
+      
+      
+              <strong>
+      
+                  Subtotal :
+      
+              </strong>
+      
+      
+              ₹${order.total}
+      
+      
+          </p>
+      
+      
+      
+      
+          <!-- ------------------------------------------------------
+               TAX CALCULATION
+      
+               PURPOSE:
+               Calculates restaurant tax.
+      
+               Currently:
+               5% tax
+      
+               This can be changed later.
+      
+          ------------------------------------------------------- -->
+      
+      
+          <p>
+      
+      
+              <strong>
+      
+                  Tax (5%) :
+      
+              </strong>
+      
+      
+              ₹${Math.round(order.total * 0.05)}
+      
+      
+          </p>
+      
+      
+      
+      
+          <hr>
+      
+      
+      
+      
+          <!-- ------------------------------------------------------
+               FINAL GRAND TOTAL
+      
+               PURPOSE:
+               Shows final payable amount.
+      
+          ------------------------------------------------------- -->
+      
+      
+          <h3 style="color:#8B0000;">
+      
+      
+              Grand Total :
+      
+              ₹${
+      
+                  order.total +
+      
+                  Math.round(order.total * 0.05)
+      
+              }
+      
+      
+          </h3>
+      
+      
+      </div>
    
 
             <!-- ----------------------------------------------------------
