@@ -549,6 +549,10 @@ function calculateSummary(){
         document.getElementById("discount").textContent =
          savedOnOrder;
 
+       document.getElementById(
+         "saved-highlight"
+         ).textContent = savedOnOrder;
+
 
         document.getElementById("delivery").textContent = delivery;
 
