@@ -512,8 +512,21 @@ function viewOrder(orderId){
       - Invoice
    
       ========================================================== */
+
+   /* ==========================================================
+      GET MENU ITEM
    
-   function getMenuItem(itemId){
+      PURPOSE:
+      Finds a menu item for both:
+   
+      ✓ New Orders  -> Item ID
+      ✓ Old Orders  -> Item Name
+   
+      This keeps every historical invoice working.
+   
+      ========================================================== */
+   
+   function getMenuItem(item){
    
        for(let category of restaurantMenu){
    
@@ -521,7 +534,29 @@ function viewOrder(orderId){
    
            category.items.find(function(menuItem){
    
-               return menuItem.id === Number(itemId);
+               /* ----------------------------------------------
+                  NEW ORDERS
+               ---------------------------------------------- */
+   
+               if(item.id !== undefined){
+   
+                   return menuItem.id === Number(item.id);
+   
+               }
+   
+               /* ----------------------------------------------
+                  OLD ORDERS
+               ---------------------------------------------- */
+   
+               return (
+   
+                   menuItem.name.trim().toLowerCase()
+   
+                   ===
+   
+                   item.name.trim().toLowerCase()
+   
+               );
    
            });
    
@@ -681,9 +716,8 @@ function viewOrder(orderId){
          
          if(isNaN(price)){
          
-             const menuItem =
-         
-             getMenuItem(item.id);
+
+             const menuItem = getMenuItem(item);;
          
          
              if(menuItem){
