@@ -562,7 +562,14 @@ function viewOrder(orderId){
    
            if(foundItem){
    
-               return foundItem;
+ 
+              return {
+               
+                   item: foundItem,
+               
+                   category: category.category
+               
+               };
    
            }
    
@@ -623,13 +630,18 @@ function viewOrder(orderId){
    
    
                <tr>
-   
-   
-                   <th align="left">
-   
-                       Item
-   
-                   </th>
+  
+                     <th align="left">
+                     
+                         Item
+                     
+                     </th>
+                     
+                     <th align="left">
+                     
+                         Category
+                     
+                     </th>
    
    
    
@@ -717,26 +729,26 @@ function viewOrder(orderId){
          if(isNaN(price)){
          
 
-             const menuItem = getMenuItem(item);;
-         
-         
-             if(menuItem){
-         
-                 price =
-         
-                 menuItem.price -
-         
-                 (
-         
-                     menuItem.price *
-         
-                     menuItem.discount /
-         
-                     100
-         
-                 );
-         
-             }
+
+            const menuData = getMenuItem(item);
+
+               if(menuData){
+               
+                   price =
+               
+                   menuData.item.price -
+               
+                   (
+               
+                       menuData.item.price *
+               
+                       menuData.item.discount /
+               
+                       100
+               
+                   );
+               
+               }
          
              else{
          
@@ -765,12 +777,18 @@ function viewOrder(orderId){
    
                <tr>
    
-   
-                   <td>
-   
-                       ${item.name || "-"}
-   
-                   </td>
+
+                  <td>
+                  
+                      ${item.name || "-"}
+                  
+                  </td>
+                  
+                  <td>
+                  
+                      ${menuData ? menuData.category : "-"}
+                  
+                  </td>
    
    
                      <td align="center">
