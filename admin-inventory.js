@@ -681,15 +681,24 @@ function displayPurchaseRegister(){
 
         </td>
 
-        <td>
-
-        ✏️ Update
-
-        &nbsp;&nbsp;
-
-        🗑️ Delete
-
-        </td>
+         <td>
+         
+         <button
+         onclick="updatePurchase(${purchase.id})">
+         
+         ✏️ Update
+         
+         </button>
+         
+         &nbsp;&nbsp;
+         
+         <button>
+         
+         🗑️ Delete
+         
+         </button>
+         
+         </td>
         `;
 
 
@@ -713,6 +722,38 @@ function displayPurchaseRegister(){
 
 displayPurchaseRegister();
 
+/* ==========================================================
+   UPDATE PURCHASE
 
+   PURPOSE:
+   Receives the selected purchase ID.
+
+   (In the next step it will load the
+   purchase into the popup.)
+
+========================================================== */
+
+function updatePurchase(purchaseId){
+
+    /* ------------------------------------------
+       Store Current Purchase ID
+    ------------------------------------------ */
+
+    purchaseBeingUpdated = purchaseId;
+
+
+    /* ------------------------------------------
+       Temporary Test
+    ------------------------------------------ */
+
+    alert(
+
+        "Updating Purchase ID : " +
+
+        purchaseId
+
+    );
+
+}
 
 
