@@ -486,20 +486,27 @@ function savePurchaseRegister(){
     );
 
 
-    /* ------------------------------------------
-       Notify User
-    ------------------------------------------ */
-
-    alert(
-    "Purchase saved successfully."
-    );
-
-
-    /* ------------------------------------------
-       Close Popup
-    ------------------------------------------ */
-
-    closePurchaseModal();
+   /* ------------------------------------------
+      Refresh Purchase Register
+   ------------------------------------------ */
+   
+   displayPurchaseRegister();
+   
+   
+   /* ------------------------------------------
+      Notify User
+   ------------------------------------------ */
+   
+   alert(
+   "Purchase saved successfully."
+   );
+   
+   
+   /* ------------------------------------------
+      Close Popup
+   ------------------------------------------ */
+   
+   closePurchaseModal();
 
 }
    
@@ -671,6 +678,18 @@ function displayPurchaseRegister(){
     });
 
 }
+
+/* ==========================================================
+   PAGE INITIALIZATION
+
+   PURPOSE:
+   Displays all previously saved purchase
+   records when the Inventory Management
+   page loads.
+
+========================================================== */
+
+displayPurchaseRegister();
 
 
 
