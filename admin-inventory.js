@@ -322,6 +322,68 @@ function createPurchaseRow(){
    newRow
    );
    
+
+   /* ------------------------------------------
+      SAVE ROW BUTTON
+   
+      PURPOSE:
+      Validates the row and marks it as saved.
+   
+   ------------------------------------------ */
+   
+   newRow
+   .querySelector(
+   ".saveRowButton"
+   )
+   .addEventListener(
+   "click",
+   function(){
+   
+       /* --------------------------------------
+          Get all input fields
+       -------------------------------------- */
+   
+       const inputFields =
+   
+       newRow.querySelectorAll(
+       "input"
+       );
+   
+   
+       /* --------------------------------------
+          Validate inputs
+       -------------------------------------- */
+   
+       for(const inputField of inputFields){
+   
+           if(inputField.value.trim() === ""){
+   
+               alert(
+               "Please complete all fields before saving the row."
+               );
+   
+               inputField.focus();
+   
+               return;
+   
+           }
+   
+       }
+   
+   
+       /* --------------------------------------
+          Mark row as saved
+       -------------------------------------- */
+   
+       newRow.dataset.saved = "true";
+   
+       alert(
+       "Purchase row saved successfully."
+       );
+   
+   });
+   
+   
    
    /* ------------------------------------------
       REMOVE ROW BUTTON
