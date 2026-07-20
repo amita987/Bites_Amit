@@ -2,21 +2,23 @@
    INVENTORY MANAGEMENT
 
    PURPOSE:
-   Handles Ingredient Master List,
-   Recipes,
-   Stock Management,
-   Low Stock Alerts,
-   Stock Refills.
+   Handles:
+
+   1. Purchase Entry Popup
+   2. Purchase Register
+   3. Ingredient Stock
+   4. Recipes
+   5. Low Stock Alerts
 
 ========================================================== */
+
 
 
 /* ==========================================================
    ADD INGREDIENT BUTTON
 
    PURPOSE:
-   Displays the Purchase Entry Form when the
-   "➕ Add Ingredient" button is clicked.
+   Opens the Purchase Entry popup.
 
    Also creates the first purchase row.
 
@@ -31,21 +33,21 @@ document
 function(){
 
     /* ------------------------------------------
-       Display the Purchase Entry Form
+       Display Purchase Popup
     ------------------------------------------ */
 
     document
     .getElementById(
-    "purchaseEntrySection"
+    "purchaseModal"
     )
     .style.display =
     "block";
 
 
     /* ------------------------------------------
-       Create the First Purchase Row
+       Create First Purchase Row
 
-       (Functionality will be added
+       (Will be implemented
        in the next step.)
 
     ------------------------------------------ */
@@ -57,28 +59,85 @@ function(){
 
 
 /* ==========================================================
+   CLOSE BUTTON ( × )
+
+   PURPOSE:
+   Closes the Purchase Entry popup.
+
+========================================================== */
+
+document
+.getElementById(
+"closePurchaseModal"
+)
+.addEventListener(
+"click",
+function(){
+
+    closePurchaseModal();
+
+});
+
+
+
+/* ==========================================================
+   CANCEL BUTTON
+
+   PURPOSE:
+   Closes the Purchase Entry popup without
+   saving anything.
+
+========================================================== */
+
+document
+.getElementById(
+"cancelPurchaseButton"
+)
+.addEventListener(
+"click",
+function(){
+
+    closePurchaseModal();
+
+});
+
+
+
+/* ==========================================================
+   CLOSE PURCHASE MODAL
+
+   PURPOSE:
+   Hides the Purchase Entry popup.
+
+========================================================== */
+
+function closePurchaseModal(){
+
+    document
+    .getElementById(
+    "purchaseModal"
+    )
+    .style.display =
+    "none";
+
+}
+
+
+
+/* ==========================================================
    CREATE PURCHASE ROW
 
    PURPOSE:
-   Creates one purchase entry row inside the
-   Purchase Entry table.
+   Placeholder.
 
-   This is currently a placeholder.
-
-   In the next step this function will create:
-
-   • Today's Date
-   • Ingredient Name
-   • Unit
-   • Total Cost
-   • Save Button
-   • Update Button
-   • Cancel Button
+   In the next step this function will create
+   the first editable purchase row.
 
 ========================================================== */
 
 function createPurchaseRow(){
 
-    // Code will be added in the next step.
+    // Code will be added
+    // in the next step.
 
 }
