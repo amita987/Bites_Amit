@@ -538,3 +538,140 @@ function savePurchaseRegister(){
    });
 
 }
+
+
+/* ==========================================================
+   DISPLAY PURCHASE REGISTER
+
+   PURPOSE:
+   Reads all saved purchase records from
+   Local Storage and displays them in the
+   Purchase Register table.
+
+========================================================== */
+
+function displayPurchaseRegister(){
+
+    /* ------------------------------------------
+       Get Purchase Register Table Body
+    ------------------------------------------ */
+
+    const purchaseRegisterBody =
+
+    document.getElementById(
+    "purchaseRegisterBody"
+    );
+
+
+    /* ------------------------------------------
+       Clear Existing Table
+    ------------------------------------------ */
+
+    purchaseRegisterBody.innerHTML = "";
+
+
+    /* ------------------------------------------
+       Read Purchase Register
+    ------------------------------------------ */
+
+    const purchaseRegister =
+
+    JSON.parse(
+
+        localStorage.getItem(
+        "purchaseRegister"
+        )
+
+    ) || [];
+
+
+    /* ------------------------------------------
+       No Purchase Records
+    ------------------------------------------ */
+
+    if(purchaseRegister.length === 0){
+
+        purchaseRegisterBody.innerHTML =
+
+        `
+        <tr>
+
+            <td
+            colspan="5"
+            style="text-align:center;">
+
+            No purchase records found.
+
+            </td>
+
+        </tr>
+        `;
+
+        return;
+
+    }
+
+
+    /* ------------------------------------------
+       Display Purchase Records
+    ------------------------------------------ */
+
+    purchaseRegister.forEach(function(purchase){
+
+        const row =
+
+        document.createElement(
+        "tr"
+        );
+
+
+        row.innerHTML =
+
+        `
+        <td>
+
+        ${purchase.purchaseDate}
+
+        </td>
+
+        <td>
+
+        ${purchase.ingredientName}
+
+        </td>
+
+        <td>
+
+        ${purchase.unit}
+
+        </td>
+
+        <td>
+
+        ₹${purchase.totalCost}
+
+        </td>
+
+        <td>
+
+        ✏️ Update
+
+        &nbsp;&nbsp;
+
+        🗑️ Delete
+
+        </td>
+        `;
+
+
+        purchaseRegisterBody.appendChild(
+        row
+        );
+
+    });
+
+}
+
+
+
+
