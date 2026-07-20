@@ -12,7 +12,29 @@
 
 ========================================================== */
 
+/* ==========================================================
+   GLOBAL VARIABLES
 
+   PURPOSE:
+   Stores values used across multiple
+   Inventory Management functions.
+
+========================================================== */
+
+/* ------------------------------------------
+   Purchase Being Updated
+
+   PURPOSE:
+   Holds the ID of the purchase currently
+   being edited.
+
+   Value:
+   - null  → New Purchase
+   - Number → Existing Purchase
+
+------------------------------------------ */
+
+let purchaseBeingUpdated = null;
 
 /* ==========================================================
    ADD INGREDIENT BUTTON
