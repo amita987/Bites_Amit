@@ -755,7 +755,8 @@ function displayPurchaseRegister(){
          
          &nbsp;&nbsp;
          
-         <button>
+         <button
+         onclick="deletePurchase(${purchase.id})">
          
          🗑️ Delete
          
@@ -916,5 +917,102 @@ function updatePurchase(purchaseId){
     editRow.dataset.saved = "true";
 
 }
+
+
+/* ==========================================================
+   DELETE PURCHASE
+
+   PURPOSE:
+   Deletes the selected purchase record
+   after user confirmation.
+
+========================================================== */
+
+function deletePurchase(purchaseId){
+
+    /* ------------------------------------------
+       Confirm Delete
+    ------------------------------------------ */
+
+    const confirmDelete =
+
+    confirm(
+
+        "Are you sure you want to delete this purchase record?"
+
+    );
+
+
+    if(!confirmDelete){
+
+        return;
+
+    }
+
+
+    /* ------------------------------------------
+       Read Purchase Register
+    ------------------------------------------ */
+
+    let purchaseRegister =
+
+    JSON.parse(
+
+        localStorage.getItem(
+        "purchaseRegister"
+        )
+
+    ) || [];
+
+
+    /* ------------------------------------------
+       Remove Selected Purchase
+    ------------------------------------------ */
+
+    purchaseRegister =
+
+    purchaseRegister.filter(function(purchase){
+
+        return purchase.id !== purchaseId;
+
+    });
+
+
+    /* ------------------------------------------
+       Save Updated Purchase Register
+    ------------------------------------------ */
+
+    localStorage.setItem(
+
+        "purchaseRegister",
+
+        JSON.stringify(
+        purchaseRegister
+        )
+
+    );
+
+
+    /* ------------------------------------------
+       Refresh Purchase Register
+    ------------------------------------------ */
+
+    displayPurchaseRegister();
+
+
+    /* ------------------------------------------
+       Notify User
+    ------------------------------------------ */
+
+    alert(
+
+        "Purchase record deleted successfully."
+
+    );
+
+}
+
+
+
 
 
