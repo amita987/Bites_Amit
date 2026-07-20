@@ -121,16 +121,15 @@ function closePurchaseModal(){
     "none";
 
 
-    /* ------------------------------------------
-       Remove all purchase rows so every new
-       purchase starts with a fresh form.
-    ------------------------------------------ */
-
-    document
-    .getElementById(
-    "purchaseTableBody"
-    )
-    .innerHTML = "";
+   /* ------------------------------------------
+      Clear all purchase rows
+   ------------------------------------------ */
+   
+   document
+   .getElementById(
+   "purchaseEntryBody"
+   )
+   .innerHTML = "";
 
 }
 
