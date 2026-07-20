@@ -758,7 +758,77 @@ function displayPurchaseRegister(
        );
    
    });
+
+      /* ------------------------------------------
+      Sort Purchase Records
    
+      PURPOSE:
+      Sorts the filtered purchase records
+      before displaying them.
+   
+   ------------------------------------------ */
+   
+   if(purchaseSortColumn !== ""){
+   
+       filteredPurchases.sort(function(a,b){
+   
+           let valueA = a[purchaseSortColumn];
+   
+           let valueB = b[purchaseSortColumn];
+   
+   
+           if(purchaseSortColumn === "totalCost"){
+   
+               valueA = Number(valueA);
+   
+               valueB = Number(valueB);
+   
+           }
+   
+           else{
+   
+               valueA = String(valueA).toLowerCase();
+   
+               valueB = String(valueB).toLowerCase();
+   
+           }
+   
+   
+           if(valueA < valueB){
+   
+               return purchaseSortDirection === "ascending"
+   
+               ?
+   
+               -1
+   
+               :
+   
+               1;
+   
+           }
+   
+   
+           if(valueA > valueB){
+   
+               return purchaseSortDirection === "ascending"
+   
+               ?
+   
+               1
+   
+               :
+   
+               -1;
+   
+           }
+   
+   
+           return 0;
+   
+       });
+   
+   }
    
    /* ------------------------------------------
       Display Purchase Records
