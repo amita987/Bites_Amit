@@ -108,44 +108,57 @@ id="addIngredientButton">
 
 
 <!-- ==========================================================
-PURCHASE ENTRY FORM
+     ADD INGREDIENT PURCHASE MODAL
 
-PURPOSE:
-This form is used to enter ingredient purchase
-details.
+     PURPOSE:
+     Popup used to add one or more ingredient
+     purchase entries.
 
-Initially hidden.
+     This popup is hidden initially.
 
-It will become visible after clicking
-"➕ Add Ingredient".
+     It will open when the
+     "➕ Add Ingredient" button is clicked.
 
 ========================================================== -->
 
 <div
-id="purchaseEntrySection"
-style="display:none; margin-top:20px;">
+id="purchaseModal"
+class="modal">
 
-<h3>
-
-Purchase Entry
-
-</h3>
-
-
+<div
+class="modal-content">
 
 <!-- ==========================================================
-PURCHASE ENTRY TABLE
+     MODAL HEADER
+========================================================== -->
 
-PURPOSE:
-Displays one or more ingredient purchase rows.
+<span
+id="closePurchaseModal"
+class="close">
+
+&times;
+
+</span>
+
+<h2>
+
+Add Ingredient Purchase
+
+</h2>
+
+<hr>
+
+<!-- ==========================================================
+     PURCHASE ENTRY TABLE
+
+     PURPOSE:
+     Purchase rows will be added here using
+     JavaScript.
 
 ========================================================== -->
 
 <table
-id="purchaseEntryTable"
-border="1"
-cellpadding="8"
-style="width:100%; border-collapse:collapse;">
+id="purchaseEntryTable">
 
 <thead>
 
@@ -171,7 +184,7 @@ Unit
 
 <th>
 
-Total Cost of Ingredient
+Total Cost
 
 </th>
 
@@ -185,33 +198,19 @@ Action
 
 </thead>
 
-
-
 <tbody
 id="purchaseEntryBody">
 
-<!--
-Rows will be created using JavaScript.
--->
+<!-- Purchase rows will be created here -->
 
 </tbody>
 
 </table>
 
-
-
 <br>
 
-
-
 <!-- ==========================================================
-ADD ANOTHER ROW BUTTON
-
-PURPOSE:
-Adds another blank purchase row to the table.
-
-Functionality will be added later.
-
+     ADD ROW BUTTON
 ========================================================== -->
 
 <button
@@ -220,6 +219,34 @@ id="addPurchaseRowButton">
 ➕ Add Another Row
 
 </button>
+
+&nbsp;&nbsp;
+
+<!-- ==========================================================
+     SAVE PURCHASE BUTTON
+========================================================== -->
+
+<button
+id="savePurchaseButton">
+
+💾 Save Purchase
+
+</button>
+
+&nbsp;&nbsp;
+
+<!-- ==========================================================
+     CANCEL BUTTON
+========================================================== -->
+
+<button
+id="cancelPurchaseButton">
+
+❌ Cancel
+
+</button>
+
+</div>
 
 </div>
 
