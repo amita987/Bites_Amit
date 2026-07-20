@@ -107,7 +107,7 @@ function(){
    CLOSE PURCHASE MODAL
 
    PURPOSE:
-   Hides the Purchase Entry popup.
+   Hides the Purchase Entry popup and resets it.
 
 ========================================================== */
 
@@ -120,8 +120,70 @@ function closePurchaseModal(){
     .style.display =
     "none";
 
+
+    /* ------------------------------------------
+       Remove all purchase rows so every new
+       purchase starts with a fresh form.
+    ------------------------------------------ */
+
+    document
+    .getElementById(
+    "purchaseTableBody"
+    )
+    .innerHTML = "";
+
 }
 
+
+/* ==========================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+
+========================================================== */
+
+window.addEventListener(
+"click",
+function(event){
+
+    const modal =
+
+    document.getElementById(
+    "purchaseModal"
+    );
+
+    if(event.target === modal){
+
+        closePurchaseModal();
+
+    }
+
+});
+
+/* ==========================================================
+   CLOSE MODAL WITH ESC KEY
+
+========================================================== */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+    if(event.key === "Escape"){
+
+        const modal =
+
+        document.getElementById(
+        "purchaseModal"
+        );
+
+        if(modal.style.display === "block"){
+
+            closePurchaseModal();
+
+        }
+
+    }
+
+});
 
 
 /* ==========================================================
