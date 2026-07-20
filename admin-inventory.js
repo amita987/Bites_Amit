@@ -525,8 +525,50 @@ function savePurchaseRegister(){
       /* ------------------------------------------
          Save New Purchase
       ------------------------------------------ */
-      
+
       else{
+      
+          /* ------------------------------------------
+             Check for Duplicate Purchase
+      
+             PURPOSE:
+             Prevents saving an identical purchase
+             more than once.
+      
+          ------------------------------------------ */
+      
+          if(
+      
+              isDuplicatePurchase(
+      
+                  inputFields[0].value,
+      
+                  inputFields[1].value,
+      
+                  inputFields[2].value,
+      
+                  Number(
+                      inputFields[3].value
+                  )
+      
+              )
+      
+          ){
+      
+              alert(
+      
+                  "This purchase already exists.\n\nPlease update the existing record instead."
+      
+              );
+      
+              return;
+      
+          }
+      
+      
+          /* ------------------------------------------
+             Save New Purchase
+          ------------------------------------------ */
       
           purchaseRegister.push({
       
@@ -543,7 +585,7 @@ function savePurchaseRegister(){
       
               totalCost:
               Number(
-              inputFields[3].value
+                  inputFields[3].value
               )
       
           });
@@ -1287,6 +1329,99 @@ function sortPurchaseRegister(column){
     );
 
 }
+
+
+/* ==========================================================
+   CHECK DUPLICATE PURCHASE
+
+   PURPOSE:
+   Checks whether a purchase with the same
+   Date, Ingredient Name, Unit and Total Cost
+   already exists in the Purchase Register.
+
+   RETURNS:
+   true  -> Duplicate found
+   false -> No duplicate found
+
+========================================================== */
+
+function isDuplicatePurchase(
+
+    purchaseDate,
+    ingredientName,
+    unit,
+    totalCost
+
+){
+
+    /* ------------------------------------------
+       Read Purchase Register
+    ------------------------------------------ */
+
+    const purchaseRegister =
+
+    JSON.parse(
+
+        localStorage.getItem(
+        "purchaseRegister"
+        )
+
+    ) || [];
+
+
+    /* ------------------------------------------
+       Check for Duplicate
+    ------------------------------------------ */
+
+    return purchaseRegister.some(function(purchase){
+
+        return(
+
+            purchase.purchaseDate === purchaseDate
+
+            &&
+
+            purchase.ingredientName
+            .toLowerCase()
+            .trim()
+
+            ===
+
+            ingredientName
+            .toLowerCase()
+            .trim()
+
+            &&
+
+            purchase.unit
+            .toLowerCase()
+            .trim()
+
+            ===
+
+            unit
+            .toLowerCase()
+            .trim()
+
+            &&
+
+            Number(
+                purchase.totalCost
+            )
+
+            ===
+
+            Number(
+                totalCost
+            )
+
+        );
+
+    });
+
+}
+
+
 
 
 
