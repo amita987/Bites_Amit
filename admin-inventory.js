@@ -1350,7 +1350,9 @@ function isDuplicatePurchase(
     purchaseDate,
     ingredientName,
     unit,
-    totalCost
+    totalCost,
+
+    excludePurchaseId = null
 
 ){
 
@@ -1373,9 +1375,32 @@ function isDuplicatePurchase(
        Check for Duplicate
     ------------------------------------------ */
 
-    return purchaseRegister.some(function(purchase){
-
-        return(
+      return purchaseRegister.some(function(purchase){
+      
+          /* ------------------------------------------
+             Ignore Current Purchase
+      
+             PURPOSE:
+             While updating a purchase, ignore the
+             record currently being edited.
+      
+          ------------------------------------------ */
+      
+          if(
+      
+              excludePurchaseId !== null
+      
+              &&
+      
+              purchase.id === excludePurchaseId
+      
+          ){
+      
+              return false;
+      
+          }
+      
+          return(
 
             purchase.purchaseDate === purchaseDate
 
