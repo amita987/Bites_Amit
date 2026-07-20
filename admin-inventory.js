@@ -24,7 +24,7 @@
 
 document
 .getElementById(
-"addIngredientBtn"
+"addIngredientButton"
 )
 .addEventListener(
 "click",
