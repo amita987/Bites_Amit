@@ -28,13 +28,23 @@
    Holds the ID of the purchase currently
    being edited.
 
-   Value:
-   - null  → New Purchase
-   - Number → Existing Purchase
-
 ------------------------------------------ */
 
 let purchaseBeingUpdated = null;
+
+
+/* ------------------------------------------
+   Purchase Register Sorting
+
+   PURPOSE:
+   Stores the currently selected sort column
+   and sort direction.
+
+------------------------------------------ */
+
+let purchaseSortColumn = "";
+
+let purchaseSortDirection = "ascending";
 
 /* ==========================================================
    ADD INGREDIENT BUTTON
@@ -1070,6 +1080,75 @@ function deletePurchase(purchaseId){
       
       });
 
+
+/* ==========================================================
+   PURCHASE REGISTER SORTING
+
+   PURPOSE:
+   Attaches click events to the Purchase
+   Register table headers.
+
+========================================================== */
+
+document
+.getElementById(
+"sortPurchaseDate"
+)
+.addEventListener(
+"click",
+function(){
+
+    sortPurchaseRegister(
+    "purchaseDate"
+    );
+
+});
+
+
+document
+.getElementById(
+"sortIngredientName"
+)
+.addEventListener(
+"click",
+function(){
+
+    sortPurchaseRegister(
+    "ingredientName"
+    );
+
+});
+
+
+document
+.getElementById(
+"sortUnit"
+)
+.addEventListener(
+"click",
+function(){
+
+    sortPurchaseRegister(
+    "unit"
+    );
+
+});
+
+
+document
+.getElementById(
+"sortTotalCost"
+)
+.addEventListener(
+"click",
+function(){
+
+    sortPurchaseRegister(
+    "totalCost"
+    );
+
+});
+   
     /* ------------------------------------------
        Notify User
     ------------------------------------------ */
@@ -1083,6 +1162,61 @@ function deletePurchase(purchaseId){
 }
 
 
+/* ==========================================================
+   SORT PURCHASE REGISTER
+
+   PURPOSE:
+   Updates the selected sort column and
+   toggles the sort direction.
+
+========================================================== */
+
+function sortPurchaseRegister(column){
+
+    /* ------------------------------------------
+       Toggle Sort Direction
+    ------------------------------------------ */
+
+    if(purchaseSortColumn === column){
+
+        purchaseSortDirection =
+
+        purchaseSortDirection === "ascending"
+
+        ?
+
+        "descending"
+
+        :
+
+        "ascending";
+
+    }
+
+    else{
+
+        purchaseSortColumn = column;
+
+        purchaseSortDirection = "ascending";
+
+    }
+
+
+    /* ------------------------------------------
+       Refresh Purchase Register
+    ------------------------------------------ */
+
+    displayPurchaseRegister(
+
+        document
+        .getElementById(
+        "searchPurchaseInput"
+        )
+        .value
+
+    );
+
+}
 
 
 
