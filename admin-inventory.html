@@ -88,20 +88,140 @@ Back to 🍽️ Menu Management
 
 
 <!-- ==========================================================
-     ADD INGREDIENT BUTTON
+INVENTORY MANAGEMENT
 
-     PURPOSE:
-     Will open the Add Ingredient form
-     in the next step.
+PURPOSE:
+Displays the Add Ingredient button.
+The Purchase Entry Form is hidden initially and
+will be displayed when the Add Ingredient button
+is clicked.
 
 ========================================================== -->
 
 <button
-id="addIngredientBtn">
+id="addIngredientButton">
 
 ➕ Add Ingredient
 
 </button>
+
+
+
+<!-- ==========================================================
+PURCHASE ENTRY FORM
+
+PURPOSE:
+This form is used to enter ingredient purchase
+details.
+
+Initially hidden.
+
+It will become visible after clicking
+"➕ Add Ingredient".
+
+========================================================== -->
+
+<div
+id="purchaseEntrySection"
+style="display:none; margin-top:20px;">
+
+<h3>
+
+Purchase Entry
+
+</h3>
+
+
+
+<!-- ==========================================================
+PURCHASE ENTRY TABLE
+
+PURPOSE:
+Displays one or more ingredient purchase rows.
+
+========================================================== -->
+
+<table
+id="purchaseEntryTable"
+border="1"
+cellpadding="8"
+style="width:100%; border-collapse:collapse;">
+
+<thead>
+
+<tr>
+
+<th>
+
+Date of Purchase
+
+</th>
+
+<th>
+
+Ingredient Name
+
+</th>
+
+<th>
+
+Unit
+
+</th>
+
+<th>
+
+Total Cost of Ingredient
+
+</th>
+
+<th>
+
+Action
+
+</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody
+id="purchaseEntryBody">
+
+<!--
+Rows will be created using JavaScript.
+-->
+
+</tbody>
+
+</table>
+
+
+
+<br>
+
+
+
+<!-- ==========================================================
+ADD ANOTHER ROW BUTTON
+
+PURPOSE:
+Adds another blank purchase row to the table.
+
+Functionality will be added later.
+
+========================================================== -->
+
+<button
+id="addPurchaseRowButton">
+
+➕ Add Another Row
+
+</button>
+
+</div>
 
 <br><br>
 
