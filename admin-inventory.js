@@ -57,6 +57,30 @@ function(){
 });
 
 
+/* ==========================================================
+   ADD ANOTHER PURCHASE ROW BUTTON
+
+   PURPOSE:
+   Creates another editable purchase row
+   in the Purchase Entry table.
+
+========================================================== */
+
+document
+.getElementById(
+"addPurchaseRowButton"
+)
+.addEventListener(
+"click",
+function(){
+
+    createPurchaseRow();
+
+});
+
+
+
+
 
 /* ==========================================================
    CLOSE BUTTON ( × )
