@@ -189,16 +189,113 @@ function(event){
    CREATE PURCHASE ROW
 
    PURPOSE:
-   Placeholder.
-
-   In the next step this function will create
-   the first editable purchase row.
+   Creates one editable purchase row in the
+   Purchase Entry table.
 
 ========================================================== */
 
 function createPurchaseRow(){
 
-    // Code will be added
-    // in the next step.
+    /* ------------------------------------------
+       Get Purchase Entry Table Body
+    ------------------------------------------ */
+
+    const purchaseEntryBody =
+
+    document.getElementById(
+    "purchaseEntryBody"
+    );
+
+
+    /* ------------------------------------------
+       Create New Table Row
+    ------------------------------------------ */
+
+    const newRow =
+
+    document.createElement(
+    "tr"
+    );
+
+
+    /* ------------------------------------------
+       Set Today's Date
+    ------------------------------------------ */
+
+    const today =
+
+    new Date()
+    .toISOString()
+    .split("T")[0];
+
+
+    /* ------------------------------------------
+       Create Editable Row
+    ------------------------------------------ */
+
+    newRow.innerHTML = `
+
+    <td>
+
+        <input
+        type="date"
+        value="${today}">
+
+    </td>
+
+    <td>
+
+        <input
+        type="text"
+        placeholder="Ingredient Name">
+
+    </td>
+
+    <td>
+
+        <input
+        type="text"
+        placeholder="Example: 25 kg">
+
+    </td>
+
+    <td>
+
+        <input
+        type="number"
+        min="0"
+        placeholder="Total Cost">
+
+    </td>
+
+    <td>
+
+        <button
+        class="saveRowButton">
+
+        💾 Save Row
+
+        </button>
+
+        <button
+        class="removeRowButton">
+
+        ❌ Remove Row
+
+        </button>
+
+    </td>
+
+    `;
+
+
+    /* ------------------------------------------
+       Add Row to Table
+    ------------------------------------------ */
+
+    purchaseEntryBody
+    .appendChild(
+    newRow
+    );
 
 }
