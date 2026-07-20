@@ -313,13 +313,34 @@ function createPurchaseRow(){
     `;
 
 
-    /* ------------------------------------------
-       Add Row to Table
-    ------------------------------------------ */
-
-    purchaseEntryBody
-    .appendChild(
-    newRow
-    );
+   /* ------------------------------------------
+      Add Row to Table
+   ------------------------------------------ */
+   
+   purchaseEntryBody
+   .appendChild(
+   newRow
+   );
+   
+   
+   /* ------------------------------------------
+      REMOVE ROW BUTTON
+   
+      PURPOSE:
+      Removes only the selected purchase row.
+   
+   ------------------------------------------ */
+   
+   newRow
+   .querySelector(
+   ".removeRowButton"
+   )
+   .addEventListener(
+   "click",
+   function(){
+   
+       newRow.remove();
+   
+   });
 
 }
