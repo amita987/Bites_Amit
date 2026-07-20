@@ -470,29 +470,92 @@ function savePurchaseRegister(){
         "input"
         );
 
-        purchaseRegister.push({
-
-            id: Date.now() + Math.random(),
-
-            purchaseDate:
-            inputFields[0].value,
-
-            ingredientName:
-            inputFields[1].value,
-
-            unit:
-            inputFields[2].value,
-
-            totalCost:
-            Number(
-            inputFields[3].value
-            )
-
-        });
+      /* ------------------------------------------
+         Update Existing Purchase
+      ------------------------------------------ */
+      
+      if(purchaseBeingUpdated !== null){
+      
+          const purchaseIndex =
+      
+          purchaseRegister.findIndex(function(purchase){
+      
+              return purchase.id === purchaseBeingUpdated;
+      
+          });
+      
+      
+          if(purchaseIndex !== -1){
+      
+              purchaseRegister[purchaseIndex] = {
+      
+                  id: purchaseBeingUpdated,
+      
+                  purchaseDate:
+                  inputFields[0].value,
+      
+                  ingredientName:
+                  inputFields[1].value,
+      
+                  unit:
+                  inputFields[2].value,
+      
+                  totalCost:
+                  Number(
+                  inputFields[3].value
+                  )
+      
+              };
+      
+          }
+      
+      }
+      
+      
+      /* ------------------------------------------
+         Save New Purchase
+      ------------------------------------------ */
+      
+      else{
+      
+          purchaseRegister.push({
+      
+              id: Date.now() + Math.random(),
+      
+              purchaseDate:
+              inputFields[0].value,
+      
+              ingredientName:
+              inputFields[1].value,
+      
+              unit:
+              inputFields[2].value,
+      
+              totalCost:
+              Number(
+              inputFields[3].value
+              )
+      
+          });
+      
+      }
 
     });
 
 
+      /* ------------------------------------------
+         Reset Update Mode
+      
+         PURPOSE:
+         Prepare for the next Add Ingredient
+         operation.
+      
+      ------------------------------------------ */
+      
+      purchaseBeingUpdated = null;
+   
+
+   
     /* ------------------------------------------
        Save to Local Storage
     ------------------------------------------ */
