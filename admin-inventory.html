@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Bite Amit Restaurant | Inventory Management
+</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================================
+     HEADER
+
+     PURPOSE:
+     Displays the Inventory Management page title.
+========================================================== -->
+
+<header>
+
+<h1>
+
+📦 Inventory Management
+
+</h1>
+
+</header>
+
+
+<!-- ==========================================================
+     MAIN CONTENT
+
+     PURPOSE:
+     Displays Ingredient Master List.
+
+========================================================== -->
+
+<main>
+
+<h2>
+
+Ingredient Master List
+
+</h2>
+
+
+<!-- ==========================================================
+     NAVIGATION BUTTONS
+
+     PURPOSE:
+     Quick navigation back to Admin Dashboard
+     and Order Management.
+
+========================================================== -->
+
+<button
+onclick="window.location.href='admin-dashboard.html'">
+
+🏠 Dashboard
+
+</button>
+
+<button
+onclick="window.location.href='admin-orders.html'">
+
+📦 Orders
+
+</button>
+
+<button
+onclick="window.location.href='admin-menu.html'">
+
+🍽️ Menu
+
+</button>
+
+<br><br>
+
+
+<!-- ==========================================================
+     ADD INGREDIENT BUTTON
+
+     PURPOSE:
+     Will open the Add Ingredient form
+     in the next step.
+
+========================================================== -->
+
+<button
+id="addIngredientBtn">
+
+➕ Add Ingredient
+
+</button>
+
+<br><br>
+
+
+<!-- ==========================================================
+     INGREDIENT MASTER TABLE
+
+     PURPOSE:
+     Displays all ingredients.
+
+========================================================== -->
+
+<table
+id="ingredientTable"
+border="1"
+cellpadding="10">
+
+<thead>
+
+<tr>
+
+<th>
+
+Ingredient
+
+</th>
+
+<th>
+
+Unit
+
+</th>
+
+<th>
+
+Current Stock
+
+</th>
+
+<th>
+
+Low Stock Alert
+
+</th>
+
+<th>
+
+Action
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody
+id="ingredientTableBody">
+
+<tr>
+
+<td
+colspan="5"
+style="text-align:center;">
+
+No ingredients added yet.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</main>
+
+<script src="admin-inventory.js"></script>
+
+</body>
+
+</html>
