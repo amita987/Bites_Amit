@@ -722,37 +722,135 @@ function displayPurchaseRegister(){
 
 displayPurchaseRegister();
 
+
 /* ==========================================================
    UPDATE PURCHASE
 
    PURPOSE:
-   Receives the selected purchase ID.
-
-   (In the next step it will load the
-   purchase into the popup.)
+   Opens the Purchase Entry popup and loads
+   the selected purchase for editing.
 
 ========================================================== */
 
 function updatePurchase(purchaseId){
 
     /* ------------------------------------------
-       Store Current Purchase ID
+       Store Purchase ID
     ------------------------------------------ */
 
     purchaseBeingUpdated = purchaseId;
 
 
     /* ------------------------------------------
-       Temporary Test
+       Read Purchase Register
     ------------------------------------------ */
 
-    alert(
+    const purchaseRegister =
 
-        "Updating Purchase ID : " +
+    JSON.parse(
 
-        purchaseId
+        localStorage.getItem(
+        "purchaseRegister"
+        )
 
+    ) || [];
+
+
+    /* ------------------------------------------
+       Find Selected Purchase
+    ------------------------------------------ */
+
+    const selectedPurchase =
+
+    purchaseRegister.find(function(purchase){
+
+        return purchase.id === purchaseId;
+
+    });
+
+
+    if(!selectedPurchase){
+
+        alert(
+        "Purchase record not found."
+        );
+
+        return;
+
+    }
+
+
+    /* ------------------------------------------
+       Clear Existing Purchase Rows
+    ------------------------------------------ */
+
+    document
+    .getElementById(
+    "purchaseEntryBody"
+    )
+    .innerHTML = "";
+
+
+    /* ------------------------------------------
+       Open Purchase Popup
+    ------------------------------------------ */
+
+    document
+    .getElementById(
+    "purchaseModal"
+    )
+    .style.display =
+    "block";
+
+
+    /* ------------------------------------------
+       Create Editable Row
+    ------------------------------------------ */
+
+    createPurchaseRow();
+
+
+    /* ------------------------------------------
+       Load Purchase Values
+    ------------------------------------------ */
+
+    const editRow =
+
+    document
+    .querySelector(
+    "#purchaseEntryBody tr"
     );
+
+
+    const inputFields =
+
+    editRow.querySelectorAll(
+    "input"
+    );
+
+
+    inputFields[0].value =
+    selectedPurchase.purchaseDate;
+
+    inputFields[1].value =
+    selectedPurchase.ingredientName;
+
+    inputFields[2].value =
+    selectedPurchase.unit;
+
+    inputFields[3].value =
+    selectedPurchase.totalCost;
+
+
+    /* ------------------------------------------
+       Mark Row as Saved
+
+       This allows Save Purchase to process
+       the row in the next step.
+
+    ------------------------------------------ */
+
+    editRow.dataset.saved = "true";
 
 }
 
