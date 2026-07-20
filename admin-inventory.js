@@ -642,7 +642,11 @@ function savePurchaseRegister(){
 
 ========================================================== */
 
-function displayPurchaseRegister(){
+function displayPurchaseRegister(
+
+    searchText = ""
+
+){
 
     /* ------------------------------------------
        Get Purchase Register Table Body
@@ -704,11 +708,53 @@ function displayPurchaseRegister(){
     }
 
 
-    /* ------------------------------------------
-       Display Purchase Records
-    ------------------------------------------ */
-
-    purchaseRegister.forEach(function(purchase){
+   /* ------------------------------------------
+      Filter Purchase Records
+   
+      PURPOSE:
+      Filters the Purchase Register based on
+      the search text entered by the user.
+   
+   ------------------------------------------ */
+   
+   const filteredPurchases =
+   
+   purchaseRegister.filter(function(purchase){
+   
+       const searchValue =
+   
+       searchText
+       .toLowerCase()
+       .trim();
+   
+       return(
+   
+           purchase.purchaseDate
+           .toLowerCase()
+           .includes(searchValue)
+   
+           ||
+   
+           purchase.ingredientName
+           .toLowerCase()
+           .includes(searchValue)
+   
+           ||
+   
+           purchase.unit
+           .toLowerCase()
+           .includes(searchValue)
+   
+       );
+   
+   });
+   
+   
+   /* ------------------------------------------
+      Display Purchase Records
+   ------------------------------------------ */
+   
+   filteredPurchases.forEach(function(purchase){
 
         const row =
 
@@ -999,6 +1045,30 @@ function deletePurchase(purchaseId){
 
     displayPurchaseRegister();
 
+         /* ==========================================================
+         SEARCH PURCHASE REGISTER
+      
+         PURPOSE:
+         Filters the Purchase Register as the
+         administrator types.
+      
+      ========================================================== */
+      
+      document
+      .getElementById(
+      "searchPurchaseInput"
+      )
+      .addEventListener(
+      "input",
+      function(){
+      
+          displayPurchaseRegister(
+      
+              this.value
+      
+          );
+      
+      });
 
     /* ------------------------------------------
        Notify User
