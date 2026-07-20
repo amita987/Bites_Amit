@@ -369,7 +369,139 @@ function createPurchaseRow(){
            }
    
        }
-   
+   /* ==========================================================
+   SAVE PURCHASE BUTTON
+
+   PURPOSE:
+   Saves all validated purchase rows into
+   Local Storage.
+
+========================================================== */
+
+document
+.getElementById(
+"savePurchaseButton"
+)
+.addEventListener(
+"click",
+function(){
+
+    savePurchaseRegister();
+
+});
+
+
+
+/* ==========================================================
+   SAVE PURCHASE REGISTER
+
+   PURPOSE:
+   Saves all validated purchase rows into
+   Local Storage.
+
+========================================================== */
+
+function savePurchaseRegister(){
+
+    /* ------------------------------------------
+       Get all purchase rows
+    ------------------------------------------ */
+
+    const purchaseRows =
+
+    document
+    .querySelectorAll(
+    "#purchaseEntryBody tr"
+    );
+
+
+    /* ------------------------------------------
+       Read existing purchases
+    ------------------------------------------ */
+
+    const purchaseRegister =
+
+    JSON.parse(
+
+        localStorage.getItem(
+        "purchaseRegister"
+        )
+
+    ) || [];
+
+
+    /* ------------------------------------------
+       Process each saved row
+    ------------------------------------------ */
+
+    purchaseRows.forEach(function(row){
+
+        if(row.dataset.saved !== "true"){
+
+            return;
+
+        }
+
+        const inputFields =
+
+        row.querySelectorAll(
+        "input"
+        );
+
+        purchaseRegister.push({
+
+            id: Date.now() + Math.random(),
+
+            purchaseDate:
+            inputFields[0].value,
+
+            ingredientName:
+            inputFields[1].value,
+
+            unit:
+            inputFields[2].value,
+
+            totalCost:
+            Number(
+            inputFields[3].value
+            )
+
+        });
+
+    });
+
+
+    /* ------------------------------------------
+       Save to Local Storage
+    ------------------------------------------ */
+
+    localStorage.setItem(
+
+        "purchaseRegister",
+
+        JSON.stringify(
+        purchaseRegister
+        )
+
+    );
+
+
+    /* ------------------------------------------
+       Notify User
+    ------------------------------------------ */
+
+    alert(
+    "Purchase saved successfully."
+    );
+
+
+    /* ------------------------------------------
+       Close Popup
+    ------------------------------------------ */
+
+    closePurchaseModal();
+
+}
    
        /* --------------------------------------
           Mark row as saved
