@@ -395,87 +395,202 @@ function generateReport() {
     document.getElementById("displayToDate").textContent = toDate;
 
 
-   /* ------------------------------------------
-      Read Restaurant Orders
-   ------------------------------------------ */
+   /* ==========================================================
+      READ CUSTOMER ORDERS
    
-   const restaurantOrders =
+      PURPOSE:
+      Loads all saved customer orders.
+   
+   ========================================================== */
+   
+   const orders =
    
        JSON.parse(
    
-           localStorage.getItem("restaurantOrders")
+           localStorage.getItem("orders")
    
        ) || [];
    
    
-   /* ------------------------------------------
-      Filter Orders Within Selected Date Range
-   ------------------------------------------ */
+   /* ==========================================================
+      FILTER ORDERS
+   
+      PURPOSE:
+      Keep only the orders within the selected
+      reporting period.
+   
+   ========================================================== */
    
    const filteredOrders =
    
-       restaurantOrders.filter(function(order){
+       orders.filter(function(order){
    
-           // Assumes each order has a date field
-           // Example:
-           // order.orderDate = "2026-07-21"
+           return(
    
-           return (
+               order.orderDateValue >= fromDate
    
-               order.orderDate >= fromDate &&
+               &&
    
-               order.orderDate <= toDate
+               order.orderDateValue <= toDate
    
            );
    
        });
    
    
-   /* ------------------------------------------
-      Calculate Total Orders
-   ------------------------------------------ */
+   /* ==========================================================
+      READ PURCHASE REGISTER
    
-   const totalOrders = filteredOrders.length;
+   ========================================================== */
    
+   const purchaseRegister =
    
-   /* ------------------------------------------
-      Calculate Total Revenue
-   ------------------------------------------ */
+       JSON.parse(
    
-   let totalRevenue = 0;
+           localStorage.getItem("purchaseRegister")
    
-   filteredOrders.forEach(function(order){
-   
-       totalRevenue += Number(order.total || 0);
-   
-   });
+       ) || [];
    
    
-   /* ------------------------------------------
-      Display Financial Summary
-   ------------------------------------------ */
+   /* ==========================================================
+      FILTER PURCHASES
    
-   displayFinancialSummary(
+   ========================================================== */
    
-       totalOrders,
+   const filteredPurchases =
    
-       totalRevenue
+       purchaseRegister.filter(function(purchase){
+   
+           return(
+   
+               purchase.purchaseDate >= fromDate
+   
+               &&
+   
+               purchase.purchaseDate <= toDate
+   
+           );
+   
+       });
+   
+   
+   /* ==========================================================
+      GENERATE FINANCIAL SUMMARY
+   
+   ========================================================== */
+   
+   generateFinancialSummary(
+   
+       filteredOrders,
+   
+       filteredPurchases
    
    );
 
 }
 
-/* =====================================================
-   Display Financial Summary
-===================================================== */
 
-function displayFinancialSummary(
+/* ==========================================================
+   GENERATE FINANCIAL SUMMARY
 
-    totalOrders,
+   PURPOSE:
+   Calculates every financial figure for the
+   selected reporting period.
 
-    totalRevenue
+========================================================== */
+
+function generateFinancialSummary(
+
+    filteredOrders,
+
+    filteredPurchases
 
 ){
+
+    /* ------------------------------------------
+       Initialize Totals
+    ------------------------------------------ */
+
+    let totalOrders = 0;
+
+    let totalRevenue = 0;
+
+    let totalPurchaseCost = 0;
+
+    let totalDeliveryCharges = 0;
+
+    let totalTax = 0;
+
+
+    /* ------------------------------------------
+       Calculate Order Totals
+    ------------------------------------------ */
+
+    totalOrders = filteredOrders.length;
+
+
+    filteredOrders.forEach(function(order){
+
+        totalRevenue += Number(order.total || 0);
+
+        totalDeliveryCharges += Number(order.delivery || 0);
+
+        totalTax += Number(order.taxAmount || 0);
+
+    });
+
+
+    /* ------------------------------------------
+       Calculate Purchase Totals
+    ------------------------------------------ */
+
+    filteredPurchases.forEach(function(purchase){
+
+        totalPurchaseCost += Number(purchase.totalCost || 0);
+
+    });
+
+
+    /* ------------------------------------------
+       Calculate Derived Values
+    ------------------------------------------ */
+
+    const revenueAfterDelivery =
+
+        totalRevenue -
+
+        totalDeliveryCharges;
+
+
+    const revenueAfterDeliveryAndTax =
+
+        totalRevenue
+
+        -
+
+        totalDeliveryCharges
+
+        -
+
+        totalTax;
+
+
+    const averageOrderValue =
+
+        totalOrders === 0
+
+        ?
+
+        0
+
+        :
+
+        totalRevenue / totalOrders;
+
+
+    /* ------------------------------------------
+       Display Financial Summary
+    ------------------------------------------ */
 
     document.getElementById(
 
@@ -484,35 +599,84 @@ function displayFinancialSummary(
     ).innerHTML =
 
     `
-        <h2>Financial Summary</h2>
 
-        <table border="1" cellpadding="8">
+    <h2>Financial Summary</h2>
 
-            <tr>
+    <table border="1" cellpadding="8">
 
-                <th>Description</th>
+        <tr>
 
-                <th>Value</th>
+            <th>Description</th>
 
-            </tr>
+            <th>Amount</th>
 
-            <tr>
+        </tr>
 
-                <td>Total Orders</td>
+        <tr>
 
-                <td>${totalOrders}</td>
+            <td>Total Orders</td>
 
-            </tr>
+            <td>${totalOrders}</td>
 
-            <tr>
+        </tr>
 
-                <td>Total Revenue</td>
+        <tr>
 
-                <td>₹${totalRevenue.toFixed(2)}</td>
+            <td>Total Revenue</td>
 
-            </tr>
+            <td>₹${totalRevenue.toFixed(2)}</td>
 
-        </table>
+        </tr>
+
+        <tr>
+
+            <td>Total Ingredient Purchase Cost</td>
+
+            <td>₹${totalPurchaseCost.toFixed(2)}</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Total Delivery Charges</td>
+
+            <td>₹${totalDeliveryCharges.toFixed(2)}</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Total Tax</td>
+
+            <td>₹${totalTax.toFixed(2)}</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Revenue after Delivery Charges</td>
+
+            <td>₹${revenueAfterDelivery.toFixed(2)}</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Revenue after Delivery Charges & Tax</td>
+
+            <td>₹${revenueAfterDeliveryAndTax.toFixed(2)}</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Average Order Value</td>
+
+            <td>₹${averageOrderValue.toFixed(2)}</td>
+
+        </tr>
+
+    </table>
 
     `;
 
