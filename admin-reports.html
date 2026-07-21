@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Reports & Dashboard</title>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         Reports Page Heading
+    =========================================== -->
+
+    <h1>Reports & Dashboard</h1>
+
+
+    <!-- ==========================================
+         Report Filters
+    =========================================== -->
+
+    <div id="reportFilters">
+
+        <h2>Report Filters</h2>
+
+        <label>
+            From Date
+            <input
+                type="date"
+                id="fromDate">
+        </label>
+
+        <br><br>
+
+        <label>
+            To Date
+            <input
+                type="date"
+                id="toDate">
+        </label>
+
+        <br><br>
+
+        <!-- Quick Filter Buttons -->
+
+        <button id="todayBtn">Today</button>
+
+        <button id="yesterdayBtn">Yesterday</button>
+
+        <button id="thisWeekBtn">This Week</button>
+
+        <button id="lastWeekBtn">Last Week</button>
+
+        <button id="thisMonthBtn">This Month</button>
+
+        <button id="lastMonthBtn">Last Month</button>
+
+        <button id="thisYearBtn">This Year</button>
+
+        <button id="lastYearBtn">Last Year</button>
+
+        <br><br>
+
+        <!-- Generate Report -->
+
+        <button id="generateReportBtn">
+
+            Generate Report
+
+        </button>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- ==========================================
+         Report Period
+         Filled after Generate Report is clicked
+    =========================================== -->
+
+    <div id="reportPeriod">
+
+        <h2>Report Period</h2>
+
+        <p><strong>From:</strong> <span id="displayFromDate">-</span></p>
+
+        <p><strong>To:</strong> <span id="displayToDate">-</span></p>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- ==========================================
+         Financial Summary
+    =========================================== -->
+
+    <div id="financialSummary">
+
+        <h2>Financial Summary</h2>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- ==========================================
+         Best Selling Items
+    =========================================== -->
+
+    <div id="bestSellingItems">
+
+        <h2>Best Selling Items</h2>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- ==========================================
+         Ingredient Purchase Summary
+    =========================================== -->
+
+    <div id="ingredientPurchaseSummary">
+
+        <h2>Ingredient Purchase Summary</h2>
+
+    </div>
+
+
+    <!-- Reports JavaScript -->
+
+    <script src="admin-reports.js"></script>
+
+</body>
+
+</html>
