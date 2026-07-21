@@ -481,49 +481,75 @@ function placeOrder(){
       ORDER DATE & TIME
    
       PURPOSE:
-      Stores when the customer placed the order.
+      Stores two versions of the order date.
    
-      ========================================================== */
+      orderDate
+          -> Display format for customers/admin
+             Example: 21 Jul 2026
+   
+      orderDateValue
+          -> Internal format used for searching,
+             filtering and reports.
+             Example: 2026-07-21
+   
+   ========================================================== */
    
    const now = new Date();
    
    
+   /* ----------------------------------------------------------
+      Display Date
+   ---------------------------------------------------------- */
+   
    const orderDate =
    
-   now.toLocaleDateString(
+       now.toLocaleDateString(
    
-   "en-GB",
+           "en-GB",
    
-   {
+           {
    
-   day: "2-digit",
+               day: "2-digit",
    
-   month: "short",
+               month: "short",
    
-   year: "numeric"
+               year: "numeric"
    
-   }
+           }
    
-   );
+       );
    
+   
+   /* ----------------------------------------------------------
+      Report Date (YYYY-MM-DD)
+   ---------------------------------------------------------- */
+   
+   const orderDateValue =
+   
+       now.toISOString().split("T")[0];
+   
+   
+   /* ----------------------------------------------------------
+      Display Time
+   ---------------------------------------------------------- */
    
    const orderTime =
    
-   now.toLocaleTimeString(
+       now.toLocaleTimeString(
    
-   "en-IN",
+           "en-IN",
    
-   {
+           {
    
-   hour: "2-digit",
+               hour: "2-digit",
    
-   minute: "2-digit",
+               minute: "2-digit",
    
-   hour12: true
+               hour12: true
    
-   }
+           }
    
-   );
+       );
    
 
    /* ==========================================================
@@ -547,11 +573,22 @@ function placeOrder(){
    
        orderId: orderId,
    
-   
-       orderDate: orderDate,
-   
-   
-       orderTime: orderTime,
+      /* ------------------------------------------------------
+         Order Date
+      
+         orderDate
+             Display version
+      
+         orderDateValue
+             Used for Reports & Dashboard
+      
+      ------------------------------------------------------- */
+      
+      orderDate: orderDate,
+      
+      orderDateValue: orderDateValue,
+      
+      orderTime: orderTime,
    
    
        /* ------------------------------------------------------
