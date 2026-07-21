@@ -528,42 +528,94 @@ function savePurchaseRegister(){
 
       else{
       
-          /* ------------------------------------------
-             Check for Duplicate Purchase
-      
-             PURPOSE:
-             Prevents saving an identical purchase
-             more than once.
-      
-          ------------------------------------------ */
-      
-          if(
-      
-              isDuplicatePurchase(
-      
-                  inputFields[0].value,
-      
-                  inputFields[1].value,
-      
-                  inputFields[2].value,
-      
-                  Number(
-                      inputFields[3].value
-                  )
-      
-              )
-      
-          ){
-      
-              alert(
-      
-                  "This purchase already exists.\n\nPlease update the existing record instead."
-      
-              );
-      
-              return;
-      
-          }
+
+         /* ------------------------------------------
+            Duplicate Purchase Confirmation
+   
+            PURPOSE:
+            Checks whether a similar purchase
+            already exists.
+   
+            If a duplicate is found, allow the
+            administrator to decide whether to
+            continue saving or cancel.
+   
+         ------------------------------------------ */
+   
+         if(
+   
+             isDuplicatePurchase(
+   
+                 inputFields[0].value,
+   
+                 inputFields[1].value,
+   
+                 inputFields[2].value,
+   
+                 Number(
+                     inputFields[3].value
+                 )
+   
+             )
+   
+         ){
+   
+             const continueSaving =
+   
+             confirm(
+   
+                 "A similar purchase already exists.\n\n"
+   
+                 +
+   
+                 "Date : "
+   
+                 + inputFields[0].value
+   
+                 + "\n"
+   
+                 +
+   
+                 "Ingredient : "
+   
+                 + inputFields[1].value
+   
+                 + "\n"
+   
+                 +
+   
+                 "Unit : "
+   
+                 + inputFields[2].value
+   
+                 + "\n"
+   
+                 +
+   
+                 "Total Cost : ₹"
+   
+                 + Number(inputFields[3].value)
+   
+                 + "\n\n"
+   
+                 +
+   
+                 "Do you still want to save this purchase?"
+   
+             );
+   
+   
+             /* ------------------------------------------
+                Administrator Chose NOT to Save
+             ------------------------------------------ */
+   
+             if(!continueSaving){
+   
+                 return;
+   
+             }
+   
+         }
       
       
           /* ------------------------------------------
