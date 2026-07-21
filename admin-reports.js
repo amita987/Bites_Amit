@@ -395,17 +395,127 @@ function generateReport() {
     document.getElementById("displayToDate").textContent = toDate;
 
 
-    /* ------------------------------------------
-       Placeholder
-
-       Financial calculations will be added
-       in the next step.
-    ------------------------------------------ */
-
-    console.log("Report generated.");
-
-    console.log("From :", fromDate);
-
-    console.log("To   :", toDate);
+   /* ------------------------------------------
+      Read Restaurant Orders
+   ------------------------------------------ */
+   
+   const restaurantOrders =
+   
+       JSON.parse(
+   
+           localStorage.getItem("restaurantOrders")
+   
+       ) || [];
+   
+   
+   /* ------------------------------------------
+      Filter Orders Within Selected Date Range
+   ------------------------------------------ */
+   
+   const filteredOrders =
+   
+       restaurantOrders.filter(function(order){
+   
+           // Assumes each order has a date field
+           // Example:
+           // order.orderDate = "2026-07-21"
+   
+           return (
+   
+               order.orderDate >= fromDate &&
+   
+               order.orderDate <= toDate
+   
+           );
+   
+       });
+   
+   
+   /* ------------------------------------------
+      Calculate Total Orders
+   ------------------------------------------ */
+   
+   const totalOrders = filteredOrders.length;
+   
+   
+   /* ------------------------------------------
+      Calculate Total Revenue
+   ------------------------------------------ */
+   
+   let totalRevenue = 0;
+   
+   filteredOrders.forEach(function(order){
+   
+       totalRevenue += Number(order.total || 0);
+   
+   });
+   
+   
+   /* ------------------------------------------
+      Display Financial Summary
+   ------------------------------------------ */
+   
+   displayFinancialSummary(
+   
+       totalOrders,
+   
+       totalRevenue
+   
+   );
 
 }
+
+/* =====================================================
+   Display Financial Summary
+===================================================== */
+
+function displayFinancialSummary(
+
+    totalOrders,
+
+    totalRevenue
+
+){
+
+    document.getElementById(
+
+        "financialSummary"
+
+    ).innerHTML =
+
+    `
+        <h2>Financial Summary</h2>
+
+        <table border="1" cellpadding="8">
+
+            <tr>
+
+                <th>Description</th>
+
+                <th>Value</th>
+
+            </tr>
+
+            <tr>
+
+                <td>Total Orders</td>
+
+                <td>${totalOrders}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>Total Revenue</td>
+
+                <td>₹${totalRevenue.toFixed(2)}</td>
+
+            </tr>
+
+        </table>
+
+    `;
+
+}
+
+
