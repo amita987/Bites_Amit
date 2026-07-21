@@ -85,6 +85,14 @@ function initializeReportFilters() {
         .getElementById("lastYearBtn")
         .addEventListener("click", setLastYear);
 
+      /* ------------------------------------------
+      Generate Report Button
+   ------------------------------------------ */
+   
+   document
+       .getElementById("generateReportBtn")
+       .addEventListener("click", generateReport);
+
 }
 
 
@@ -335,4 +343,69 @@ function setLastYear() {
 
 }
 
+/* =====================================================
+   Generate Report
 
+   1. Validate selected dates
+   2. Display report period
+   3. (Financial calculations will be added next)
+===================================================== */
+
+function generateReport() {
+
+    /* ------------------------------------------
+       Read selected dates
+    ------------------------------------------ */
+
+    const fromDate =
+        document.getElementById("fromDate").value;
+
+    const toDate =
+        document.getElementById("toDate").value;
+
+
+    /* ------------------------------------------
+       Validate dates
+    ------------------------------------------ */
+
+    if (fromDate === "" || toDate === "") {
+
+        alert("Please select both From Date and To Date.");
+
+        return;
+
+    }
+
+
+    if (fromDate > toDate) {
+
+        alert("From Date cannot be later than To Date.");
+
+        return;
+
+    }
+
+
+    /* ------------------------------------------
+       Display selected report period
+    ------------------------------------------ */
+
+    document.getElementById("displayFromDate").textContent = fromDate;
+
+    document.getElementById("displayToDate").textContent = toDate;
+
+
+    /* ------------------------------------------
+       Placeholder
+
+       Financial calculations will be added
+       in the next step.
+    ------------------------------------------ */
+
+    console.log("Report generated.");
+
+    console.log("From :", fromDate);
+
+    console.log("To   :", toDate);
+
+}
