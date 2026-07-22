@@ -348,31 +348,70 @@ footer {
 }
 /* ===== MENU TABLE ===== */
 
+/* ==========================================================
+   GLOBAL TABLES
+========================================================== */
+
 table{
+
     width:100%;
+
     border-collapse:collapse;
-    margin-bottom:40px;
-    background:white;
-    border-radius:10px;
+
+    margin:var(--space-lg) 0;
+
+    background:var(--card);
+
+    border-radius:var(--radius-medium);
+
     overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+
+    box-shadow:var(--shadow-medium);
+
 }
 
 th{
-    background:#8B0000;
-    color:white;
-    padding:15px;
-    font-size:18px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    padding:16px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    text-align:center;
+
 }
 
 td{
-    padding:15px;
+
+    padding:14px;
+
     text-align:center;
-    border-bottom:1px solid #ddd;
+
+    border-bottom:1px solid var(--border);
+
 }
 
-tr:hover{
-    background:#fff4e6;
+tbody tr{
+
+    transition:background .2s ease;
+
+}
+
+tbody tr:nth-child(even){
+
+    background:#fcfcfc;
+
+}
+
+tbody tr:hover{
+
+    background:var(--table-hover);
+
 }
 
 td img{
