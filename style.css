@@ -554,5 +554,44 @@ td button:hover{
 
 }
 
+/* ==========================================================
+   DAILY REPORT PRINT
+========================================================== */
 
+@media print{
+
+    body *{
+
+        visibility:hidden;
+
+    }
+
+    #dailyReportSection,
+    #dailyReportSection *{
+
+        visibility:visible;
+
+    }
+
+    #dailyReportSection{
+
+        position:absolute;
+
+        left:0;
+
+        top:0;
+
+        width:100%;
+
+    }
+
+    #backToReportsBtn,
+    #reportSettingsBtn,
+    #printDailyReportBtn{
+
+        display:none;
+
+    }
+
+}
 
