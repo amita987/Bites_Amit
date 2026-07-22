@@ -1728,5 +1728,29 @@ document.getElementById("dailyTopIngredient").textContent =
 
 document.getElementById("dailyHighestIngredient").textContent =
     highestPurchaseIngredient;
+/* ------------------------------------------
+   Net Revenue
+------------------------------------------ */
+
+const estimatedNetRevenue =
+
+    summary.grossRevenue
+
+    -
+
+    summary.totalTax
+
+    -
+
+    summary.totalDelivery
+
+    -
+
+    totalPurchaseCost;
+
+
+document.getElementById("dailyNetRevenue").textContent =
+
+    "₹" + estimatedNetRevenue.toFixed(2);
 
 }
