@@ -177,42 +177,71 @@ nav a:hover{
 }
 
 
-/* Hero Section */
+/* ==========================================================
+   HERO SECTION
+========================================================== */
 
-.hero {
+.hero{
 
-    height: 500px;
+    min-height:500px;
 
     background:
     linear-gradient(
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0.5)
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.55)
     ),
     url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
 
-    background-size: cover;
-    background-position: center;
 
-    color:white;
+    background-size:cover;
+
+    background-position:center;
+
+
+    color:var(--white);
+
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
+
 
     text-align:center;
 
+    padding:var(--space-xl);
+
 }
 
 
-.hero h2 {
-    font-size:50px;
+.hero h2{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    text-shadow:
+        0 3px 10px rgba(0,0,0,.5);
+
 }
 
 
-.hero p {
-    font-size:25px;
-    margin:20px;
+.hero p{
+
+    font-size:24px;
+
+    margin:var(--space-lg);
+
+    max-width:700px;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.5);
+
 }
 
 
