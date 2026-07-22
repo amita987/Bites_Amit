@@ -1223,3 +1223,109 @@ function generateIngredientPurchaseSummary(
     html;
 
 }
+
+/* ==========================================================
+   DAILY REPORT
+   This section ONLY controls the Daily Report screen.
+
+   It does NOT modify any existing Reports & Dashboard logic.
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ------------------------------------------
+       Get Buttons
+    ------------------------------------------ */
+
+    const dailyReportBtn = document.getElementById("dailyReportBtn");
+
+    const reportSettingsBtn = document.getElementById("reportSettingsBtn");
+
+    const closeSettingsBtn = document.getElementById("closeSettingsBtn");
+
+
+
+    /* ------------------------------------------
+       Get Sections
+    ------------------------------------------ */
+
+    const reportFilters = document.getElementById("reportFilters");
+
+    const reportPeriod = document.getElementById("reportPeriod");
+
+    const financialSummary = document.getElementById("financialSummary");
+
+    const bestSellingItems = document.getElementById("bestSellingItems");
+
+    const ingredientPurchaseSummary = document.getElementById("ingredientPurchaseSummary");
+
+    const dailyReportSection = document.getElementById("dailyReportSection");
+
+
+
+    /* ------------------------------------------
+       Settings Modal
+    ------------------------------------------ */
+
+    const reportSettingsModal = document.getElementById("reportSettingsModal");
+
+
+
+    /* ------------------------------------------
+       Open Daily Report
+    ------------------------------------------ */
+
+    if (dailyReportBtn) {
+
+        dailyReportBtn.addEventListener("click", function () {
+
+            reportFilters.style.display = "none";
+
+            reportPeriod.style.display = "none";
+
+            financialSummary.style.display = "none";
+
+            bestSellingItems.style.display = "none";
+
+            ingredientPurchaseSummary.style.display = "none";
+
+            dailyReportSection.style.display = "block";
+
+        });
+
+    }
+
+
+
+    /* ------------------------------------------
+       Open Settings
+    ------------------------------------------ */
+
+    if (reportSettingsBtn) {
+
+        reportSettingsBtn.addEventListener("click", function () {
+
+            reportSettingsModal.style.display = "flex";
+
+        });
+
+    }
+
+
+
+    /* ------------------------------------------
+       Close Settings
+    ------------------------------------------ */
+
+    if (closeSettingsBtn) {
+
+        closeSettingsBtn.addEventListener("click", function () {
+
+            reportSettingsModal.style.display = "none";
+
+        });
+
+    }
+
+});
+
