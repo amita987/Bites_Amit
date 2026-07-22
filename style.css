@@ -494,72 +494,51 @@ footer p{
     }
 
 }
-/* ===== MENU TABLE ===== */
 
 /* ==========================================================
    GLOBAL TABLES
+
+   Common table styling used by:
+   - Menu
+   - Reports
+   - Admin pages
 ========================================================== */
 
 table{
-
     width:100%;
-
     border-collapse:collapse;
-
     margin:var(--space-lg) 0;
-
     background:var(--card);
-
     border-radius:var(--radius-medium);
-
     overflow:hidden;
-
     box-shadow:var(--shadow-medium);
-
 }
 
 th{
-
     background:var(--primary);
-
     color:var(--white);
-
     padding:16px;
-
     font-size:16px;
-
     font-weight:600;
-
     text-align:center;
-
 }
 
 td{
-
     padding:14px;
-
     text-align:center;
-
     border-bottom:1px solid var(--border);
-
 }
 
 tbody tr{
-
     transition:background .2s ease;
-
 }
 
 tbody tr:nth-child(even){
-
     background:#fcfcfc;
-
 }
 
 tbody tr:hover{
-
     background:var(--table-hover);
-
 }
 
 td img{
@@ -570,37 +549,27 @@ td img{
 }
 
 td button{
-
     padding:8px 14px;
-
     border-radius:var(--radius-small);
-
     font-size:14px;
-
 }
-/* Discount Badge */
 
+/* ==========================================================
+   DISCOUNT BADGE
+   Uses global success and white colors.
+========================================================== */
 .discount-badge{
-
-    background:#28a745;
-
-    color:white;
-
+    background:var(--success);
+    color:var(--white);
     padding:6px 12px;
-
     border-radius:20px;
-
     font-size:14px;
-
     font-weight:bold;
-
     display:inline-block;
-
 }
+
 td button:hover{
-
     opacity:1;
-
 }
 
 /* ==========================================================
