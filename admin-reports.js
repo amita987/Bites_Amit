@@ -100,7 +100,10 @@ function initializeReportFilters() {
    document
        .getElementById("dailyReportBtn")
        .addEventListener("click", openDailyReport);
-   
+
+   document
+    .getElementById("backToReportsBtn")
+    .addEventListener("click", showMainReports);
    
    /* ------------------------------------------
       Daily Report Settings
