@@ -216,8 +216,7 @@
     
     </div>
     
-    
-    
+        
     <!-- ==========================================
          Auto Report Settings Modal
     ========================================== -->
@@ -229,17 +228,165 @@
     
             <h2>Auto Report Settings</h2>
     
-            <p>
+            <hr>
     
-                Settings will be added in the next step.
+            <!-- ======================================
+                 Report Type
+            ======================================= -->
     
-            </p>
+            <div class="report-settings-section">
     
-            <button id="closeSettingsBtn">
+                <h3>Report Type</h3>
     
-                Close
+                <label>
+                    <input type="radio"
+                           name="reportType"
+                           value="daily"
+                           checked>
     
-            </button>
+                    Daily
+                </label>
+    
+                <label>
+                    <input type="radio"
+                           name="reportType"
+                           value="weekly">
+    
+                    Weekly
+                </label>
+    
+                <label>
+                    <input type="radio"
+                           name="reportType"
+                           value="monthly">
+    
+                    Monthly
+                </label>
+    
+                <label>
+                    <input type="radio"
+                           name="reportType"
+                           value="custom">
+    
+                    Custom
+                </label>
+    
+            </div>
+    
+            <hr>
+    
+            <!-- ======================================
+                 Report Time
+            ======================================= -->
+    
+            <div class="report-settings-section">
+    
+                <h3>Report Time</h3>
+    
+                <input
+                    type="time"
+                    id="reportTime"
+                    value="22:00">
+    
+            </div>
+    
+            <hr>
+    
+            <!-- ======================================
+                 Report Delivery
+            ======================================= -->
+    
+            <div class="report-settings-section">
+    
+                <h3>Report Delivery</h3>
+    
+                <label>
+    
+                    <input
+                        type="checkbox"
+                        id="deliveryPrint">
+    
+                    Print Automatically
+    
+                </label>
+    
+                <label>
+    
+                    <input
+                        type="checkbox"
+                        id="deliveryEmail">
+    
+                    Email
+    
+                </label>
+    
+                <label>
+    
+                    <input
+                        type="checkbox"
+                        id="deliveryWhatsapp">
+    
+                    WhatsApp
+    
+                </label>
+    
+            </div>
+    
+            <hr>
+    
+            <!-- ======================================
+                 Email
+            ======================================= -->
+    
+            <div class="report-settings-section">
+    
+                <h3>Email</h3>
+    
+                <input
+                    type="email"
+                    id="reportEmail"
+                    placeholder="owner@gmail.com">
+    
+            </div>
+    
+            <hr>
+    
+            <!-- ======================================
+                 WhatsApp
+            ======================================= -->
+    
+            <div class="report-settings-section">
+    
+                <h3>WhatsApp</h3>
+    
+                <input
+                    type="text"
+                    id="reportWhatsapp"
+                    placeholder="+91XXXXXXXXXX">
+    
+            </div>
+    
+            <hr>
+    
+            <!-- ======================================
+                 Buttons
+            ======================================= -->
+    
+            <div class="report-settings-footer">
+    
+                <button id="saveReportSettingsBtn">
+    
+                    💾 Save
+    
+                </button>
+    
+                <button id="closeSettingsBtn">
+    
+                    Cancel
+    
+                </button>
+    
+            </div>
     
         </div>
     
