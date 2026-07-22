@@ -1640,5 +1640,93 @@ const summary =
    
    document.getElementById("dailyLowestOrder").textContent =
        "₹" + summary.lowestOrder.toFixed(2);
+   /* ------------------------------------------
+   Inventory Summary
+------------------------------------------ */
+
+let totalPurchases = filteredPurchases.length;
+
+let totalPurchaseCost = 0;
+
+const ingredientTotals = {};
+
+
+filteredPurchases.forEach(function(purchase){
+
+    const ingredient =
+
+        purchase.ingredientName || "Unknown";
+
+
+    const cost =
+
+        Number(purchase.totalCost || 0);
+
+
+    totalPurchaseCost += cost;
+
+
+    if(!ingredientTotals[ingredient]){
+
+        ingredientTotals[ingredient] = {
+
+            count : 0,
+
+            cost : 0
+
+        };
+
+    }
+
+
+    ingredientTotals[ingredient].count++;
+
+    ingredientTotals[ingredient].cost += cost;
+
+});
+
+
+let mostPurchasedIngredient = "--";
+
+let highestPurchaseIngredient = "--";
+
+let highestCount = 0;
+
+let highestCost = 0;
+
+
+Object.keys(ingredientTotals).forEach(function(name){
+
+    if(ingredientTotals[name].count > highestCount){
+
+        highestCount = ingredientTotals[name].count;
+
+        mostPurchasedIngredient = name;
+
+    }
+
+
+    if(ingredientTotals[name].cost > highestCost){
+
+        highestCost = ingredientTotals[name].cost;
+
+        highestPurchaseIngredient = name;
+
+    }
+
+});
+
+
+document.getElementById("dailyTotalPurchases").textContent =
+    totalPurchases;
+
+document.getElementById("dailyPurchaseCost").textContent =
+    "₹" + totalPurchaseCost.toFixed(2);
+
+document.getElementById("dailyTopIngredient").textContent =
+    mostPurchasedIngredient;
+
+document.getElementById("dailyHighestIngredient").textContent =
+    highestPurchaseIngredient;
 
 }
