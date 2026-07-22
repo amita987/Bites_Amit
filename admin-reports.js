@@ -53,6 +53,10 @@ document.addEventListener(
 
 function initializeReportFilters() {
 
+    /* ------------------------------------------
+       Date Filter Buttons
+    ------------------------------------------ */
+
     document
         .getElementById("todayBtn")
         .addEventListener("click", setToday);
@@ -85,88 +89,62 @@ function initializeReportFilters() {
         .getElementById("lastYearBtn")
         .addEventListener("click", setLastYear);
 
-      /* ------------------------------------------
-      Generate Report Button
-   ------------------------------------------ */
-   
-   document
-       .getElementById("generateReportBtn")
-       .addEventListener("click", generateReport);
-      /* ------------------------------------------
-      Print Daily Report
-   ------------------------------------------ */
-   
-   document
-       .getElementById("printDailyReportBtn")
-       .addEventListener("click", printDailyReport);
 
-   /* ------------------------------------------
-      Daily Report Button
-   ------------------------------------------ */
-   
-   document
-       .getElementById("dailyReportBtn")
-       .addEventListener("click", openDailyReport);
+    /* ------------------------------------------
+       Generate Report
+    ------------------------------------------ */
 
-   document
-    .getElementById("backToReportsBtn")
-    .addEventListener("click", showMainReports);
-   
-   /* ------------------------------------------
-      Daily Report Settings
-   ------------------------------------------ */
-   
-   document
-       .getElementById("reportSettingsBtn")
-       .addEventListener("click", openReportSettings);
-   
-   document
-       .getElementById("closeSettingsBtn")
-       .addEventListener("click", closeReportSettings);
-
-   document
-       .getElementById("saveReportSettingsBtn")
-       .addEventListener("click", saveReportSettings);
+    document
+        .getElementById("generateReportBtn")
+        .addEventListener("click", generateReport);
 
 
-   /* Load saved settings */
-   
-   loadReportSettings();
+    /* ------------------------------------------
+       Daily Report Navigation
+    ------------------------------------------ */
+
+    document
+        .getElementById("dailyReportBtn")
+        .addEventListener("click", openDailyReport);
+
+    document
+        .getElementById("backToReportsBtn")
+        .addEventListener("click", showMainReports);
 
 
-   
-   /* ------------------------------------------
-      Daily Report Button
-   ------------------------------------------ */
-   
-   document
-       .getElementById("dailyReportBtn")
-       .addEventListener("click", openDailyReport);
-   
-   
-   /* ------------------------------------------
-      Report Settings
-   ------------------------------------------ */
-   
-   document
-       .getElementById("reportSettingsBtn")
-       .addEventListener("click", openReportSettings);
-   
-   document
-       .getElementById("closeSettingsBtn")
-       .addEventListener("click", closeReportSettings);
-   document
-    .getElementById("saveReportSettingsBtn")
-    .addEventListener("click", saveReportSettings);
+    /* ------------------------------------------
+       Daily Report Settings
+    ------------------------------------------ */
 
-   /* ------------------------------------------
-      Load Saved Report Settings
-   ------------------------------------------ */
-   
-   loadReportSettings();
+    document
+        .getElementById("reportSettingsBtn")
+        .addEventListener("click", openReportSettings);
+
+    document
+        .getElementById("closeSettingsBtn")
+        .addEventListener("click", closeReportSettings);
+
+    document
+        .getElementById("saveReportSettingsBtn")
+        .addEventListener("click", saveReportSettings);
+
+
+    /* ------------------------------------------
+       Print Daily Report
+    ------------------------------------------ */
+
+    document
+        .getElementById("printDailyReportBtn")
+        .addEventListener("click", printDailyReport);
+
+
+    /* ------------------------------------------
+       Load Saved Settings
+    ------------------------------------------ */
+
+    loadReportSettings();
+
 }
-
-
 
 /* =====================================================
    Helper Function
