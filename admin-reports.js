@@ -158,6 +158,12 @@ function initializeReportFilters() {
    document
     .getElementById("saveReportSettingsBtn")
     .addEventListener("click", saveReportSettings);
+
+   /* ------------------------------------------
+      Load Saved Report Settings
+   ------------------------------------------ */
+   
+   loadReportSettings();
 }
 
 
@@ -1982,5 +1988,92 @@ function saveReportSettings(){
 
 
     closeReportSettings();
+
+}
+/* =====================================================
+   Load Report Settings
+===================================================== */
+
+function loadReportSettings(){
+
+    const savedSettings =
+
+        localStorage.getItem(
+
+            "dailyReportSettings"
+
+        );
+
+
+    if(savedSettings === null){
+
+        return;
+
+    }
+
+
+    const settings =
+
+        JSON.parse(savedSettings);
+
+
+    document.getElementById("autoReportOn").checked =
+
+        settings.enabled;
+
+
+    document.getElementById("autoReportOff").checked =
+
+        !settings.enabled;
+
+
+    const selectedReportType =
+
+        document.querySelector(
+
+            'input[name="reportType"][value="' +
+
+            settings.reportType +
+
+            '"]'
+
+        );
+
+
+    if(selectedReportType){
+
+        selectedReportType.checked = true;
+
+    }
+
+
+    document.getElementById("reportTime").value =
+
+        settings.reportTime;
+
+
+    document.getElementById("deliveryPrint").checked =
+
+        settings.print;
+
+
+    document.getElementById("deliveryEmail").checked =
+
+        settings.emailEnabled;
+
+
+    document.getElementById("deliveryWhatsapp").checked =
+
+        settings.whatsappEnabled;
+
+
+    document.getElementById("reportEmail").value =
+
+        settings.email;
+
+
+    document.getElementById("reportWhatsapp").value =
+
+        settings.whatsapp;
 
 }
