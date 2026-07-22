@@ -389,14 +389,34 @@ section h2 {
 
 }
 
-/* Footer */
+/* ==========================================================
+   FOOTER
+========================================================== */
 
-footer {
+footer{
 
     background:#222;
-    color:white;
-    padding:20px;
+
+    color:var(--white);
+
+
+    padding:var(--space-xl);
+
+
     text-align:center;
+
+
+    font-size:15px;
+
+
+    margin-top:var(--space-xl);
+
+}
+
+
+footer p{
+
+    margin:5px 0;
 
 }
 
@@ -405,14 +425,61 @@ footer {
 
 @media(max-width:700px){
 
+
     header{
+
         flex-direction:column;
+
+        text-align:center;
+
+        padding:var(--space-lg);
+
+    }
+
+
+    header h1{
+
+        font-size:26px;
+
+    }
+
+
+    nav{
+
+        justify-content:center;
+
+    }
+
+
+    nav a{
+
+        font-size:14px;
+
+        padding:6px 10px;
+
+    }
+
+
+    .hero{
+
+        min-height:400px;
+
     }
 
 
     .hero h2{
+
         font-size:35px;
+
     }
+
+
+    .hero p{
+
+        font-size:18px;
+
+    }
+
 
 }
 .category {
@@ -1097,3 +1164,43 @@ label{
 
 }
 
+/* ==========================================================
+   MOBILE TABLE SUPPORT
+========================================================== */
+
+@media(max-width:700px){
+
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+    }
+
+
+}
+
+@media(max-width:700px){
+
+
+    .item{
+
+        width:90%;
+
+        max-width:320px;
+
+    }
+
+
+    .dashboard-card{
+
+        padding:var(--space-md);
+
+    }
+
+
+}
