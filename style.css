@@ -417,7 +417,17 @@ td button:hover{
     font-size:15px;
 
 }
-
+    /* Back to Reports Button */
+    
+    #backToReportsBtn{
+    
+        margin-bottom:10px;
+    
+        padding:8px 16px;
+    
+        cursor:pointer;
+    
+    }
 
 /* ==========================================================
    SETTINGS MODAL
