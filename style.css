@@ -168,14 +168,52 @@ nav a {
 }
 
 
-button {
+/* ==========================================================
+   GLOBAL BUTTONS
+========================================================== */
 
-    background:#ff9800;
-    color:white;
+button{
+
+    background:var(--secondary);
+
+    color:var(--white);
+
     border:none;
-    padding:15px 30px;
-    border-radius:25px;
-    font-size:18px;
+
+    padding:12px 24px;
+
+    border-radius:var(--radius-medium);
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        transform .15s ease,
+        box-shadow .25s ease;
+
+    box-shadow:var(--shadow-small);
+
+}
+
+
+button:hover{
+
+    background:var(--secondary-hover);
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+
+button:active{
+
+    transform:translateY(0);
 
 }
 
@@ -345,10 +383,13 @@ td img{
 }
 
 td button{
-    padding:8px 15px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
+
+    padding:8px 14px;
+
+    border-radius:var(--radius-small);
+
+    font-size:14px;
+
 }
 /* Discount Badge */
 
@@ -370,7 +411,9 @@ td button{
 
 }
 td button:hover{
-    opacity:0.9;
+
+    opacity:1;
+
 }
 
 
