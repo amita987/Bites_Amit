@@ -92,7 +92,26 @@ function initializeReportFilters() {
    document
        .getElementById("generateReportBtn")
        .addEventListener("click", generateReport);
-
+   /* ------------------------------------------
+      Daily Report Button
+   ------------------------------------------ */
+   
+   document
+       .getElementById("dailyReportBtn")
+       .addEventListener("click", openDailyReport);
+   
+   
+   /* ------------------------------------------
+      Report Settings
+   ------------------------------------------ */
+   
+   document
+       .getElementById("reportSettingsBtn")
+       .addEventListener("click", openReportSettings);
+   
+   document
+       .getElementById("closeSettingsBtn")
+       .addEventListener("click", closeReportSettings);
 }
 
 
@@ -1224,108 +1243,44 @@ function generateIngredientPurchaseSummary(
 
 }
 
-/* ==========================================================
-   DAILY REPORT
-   This section ONLY controls the Daily Report screen.
+/* =====================================================
+   Open Daily Report
+===================================================== */
 
-   It does NOT modify any existing Reports & Dashboard logic.
-========================================================== */
+function openDailyReport() {
 
-document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("reportFilters").style.display = "none";
 
-    /* ------------------------------------------
-       Get Buttons
-    ------------------------------------------ */
+    document.getElementById("reportPeriod").style.display = "none";
 
-    const dailyReportBtn = document.getElementById("dailyReportBtn");
+    document.getElementById("financialSummary").style.display = "none";
 
-    const reportSettingsBtn = document.getElementById("reportSettingsBtn");
+    document.getElementById("bestSellingItems").style.display = "none";
 
-    const closeSettingsBtn = document.getElementById("closeSettingsBtn");
+    document.getElementById("ingredientPurchaseSummary").style.display = "none";
 
+    document.getElementById("dailyReportSection").style.display = "block";
 
-
-    /* ------------------------------------------
-       Get Sections
-    ------------------------------------------ */
-
-    const reportFilters = document.getElementById("reportFilters");
-
-    const reportPeriod = document.getElementById("reportPeriod");
-
-    const financialSummary = document.getElementById("financialSummary");
-
-    const bestSellingItems = document.getElementById("bestSellingItems");
-
-    const ingredientPurchaseSummary = document.getElementById("ingredientPurchaseSummary");
-
-    const dailyReportSection = document.getElementById("dailyReportSection");
+}
 
 
+/* =====================================================
+   Open Report Settings
+===================================================== */
 
-    /* ------------------------------------------
-       Settings Modal
-    ------------------------------------------ */
+function openReportSettings() {
 
-    const reportSettingsModal = document.getElementById("reportSettingsModal");
+    document.getElementById("reportSettingsModal").style.display = "flex";
 
-
-
-    /* ------------------------------------------
-       Open Daily Report
-    ------------------------------------------ */
-
-    if (dailyReportBtn) {
-
-        dailyReportBtn.addEventListener("click", function () {
-
-            reportFilters.style.display = "none";
-
-            reportPeriod.style.display = "none";
-
-            financialSummary.style.display = "none";
-
-            bestSellingItems.style.display = "none";
-
-            ingredientPurchaseSummary.style.display = "none";
-
-            dailyReportSection.style.display = "block";
-
-        });
-
-    }
+}
 
 
+/* =====================================================
+   Close Report Settings
+===================================================== */
 
-    /* ------------------------------------------
-       Open Settings
-    ------------------------------------------ */
+function closeReportSettings() {
 
-    if (reportSettingsBtn) {
+    document.getElementById("reportSettingsModal").style.display = "none";
 
-        reportSettingsBtn.addEventListener("click", function () {
-
-            reportSettingsModal.style.display = "flex";
-
-        });
-
-    }
-
-
-
-    /* ------------------------------------------
-       Close Settings
-    ------------------------------------------ */
-
-    if (closeSettingsBtn) {
-
-        closeSettingsBtn.addEventListener("click", function () {
-
-            reportSettingsModal.style.display = "none";
-
-        });
-
-    }
-
-});
-
+}
