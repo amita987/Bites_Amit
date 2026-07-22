@@ -529,11 +529,6 @@ function generateReport() {
        });
    
 
-   /* ==========================================================
-      GENERATE FINANCIAL SUMMARY
-   
-   ========================================================== */
-   
    generateFinancialSummary(
    
        filteredOrders,
@@ -542,11 +537,6 @@ function generateReport() {
    
    );
    
-
-   /* ==========================================================
-      GENERATE BEST SELLING ITEMS
-   
-   ========================================================== */
    
    generateBestSellingItems(
    
@@ -555,22 +545,27 @@ function generateReport() {
    );
    
    
-   /* ==========================================================
-      GENERATE INGREDIENT PURCHASE SUMMARY
-   
-      PURPOSE:
-      Calculates the purchase summary for all
-      ingredients purchased during the selected
-      reporting period.
-   
-   ========================================================== */
-   
    generateIngredientPurchaseSummary(
    
        filteredPurchases
    
    );
-
+   
+   
+   /* ==========================================================
+      DAILY CLOSING REPORT
+   
+      Uses the SAME filtered data already prepared above.
+   
+   ========================================================== */
+   
+   generateDailyReport(
+   
+       filteredOrders,
+   
+       filteredPurchases
+   
+   );
 }
 
 
@@ -1479,5 +1474,23 @@ function loadReportSettings() {
     document.getElementById("reportWhatsapp").value =
 
         settings.whatsapp;
+
+}
+/* =====================================================
+   Generate Daily Closing Report
+
+   This report reuses the filtered orders and purchases
+   already prepared inside generateReport().
+===================================================== */
+
+function generateDailyReport(
+
+    filteredOrders,
+
+    filteredPurchases
+
+){
+
+    console.log("Generating Daily Closing Report...");
 
 }
