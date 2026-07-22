@@ -1287,6 +1287,25 @@ function openDailyReport() {
 
 }
 
+/* =====================================================
+   Show Main Reports
+===================================================== */
+
+function showMainReports() {
+
+    document.getElementById("reportFilters").style.display = "block";
+
+    document.getElementById("reportPeriod").style.display = "block";
+
+    document.getElementById("financialSummary").style.display = "block";
+
+    document.getElementById("bestSellingItems").style.display = "block";
+
+    document.getElementById("ingredientPurchaseSummary").style.display = "block";
+
+    document.getElementById("dailyReportSection").style.display = "none";
+
+}
 
 /* =====================================================
    Open Report Settings
@@ -1309,45 +1328,3 @@ function closeReportSettings() {
 
 }
 
-
-/* =====================================================
-   OPEN DAILY REPORT
-===================================================== */
-
-function openDailyReport() {
-
-    document.getElementById("reportFilters").style.display = "none";
-
-    document.getElementById("reportPeriod").style.display = "none";
-
-    document.getElementById("financialSummary").style.display = "none";
-
-    document.getElementById("bestSellingItems").style.display = "none";
-
-    document.getElementById("ingredientPurchaseSummary").style.display = "none";
-
-    document.getElementById("dailyReportSection").style.display = "block";
-
-}
-
-
-/* =====================================================
-   OPEN REPORT SETTINGS
-===================================================== */
-
-function openReportSettings() {
-
-    document.getElementById("reportSettingsModal").style.display = "flex";
-
-}
-
-
-/* =====================================================
-   CLOSE REPORT SETTINGS
-===================================================== */
-
-function closeReportSettings() {
-
-    document.getElementById("reportSettingsModal").style.display = "none";
-
-}
