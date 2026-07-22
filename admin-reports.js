@@ -1491,6 +1491,126 @@ function generateDailyReport(
 
 ){
 
-    console.log("Generating Daily Closing Report...");
+    /* ------------------------------------------
+       Business Date
+    ------------------------------------------ */
+
+    const fromDate =
+        document.getElementById("fromDate").value;
+
+    const toDate =
+        document.getElementById("toDate").value;
+
+
+    if(fromDate === toDate){
+
+        document.getElementById("dailyBusinessDate").textContent =
+            fromDate;
+
+    }
+
+    else{
+
+        document.getElementById("dailyBusinessDate").textContent =
+            fromDate + " to " + toDate;
+
+    }
+
+
+    /* ------------------------------------------
+       Order Summary
+    ------------------------------------------ */
+
+    let totalOrders = filteredOrders.length;
+
+    let grossRevenue = 0;
+
+    let totalTax = 0;
+
+    let totalDelivery = 0;
+
+    let highestOrder = 0;
+
+    let lowestOrder = 0;
+
+
+    filteredOrders.forEach(function(order){
+
+        const orderTotal =
+            Number(order.total || 0);
+
+        grossRevenue += orderTotal;
+
+        totalTax +=
+            Number(order.taxAmount || 0);
+
+        totalDelivery +=
+            Number(order.delivery || 0);
+
+
+        if(highestOrder === 0){
+
+            highestOrder = orderTotal;
+
+            lowestOrder = orderTotal;
+
+        }
+
+        else{
+
+            if(orderTotal > highestOrder){
+
+                highestOrder = orderTotal;
+
+            }
+
+            if(orderTotal < lowestOrder){
+
+                lowestOrder = orderTotal;
+
+            }
+
+        }
+
+    });
+
+
+    const averageOrderValue =
+
+        totalOrders === 0
+
+        ?
+
+        0
+
+        :
+
+        grossRevenue / totalOrders;
+
+
+    /* ------------------------------------------
+       Display Order Summary
+    ------------------------------------------ */
+
+    document.getElementById("dailyTotalOrders").textContent =
+        totalOrders;
+
+    document.getElementById("dailyGrossRevenue").textContent =
+        "₹" + grossRevenue.toFixed(2);
+
+    document.getElementById("dailyTax").textContent =
+        "₹" + totalTax.toFixed(2);
+
+    document.getElementById("dailyDelivery").textContent =
+        "₹" + totalDelivery.toFixed(2);
+
+    document.getElementById("dailyAverageOrder").textContent =
+        "₹" + averageOrderValue.toFixed(2);
+
+    document.getElementById("dailyHighestOrder").textContent =
+        "₹" + highestOrder.toFixed(2);
+
+    document.getElementById("dailyLowestOrder").textContent =
+        "₹" + lowestOrder.toFixed(2);
 
 }
