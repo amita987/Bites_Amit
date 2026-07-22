@@ -92,6 +92,13 @@ function initializeReportFilters() {
    document
        .getElementById("generateReportBtn")
        .addEventListener("click", generateReport);
+      /* ------------------------------------------
+      Print Daily Report
+   ------------------------------------------ */
+   
+   document
+       .getElementById("printDailyReportBtn")
+       .addEventListener("click", printDailyReport);
 
    /* ------------------------------------------
       Daily Report Button
@@ -1901,5 +1908,14 @@ document.getElementById(
     "dailyBestSellingItems"
 
 ).innerHTML = html;
+
+}
+/* =====================================================
+   Print Daily Closing Report
+===================================================== */
+
+function printDailyReport(){
+
+    window.print();
 
 }
