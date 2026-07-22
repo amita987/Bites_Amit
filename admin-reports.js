@@ -473,7 +473,7 @@ function generateReport() {
    
        });
    
-   
+
    /* ==========================================================
       GENERATE FINANCIAL SUMMARY
    
@@ -484,6 +484,22 @@ function generateReport() {
        filteredOrders,
    
        filteredPurchases
+   
+   );
+   
+   
+   /* ==========================================================
+      GENERATE BEST SELLING ITEMS
+   
+      PURPOSE:
+      Calculates the Top 10 Best Selling Menu Items
+      from the filtered customer orders.
+   
+   ========================================================== */
+   
+   generateBestSellingItems(
+   
+       filteredOrders
    
    );
 
@@ -682,4 +698,227 @@ function generateFinancialSummary(
 
 }
 
+/* ==========================================================
+   GENERATE BEST SELLING ITEMS
 
+   PURPOSE:
+   Calculates the Top 10 selling menu items from
+   all customer orders within the selected period.
+
+   DATA SOURCE:
+   filteredOrders
+
+========================================================== */
+
+function generateBestSellingItems(
+
+    filteredOrders
+
+){
+
+    /* ------------------------------------------
+       Store quantity sold for every menu item
+
+       Example:
+
+       {
+           "Veg Burger": 12,
+           "Pizza": 20
+       }
+
+    ------------------------------------------ */
+
+    const itemSales = {};
+
+
+    /* ------------------------------------------
+       Read every customer order
+
+    ------------------------------------------ */
+
+    filteredOrders.forEach(function(order){
+
+        /* --------------------------------------
+           Skip invalid orders
+        -------------------------------------- */
+
+        if(!order.items){
+
+            return;
+
+        }
+
+
+        /* --------------------------------------
+           Read every ordered menu item
+        -------------------------------------- */
+
+        order.items.forEach(function(item){
+
+            const itemName = item.name;
+
+            const quantity = Number(item.quantity || 0);
+
+
+            if(!itemSales[itemName]){
+
+                itemSales[itemName] = 0;
+
+            }
+
+
+            itemSales[itemName] += quantity;
+
+        });
+
+    });
+
+
+    /* ------------------------------------------
+       Convert object into sortable array
+
+    ------------------------------------------ */
+
+    const salesArray =
+
+        Object.entries(itemSales)
+
+        .map(function(entry){
+
+            return{
+
+                name: entry[0],
+
+                quantity: entry[1]
+
+            };
+
+        });
+
+
+    /* ------------------------------------------
+       Sort by highest quantity sold
+
+    ------------------------------------------ */
+
+    salesArray.sort(function(a,b){
+
+        return b.quantity - a.quantity;
+
+    });
+
+
+    /* ------------------------------------------
+       Keep only Top 10 items
+
+    ------------------------------------------ */
+
+    const topItems =
+
+        salesArray.slice(0,10);
+
+
+    /* ------------------------------------------
+       Build report table
+
+    ------------------------------------------ */
+
+    let html =
+
+    `
+
+    <h2>Best Selling Items (Top 10)</h2>
+
+    <table border="1" cellpadding="8">
+
+        <tr>
+
+            <th>Rank</th>
+
+            <th>Menu Item</th>
+
+            <th>Total Quantity Sold</th>
+
+        </tr>
+
+    `;
+
+
+    /* ------------------------------------------
+       Add rows
+
+    ------------------------------------------ */
+
+    if(topItems.length===0){
+
+        html +=
+
+        `
+
+        <tr>
+
+            <td colspan="3">
+
+                No orders found for this period.
+
+            </td>
+
+        </tr>
+
+        `;
+
+    }
+
+    else{
+
+        topItems.forEach(function(item,index){
+
+            html +=
+
+            `
+
+            <tr>
+
+                <td>${index + 1}</td>
+
+                <td>${item.name}</td>
+
+                <td>${item.quantity}</td>
+
+            </tr>
+
+            `;
+
+        });
+
+    }
+
+
+    /* ------------------------------------------
+       Close table
+
+    ------------------------------------------ */
+
+    html +=
+
+    `
+
+    </table>
+
+    `;
+
+
+    /* ------------------------------------------
+       Display report
+
+    ------------------------------------------ */
+
+    document.getElementById(
+
+        "bestSellingItems"
+
+    ).innerHTML =
+
+    html;
+
+}
