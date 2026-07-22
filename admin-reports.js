@@ -155,6 +155,9 @@ function initializeReportFilters() {
    document
        .getElementById("closeSettingsBtn")
        .addEventListener("click", closeReportSettings);
+   document
+    .getElementById("saveReportSettingsBtn")
+    .addEventListener("click", saveReportSettings);
 }
 
 
@@ -1917,5 +1920,67 @@ document.getElementById(
 function printDailyReport(){
 
     window.print();
+
+}
+/* =====================================================
+   Save Report Settings
+===================================================== */
+
+function saveReportSettings(){
+
+    const settings = {
+
+        enabled :
+
+            document.getElementById("autoReportOn").checked,
+
+        reportType :
+
+            document.querySelector(
+
+                'input[name="reportType"]:checked'
+
+            ).value,
+
+        reportTime :
+
+            document.getElementById("reportTime").value,
+
+        print :
+
+            document.getElementById("deliveryPrint").checked,
+
+        emailEnabled :
+
+            document.getElementById("deliveryEmail").checked,
+
+        whatsappEnabled :
+
+            document.getElementById("deliveryWhatsapp").checked,
+
+        email :
+
+            document.getElementById("reportEmail").value,
+
+        whatsapp :
+
+            document.getElementById("reportWhatsapp").value
+
+    };
+
+
+    localStorage.setItem(
+
+        "dailyReportSettings",
+
+        JSON.stringify(settings)
+
+    );
+
+
+    alert("Daily Report Settings Saved Successfully.");
+
+
+    closeReportSettings();
 
 }
