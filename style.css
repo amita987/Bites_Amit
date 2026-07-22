@@ -270,6 +270,10 @@ section {
     text-align:center;
 }
 
+/* ==========================================================
+   SECTION HEADINGS
+   Uses global brand primary colour.
+========================================================== */
 section h2 {
     font-size:35px;
     color:var(--primary);
@@ -445,10 +449,15 @@ footer p{
 
 
 }
+/* ==========================================================
+   MENU CATEGORY TITLE
+   Uses brand secondary colour.
+========================================================== */
+
 .category {
 
     margin:40px 0 20px;
-    color:#ff5722;
+    color:var(--secondary);
     font-size:28px;
 
 }
