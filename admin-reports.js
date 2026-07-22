@@ -92,6 +92,27 @@ function initializeReportFilters() {
    document
        .getElementById("generateReportBtn")
        .addEventListener("click", generateReport);
+
+   /* ------------------------------------------
+      Daily Report Button
+   ------------------------------------------ */
+   
+   document
+       .getElementById("dailyReportBtn")
+       .addEventListener("click", openDailyReport);
+   
+   
+   /* ------------------------------------------
+      Daily Report Settings
+   ------------------------------------------ */
+   
+   document
+       .getElementById("reportSettingsBtn")
+       .addEventListener("click", openReportSettings);
+   
+   document
+       .getElementById("closeSettingsBtn")
+       .addEventListener("click", closeReportSettings);
    /* ------------------------------------------
       Daily Report Button
    ------------------------------------------ */
@@ -1277,6 +1298,49 @@ function openReportSettings() {
 
 /* =====================================================
    Close Report Settings
+===================================================== */
+
+function closeReportSettings() {
+
+    document.getElementById("reportSettingsModal").style.display = "none";
+
+}
+
+
+/* =====================================================
+   OPEN DAILY REPORT
+===================================================== */
+
+function openDailyReport() {
+
+    document.getElementById("reportFilters").style.display = "none";
+
+    document.getElementById("reportPeriod").style.display = "none";
+
+    document.getElementById("financialSummary").style.display = "none";
+
+    document.getElementById("bestSellingItems").style.display = "none";
+
+    document.getElementById("ingredientPurchaseSummary").style.display = "none";
+
+    document.getElementById("dailyReportSection").style.display = "block";
+
+}
+
+
+/* =====================================================
+   OPEN REPORT SETTINGS
+===================================================== */
+
+function openReportSettings() {
+
+    document.getElementById("reportSettingsModal").style.display = "flex";
+
+}
+
+
+/* =====================================================
+   CLOSE REPORT SETTINGS
 ===================================================== */
 
 function closeReportSettings() {
