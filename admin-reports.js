@@ -116,6 +116,18 @@ function initializeReportFilters() {
    document
        .getElementById("closeSettingsBtn")
        .addEventListener("click", closeReportSettings);
+
+   document
+       .getElementById("saveReportSettingsBtn")
+       .addEventListener("click", saveReportSettings);
+
+
+   /* Load saved settings */
+   
+   loadReportSettings();
+
+
+   
    /* ------------------------------------------
       Daily Report Button
    ------------------------------------------ */
@@ -1328,3 +1340,144 @@ function closeReportSettings() {
 
 }
 
+/* =====================================================
+   Save Report Settings
+===================================================== */
+
+function saveReportSettings() {
+
+    const settings = {
+
+        enabled:
+
+            document.getElementById("autoReportOn").checked,
+
+        reportType:
+
+            document.querySelector(
+                'input[name="reportType"]:checked'
+            ).value,
+
+        reportTime:
+
+            document.getElementById("reportTime").value,
+
+        printAutomatically:
+
+            document.getElementById("deliveryPrint").checked,
+
+        emailEnabled:
+
+            document.getElementById("deliveryEmail").checked,
+
+        whatsappEnabled:
+
+            document.getElementById("deliveryWhatsapp").checked,
+
+        email:
+
+            document.getElementById("reportEmail").value,
+
+        whatsapp:
+
+            document.getElementById("reportWhatsapp").value
+
+    };
+
+
+    localStorage.setItem(
+
+        "dailyReportSettings",
+
+        JSON.stringify(settings)
+
+    );
+
+
+    closeReportSettings();
+
+}
+
+/* =====================================================
+   Load Report Settings
+===================================================== */
+
+function loadReportSettings() {
+
+    const savedSettings =
+
+        localStorage.getItem("dailyReportSettings");
+
+
+    if (savedSettings === null) {
+
+        return;
+
+    }
+
+
+    const settings =
+
+        JSON.parse(savedSettings);
+
+
+    document.getElementById("autoReportOn").checked =
+
+        settings.enabled;
+
+
+    document.getElementById("autoReportOff").checked =
+
+        !settings.enabled;
+
+
+    const selectedReportType =
+
+        document.querySelector(
+
+            'input[name="reportType"][value="' +
+
+            settings.reportType +
+
+            '"]'
+
+        );
+
+
+    if (selectedReportType) {
+
+        selectedReportType.checked = true;
+
+    }
+
+
+    document.getElementById("reportTime").value =
+
+        settings.reportTime;
+
+
+    document.getElementById("deliveryPrint").checked =
+
+        settings.printAutomatically;
+
+
+    document.getElementById("deliveryEmail").checked =
+
+        settings.emailEnabled;
+
+
+    document.getElementById("deliveryWhatsapp").checked =
+
+        settings.whatsappEnabled;
+
+
+    document.getElementById("reportEmail").value =
+
+        settings.email;
+
+
+    document.getElementById("reportWhatsapp").value =
+
+        settings.whatsapp;
+
+}
