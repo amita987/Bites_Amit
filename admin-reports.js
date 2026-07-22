@@ -734,17 +734,13 @@ function generateFinancialSummary(
         totalTax;
 
 
-    const averageOrderValue =
-
-        totalOrders === 0
-
-        ?
-
-        0
-
-        :
-
-        totalRevenue / totalOrders;
+      const profitAfterDeliveryChargesAndTax =
+      
+          revenueAfterDeliveryAndTax
+      
+          -
+      
+          totalPurchaseCost;
 
 
     /* ------------------------------------------
@@ -827,13 +823,13 @@ function generateFinancialSummary(
 
         </tr>
 
-        <tr>
-
-            <td>Average Order Value</td>
-
-            <td>₹${averageOrderValue.toFixed(2)}</td>
-
-        </tr>
+         <tr>
+         
+             <td>Profit after Delivery Charges & Tax</td>
+         
+             <td>₹${profitAfterDeliveryChargesAndTax.toFixed(2)}</td>
+         
+         </tr>
 
     </table>
 
