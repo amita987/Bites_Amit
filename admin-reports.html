@@ -71,11 +71,21 @@
         <br><br>
 
         <!-- Generate Report -->
-
+        
         <button id="generateReportBtn">
-
+        
             Generate Report
-
+        
+        </button>
+        
+        <!-- ==========================================
+             Daily Closing Report
+        ========================================== -->
+        
+        <button id="dailyReportBtn">
+        
+            Daily Report
+        
         </button>
 
     </div>
@@ -141,6 +151,99 @@
 
     </div>
 
+    <hr>
+    
+    <!-- ==========================================
+         Daily Closing Report
+         Hidden until Daily Report button is clicked
+    ========================================== -->
+    
+    <div id="dailyReportSection" style="display:none;">
+    
+        <div class="daily-report-header">
+    
+            <h2>Daily Closing Report</h2>
+    
+            <div class="daily-report-actions">
+    
+                <label>
+    
+                    <input
+                        type="radio"
+                        name="autoReport"
+                        id="autoReportOff"
+                        checked>
+    
+                    Auto Report Disabled
+    
+                </label>
+    
+                <label>
+    
+                    <input
+                        type="radio"
+                        name="autoReport"
+                        id="autoReportOn">
+    
+                    Auto Report Enabled
+    
+                </label>
+    
+                <button id="reportSettingsBtn">
+    
+                    ⚙ Settings
+    
+                </button>
+    
+            </div>
+    
+        </div>
+    
+        <hr>
+    
+        <!-- Placeholder
+             Actual report contents will be added later -->
+    
+        <div id="dailyReportContent">
+    
+            <p>
+    
+                Daily Report coming soon...
+    
+            </p>
+    
+        </div>
+    
+    </div>
+    
+    
+    
+    <!-- ==========================================
+         Auto Report Settings Modal
+    ========================================== -->
+    
+    <div id="reportSettingsModal"
+         style="display:none;">
+    
+        <div class="report-settings-box">
+    
+            <h2>Auto Report Settings</h2>
+    
+            <p>
+    
+                Settings will be added in the next step.
+    
+            </p>
+    
+            <button id="closeSettingsBtn">
+    
+                Close
+    
+            </button>
+    
+        </div>
+    
+    </div>
 
     <!-- Reports JavaScript -->
 
