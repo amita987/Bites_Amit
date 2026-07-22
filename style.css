@@ -658,7 +658,68 @@ label{
     font-weight:600;
 
 }
+/* ==========================================================
+   ADMIN DASHBOARD CARDS
+========================================================== */
 
+
+.dashboard-card{
+
+    background:var(--card);
+
+    padding:var(--space-lg);
+
+    margin-bottom:var(--space-lg);
+
+
+    border-radius:var(--radius-large);
+
+
+    box-shadow:var(--shadow-medium);
+
+
+    transition:
+
+        transform .2s ease,
+
+        box-shadow .2s ease;
+
+}
+
+
+.dashboard-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-large);
+
+}
+
+
+
+/* Card Heading */
+
+.dashboard-card h2{
+
+    margin-bottom:var(--space-md);
+
+    color:var(--primary);
+
+}
+
+
+
+/* Summary Numbers */
+
+.summary-number{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
 /* ==========================================================
    ORDER DETAILS MODAL
 
