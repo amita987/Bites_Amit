@@ -568,7 +568,93 @@ function generateReport() {
    );
 }
 
+/* ==========================================================
+   Calculate Order Summary
 
+   PURPOSE:
+   Calculates all order totals once so they can
+   be reused by multiple reports.
+
+========================================================== */
+
+function calculateOrderSummary(filteredOrders){
+
+    let summary = {
+
+        totalOrders : 0,
+
+        grossRevenue : 0,
+
+        totalTax : 0,
+
+        totalDelivery : 0,
+
+        averageOrder : 0,
+
+        highestOrder : 0,
+
+        lowestOrder : 0
+
+    };
+
+
+    summary.totalOrders = filteredOrders.length;
+
+
+    filteredOrders.forEach(function(order){
+
+        const orderTotal = Number(order.total || 0);
+
+        summary.grossRevenue += orderTotal;
+
+        summary.totalTax += Number(order.taxAmount || 0);
+
+        summary.totalDelivery += Number(order.delivery || 0);
+
+
+        if(summary.highestOrder === 0){
+
+            summary.highestOrder = orderTotal;
+
+            summary.lowestOrder = orderTotal;
+
+        }
+
+        else{
+
+            if(orderTotal > summary.highestOrder){
+
+                summary.highestOrder = orderTotal;
+
+            }
+
+            if(orderTotal < summary.lowestOrder){
+
+                summary.lowestOrder = orderTotal;
+
+            }
+
+        }
+
+    });
+
+
+    summary.averageOrder =
+
+        summary.totalOrders === 0
+
+        ?
+
+        0
+
+        :
+
+        summary.grossRevenue / summary.totalOrders;
+
+
+    return summary;
+
+}
 /* ==========================================================
    GENERATE FINANCIAL SUMMARY
 
