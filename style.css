@@ -106,26 +106,74 @@ body{
 
 /* Header */
 
-header {
-    background: #8B0000;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    padding:18px var(--space-xl);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:var(--space-md);
+
+    box-shadow:var(--shadow-medium);
+
 }
 
 
-header h1 {
-    font-size: 32px;
+header h1{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
 }
 
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+nav{
+
+    display:flex;
+
+    gap:var(--space-md);
+
+    flex-wrap:wrap;
+
+}
+
+
+nav a{
+
+    color:var(--white);
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    padding:8px 14px;
+
+    border-radius:var(--radius-small);
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+
+}
+
+
+nav a:hover{
+
+    background:rgba(255,255,255,.15);
+
 }
 
 
