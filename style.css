@@ -1,12 +1,21 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+/* ==========================================================
+   GLOBAL RESET
+   Removes browser default spacing.
+========================================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+
 }
+
+
 /* ==========================================================
    GLOBAL DESIGN SYSTEM
-   Reusable colors, spacing, borders and shadows.
+   Central place for colours, spacing and shadows.
 ========================================================== */
 
 :root{
@@ -263,11 +272,15 @@ button:active{
     transform:translateY(0);
 }
 
-/* Sections */
+/* ==========================================================
+   COMMON PAGE SECTIONS
+========================================================== */
 
-section {
+section{
+
     padding:50px 20px;
     text-align:center;
+
 }
 
 /* ==========================================================
@@ -461,7 +474,11 @@ footer p{
     font-size:28px;
 
 }
-.gallery {
+/* ==========================================================
+   IMAGE GALLERY
+========================================================== */
+
+.gallery{
 
     display:flex;
     justify-content:center;
