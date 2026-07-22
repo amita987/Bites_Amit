@@ -906,18 +906,8 @@ label{
 
 
 .close:hover{
-
     color:var(--danger);
-
     transform:scale(1.1);
-
-}
-
-
-.close:hover{
-
-    color: red;
-
 }
 
 
