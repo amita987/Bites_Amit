@@ -1752,5 +1752,154 @@ const estimatedNetRevenue =
 document.getElementById("dailyNetRevenue").textContent =
 
     "₹" + estimatedNetRevenue.toFixed(2);
+/* ------------------------------------------
+   Best Selling Items
+------------------------------------------ */
+
+const itemSales = {};
+
+
+/* Read every order */
+
+filteredOrders.forEach(function(order){
+
+    if(!order.items){
+
+        return;
+
+    }
+
+    order.items.forEach(function(item){
+
+        const itemName = item.name;
+
+        const quantity = Number(item.quantity || 0);
+
+        if(!itemSales[itemName]){
+
+            itemSales[itemName] = 0;
+
+        }
+
+        itemSales[itemName] += quantity;
+
+    });
+
+});
+
+
+/* Convert to array */
+
+const salesArray =
+
+    Object.entries(itemSales)
+
+    .map(function(entry){
+
+        return{
+
+            name: entry[0],
+
+            quantity: entry[1]
+
+        };
+
+    });
+
+
+/* Highest selling first */
+
+salesArray.sort(function(a,b){
+
+    return b.quantity - a.quantity;
+
+});
+
+
+/* Top 5 */
+
+const topItems = salesArray.slice(0,5);
+
+
+/* Build HTML */
+
+let html =
+
+`
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+    <th>Rank</th>
+
+    <th>Item</th>
+
+    <th>Quantity</th>
+
+</tr>
+
+`;
+
+
+if(topItems.length===0){
+
+    html +=
+
+    `
+
+    <tr>
+
+        <td colspan="3">
+
+            No orders found.
+
+        </td>
+
+    </tr>
+
+    `;
+
+}
+
+else{
+
+    topItems.forEach(function(item,index){
+
+        html +=
+
+        `
+
+        <tr>
+
+            <td>${index+1}</td>
+
+            <td>${item.name}</td>
+
+            <td>${item.quantity}</td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+html +=
+
+`
+
+</table>
+
+`;
+
+
+document.getElementById(
+
+    "dailyBestSellingItems"
+
+).innerHTML = html;
 
 }
