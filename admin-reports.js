@@ -487,19 +487,32 @@ function generateReport() {
    
    );
    
-   
+
    /* ==========================================================
       GENERATE BEST SELLING ITEMS
-   
-      PURPOSE:
-      Calculates the Top 10 Best Selling Menu Items
-      from the filtered customer orders.
    
    ========================================================== */
    
    generateBestSellingItems(
    
        filteredOrders
+   
+   );
+   
+   
+   /* ==========================================================
+      GENERATE INGREDIENT PURCHASE SUMMARY
+   
+      PURPOSE:
+      Calculates the purchase summary for all
+      ingredients purchased during the selected
+      reporting period.
+   
+   ========================================================== */
+   
+   generateIngredientPurchaseSummary(
+   
+       filteredPurchases
    
    );
 
@@ -918,6 +931,294 @@ function generateBestSellingItems(
         "bestSellingItems"
 
     ).innerHTML =
+
+    html;
+
+}
+
+/* ==========================================================
+   GENERATE INGREDIENT PURCHASE SUMMARY
+
+   PURPOSE:
+   Groups purchases by ingredient and
+   calculates:
+
+   1. Number of Purchases
+   2. Total Purchase Cost
+
+   DATA SOURCE:
+   filteredPurchases
+
+========================================================== */
+
+function generateIngredientPurchaseSummary(
+
+    filteredPurchases
+
+){
+
+    /* ------------------------------------------
+       Store Purchase Summary
+
+       Example:
+
+       {
+
+           "Tomato":{
+
+               purchaseCount:2,
+
+               totalCost:450
+
+           }
+
+       }
+
+    ------------------------------------------ */
+
+    const ingredientSummary = {};
+
+
+    /* ------------------------------------------
+       Read Every Purchase
+
+    ------------------------------------------ */
+
+    filteredPurchases.forEach(function(purchase){
+
+        const ingredientName =
+
+            purchase.ingredientName;
+
+
+        const totalCost =
+
+            Number(
+
+                purchase.totalCost || 0
+
+            );
+
+
+        /* --------------------------------------
+           Create Ingredient
+
+        -------------------------------------- */
+
+        if(!ingredientSummary[ingredientName]){
+
+            ingredientSummary[ingredientName] = {
+
+                purchaseCount : 0,
+
+                totalCost : 0
+
+            };
+
+        }
+
+
+        /* --------------------------------------
+           Update Totals
+
+        -------------------------------------- */
+
+        ingredientSummary[ingredientName]
+
+        .purchaseCount++;
+
+
+        ingredientSummary[ingredientName]
+
+        .totalCost += totalCost;
+
+    });
+
+
+    /* ------------------------------------------
+       Convert Object to Array
+
+    ------------------------------------------ */
+
+    const summaryArray =
+
+        Object.entries(
+
+            ingredientSummary
+
+        )
+
+        .map(function(entry){
+
+            return{
+
+                ingredientName :
+
+                    entry[0],
+
+                purchaseCount :
+
+                    entry[1].purchaseCount,
+
+                totalCost :
+
+                    entry[1].totalCost
+
+            };
+
+        });
+
+
+    /* ------------------------------------------
+       Sort by Highest Purchase Cost
+
+    ------------------------------------------ */
+
+    summaryArray.sort(function(a,b){
+
+        return(
+
+            b.totalCost -
+
+            a.totalCost
+
+        );
+
+    });
+
+
+    /* ------------------------------------------
+       Build HTML
+
+    ------------------------------------------ */
+
+    let html =
+
+    `
+
+    <h2>
+
+        Ingredient Purchase Summary
+
+    </h2>
+
+    <table border="1" cellpadding="8">
+
+        <tr>
+
+            <th>
+
+                Ingredient
+
+            </th>
+
+            <th>
+
+                Number of Purchases
+
+            </th>
+
+            <th>
+
+                Total Purchase Cost
+
+            </th>
+
+        </tr>
+
+    `;
+
+
+    /* ------------------------------------------
+       Display Data
+
+    ------------------------------------------ */
+
+    if(summaryArray.length === 0){
+
+        html +=
+
+        `
+
+        <tr>
+
+            <td colspan="3">
+
+                No purchases found for this period.
+
+            </td>
+
+        </tr>
+
+        `;
+
+    }
+
+    else{
+
+        summaryArray.forEach(function(item){
+
+            html +=
+
+            `
+
+            <tr>
+
+                <td>
+
+                    ${item.ingredientName}
+
+                </td>
+
+                <td>
+
+                    ${item.purchaseCount}
+
+                </td>
+
+                <td>
+
+                    ₹${item.totalCost.toFixed(2)}
+
+                </td>
+
+            </tr>
+
+            `;
+
+        });
+
+    }
+
+
+    /* ------------------------------------------
+       Close Table
+
+    ------------------------------------------ */
+
+    html +=
+
+    `
+
+    </table>
+
+    `;
+
+
+    /* ------------------------------------------
+       Display Report
+
+    ------------------------------------------ */
+
+    document
+
+    .getElementById(
+
+        "ingredientPurchaseSummary"
+
+    )
+
+    .innerHTML =
 
     html;
 
