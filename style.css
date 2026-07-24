@@ -479,7 +479,15 @@ section h2 {
 
 
 /* ==========================================================
-   MENU ITEM CARDS
+   PREMIUM MENU CARD
+
+   Purpose:
+   Gives every menu item a premium floating-card appearance.
+
+   Future Editing:
+   - Increase border-radius for softer corners.
+   - Adjust border colour for stronger outlines.
+   - Increase hover lift if desired.
 ========================================================== */
 
 .item{
@@ -490,28 +498,37 @@ section h2 {
 
     padding:var(--space-lg);
 
+    border-radius:22px;
 
-    border-radius:var(--radius-large);
+    border:1px solid rgba(255,255,255,.55);
 
-
-    box-shadow:var(--shadow-medium);
-
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.08);
 
     transition:
+        transform .30s ease,
+        box-shadow .30s ease,
+        border-color .30s ease;
 
-        transform .25s ease,
-
-        box-shadow .25s ease;
-
+    overflow:hidden;
 
 }
 
 
+/* ==========================================================
+   PREMIUM CARD HOVER EFFECT
+========================================================== */
+
 .item:hover{
 
-    transform:translateY(-8px);
+    transform:
+        translateY(-10px);
 
-    box-shadow:var(--shadow-large);
+    box-shadow:
+        0 20px 45px rgba(15,23,42,.15);
+
+    border-color:
+        rgba(245,158,11,.35);
 
 }
 
