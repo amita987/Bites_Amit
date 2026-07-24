@@ -277,10 +277,20 @@ header{
 
     z-index:1000;
 
-    /* Glass effect */
-    backdrop-filter:blur(10px);
+/* ==========================================================
+   PREMIUM GLASS EFFECT
 
-    -webkit-backdrop-filter:blur(10px);
+   Purpose:
+   Creates a softer glass appearance for the sticky header.
+
+   Future Editing:
+   - Increase blur for a stronger glass effect.
+   - Reduce blur if performance becomes a concern.
+========================================================== */
+
+backdrop-filter:blur(16px);
+
+-webkit-backdrop-filter:blur(16px);
 
     /* Smooth transitions */
     transition:
@@ -703,12 +713,23 @@ section h2::after{
 
 .item:hover{
 
-    transform:
-        translateY(-8px);
+/* ==========================================================
+   PREMIUM MENU CARD HOVER
 
+   Purpose:
+   Creates a floating restaurant-card effect.
 
-    box-shadow:
-        var(--shadow-large);
+========================================================== */
+
+transform:
+
+    translateY(-8px)
+
+    scale(1.02);
+
+box-shadow:
+
+    0 24px 55px rgba(15,23,42,.18);
 
 
     border-color:
@@ -1302,26 +1323,26 @@ letter-spacing:.2px;
 }
 
 /* ==========================================================
-   DASHBOARD CARD HOVER EFFECT
+   PREMIUM DASHBOARD CARD HOVER
 
    Purpose:
-   Adds subtle premium movement.
+   Adds smoother movement and richer depth.
 
 ========================================================== */
 
-.dashboard-card:hover{
+transform:
 
-    transform:translateY(-6px);
+    translateY(-6px)
 
+    scale(1.01);
 
-    box-shadow:
-        var(--shadow-large);
+box-shadow:
 
+    0 24px 50px rgba(15,23,42,.16);
 
-    border-left-color:
-        var(--secondary);
+border-left-color:
 
-}
+    var(--secondary);
 
 
 
