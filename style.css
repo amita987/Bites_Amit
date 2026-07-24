@@ -1690,3 +1690,137 @@ td{
     font-size:18px;
 
 }
+/* ==========================================================
+PREMIUM SEARCH BOXES
+========================================================== */
+
+input[type="search"]{
+
+```
+padding-left:18px;
+
+height:46px;
+
+border-radius:999px;
+
+background:#ffffff;
+
+box-shadow:
+    0 4px 12px rgba(15,23,42,.06);
+```
+
+}
+
+/* ==========================================================
+PREMIUM DROPDOWNS
+========================================================== */
+
+select{
+
+```
+height:46px;
+
+cursor:pointer;
+
+appearance:auto;
+```
+
+}
+
+/* ==========================================================
+FORM GROUP SPACING
+========================================================== */
+
+.form-group{
+
+```
+margin-bottom:20px;
+```
+
+}
+/* ==========================================================
+   PREMIUM FORM CARD
+
+   Purpose:
+   Creates a dashboard-style container around forms.
+
+   Usage:
+   Wrap any form inside:
+   
+   <div class="form-card">
+        Form content
+   </div>
+
+   Future Editing:
+   - Change background for different form themes.
+   - Adjust shadow for stronger/weaker depth.
+   - Change border-left colour for different sections.
+
+========================================================== */
+
+.form-card{
+
+    /* White card background */
+    background:var(--card);
+
+    /* Internal spacing */
+    padding:var(--space-xl);
+
+    /* Rounded premium corners */
+    border-radius:var(--radius-large);
+
+    /* Soft dashboard shadow */
+    box-shadow:
+        var(--shadow-medium);
+
+    /* Accent line matching dashboard cards */
+    border-left:6px solid var(--primary);
+
+    /* Space between multiple form cards */
+    margin-bottom:var(--space-xl);
+
+
+    /* Smooth hover animation */
+    transition:
+
+        transform .25s ease,
+
+        box-shadow .25s ease;
+
+}
+
+
+/* ==========================================================
+   PREMIUM FORM CARD HOVER
+
+   Purpose:
+   Adds subtle lift effect when user interacts.
+
+========================================================== */
+
+.form-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        var(--shadow-large);
+
+}
+
+
+/* ==========================================================
+   FORM CARD HEADINGS
+
+   Purpose:
+   Keeps form titles consistent with dashboard design.
+
+========================================================== */
+
+.form-card h2,
+.form-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:var(--space-lg);
+
+}
