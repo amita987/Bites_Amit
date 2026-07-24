@@ -150,16 +150,75 @@
 }
 
 
+/* ==========================================================
+   PREMIUM PAGE BACKGROUND
+
+   Purpose:
+   Adds a soft background gradient so the website feels less
+   flat while keeping excellent readability.
+
+   Future Editing:
+   - Change the gradient colours if you want a warmer or cooler
+     appearance.
+   - Keep the colours very subtle for a premium look.
+========================================================== */
+
 body{
 
-    background:var(--background);
+    background:
+        linear-gradient(
+            180deg,
+            #f8fafc 0%,
+            #eef4fb 100%
+        );
 
     color:var(--text);
 
     line-height:1.6;
 
+    min-height:100vh;
+
 }
 
+/* ==========================================================
+   PREMIUM PAGE GLOW
+
+   Purpose:
+   Adds a very subtle decorative glow behind the page content.
+   It gives depth without distracting from the content.
+
+   Future Editing:
+   - Increase opacity for a stronger glow.
+   - Remove entirely if you prefer a flatter design.
+========================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    top:-250px;
+
+    right:-250px;
+
+    width:600px;
+
+    height:600px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            rgba(245,158,11,.08),
+            transparent 70%
+        );
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
 
 /* Header */
 
