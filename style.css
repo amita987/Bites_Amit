@@ -2290,6 +2290,107 @@ td{
 
 
 }
+
+/* ==========================================================
+   PREMIUM ADMIN PAGE CONTAINER
+
+   Purpose:
+   Creates a consistent application-style layout
+   for all admin pages.
+
+   Used for:
+   - Menu Management
+   - Orders
+   - Inventory
+   - Reports
+   - Settings
+   - Daily Closing Report
+
+
+   Future Editing:
+   - Increase max-width for larger screens.
+   - Adjust padding for more/less page breathing space.
+
+========================================================== */
+
+
+.admin-page{
+
+    /* Controls maximum page width */
+    max-width:1400px;
+
+
+    /* Centers content */
+    margin:auto;
+
+
+    /* Creates page spacing */
+    padding:var(--space-xl);
+
+}
+
+
+
+/* ==========================================================
+   ADMIN PAGE HEADER
+
+   Purpose:
+   Creates a consistent title + action button layout.
+
+   Example:
+
+   Menu Management          + Add Item Button
+
+========================================================== */
+
+
+.admin-page-header{
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    gap:var(--space-lg);
+
+
+    flex-wrap:wrap;
+
+
+    margin-bottom:var(--space-xl);
+
+}
+
+
+
+/* ==========================================================
+   ADMIN PAGE TITLE
+
+   Purpose:
+   Standardizes all admin page headings.
+
+========================================================== */
+
+
+.admin-page-header h1{
+
+    color:var(--primary);
+
+
+    font-size:36px;
+
+
+    font-weight:800;
+
+
+    letter-spacing:.3px;
+
+}
+
 .table-empty{
 
     padding:40px;
