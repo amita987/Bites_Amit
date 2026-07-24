@@ -375,28 +375,34 @@ nav a:hover::after{
 }
 
 /* ==========================================================
-   HERO SECTION
+   PREMIUM HERO SECTION
+
+   Purpose:
+   Creates a more spacious and elegant landing section.
+
+   Future Editing:
+   - Replace the image URL to change the hero image.
+   - Adjust the overlay opacity if your image is brighter or darker.
 ========================================================== */
 
 .hero{
 
-    min-height:500px;
+    min-height:70vh;
 
     background:
-    linear-gradient(
-        rgba(0,0,0,.55),
-        rgba(0,0,0,.55)
-    ),
-    url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
-
+        linear-gradient(
+            rgba(0,0,0,.42),
+            rgba(0,0,0,.50)
+        ),
+        url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
 
     background-size:cover;
 
     background-position:center;
 
+    background-attachment:fixed;
 
     color:var(--white);
-
 
     display:flex;
 
@@ -406,28 +412,51 @@ nav a:hover::after{
 
     align-items:center;
 
-
     text-align:center;
 
-    padding:var(--space-xl);
+    padding:80px 30px;
 
 }
 
+
+/* ==========================================================
+   HERO MAIN HEADING
+========================================================== */
 
 .hero h2{
-    font-size:52px;
-    font-weight:700;
-    line-height:1.2;
+
+    font-size:clamp(42px,6vw,68px);
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    max-width:900px;
+
+    margin-bottom:24px;
+
     text-shadow:
-        0 3px 10px rgba(0,0,0,.5);
+        0 6px 20px rgba(0,0,0,.35);
+
 }
 
+/* ==========================================================
+   HERO DESCRIPTION
+========================================================== */
+
 .hero p{
-    font-size:24px;
-    margin:var(--space-lg);
-    max-width:700px;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    max-width:760px;
+
+    margin-bottom:36px;
+
     text-shadow:
-        0 2px 8px rgba(0,0,0,.5);
+        0 3px 12px rgba(0,0,0,.30);
+
 }
 
 /* ==========================================================
