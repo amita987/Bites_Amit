@@ -20,46 +20,118 @@
 
 :root{
 
-    /* Brand Colors */
+    /* ==========================================================
+       MODERN DESIGN SYSTEM
 
-    --primary:#8B0000;
+       PURPOSE:
+       Global colour palette for the entire website.
 
-    --primary-hover:#6d0000;
+       This section controls almost every colour on the site.
 
-    --secondary:#ff9800;
+       Safe to edit in the future.
 
-    --secondary-hover:#e68900;
-
-    --success:#28a745;
-
-    --danger:#dc3545;
-
-    --warning:#ffc107;
-
-    --info:#0d6efd;
+    ========================================================== */
 
 
-    /* Backgrounds */
+    /* ----------------------------------------------------------
+       Primary Brand Colours
+    ---------------------------------------------------------- */
 
-    --background:#fff8f0;
+    --primary:#B91C1C;
 
-    --card:#ffffff;
+    --primary-hover:#991B1B;
 
-    --table-hover:#fff4e6;
+    --secondary:#F59E0B;
 
-
-    /* Text */
-
-    --text:#333333;
-
-    --text-light:#666666;
-
-    --white:#ffffff;
+    --secondary-hover:#D97706;
 
 
-    /* Borders */
+    /* ----------------------------------------------------------
+       Status Colours
+    ---------------------------------------------------------- */
 
-    --border:#dddddd;
+    --success:#16A34A;
+
+    --danger:#DC2626;
+
+    --warning:#FACC15;
+
+    --info:#2563EB;
+
+
+    /* ----------------------------------------------------------
+       Background Colours
+    ---------------------------------------------------------- */
+
+    --background:#F3F4F6;
+
+    --card:#FFFFFF;
+
+    --table-hover:#FEF3C7;
+
+    --card-hover:#FAFAFA;
+
+
+    /* ----------------------------------------------------------
+       Text Colours
+    ---------------------------------------------------------- */
+
+    --text:#1F2937;
+
+    --text-light:#6B7280;
+
+    --white:#FFFFFF;
+
+
+    /* ----------------------------------------------------------
+       Borders
+    ---------------------------------------------------------- */
+
+    --border:#E5E7EB;
+
+
+    /* ----------------------------------------------------------
+       Border Radius
+    ---------------------------------------------------------- */
+
+    --radius-small:8px;
+
+    --radius-medium:14px;
+
+    --radius-large:20px;
+
+
+    /* ----------------------------------------------------------
+       Modern Shadows
+    ---------------------------------------------------------- */
+
+    --shadow-small:
+        0 2px 6px rgba(0,0,0,.05);
+
+    --shadow-medium:
+        0 8px 20px rgba(0,0,0,.08);
+
+    --shadow-large:
+        0 16px 40px rgba(0,0,0,.12);
+
+
+    /* ----------------------------------------------------------
+       Spacing
+    ---------------------------------------------------------- */
+
+    --space-xs:8px;
+
+    --space-sm:12px;
+
+    --space-md:16px;
+
+    --space-lg:24px;
+
+    --space-xl:32px;
+
+    --space-xxl:48px;
+
+}
 
 
     /* Border Radius */
