@@ -1478,6 +1478,401 @@ letter-spacing:.2px;
 }
 
 /* ==========================================================
+   REPORT DASHBOARD GRID
+
+   Purpose:
+   Arranges report widgets like a business dashboard.
+
+   Used for:
+   - Financial Summary
+   - Inventory Summary
+   - Daily Reports
+   - Statistics
+
+   Future Editing:
+   - Change columns for different screen layouts.
+   - Adjust gap between cards.
+
+========================================================== */
+
+
+.report-grid{
+
+    display:grid;
+
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(220px,1fr));
+
+
+    gap:var(--space-lg);
+
+
+    width:100%;
+
+
+    margin-top:var(--space-lg);
+
+}
+
+/* ==========================================================
+   REPORT SECTION CARD
+
+   Purpose:
+   Creates a consistent container for report groups.
+
+   Example:
+   Financial Summary
+   Best Sellers
+   Inventory Summary
+
+========================================================== */
+
+
+.report-section{
+
+    background:var(--card);
+
+
+    padding:var(--space-xl);
+
+
+    border-radius:var(--radius-large);
+
+
+    box-shadow:
+        var(--shadow-medium);
+
+
+    margin-bottom:
+        var(--space-xl);
+
+}
+
+/* ==========================================================
+   FINANCIAL KPI CARD
+
+   Purpose:
+   Highlights important financial numbers.
+
+   Used for:
+   - Revenue
+   - Tax
+   - Delivery Charges
+   - Purchase Cost
+   - Profit
+
+   Future Editing:
+   - Change accent colours by adding custom classes.
+   - Adjust size for larger dashboards.
+
+========================================================== */
+
+
+.financial-card{
+
+    background:var(--card);
+
+
+    padding:var(--space-lg);
+
+
+    border-radius:var(--radius-large);
+
+
+    box-shadow:
+        var(--shadow-medium);
+
+
+    border-top:5px solid var(--primary);
+
+
+    transition:
+
+        transform .25s ease,
+
+        box-shadow .25s ease;
+
+
+    text-align:center;
+
+}
+
+
+
+/* ==========================================================
+   FINANCIAL CARD HOVER
+
+========================================================== */
+
+.financial-card:hover{
+
+    transform:
+        translateY(-6px);
+
+
+    box-shadow:
+        var(--shadow-large);
+
+}
+
+
+
+/* ==========================================================
+   FINANCIAL CARD TITLE
+
+========================================================== */
+
+.financial-card h3{
+
+    font-size:15px;
+
+
+    color:var(--text-light);
+
+
+    font-weight:700;
+
+
+    margin-bottom:
+        var(--space-sm);
+
+}
+
+
+
+/* ==========================================================
+   FINANCIAL VALUE
+
+   Purpose:
+   Displays money values prominently.
+
+========================================================== */
+
+.financial-value{
+
+    font-size:34px;
+
+
+    font-weight:800;
+
+
+    color:var(--primary);
+
+}
+
+/* ==========================================================
+   FINANCIAL CARD STATUS COLORS
+
+   Purpose:
+   Gives visual meaning to different metrics.
+
+========================================================== */
+
+
+.financial-card.success{
+
+    border-top-color:
+        var(--success);
+
+}
+
+
+.financial-card.warning{
+
+    border-top-color:
+        var(--warning);
+
+}
+
+
+.financial-card.info{
+
+    border-top-color:
+        var(--info);
+
+}
+
+
+.financial-card.danger{
+
+    border-top-color:
+        var(--danger);
+
+}
+
+/* ==========================================================
+   BEST SELLER CARD
+
+   Purpose:
+   Styles the Top Selling Items section.
+
+   Used for:
+   - Best selling menu items
+   - Ranking lists
+   - Product performance
+
+   Future Editing:
+   - Adjust badge size.
+   - Change ranking colours.
+
+========================================================== */
+
+
+.best-seller-card{
+
+    background:var(--card);
+
+    padding:var(--space-lg);
+
+    border-radius:var(--radius-large);
+
+    box-shadow:
+        var(--shadow-medium);
+
+    transition:
+
+        transform .25s ease,
+
+        box-shadow .25s ease;
+
+}
+
+
+
+/* ==========================================================
+   BEST SELLER HOVER
+
+========================================================== */
+
+.best-seller-card:hover{
+
+    transform:
+        translateY(-5px);
+
+
+    box-shadow:
+        var(--shadow-large);
+
+}
+
+
+
+/* ==========================================================
+   SELLER RANK NUMBER
+
+   Purpose:
+   Highlights ranking position.
+
+========================================================== */
+
+.rank-number{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    width:36px;
+
+    height:36px;
+
+
+    border-radius:50%;
+
+
+    background:var(--primary);
+
+
+    color:var(--white);
+
+
+    font-weight:700;
+
+
+    margin-right:10px;
+
+}
+
+
+
+/* ==========================================================
+   INVENTORY SUMMARY CARD
+
+   Purpose:
+   Styles ingredient purchase summaries.
+
+========================================================== */
+
+.inventory-summary-card{
+
+    background:var(--card);
+
+
+    padding:var(--space-lg);
+
+
+    border-radius:var(--radius-large);
+
+
+    box-shadow:
+        var(--shadow-medium);
+
+
+    border-left:
+
+        5px solid var(--info);
+
+
+    transition:
+
+        transform .25s ease,
+
+        box-shadow .25s ease;
+
+}
+
+
+
+/* ==========================================================
+   INVENTORY SUMMARY HOVER
+
+========================================================== */
+
+.inventory-summary-card:hover{
+
+    transform:
+        translateY(-5px);
+
+
+    box-shadow:
+        var(--shadow-large);
+
+}
+
+
+
+/* ==========================================================
+   INVENTORY VALUE
+
+========================================================== */
+
+.inventory-value{
+
+    font-size:30px;
+
+
+    font-weight:800;
+
+
+    color:var(--info);
+
+}
+
+/* ==========================================================
    ORDER DETAILS MODAL
 
    PURPOSE:
