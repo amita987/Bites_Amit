@@ -238,6 +238,17 @@ nav{
 }
 
 
+/* ==========================================================
+   PREMIUM NAVIGATION LINKS
+   Purpose:
+   Creates smoother hover animations and prepares each link
+   for an animated underline.
+
+   Future Editing:
+   - Increase translateY() for more lift.
+   - Change transition speed if desired.
+========================================================== */
+
 nav a{
 
     color:var(--white);
@@ -250,19 +261,59 @@ nav a{
 
     border-radius:var(--radius-small);
 
+    position:relative;
+
     transition:
         background .25s ease,
-        color .25s ease;
+        color .25s ease,
+        transform .25s ease;
 
 }
 
+
+/* ==========================================================
+   NAVIGATION HOVER EFFECT
+========================================================== */
 
 nav a:hover{
 
-    background:rgba(255,255,255,.15);
+    background:rgba(255,255,255,.18);
+
+    transform:translateY(-2px);
+
+}
+/* ==========================================================
+   ANIMATED NAVIGATION UNDERLINE
+   Purpose:
+   Displays a smooth underline animation when hovering over
+   navigation links.
+========================================================== */
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:14px;
+
+    bottom:4px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--white);
+
+    transition:width .25s ease;
 
 }
 
+nav a:hover::after{
+
+    width:calc(100% - 28px);
+
+}
 
 /* ==========================================================
    HERO SECTION
