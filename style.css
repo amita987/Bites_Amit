@@ -851,50 +851,109 @@ footer p{
 }
 
 /* ==========================================================
-   GLOBAL TABLES
+   PREMIUM DATA TABLE
 
-   Common table styling used by:
-   - Menu
-   - Reports
-   - Admin pages
+   Purpose:
+   Provides a modern, professional appearance for all tables
+   across the website.
+
+   Future Editing:
+   - Increase border-radius for softer corners.
+   - Adjust shadow intensity if desired.
 ========================================================== */
 
 table{
+
     width:100%;
-    border-collapse:collapse;
+
+    border-collapse:separate;
+
+    border-spacing:0;
+
     margin:var(--space-lg) 0;
+
     background:var(--card);
-    border-radius:var(--radius-medium);
+
+    border-radius:20px;
+
     overflow:hidden;
-    box-shadow:var(--shadow-medium);
+
+    border:1px solid var(--border);
+
+    box-shadow:
+        0 12px 30px rgba(15,23,42,.08);
+
 }
+
+/* ==========================================================
+   TABLE HEADER
+========================================================== */
 
 th{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:5;
+
     background:var(--primary);
+
     color:var(--white);
-    padding:16px;
-    font-size:16px;
-    font-weight:600;
+
+    padding:18px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
     text-align:center;
+
 }
 
+/* ==========================================================
+   TABLE CELLS
+========================================================== */
+
 td{
-    padding:14px;
+
+    padding:18px 16px;
+
     text-align:center;
-    border-bottom:1px solid var(--border);
+
+    border-bottom:1px solid #edf2f7;
+
+    vertical-align:middle;
+
 }
 
 tbody tr{
     transition:background .2s ease;
 }
 
+/* ==========================================================
+   ALTERNATING TABLE ROWS
+========================================================== */
+
 tbody tr:nth-child(even){
-    background:#fcfcfc;
+
+    background:#fafbfd;
+
 }
 
+/* ==========================================================
+   TABLE ROW HOVER
+========================================================== */
+
 tbody tr:hover{
-    background:var(--table-hover);
-}
+
+    background:#eef6ff;
+
+    transition:background .2s ease;
+
+}   
 
 td img{
     width:100px;
