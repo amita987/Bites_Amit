@@ -515,15 +515,67 @@ section{
 }
 
 /* ==========================================================
-   SECTION HEADINGS
-   Uses global brand primary colour.
-========================================================== */
-section h2 {
-    font-size:35px;
-    color:var(--primary);
-    margin-bottom:30px;
-}
+   PREMIUM SECTION HEADINGS
 
+   Purpose:
+   Gives every section heading a cleaner, more premium look
+   with improved spacing and a decorative accent line.
+
+   Future Editing:
+   - Increase font-size for larger headings.
+   - Change the accent width or color below.
+========================================================== */
+
+section h2{
+
+    position:relative;
+
+    display:inline-block;
+
+    font-size:38px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    margin-bottom:50px;
+
+    letter-spacing:.4px;
+
+}
+/* ==========================================================
+   SECTION HEADING ACCENT
+
+   Purpose:
+   Draws a subtle gradient line beneath every section title.
+========================================================== */
+
+section h2::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-14px;
+
+    transform:translateX(-50%);
+
+    width:80px;
+
+    height:4px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--secondary),
+            var(--primary)
+        );
+
+}
 
 /* Menu */
 
