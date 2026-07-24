@@ -8,7 +8,23 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+   /* ==========================================================
+      GLOBAL FONT
+      Purpose:
+      Uses a modern system font stack for a premium look without
+      requiring any external font downloads.
+   
+      Future Editing:
+      Replace the font stack below if you later decide to use
+      Google Fonts (e.g., Inter or Poppins).
+   ========================================================== */
+   
+   font-family:
+       "Segoe UI",
+       Roboto,
+       "Helvetica Neue",
+       Arial,
+       sans-serif;
 
 }
 
