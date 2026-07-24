@@ -619,56 +619,86 @@ section h2::after{
 
 
 /* ==========================================================
-   PREMIUM MENU CARD
+   PREMIUM MENU ITEM CARD
 
    Purpose:
-   Gives every menu item a premium floating-card appearance.
+   Creates restaurant-style product cards.
+
+   Used for:
+   - Menu items
+   - Food listings
+   - Product displays
 
    Future Editing:
-   - Increase border-radius for softer corners.
-   - Adjust border colour for stronger outlines.
-   - Increase hover lift if desired.
+   - Adjust width for different screen sizes.
+   - Change shadow for more/less depth.
+   - Modify radius for different styles.
+
 ========================================================== */
 
 .item{
 
+    /* Card background */
     background:var(--card);
 
+
+    /* Flexible card width */
     width:250px;
 
+
+    /* Internal spacing */
     padding:var(--space-lg);
 
-    border-radius:22px;
 
-    border:1px solid rgba(255,255,255,.55);
+    /* Premium rounded corners */
+    border-radius:var(--radius-large);
 
+
+    /* Soft border */
+    border:1px solid var(--border);
+
+
+    /* Floating card effect */
     box-shadow:
-        0 10px 30px rgba(15,23,42,.08);
+        var(--shadow-medium);
 
+
+    /* Smooth animation */
     transition:
+
         transform .30s ease,
+
         box-shadow .30s ease,
+
         border-color .30s ease;
 
+
+    /* Keeps images inside card */
     overflow:hidden;
 
 }
 
 
 /* ==========================================================
-   PREMIUM CARD HOVER EFFECT
+   PREMIUM MENU CARD HOVER
+
+   Purpose:
+   Adds subtle product-card animation.
+
 ========================================================== */
 
 .item:hover{
 
     transform:
-        translateY(-10px);
+        translateY(-8px);
+
 
     box-shadow:
-        0 20px 45px rgba(15,23,42,.15);
+        var(--shadow-large);
+
 
     border-color:
-        rgba(245,158,11,.35);
+        var(--secondary);
 
 }
 
@@ -684,7 +714,13 @@ section h2::after{
     margin-top:var(--space-sm);
 
 }
-/* Menu Item Images */
+/* ==========================================================
+   MENU CARD IMAGE
+
+   Purpose:
+   Gives food images a premium presentation.
+
+========================================================== */
 
 .item img{
 
@@ -692,9 +728,16 @@ section h2::after{
 
     height:180px;
 
+
     object-fit:cover;
 
-    border-radius:var(--radius-medium);
+
+    border-radius:
+        var(--radius-medium);
+
+
+    margin-bottom:
+        var(--space-md);
 
 }
 
