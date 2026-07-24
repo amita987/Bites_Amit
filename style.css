@@ -1191,48 +1191,78 @@ letter-spacing:.2px;
    PREMIUM DASHBOARD CARD
 
    Purpose:
-   Styles all dashboard modules with a modern card design.
+   Creates a modern reusable card component for:
+
+   - Dashboard modules
+   - Reports
+   - Financial summaries
+   - Statistics
+   - Inventory widgets
 
    Future Editing:
-   - Change border-left color for a different accent.
-   - Increase padding for larger cards.
-   - Adjust hover lift if desired.
+   - Change radius for softer/sharper cards.
+   - Change shadow for depth.
+   - Change border accent colour.
+
 ========================================================== */
 
 .dashboard-card{
 
+    /* Card background */
     background:var(--card);
 
-    padding:28px;
 
-    margin-bottom:24px;
+    /* Internal spacing */
+    padding:var(--space-xl);
 
-    border-radius:22px;
 
+    /* Space between cards */
+    margin-bottom:var(--space-xl);
+
+
+    /* Premium rounded corners */
+    border-radius:var(--radius-large);
+
+
+    /* Left accent indicator */
     border-left:6px solid var(--primary);
 
-    box-shadow:
-        0 12px 28px rgba(15,23,42,.08);
 
+    /* Premium depth */
+    box-shadow:
+        var(--shadow-medium);
+
+
+    /* Smooth animation */
     transition:
+
         transform .30s ease,
+
         box-shadow .30s ease,
+
         border-color .30s ease;
 
 }
 
 /* ==========================================================
-   DASHBOARD CARD HOVER
+   DASHBOARD CARD HOVER EFFECT
+
+   Purpose:
+   Adds subtle premium movement.
+
 ========================================================== */
 
 .dashboard-card:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-6px);
+
 
     box-shadow:
-        0 22px 45px rgba(15,23,42,.15);
+        var(--shadow-large);
 
-    border-left-color:var(--secondary);
+
+    border-left-color:
+        var(--secondary);
 
 }
 
@@ -1250,15 +1280,29 @@ letter-spacing:.2px;
 
 
 
-/* Summary Numbers */
+/* ==========================================================
+   PREMIUM SUMMARY NUMBERS
+
+   Purpose:
+   Highlights important business values.
+
+   Used for:
+   - Revenue
+   - Orders
+   - Profit
+   - Statistics
+
+========================================================== */
 
 .summary-number{
 
-    font-size:32px;
+    font-size:36px;
 
-    font-weight:700;
+    font-weight:800;
 
     color:var(--primary);
+
+    line-height:1.2;
 
 }
 /* ==========================================================
