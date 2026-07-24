@@ -1348,6 +1348,135 @@ letter-spacing:.2px;
     line-height:1.2;
 
 }
+
+/* ==========================================================
+   PREMIUM REPORT WIDGET CARD
+
+   Purpose:
+   Creates reusable dashboard-style cards for:
+
+   - Financial Summary
+   - Inventory Summary
+   - Daily Closing Report
+   - Best Sellers
+   - Business Statistics
+
+   Future Editing:
+   - Change shadow for more/less depth.
+   - Change border radius for different style.
+   - Change accent colours if required.
+
+========================================================== */
+
+
+.report-widget{
+
+    /* Main card background */
+    background:var(--card);
+
+
+    /* Space inside card */
+    padding:var(--space-lg);
+
+
+    /* Premium rounded corners */
+    border-radius:var(--radius-large);
+
+
+    /* Light professional border */
+    border:1px solid var(--border);
+
+
+    /* Floating dashboard effect */
+    box-shadow:
+        var(--shadow-medium);
+
+
+    /* Smooth animation */
+    transition:
+
+        transform .25s ease,
+
+        box-shadow .25s ease;
+
+
+    /* Center widget content */
+    text-align:center;
+
+}
+
+
+
+/* ==========================================================
+   REPORT WIDGET HOVER EFFECT
+
+   Purpose:
+   Adds subtle lift when user interacts.
+
+========================================================== */
+
+.report-widget:hover{
+
+    transform:
+        translateY(-6px);
+
+
+    box-shadow:
+        var(--shadow-large);
+
+}
+
+
+
+/* ==========================================================
+   REPORT WIDGET TITLE
+
+   Purpose:
+   Creates smaller descriptive text.
+
+   Example:
+   Total Revenue
+
+========================================================== */
+
+.report-widget h3{
+
+    color:var(--text-light);
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-bottom:
+        var(--space-sm);
+
+}
+
+
+
+/* ==========================================================
+   REPORT WIDGET VALUE
+
+   Purpose:
+   Highlights important business numbers.
+
+   Example:
+   ₹50,000
+
+========================================================== */
+
+.report-widget .value{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+    line-height:1.2;
+
+}
+
 /* ==========================================================
    ORDER DETAILS MODAL
 
