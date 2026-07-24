@@ -163,9 +163,21 @@ body{
 
 /* Header */
 
+/* ==========================================================
+   PREMIUM HEADER
+   Purpose:
+   Creates a modern sticky header with a subtle glass effect.
+
+   Future Editing:
+   - Change 'top' if needed.
+   - Adjust backdrop-filter for more or less blur.
+   - Change opacity by modifying the rgba() value.
+========================================================== */
+
 header{
 
-    background:var(--primary);
+    /* Existing brand colour with slight transparency */
+    background:rgba(185,28,28,0.92);
 
     color:var(--white);
 
@@ -181,8 +193,26 @@ header{
 
     gap:var(--space-md);
 
-    box-shadow:var(--shadow-medium);
+    /* Premium shadow */
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.12);
 
+    /* Keep header visible while scrolling */
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    /* Glass effect */
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    /* Smooth transitions */
+    transition:
+        background .3s ease,
+        box-shadow .3s ease;
 }
 
 
