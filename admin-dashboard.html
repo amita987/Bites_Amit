@@ -44,136 +44,134 @@
     =========================================================== -->
 
     <main>
-
-        <!-- ======================================================
-             PAGE TITLE
-        ======================================================= -->
-
-        <h2>
-
-            Admin Dashboard
-
-        </h2>
-
-
-        <!-- ======================================================
-             PAGE DESCRIPTION
-
+    
+        <!-- ==========================================================
+             DASHBOARD HEADER
+    
              PURPOSE:
-             Brief introduction for the administrator.
-        ======================================================= -->
-
-        <p>
-
-            Welcome to the Bite Amit Restaurant Administration Panel.
-            Select a module below to continue.
-
-        </p>
-
-
-        <!-- ======================================================
-             ADMIN MODULES
-
+             Displays the page title and welcome message.
+    
+             UI ONLY
+             Does NOT affect any JavaScript logic.
+        =========================================================== -->
+    
+        <section class="dashboard-header">
+    
+            <h2>Admin Dashboard</h2>
+    
+            <p>
+    
+                Welcome to the Bite Amit Restaurant Administration Panel.
+    
+                Select a module below to continue.
+    
+            </p>
+    
+        </section>
+    
+    
+        <!-- ==========================================================
+             ADMIN MODULE GRID
+    
              PURPOSE:
-             Provides quick access to all administration modules.
-        ======================================================= -->
-
-
-        <!-- ======================================================
-             MENU MANAGEMENT
-
-             PURPOSE:
-             Opens the Menu Management page where menu items,
-             categories, prices and availability are managed.
-        ======================================================= -->
-
-        <button
-
-            onclick="window.location.href='admin-menu.html'"
-
-        >
-
-            🍽️ Manage Menu
-
-        </button>
-
-
-        <!-- ======================================================
-             ORDER MANAGEMENT
-
-             PURPOSE:
-             Opens the Order Management page where customer
-             orders and invoices can be viewed.
-        ======================================================= -->
-
-        <button
-
-            onclick="window.location.href='admin-orders.html'"
-
-        >
-
-            📦 Order Management
-
-        </button>
-
-
-        <!-- ======================================================
-             INVENTORY MANAGEMENT
-
-             PURPOSE:
-             Opens the Inventory Management page where ingredients,
-             purchase register and inventory costs are maintained.
-        ======================================================= -->
-
-        <button
-
-            onclick="window.location.href='admin-inventory.html'"
-
-        >
-
-            📦 Inventory Management
-
-        </button>
-
-
-        <!-- ======================================================
-             REPORTS & DASHBOARD
-
-             PURPOSE:
-             Opens the Reports page to view sales reports,
-             financial summaries and business insights.
-        ======================================================= -->
-
-        <button
-
-            onclick="window.location.href='admin-reports.html'"
-
-        >
-
-            📊 Reports & Dashboard
-
-        </button>
-
-
-        <!-- ======================================================
-             FUTURE MODULES
-
-             PURPOSE:
-             Reserve this area for future administration modules.
-
-             Examples:
-             • Customer Management
-             • Employee Management
-             • Kitchen Display
-             • Coupons & Offers
-             • Restaurant Settings
-             • User Management
-             • Backup & Restore
-        ======================================================= -->
-
-
+             Displays all administration modules as modern dashboard
+             cards.
+    
+             NOTE:
+             Only the layout has changed.
+    
+             The existing onclick functions remain exactly the same.
+        =========================================================== -->
+    
+        <section class="dashboard-grid">
+    
+    
+            <!-- ======================================================
+                 MENU MANAGEMENT CARD
+            ======================================================= -->
+    
+            <button
+                class="dashboard-card"
+                onclick="window.location.href='admin-menu.html'">
+    
+                <span class="card-icon">🍽️</span>
+    
+                <span class="card-title">
+                    Manage Menu
+                </span>
+    
+                <span class="card-description">
+                    Add, edit and manage menu items.
+                </span>
+    
+            </button>
+    
+    
+            <!-- ======================================================
+                 ORDER MANAGEMENT CARD
+            ======================================================= -->
+    
+            <button
+                class="dashboard-card"
+                onclick="window.location.href='admin-orders.html'">
+    
+                <span class="card-icon">📦</span>
+    
+                <span class="card-title">
+                    Order Management
+                </span>
+    
+                <span class="card-description">
+                    View customer orders and invoices.
+                </span>
+    
+            </button>
+    
+    
+            <!-- ======================================================
+                 INVENTORY MANAGEMENT CARD
+            ======================================================= -->
+    
+            <button
+                class="dashboard-card"
+                onclick="window.location.href='admin-inventory.html'">
+    
+                <span class="card-icon">📋</span>
+    
+                <span class="card-title">
+                    Inventory Management
+                </span>
+    
+                <span class="card-description">
+                    Manage ingredients and purchases.
+                </span>
+    
+            </button>
+    
+    
+            <!-- ======================================================
+                 REPORTS & DASHBOARD CARD
+            ======================================================= -->
+    
+            <button
+                class="dashboard-card"
+                onclick="window.location.href='admin-reports.html'">
+    
+                <span class="card-icon">📊</span>
+    
+                <span class="card-title">
+                    Reports & Dashboard
+                </span>
+    
+                <span class="card-description">
+                    Sales, revenue and business insights.
+                </span>
+    
+            </button>
+    
+        </section>
+    
     </main>
-
 </body>
 
 </html>
