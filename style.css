@@ -897,7 +897,12 @@ th{
 
     z-index:5;
 
-    background:var(--primary);
+    background:
+      linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-hover)
+      );
 
     color:var(--white);
 
@@ -942,7 +947,11 @@ tbody tr:nth-child(even){
     background:#fafbfd;
 
 }
+tbody tr:nth-child(odd){
 
+    background:#ffffff;
+
+}
 /* ==========================================================
    TABLE ROW HOVER
 ========================================================== */
@@ -951,7 +960,10 @@ tbody tr:hover{
 
     background:#eef6ff;
 
-    transition:background .2s ease;
+    transform:scale(1.002);
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,.06);
 
 }   
 
@@ -963,9 +975,15 @@ td img{
 }
 
 td button{
-    padding:8px 14px;
-    border-radius:var(--radius-small);
-    font-size:14px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    margin:3px;
+
 }
 
 /* ==========================================================
@@ -985,7 +1003,40 @@ td button{
 td button:hover{
     opacity:1;
 }
+/* ==========================================================
+   PREMIUM TABLE CONTAINER
 
+   Purpose:
+   Gives every table a dashboard-card appearance.
+
+========================================================== */
+
+.table-container{
+
+    background:var(--card);
+
+    padding:var(--space-lg);
+
+    border-radius:var(--radius-large);
+
+    box-shadow:
+        var(--shadow-medium);
+
+    overflow-x:auto;
+
+}
+
+
+/* Table title inside container */
+
+.table-container h2,
+.table-container h3{
+
+    margin-bottom:20px;
+
+    color:var(--primary);
+
+}
 /* ==========================================================
    GLOBAL FORM CONTROLS
 ========================================================== */
@@ -1516,17 +1567,30 @@ label{
 
 @media(max-width:700px){
 
+.table-container{
 
-    table{
+    padding:var(--space-md);
 
-        display:block;
+}
 
-        overflow-x:auto;
 
-        white-space:nowrap;
+table{
 
-    }
+    display:block;
 
+    overflow-x:auto;
+
+    white-space:nowrap;
+
+}
+
+
+th,
+td{
+
+    padding:12px;
+
+}
 
 }
 
@@ -1548,5 +1612,16 @@ label{
 
     }
 
+
+}
+.table-empty{
+
+    padding:40px;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    font-size:18px;
 
 }
