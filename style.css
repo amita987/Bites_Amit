@@ -372,33 +372,76 @@ nav a:hover::after{
 }
 
 /* ==========================================================
-   GLOBAL BUTTONS
+   PREMIUM GLOBAL BUTTONS
+
+   Purpose:
+   Gives all buttons a modern premium appearance.
+
+   Future Editing:
+   - Change gradient colours for a different theme.
+   - Increase padding for larger buttons.
+   - Adjust border-radius for more or less rounded buttons.
 ========================================================== */
 
 button{
-    background:var(--secondary);
+
+    /* Premium gradient */
+    background:
+        linear-gradient(
+            135deg,
+            var(--secondary),
+            var(--secondary-hover)
+        );
+
     color:var(--white);
+
     border:none;
-    padding:12px 24px;
-    border-radius:var(--radius-medium);
-    font-size:16px;
-    font-weight:600;
+
+    padding:14px 28px;
+
+    border-radius:999px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
     cursor:pointer;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.15);
+
     transition:
-        background .25s ease,
-        transform .15s ease,
-        box-shadow .25s ease;
-    box-shadow:var(--shadow-small);
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+
 }
+
+/* ==========================================================
+   BUTTON HOVER EFFECT
+========================================================== */
 
 button:hover{
-    background:var(--secondary-hover);
-    transform:translateY(-2px);
-    box-shadow:var(--shadow-medium);
+
+    transform:translateY(-4px);
+
+    filter:brightness(1.05);
+
+    box-shadow:
+        0 14px 30px rgba(0,0,0,.18);
+
 }
 
+/* ==========================================================
+   BUTTON CLICK EFFECT
+========================================================== */
+
 button:active{
-    transform:translateY(0);
+
+    transform:translateY(1px) scale(.98);
+
 }
 
 /* ==========================================================
