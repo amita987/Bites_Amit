@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- ==========================================================
+         PAGE INFORMATION
+    =========================================================== -->
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -10,124 +14,165 @@
 
     <title>Bite Amit Restaurant | Admin Dashboard</title>
 
+    <!-- Global Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+    <!-- ==========================================================
+         HEADER
 
+         PURPOSE:
+         Displays the restaurant name at the top of the page.
+    =========================================================== -->
 
-<!-- ==========================================================
-     HEADER
+    <header>
 
-     PURPOSE:
-     Restaurant title.
-     ========================================================== -->
+        <h1>🍽️ Bite Amit Restaurant</h1>
 
-<header>
-
-    <h1>🍽️ Bite Amit Restaurant</h1>
-
-</header>
-
-
-
-<!-- ==========================================================
-     ADMIN DASHBOARD
-
-     PURPOSE:
-     Home page after successful admin login.
-     ========================================================== -->
-
-<main>
-
-    <h2>
-
-        Admin Dashboard
-
-    </h2>
+    </header>
 
 
     <!-- ==========================================================
-         ADMIN OPTIONS
-    
+         ADMIN DASHBOARD
+
          PURPOSE:
-         Provides navigation to different admin modules.
-    
-         ========================================================== -->
-    
-    <button
-    
-        onclick="window.location.href='admin-menu.html'"
-    
-    >
-    
-        🍽️ Manage Menu
-    
-    </button>
-    
+         Main landing page displayed after a successful
+         administrator login.
+    =========================================================== -->
 
-    <!-- ==========================================================
-         ORDER MANAGEMENT
-    
-         PURPOSE:
-         Opens the Order Management page.
-    
-    ========================================================== -->
-    
-    <button
-    
-        onclick="window.location.href='admin-orders.html'"
-    
-    >
-    
-        📦 Order Management
-    
-    </button>
-    
+    <main>
 
-    <!-- ==========================================================
-         INVENTORY MANAGEMENT
-    
-         PURPOSE:
-         Opens the Inventory Management page where the admin
-         can manage ingredients, recipes, stock levels,
-         low stock alerts and stock refills.
-    
-    ========================================================== -->
-    
-    <button
-    
-        onclick="window.location.href='admin-inventory.html'"
-    
-    >
-    
-        📦 Inventory Management
-    
-    </button>
+        <!-- ======================================================
+             PAGE TITLE
+        ======================================================= -->
 
-    
-    <!-- ==========================================================
-         REPORTS & DASHBOARD
-    
-         PURPOSE:
-         Opens the Reports & Dashboard page.
-    
-    ========================================================== -->
-    
-    <button
-    
-        onclick="window.location.href='admin-reports.html'"
-    
-    >
-    
-        📊 Reports & Dashboard
-    
-    </button>
+        <h2>
+
+            Admin Dashboard
+
+        </h2>
 
 
-</main>
+        <!-- ======================================================
+             PAGE DESCRIPTION
+
+             PURPOSE:
+             Brief introduction for the administrator.
+        ======================================================= -->
+
+        <p>
+
+            Welcome to the Bite Amit Restaurant Administration Panel.
+            Select a module below to continue.
+
+        </p>
+
+
+        <!-- ======================================================
+             ADMIN MODULES
+
+             PURPOSE:
+             Provides quick access to all administration modules.
+        ======================================================= -->
+
+
+        <!-- ======================================================
+             MENU MANAGEMENT
+
+             PURPOSE:
+             Opens the Menu Management page where menu items,
+             categories, prices and availability are managed.
+        ======================================================= -->
+
+        <button
+
+            onclick="window.location.href='admin-menu.html'"
+
+        >
+
+            🍽️ Manage Menu
+
+        </button>
+
+
+        <!-- ======================================================
+             ORDER MANAGEMENT
+
+             PURPOSE:
+             Opens the Order Management page where customer
+             orders and invoices can be viewed.
+        ======================================================= -->
+
+        <button
+
+            onclick="window.location.href='admin-orders.html'"
+
+        >
+
+            📦 Order Management
+
+        </button>
+
+
+        <!-- ======================================================
+             INVENTORY MANAGEMENT
+
+             PURPOSE:
+             Opens the Inventory Management page where ingredients,
+             purchase register and inventory costs are maintained.
+        ======================================================= -->
+
+        <button
+
+            onclick="window.location.href='admin-inventory.html'"
+
+        >
+
+            📦 Inventory Management
+
+        </button>
+
+
+        <!-- ======================================================
+             REPORTS & DASHBOARD
+
+             PURPOSE:
+             Opens the Reports page to view sales reports,
+             financial summaries and business insights.
+        ======================================================= -->
+
+        <button
+
+            onclick="window.location.href='admin-reports.html'"
+
+        >
+
+            📊 Reports & Dashboard
+
+        </button>
+
+
+        <!-- ======================================================
+             FUTURE MODULES
+
+             PURPOSE:
+             Reserve this area for future administration modules.
+
+             Examples:
+             • Customer Management
+             • Employee Management
+             • Kitchen Display
+             • Coupons & Offers
+             • Restaurant Settings
+             • User Management
+             • Backup & Restore
+        ======================================================= -->
+
+
+    </main>
 
 </body>
 
