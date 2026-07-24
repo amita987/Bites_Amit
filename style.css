@@ -134,46 +134,6 @@
 }
 
 
-    /* Border Radius */
-
-    --radius-small:6px;
-
-    --radius-medium:10px;
-
-    --radius-large:16px;
-
-
-    /* Shadows */
-
-    --shadow-small:
-
-        0 2px 8px rgba(0,0,0,.08);
-
-    --shadow-medium:
-
-        0 5px 15px rgba(0,0,0,.15);
-
-    --shadow-large:
-
-        0 10px 25px rgba(0,0,0,.20);
-
-
-    /* Spacing */
-
-    --space-xs:8px;
-
-    --space-sm:12px;
-
-    --space-md:16px;
-
-    --space-lg:24px;
-
-    --space-xl:32px;
-
-    --space-xxl:48px;
-
-}
-
 body{
 
     background:var(--background);
