@@ -1,30 +1,36 @@
 /* ==========================================================
    GLOBAL RESET
-   Removes browser default spacing.
+
+   Purpose:
+   Removes browser defaults and enables smooth animations
+   throughout the application.
+
 ========================================================== */
 
 *{
 
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
-   /* ==========================================================
-      GLOBAL FONT
-      Purpose:
-      Uses a modern system font stack for a premium look without
-      requiring any external font downloads.
-   
-      Future Editing:
-      Replace the font stack below if you later decide to use
-      Google Fonts (e.g., Inter or Poppins).
-   ========================================================== */
-   
-   font-family:
-       "Segoe UI",
-       Roboto,
-       "Helvetica Neue",
-       Arial,
-       sans-serif;
+
+    font-family:
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+
+    /* Smooth transitions for interactive elements */
+    transition:
+
+        background-color .25s ease,
+
+        color .25s ease,
+
+        border-color .25s ease;
 
 }
 
@@ -154,13 +160,13 @@
    PREMIUM PAGE BACKGROUND
 
    Purpose:
-   Adds a soft background gradient so the website feels less
-   flat while keeping excellent readability.
+   Creates a soft premium background and enables smooth
+   animations throughout the website.
 
    Future Editing:
-   - Change the gradient colours if you want a warmer or cooler
-     appearance.
-   - Keep the colours very subtle for a premium look.
+   - Change gradient colours for a different theme.
+   - Adjust transition speed if required.
+
 ========================================================== */
 
 body{
@@ -177,6 +183,14 @@ body{
     line-height:1.6;
 
     min-height:100vh;
+
+
+    /* Smooth animations across the website */
+    transition:
+
+        background .35s ease,
+
+        color .35s ease;
 
 }
 
