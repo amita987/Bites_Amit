@@ -1013,39 +1013,51 @@ label{
 
 }
 /* ==========================================================
-   ADMIN DASHBOARD CARDS
-========================================================== */
+   PREMIUM DASHBOARD CARD
 
+   Purpose:
+   Styles all dashboard modules with a modern card design.
+
+   Future Editing:
+   - Change border-left color for a different accent.
+   - Increase padding for larger cards.
+   - Adjust hover lift if desired.
+========================================================== */
 
 .dashboard-card{
 
     background:var(--card);
 
-    padding:var(--space-lg);
+    padding:28px;
 
-    margin-bottom:var(--space-lg);
+    margin-bottom:24px;
 
+    border-radius:22px;
 
-    border-radius:var(--radius-large);
+    border-left:6px solid var(--primary);
 
-
-    box-shadow:var(--shadow-medium);
-
+    box-shadow:
+        0 12px 28px rgba(15,23,42,.08);
 
     transition:
-
-        transform .2s ease,
-
-        box-shadow .2s ease;
+        transform .30s ease,
+        box-shadow .30s ease,
+        border-color .30s ease;
 
 }
 
+/* ==========================================================
+   DASHBOARD CARD HOVER
+========================================================== */
 
 .dashboard-card:hover{
 
-    transform:translateY(-3px);
+    transform:translateY(-8px);
 
-    box-shadow:var(--shadow-large);
+    box-shadow:
+        0 22px 45px rgba(15,23,42,.15);
+
+    border-left-color:var(--secondary);
 
 }
 
