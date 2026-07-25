@@ -2578,3 +2578,148 @@ margin-bottom:20px;
   cursor: pointer;       /* This shows the hand cursor when someone hovers over it */
 }
 /* END: Styles to make the header link look like normal text */
+/* ==========================================================
+   ADMIN DASHBOARD MODULE TILES
+
+   PURPOSE:
+   Creates a responsive tile layout for admin modules.
+
+   FUTURE:
+   New dashboard tiles automatically follow the same design.
+========================================================== */
+
+
+/* ==========================================================
+   TILE CONTAINER
+
+   PURPOSE:
+   Controls the arrangement of dashboard tiles.
+========================================================== */
+
+.admin-module-container {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+
+    max-width: 900px;
+
+    margin: 50px auto;
+
+}
+
+
+
+/* ==========================================================
+   INDIVIDUAL MODULE TILE
+
+   PURPOSE:
+   Creates the card appearance.
+========================================================== */
+
+.admin-module-tile {
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+/* ==========================================================
+   TILE HOVER EFFECT
+
+   PURPOSE:
+   Gives interactive feel when user moves mouse over tile.
+========================================================== */
+
+.admin-module-tile:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+
+}
+
+
+
+/* ==========================================================
+   TILE ICON
+
+   PURPOSE:
+   Displays emoji/icon prominently.
+========================================================== */
+
+.admin-module-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+/* ==========================================================
+   TILE TITLE
+
+========================================================== */
+
+.admin-module-tile h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 22px;
+
+}
+
+
+
+/* ==========================================================
+   TILE DESCRIPTION
+
+========================================================== */
+
+.admin-module-tile p {
+
+    color: #666;
+
+    line-height: 1.6;
+
+}
+
+
+
+/* ==========================================================
+   MOBILE RESPONSIVE DESIGN
+
+   PURPOSE:
+   Converts tiles into single column on small screens.
+========================================================== */
+
+@media (max-width:768px) {
+
+
+    .admin-module-container {
+
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+
+    }
+
+
+}
