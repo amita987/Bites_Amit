@@ -83,82 +83,132 @@
              PURPOSE:
              Provides quick access to all administration modules.
         ======================================================= -->
-    
-    
         <!-- ======================================================
-             MENU MANAGEMENT
-    
+             ADMIN MODULE TILES
+        
              PURPOSE:
-             Opens the Menu Management page where menu items,
-             categories, prices and availability are managed.
+             Displays administration modules as clickable tiles.
+        
+             FUTURE:
+             New modules can be added by creating another tile
+             inside this container.
         ======================================================= -->
-    
-        <button
-    
-            onclick="window.location.href='admin-menu.html'"
-    
-        >
-    
-            🍽️ Manage Menu
-    
-        </button>
-    
-    
-        <!-- ======================================================
-             ORDER MANAGEMENT
-    
-             PURPOSE:
-             Opens the Order Management page where customer
-             orders and invoices can be viewed.
-        ======================================================= -->
-    
-        <button
-    
-            onclick="window.location.href='admin-orders.html'"
-    
-        >
-    
-            📦 Order Management
-    
-        </button>
-    
-    
-        <!-- ======================================================
-             INVENTORY MANAGEMENT
-    
-             PURPOSE:
-             Opens the Inventory Management page where ingredients,
-             purchase register and inventory costs are maintained.
-        ======================================================= -->
-    
-        <button
-    
-            onclick="window.location.href='admin-inventory.html'"
-    
-        >
-    
-            📦 Inventory Management
-    
-        </button>
-    
-    
-        <!-- ======================================================
-             REPORTS & DASHBOARD
-    
-             PURPOSE:
-             Opens the Reports page to view sales reports,
-             financial summaries and business insights.
-        ======================================================= -->
-    
-        <button
-    
-            onclick="window.location.href='admin-reports.html'"
-    
-        >
-    
-            📊 Reports & Dashboard
-    
-        </button>
+        
+        
+        <div class="admin-module-container">
+        
+        
+            <!-- =====================================
+                 MANAGE MENU TILE
+            ====================================== -->
+        
+            <div class="admin-module-tile"
+                 onclick="window.location.href='admin-menu.html'">
+        
+        
+                <div class="admin-module-icon">
+                    🍽️
+                </div>
+        
+        
+                <h3>
+                    Manage Menu
+                </h3>
+        
+        
+                <p>
+                    Add, edit and manage restaurant menu items.
+                </p>
+        
+        
+            </div>
+        
+        
+        
+        
+            <!-- =====================================
+                 ORDER MANAGEMENT TILE
+            ====================================== -->
+        
+            <div class="admin-module-tile"
+                 onclick="window.location.href='admin-orders.html'">
+        
+        
+                <div class="admin-module-icon">
+                    📦
+                </div>
+        
+        
+                <h3>
+                    Order Management
+                </h3>
+        
+        
+                <p>
+                    View and manage customer orders.
+                </p>
+        
+        
+            </div>
+        
+        
+        
+        
+            <!-- =====================================
+                 INVENTORY MANAGEMENT TILE
+            ====================================== -->
+        
+            <div class="admin-module-tile"
+                 onclick="window.location.href='admin-inventory.html'">
+        
+        
+                <div class="admin-module-icon">
+                    📋
+                </div>
+        
+        
+                <h3>
+                    Inventory Management
+                </h3>
+        
+        
+                <p>
+                    Manage ingredients and purchase records.
+                </p>
+        
+        
+            </div>
+        
+        
+        
+        
+            <!-- =====================================
+                 REPORTS TILE
+            ====================================== -->
+        
+            <div class="admin-module-tile"
+                 onclick="window.location.href='admin-reports.html'">
+        
+        
+                <div class="admin-module-icon">
+                    📊
+                </div>
+        
+        
+                <h3>
+                    Reports & Dashboard
+                </h3>
+        
+        
+                <p>
+                    View sales reports and business insights.
+                </p>
+        
+        
+            </div>
+        
+        
+        </div>
     
     
         <!-- ======================================================
