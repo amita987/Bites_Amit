@@ -2571,3 +2571,10 @@ margin-bottom:20px;
     margin-bottom:var(--space-lg);
 
 }
+/* START: Styles to make the header link look like normal text */
+.header-logo-link {
+  text-decoration: none; /* This removes the default link underline */
+  color: inherit;        /* This keeps your original header text color */
+  cursor: pointer;       /* This shows the hand cursor when someone hovers over it */
+}
+/* END: Styles to make the header link look like normal text */
