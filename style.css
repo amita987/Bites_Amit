@@ -2723,3 +2723,49 @@ margin-bottom:20px;
 
 
 }
+/* ==========================================================
+   PAGE HEADER ROW
+
+   PURPOSE:
+   Aligns page title and action button
+   on the same horizontal line.
+========================================================== */
+
+
+.page-header-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+/* ==========================================================
+   MOBILE RESPONSIVE HEADER
+
+   PURPOSE:
+   Stacks title and button on smaller screens.
+========================================================== */
+
+
+@media (max-width:768px) {
+
+
+    .page-header-row {
+
+        flex-direction: column;
+
+        gap:20px;
+
+        align-items:flex-start;
+
+    }
+
+
+}
