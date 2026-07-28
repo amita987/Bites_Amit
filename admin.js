@@ -35,48 +35,105 @@
    Shows login error.
    ========================================================== */
 
-function adminLogin(){
-
-
-    let username =
-
-        document.getElementById("username").value;
-
-
-    let password =
-
-        document.getElementById("password").value;
-
-
-
-    if(
-
-        username === "admin"
-
-        &&
-
-        password === "admin123"
-
-    ){
-
-        window.location.href =
-
-        "admin-dashboard.html";
-
-    }
-
-    else{
-
-        alert(
-
-            "Invalid Username or Password."
-
-        );
-
-    }
-
-
-}
+   function adminLogin(){
+   
+   
+       let username =
+   
+           document.getElementById("username").value.trim();
+   
+   
+       let password =
+   
+           document.getElementById("password").value;
+   
+   
+   
+       // ================================
+       // USERNAME VALIDATION
+       // ================================
+   
+       if(username.length < 5){
+   
+           alert(
+               "Username must contain at least 5 characters."
+           );
+   
+           return;
+   
+       }
+   
+   
+   
+       // ================================
+       // PASSWORD VALIDATION
+       // ================================
+   
+       let passwordRule =
+   
+           /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{10,}$/;
+   
+   
+   
+       if(!passwordRule.test(password)){
+   
+   
+           alert(
+   
+           "Password must contain:\n\n" +
+   
+           "✓ Minimum 10 characters\n" +
+   
+           "✓ One uppercase letter\n" +
+   
+           "✓ One lowercase letter\n" +
+   
+           "✓ One number\n" +
+   
+           "✓ One special character"
+   
+           );
+   
+   
+           return;
+   
+       }
+   
+   
+   
+       // ================================
+       // LOGIN CHECK
+       // ================================
+   
+   
+       if(
+   
+           username === "admin"
+   
+           &&
+   
+           password === "Admin@12345"
+   
+       ){
+   
+           window.location.href =
+   
+           "admin-dashboard.html";
+   
+       }
+   
+       else{
+   
+           alert(
+   
+               "Invalid Username or Password."
+   
+           );
+   
+       }
+   
+   
+   }
 
 /* ==========================================================
    INITIALIZE RESTAURANT MENU
@@ -134,7 +191,41 @@ function handleAdminLogin(event){
 
 }
 
+/* ==========================================================
+   FORGOT PASSWORD
 
+   PURPOSE:
+   Provides password recovery message.
+
+   ========================================================== */
+
+
+function forgotPassword(){
+
+
+    let email = prompt(
+
+        "Enter registered email address:"
+
+    );
+
+
+    if(email){
+
+
+        alert(
+
+        "Password reset instructions will be sent to:\n" 
+
+        + email
+
+        );
+
+
+    }
+
+
+}
 
 
 
