@@ -268,7 +268,30 @@ function togglePassword(){
 
 }
 
+/* ==========================================================
+   ADMIN LOGOUT
 
+   PURPOSE:
+   Removes admin login session and returns
+   administrator to login page.
+
+========================================================== */
+
+
+function adminLogout(){
+
+
+    localStorage.removeItem(
+        "adminLoggedIn"
+    );
+
+
+    window.location.href =
+
+    "admin-login.html";
+
+
+}
 
 
 
