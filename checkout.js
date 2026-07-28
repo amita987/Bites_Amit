@@ -336,14 +336,51 @@ function placeOrder(){
 
 
 
-    if(name==="" || mobile==="" || address===""){
-
-
-        alert("Please fill all required details");
-
-        return;
-
-    }
+   if(name==="" || mobile==="" || address===""){
+   
+   
+       alert("Please fill all required details");
+   
+       return;
+   
+   }
+   
+   
+   
+   /* ==========================================================
+      MOBILE NUMBER VALIDATION
+   
+      PURPOSE:
+      Ensures customer enters a valid
+      10 digit mobile number.
+   
+      Rules:
+      ✓ Only numbers allowed
+      ✓ Exactly 10 digits
+      ✓ No alphabets
+      ✓ No spaces
+      ✓ No special characters
+   
+   ========================================================== */
+   
+   
+   let mobilePattern = /^[6-9][0-9]{9}$/;
+   
+   
+   if(!mobilePattern.test(mobile)){
+   
+   
+       alert(
+   
+           "Please enter a valid 10-digit mobile number."
+   
+       );
+   
+   
+       return;
+   
+   
+   }
 
 
 
