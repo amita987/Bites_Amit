@@ -2837,3 +2837,70 @@ margin-bottom:20px;
 
 
 }
+/* ==========================================================
+   MODULE-SPECIFIC TILE COLORS
+
+   PURPOSE:
+   Gives each dashboard module its own
+   visual identity while keeping the design
+   consistent across the admin panel.
+========================================================== */
+
+/* ---------- Manage Menu ---------- */
+
+.menu-tile::before{
+
+    background:linear-gradient(90deg,#EF4444,#F97316);
+
+}
+
+.menu-tile .admin-module-icon{
+
+    background:linear-gradient(135deg,#FEF2F2,#FFEDD5);
+
+}
+
+
+/* ---------- Orders ---------- */
+
+.order-tile::before{
+
+    background:linear-gradient(90deg,#2563EB,#38BDF8);
+
+}
+
+.order-tile .admin-module-icon{
+
+    background:linear-gradient(135deg,#EFF6FF,#E0F2FE);
+
+}
+
+
+/* ---------- Inventory ---------- */
+
+.inventory-tile::before{
+
+    background:linear-gradient(90deg,#16A34A,#84CC16);
+
+}
+
+.inventory-tile .admin-module-icon{
+
+    background:linear-gradient(135deg,#F0FDF4,#ECFCCB);
+
+}
+
+
+/* ---------- Reports ---------- */
+
+.reports-tile::before{
+
+    background:linear-gradient(90deg,#7C3AED,#A855F7);
+
+}
+
+.reports-tile .admin-module-icon{
+
+    background:linear-gradient(135deg,#F5F3FF,#FAE8FF);
+
+}
