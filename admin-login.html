@@ -81,17 +81,28 @@
         <br>
 
 
-        <input
+        <div class="password-container">
+        
+            <input
                 
-            type="password"
+                type="password"
                 
-            id="password"
+                id="password"
                 
-            placeholder="Enter Password"
+                placeholder="Enter Password"
                 
-            onkeypress="handleAdminLogin(event)"
+                onkeypress="handleAdminLogin(event)"
                 
-        >
+            >
+        
+            <span 
+                class="toggle-password"
+                onclick="togglePassword()"
+            >
+                👁️
+            </span>
+        
+        </div>
         
         
         <p class="password-hint">
