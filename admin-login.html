@@ -82,25 +82,52 @@
 
 
         <input
-        
+                
             type="password"
-        
+                
             id="password"
-        
+                
             placeholder="Enter Password"
-        
+                
             onkeypress="handleAdminLogin(event)"
-        
+                
         >
+        
+        
+        <p class="password-hint">
+        
+        Password must contain:
+        <br>
+        • Minimum 10 characters
+        <br>
+        • One uppercase letter
+        <br>
+        • One lowercase letter
+        <br>
+        • One number
+        <br>
+        • One special character
+        
+        </p>
 
         <br><br>
 
 
         <button onclick="adminLogin()">
-
+        
             Login
-
+        
         </button>
+        
+        
+        <br><br>
+        
+        
+        <a href="#" onclick="forgotPassword()" class="forgot-password">
+        
+            Forgot Password?
+        
+        </a>
 
     </div>
 
