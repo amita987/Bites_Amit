@@ -116,9 +116,15 @@
    
        ){
    
-           window.location.href =
-   
-           "admin-dashboard.html";
+         localStorage.setItem(
+             "adminLoggedIn",
+             "true"
+         );
+         
+         
+         window.location.href =
+         
+         "admin-dashboard.html";
    
        }
    
