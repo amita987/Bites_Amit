@@ -2927,3 +2927,43 @@ margin-bottom:20px;
     background:linear-gradient(135deg,#F5F3FF,#FAE8FF);
 
 }
+/* ==========================================
+   ORDER MORE BUTTON
+========================================== */
+
+.order-more-btn {
+
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 14px 35px;
+
+    background: var(--primary);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    border-radius: 30px;
+
+    box-shadow: var(--shadow-medium);
+
+    transition: all 0.3s ease;
+
+}
+
+
+/* Hover Effect */
+
+.order-more-btn:hover {
+
+    background: var(--primary-hover);
+
+    transform: translateY(-3px);
+
+}
