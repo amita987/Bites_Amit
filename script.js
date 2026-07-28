@@ -10,13 +10,11 @@
    it falls back to menu-data.js.
    ========================================================== */
 
-const menuContainer =
+const menuContainer = document.getElementById("menu-container");
 
-document.getElementById(
-
-    "menu-container"
-
-);
+if (!menuContainer) {
+    console.log("Menu section not available on this page");
+}
 
 
 const restaurantMenu =
@@ -31,7 +29,7 @@ JSON.parse(
 
 menuData;
 
-
+if (menuContainer) {
 
 restaurantMenu.forEach(category => {
 
@@ -251,8 +249,9 @@ function searchCustomerMenu(){
 
         }
 
-    });
-}
+   });
+   
+   }
 
 }
 
