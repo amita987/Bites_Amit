@@ -2691,17 +2691,51 @@ margin-bottom:20px;
 
 
 /* ==========================================================
-   TILE ICON
+   PREMIUM TILE ICON
 
    PURPOSE:
-   Displays emoji/icon prominently.
+   Places the emoji inside a modern circular
+   background to create a professional look.
 ========================================================== */
 
 .admin-module-icon {
 
-    font-size: 45px;
+    width: 80px;
 
-    margin-bottom: 15px;
+    height: 80px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 38px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg,#FFF5F5,#FFE8CC);
+
+    border: 1px solid #F3D5B5;
+
+    transition: all 0.35s ease;
+
+}
+
+
+/* ==========================================================
+   ICON HOVER EFFECT
+
+   PURPOSE:
+   Slightly enlarges and rotates the icon
+   when the user hovers over the tile.
+========================================================== */
+
+.admin-module-tile:hover .admin-module-icon {
+
+    transform: scale(1.08) rotate(-5deg);
 
 }
 
