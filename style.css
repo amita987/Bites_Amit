@@ -2967,3 +2967,38 @@ margin-bottom:20px;
     transform: translateY(-3px);
 
 }
+/* ==========================================
+   ADMIN LOGIN
+   FORGOT PASSWORD & PASSWORD HINT
+========================================== */
+
+
+.forgot-password {
+
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+}
+
+
+.forgot-password:hover {
+
+    text-decoration: underline;
+
+}
+
+
+.password-hint {
+
+    font-size: 13px;
+
+    color: #666;
+
+    margin-top: 10px;
+
+    line-height: 1.5;
+
+}
