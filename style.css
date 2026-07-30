@@ -3226,6 +3226,25 @@ margin-bottom:20px;
 
 }
 
+/* ==========================================================
+   ORDERS NEED ATTENTION TABLE COLUMN CONTROL
+
+   PURPOSE:
+   Gives important columns more space.
+
+   Design Decision:
+
+   - Order No  : Small
+   - Name      : Medium
+   - Phone     : Medium
+   - Type      : Medium
+   - Pickup    : Medium/Large
+   - Items     : Largest
+
+   This keeps the dashboard readable.
+
+========================================================== */
+
 .orders-attention-table{
 
     width:100%;
@@ -3233,6 +3252,75 @@ margin-bottom:20px;
     border-collapse:collapse;
 
     table-layout:fixed;
+
+}
+
+
+/* ==========================================================
+   COLUMN WIDTH SETTINGS
+
+   PURPOSE:
+   Controls individual column sizes.
+
+========================================================== */
+
+
+/* Order Number */
+
+.orders-attention-table th:nth-child(1),
+.orders-attention-table td:nth-child(1){
+
+    width:10%;
+
+}
+
+
+/* Customer Name */
+
+.orders-attention-table th:nth-child(2),
+.orders-attention-table td:nth-child(2){
+
+    width:14%;
+
+}
+
+
+/* Phone */
+
+.orders-attention-table th:nth-child(3),
+.orders-attention-table td:nth-child(3){
+
+    width:12%;
+
+}
+
+
+/* Order Type */
+
+.orders-attention-table th:nth-child(4),
+.orders-attention-table td:nth-child(4){
+
+    width:14%;
+
+}
+
+
+/* Pickup / Serve Time */
+
+.orders-attention-table th:nth-child(5),
+.orders-attention-table td:nth-child(5){
+
+    width:18%;
+
+}
+
+
+/* Ordered Items */
+
+.orders-attention-table th:nth-child(6),
+.orders-attention-table td:nth-child(6){
+
+    width:32%;
 
 }
 
