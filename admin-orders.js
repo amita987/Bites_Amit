@@ -225,7 +225,22 @@ function displayOrders(){
 
         table += `
 
-        <tr>
+         <!-- ==========================================================
+              ORDER TABLE ROW
+         
+              PURPOSE:
+              Gives every order row a unique HTML ID.
+         
+              This allows JavaScript to:
+         
+              ✓ Scroll directly to the correct order.
+              ✓ Highlight the selected order.
+              ✓ Locate the order instantly even if
+                there are hundreds of orders.
+         
+         ========================================================== -->
+         
+         <tr id="order-row-${order.orderId}">
 
             <!-- ==========================================================
                  ORDER ACTION BUTTONS
@@ -2120,37 +2135,67 @@ window.addEventListener(
           );
 
 
-         /* ----------------------------------------------
-            Automatically open the invoice
+         /* ==========================================================
+            OPEN & SCROLL TO DASHBOARD ORDER
          
-            After opening the invoice,
-            clear the saved Order ID so it
-            opens only once.
+            PURPOSE:
+            When the administrator clicks an Order ID on the
+            Admin Dashboard:
          
-         ---------------------------------------------- */
+            ✓ Scroll to the correct order row.
+            ✓ Open its invoice.
+            ✓ Clear the saved Order ID.
+         
+         ========================================================== */
          
          if(selectedOrderId){
          
+             /* ----------------------------------------------
+                Find the matching table row
+             ---------------------------------------------- */
+         
+             const selectedRow =
+         
+                 document.getElementById(
+         
+                     "order-row-" + selectedOrderId
+         
+                 );
+         
+         
+             /* ----------------------------------------------
+                Scroll smoothly to the selected row
+             ---------------------------------------------- */
+         
+             if(selectedRow){
+         
+                 selectedRow.scrollIntoView({
+         
+                     behavior: "smooth",
+         
+                     block: "center"
+         
+                 });
+         
+             }
+         
+         
+             /* ----------------------------------------------
+                Open the invoice
+             ---------------------------------------------- */
+         
              viewOrder(selectedOrderId);
          
-            /* ==========================================================
-               CLEAR SAVED DASHBOARD ORDER
-            
-               PURPOSE:
-               Removes the saved Order ID after it has been
-               opened.
-            
-               This prevents the same order from opening
-               automatically every time Order Management
-               is visited.
-            
-            ========================================================== */
-            
-            localStorage.removeItem(
-            
-                "dashboardSelectedOrder"
-            
-            );
+         
+             /* ----------------------------------------------
+                Clear the saved Order ID
+             ---------------------------------------------- */
+         
+             localStorage.removeItem(
+         
+                 "dashboardSelectedOrder"
+         
+             );
          
          }
 
