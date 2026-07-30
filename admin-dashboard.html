@@ -225,8 +225,119 @@
         
         
         </div>
-    
-    
+
+
+        <!-- ======================================================
+             ORDERS NEED ATTENTION
+
+             PURPOSE:
+             Displays all active customer orders that
+             require restaurant attention.
+
+             NOTE:
+             The table body is intentionally empty.
+
+             It will automatically be populated from
+             Local Storage in Project 3 - Phase 2.
+
+        ======================================================= -->
+
+        <div class="orders-attention-section">
+
+            <h3>
+
+                🔔 Orders Need Attention
+
+            </h3>
+
+
+            <!-- ===============================================
+                 SCROLLABLE ORDER TABLE
+
+                 PURPOSE:
+                 Displays active orders in a compact,
+                 easy-to-read table.
+
+                 Columns:
+
+                 • Order Number
+                 • Customer Name
+                 • Phone Number
+                 • Order Type
+                 • Pickup / Serve Time
+                 • Ordered Items
+
+            ================================================ -->
+
+            <div class="orders-attention-table-container">
+
+                <table class="orders-attention-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+
+                                Order No
+
+                            </th>
+
+                            <th>
+
+                                Name
+
+                            </th>
+
+                            <th>
+
+                                Phone
+
+                            </th>
+
+                            <th>
+
+                                Type
+
+                            </th>
+
+                            <th>
+
+                                Pickup / Serve Time
+
+                            </th>
+
+                            <th>
+
+                                Ordered Items
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <!-- ===========================================
+                         TABLE BODY
+
+                         PURPOSE:
+                         JavaScript will automatically insert
+                         active orders here.
+
+                    ============================================ -->
+
+                    <tbody id="orders-attention-body">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
         <!-- ======================================================
              FUTURE MODULES
     
