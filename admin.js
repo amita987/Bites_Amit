@@ -352,26 +352,96 @@ function loadOrdersNeedAttention(){
         ) || [];
 
 
-    /* ------------------------------------------------------
-       Keep only Active Orders
-
-    ------------------------------------------------------ */
-
-    const activeOrders =
-
-        orders.filter(function(order){
-
-            return(
-
-                order.status !== "Delivered"
-
-                &&
-
-                order.status !== "Cancelled"
-
-            );
-
-        });
+   /* ------------------------------------------------------
+      Keep only Active Orders
+   
+   ------------------------------------------------------ */
+   
+   const activeOrders =
+   
+       orders.filter(function(order){
+   
+           return(
+   
+               order.status !== "Delivered"
+   
+               &&
+   
+               order.status !== "Cancelled"
+   
+           );
+   
+       });
+   
+   
+   
+   
+   /* ------------------------------------------------------
+      PROJECT 3 - STEP 3C.1
+   
+      DEFAULT SORT
+   
+      PURPOSE:
+   
+      Automatically display the earliest
+      Pickup / Serve Date & Time first.
+   
+      This helps the kitchen immediately know
+      which order needs attention next.
+   
+   ------------------------------------------------------ */
+   
+   activeOrders.sort(function(a,b){
+   
+       /* ------------------------------------------
+          Build DateTime for Order A
+       ------------------------------------------ */
+   
+       const dateTimeA = new Date(
+   
+           (a.pickupServeDate || "9999-12-31")
+   
+           +
+   
+           "T"
+   
+           +
+   
+           convertTo24Hour(
+   
+               a.pickupServeTime || "11:59 PM"
+   
+           )
+   
+       );
+   
+   
+       /* ------------------------------------------
+          Build DateTime for Order B
+       ------------------------------------------ */
+   
+       const dateTimeB = new Date(
+   
+           (b.pickupServeDate || "9999-12-31")
+   
+           +
+   
+           "T"
+   
+           +
+   
+           convertTo24Hour(
+   
+               b.pickupServeTime || "11:59 PM"
+   
+           )
+   
+       );
+   
+   
+       return dateTimeA - dateTimeB;
+   
+   });
 
 
     /* ------------------------------------------------------
@@ -565,3 +635,83 @@ function getDashboardOrderItems(order){
 
 }
 
+/* ==========================================================
+   PROJECT 3
+   STEP 3C.1
+
+   CONVERT 12-HOUR TIME TO 24-HOUR TIME
+
+   PURPOSE:
+
+   Converts times such as
+
+   2:30 PM
+
+   into
+
+   14:30
+
+   so JavaScript can correctly sort
+   Pickup / Serve Time.
+
+========================================================== */
+
+function convertTo24Hour(time){
+
+    if(!time){
+
+        return "23:59";
+
+    }
+
+
+    const parts =
+
+        time.split(" ");
+
+
+    let clock =
+
+        parts[0].split(":");
+
+
+    let hour =
+
+        Number(clock[0]);
+
+
+    let minute =
+
+        clock[1];
+
+
+    const ampm =
+
+        parts[1];
+
+
+    if(ampm === "PM" && hour !== 12){
+
+        hour += 12;
+
+    }
+
+
+    if(ampm === "AM" && hour === 12){
+
+        hour = 0;
+
+    }
+
+
+    return String(hour).padStart(2,"0")
+
+        +
+
+        ":"
+
+        +
+
+        minute;
+
+}
