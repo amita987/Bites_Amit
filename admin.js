@@ -456,6 +456,134 @@ function loadOrdersNeedAttention(){
        });
    
    
+   /* ==========================================================
+      SORT ACTIVE ORDERS
+   
+      PURPOSE:
+      Sorts the dashboard table according to the
+      selected column.
+   
+   ========================================================== */
+   
+   activeOrders.sort(function(a, b){
+   
+       let valueA;
+   
+       let valueB;
+   
+       switch(attentionOrderSort.column){
+   
+           /* -----------------------------------------
+              ORDER NUMBER
+           ----------------------------------------- */
+   
+           case "orderId":
+   
+               valueA = a.orderId || "";
+   
+               valueB = b.orderId || "";
+   
+               break;
+   
+   
+           /* -----------------------------------------
+              CUSTOMER NAME
+           ----------------------------------------- */
+   
+           case "customer":
+   
+               valueA = (a.customer?.name || "").toLowerCase();
+   
+               valueB = (b.customer?.name || "").toLowerCase();
+   
+               break;
+   
+   
+           /* -----------------------------------------
+              PHONE NUMBER
+           ----------------------------------------- */
+   
+           case "phone":
+   
+               valueA = a.customer?.mobile || "";
+   
+               valueB = b.customer?.mobile || "";
+   
+               break;
+   
+   
+           /* -----------------------------------------
+              ORDER TYPE
+           ----------------------------------------- */
+   
+           case "type":
+   
+               valueA = (a.orderType || "").toLowerCase();
+   
+               valueB = (b.orderType || "").toLowerCase();
+   
+               break;
+   
+   
+           /* -----------------------------------------
+              PICKUP / SERVE DATE & TIME
+   
+              Default sorting column.
+   
+           ----------------------------------------- */
+   
+           default:
+   
+               valueA = new Date(
+   
+                   (a.pickupServeDate || "") +
+   
+                   " " +
+   
+                   (a.pickupServeTime || "")
+   
+               ).getTime();
+   
+               valueB = new Date(
+   
+                   (b.pickupServeDate || "") +
+   
+                   " " +
+   
+                   (b.pickupServeTime || "")
+   
+               ).getTime();
+   
+       }
+   
+   
+       if(valueA < valueB){
+   
+           return attentionOrderSort.direction === "asc"
+   
+               ? -1
+   
+               : 1;
+   
+       }
+   
+   
+       if(valueA > valueB){
+   
+           return attentionOrderSort.direction === "asc"
+   
+               ? 1
+   
+               : -1;
+   
+       }
+   
+   
+       return 0;
+   
+   });
+   
+   
    
    
    /* ------------------------------------------------------
