@@ -449,9 +449,9 @@ function loadOrdersNeedAttention(){
             </td>
 
             <td>
-
-                Loading...
-
+            
+                ${getDashboardOrderItems(order)}
+            
             </td>
 
         </tr>
@@ -465,5 +465,103 @@ function loadOrdersNeedAttention(){
 
 }
 
+/* ==========================================================
+   PROJECT 3
+   STEP 3B
 
+   DASHBOARD ORDER ITEMS
+
+   PURPOSE:
+   Builds a compact description of every item in
+   the order.
+
+   Example:
+
+   Burger x2 (Main Course)
+
+   ||
+
+   Fries x1 (Starter)
+
+   ||
+
+   Coke x2 (Beverage)
+
+========================================================== */
+
+function getDashboardOrderItems(order){
+
+    /* ------------------------------------------------------
+       Load Restaurant Menu
+
+       Used to determine each item's category.
+
+    ------------------------------------------------------ */
+
+    const restaurantMenu =
+
+        JSON.parse(
+
+            localStorage.getItem("restaurantMenu")
+
+        ) || [];
+
+
+    /* ------------------------------------------------------
+       Safety Check
+
+    ------------------------------------------------------ */
+
+    if(!order.items || order.items.length === 0){
+
+        return "-";
+
+    }
+
+
+    /* ------------------------------------------------------
+       Build Item List
+
+    ------------------------------------------------------ */
+
+    const itemList =
+
+        order.items.map(function(item){
+
+            let category = "-";
+
+
+            /* ----------------------------------------------
+               Find Category
+
+            ---------------------------------------------- */
+
+            restaurantMenu.forEach(function(menuCategory){
+
+                menuCategory.items.forEach(function(menuItem){
+
+                    if(Number(menuItem.id) === Number(item.id)){
+
+                        category = menuCategory.category;
+
+                    }
+
+                });
+
+            });
+
+
+            return `${item.name} x${item.quantity} (${category})`;
+
+        });
+
+
+    /* ------------------------------------------------------
+       Return Final Text
+
+    ------------------------------------------------------ */
+
+    return itemList.join("<br>||<br>");
+
+}
 
