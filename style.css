@@ -2588,59 +2588,72 @@ margin-bottom:20px;
    New dashboard tiles automatically follow the same design.
 ========================================================== */
 
-
 /* ==========================================================
-   TILE CONTAINER
+   ADMIN MODULE CONTAINER
 
    PURPOSE:
-   Controls the arrangement of dashboard tiles.
+   Displays all four dashboard modules in one
+   horizontal row.
+
+   This creates more vertical space for the
+   Orders Need Attention table below.
+
 ========================================================== */
 
-.admin-module-container {
+.admin-module-container{
 
-    display: grid;
+    display:grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:repeat(4,1fr);
 
-    gap: 30px;
+    gap:20px;
 
-    max-width: 900px;
+    width:100%;
 
-    margin: 50px auto;
+    margin:30px 0;
 
 }
-
-
 
 /* ==========================================================
    PREMIUM ADMIN DASHBOARD TILE
 
    PURPOSE:
-   Modern dashboard card with subtle border,
-   premium shadow and top accent bar.
+   Compact horizontal dashboard cards.
+
+   The height is reduced so more space is
+   available for the live order table.
+
 ========================================================== */
 
-.admin-module-tile {
+.admin-module-tile{
 
-    position: relative;
+    position:relative;
 
-    overflow: hidden;
+    overflow:hidden;
 
-    background: #ffffff;
+    background:#ffffff;
 
-    padding: 35px;
+    padding:20px;
 
-    border-radius: 18px;
+    border-radius:18px;
 
-    text-align: center;
+    text-align:center;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    border: 1px solid #E5E7EB;
+    border:1px solid #E5E7EB;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
 
-    transition: all 0.35s ease;
+    transition:all .35s ease;
+
+    min-height:170px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
 
 }
 
@@ -2711,39 +2724,38 @@ margin-bottom:20px;
 
 }
 
-
-
 /* ==========================================================
-   PREMIUM TILE ICON
+   DASHBOARD TILE ICON
 
    PURPOSE:
-   Places the emoji inside a modern circular
-   background to create a professional look.
+   Smaller icon so the tile becomes shorter
+   without losing its premium look.
+
 ========================================================== */
 
-.admin-module-icon {
+.admin-module-icon{
 
-    width: 80px;
+    width:55px;
 
-    height: 80px;
+    height:55px;
 
-    margin: 0 auto 20px;
+    margin:0 auto 12px;
 
-    display: flex;
+    display:flex;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    justify-content:center;
 
-    font-size: 38px;
+    font-size:28px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    background: linear-gradient(135deg,#FFF5F5,#FFE8CC);
+    background:linear-gradient(135deg,#FFF5F5,#FFE8CC);
 
-    border: 1px solid #F3D5B5;
+    border:1px solid #F3D5B5;
 
-    transition: all 0.35s ease;
+    transition:.35s;
 
 }
 
@@ -2762,33 +2774,31 @@ margin-bottom:20px;
 
 }
 
-
-
 /* ==========================================================
    TILE TITLE
 
 ========================================================== */
 
-.admin-module-tile h3 {
+.admin-module-tile h3{
 
-    margin-bottom: 12px;
+    margin-bottom:8px;
 
-    font-size: 22px;
+    font-size:20px;
 
 }
-
-
 
 /* ==========================================================
    TILE DESCRIPTION
 
 ========================================================== */
 
-.admin-module-tile p {
+.admin-module-tile p{
 
-    color: #666;
+    color:#666;
 
-    line-height: 1.6;
+    line-height:1.4;
+
+    font-size:14px;
 
 }
 
@@ -3073,5 +3083,93 @@ margin-bottom:20px;
     background: #b91c1c;
 
     transform: translateY(-2px);
+
+}
+/* ==========================================================
+   ORDERS NEED ATTENTION
+
+   PURPOSE:
+   Displays active customer orders in a
+   compact scrollable table.
+
+========================================================== */
+
+.orders-attention-section{
+
+    margin-top:35px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.orders-attention-section h3{
+
+    margin-bottom:18px;
+
+}
+
+.orders-attention-table-container{
+
+    max-height:420px;
+
+    overflow-y:auto;
+
+}
+
+.orders-attention-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:fixed;
+
+}
+
+.orders-attention-table th{
+
+    background:#B91C1C;
+
+    color:white;
+
+    padding:12px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:2;
+
+}
+
+.orders-attention-table td{
+
+    padding:10px;
+
+    border-bottom:1px solid #ececec;
+
+    vertical-align:top;
+
+    word-wrap:break-word;
+
+    white-space:normal;
+
+}
+
+.orders-attention-table tr:nth-child(even){
+
+    background:#fafafa;
+
+}
+
+.orders-attention-table tr:hover{
+
+    background:#fff7ed;
 
 }
