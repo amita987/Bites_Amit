@@ -863,7 +863,23 @@ function getDashboardOrderItems(order){
 
     ------------------------------------------------------ */
 
-    return itemList.join("<br>||<br>");
+   /* ------------------------------------------------------
+      RETURN COMPACT ORDER ITEM LIST
+   
+      PURPOSE:
+      Displays all ordered items on a single line
+      separated by "||".
+   
+      The browser will automatically wrap the text
+      only when the column becomes too narrow.
+   
+      Example:
+   
+      Veg Burger x1 (Fast Food) || French Fries x1 (Fast Food)
+   
+   ------------------------------------------------------ */
+   
+   return itemList.join(" || ");
 
 }
 
