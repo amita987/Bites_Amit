@@ -990,17 +990,44 @@ function openDashboardOrder(orderId){
 }
 
 /* ==========================================================
+   INITIAL DASHBOARD LOAD
+
+   PURPOSE:
+   Loads Orders Need Attention immediately
+   when Admin Dashboard opens.
+
+   BEFORE:
+   Table appeared only after:
+   - Clicking sort
+   - Waiting 30 seconds
+
+   AFTER:
+   Orders appear immediately on page load.
+
+========================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadOrdersNeedAttention();
+
+    }
+);
+
+
+
+/* ==========================================================
    AUTO REFRESH DASHBOARD
 
    PURPOSE:
-   Refreshes the "Orders Need Attention"
-   table every 30 seconds.
+   Refreshes the Orders Need Attention table
+   every 30 seconds.
 
    BENEFITS:
-   • New customer orders appear automatically.
-   • Delivered / Cancelled orders disappear.
-   • No need to refresh the page.
-   • Only the dashboard table is refreshed.
+   ✓ New orders appear automatically.
+   ✓ Completed orders disappear.
+   ✓ No manual page refresh needed.
 
 ========================================================== */
 
