@@ -341,54 +341,61 @@ function placeOrder(){
     let address =
     document.getElementById("address").value;
    
-   let pickupServeTimeValue =
+   /* ==========================================================
+      PICKUP / SERVE DATE & TIME
+   
+      PURPOSE:
+      Combines the selected date and selected
+      12-hour time into the same format used
+      throughout the application.
+   
+   ========================================================== */
+   
+   const pickupDate =
    
    document.getElementById(
-   
-       "pickup-serve-time"
-   
+       "pickup-date"
    ).value;
    
+   const pickupTime =
    
+   document.getElementById(
+       "pickup-time"
+   ).value;
    
    let pickupServeTime = "";
    
+   if(pickupDate && pickupTime){
    
+       const dateTime = new Date(
    
-   if(pickupServeTimeValue){
+           `${pickupDate}T${pickupTime}`
    
-       const selectedTime =
-   
-           new Date(
-   
-               pickupServeTimeValue
-   
-           );
-   
+       );
    
        pickupServeTime =
    
-           selectedTime.toLocaleString(
+       dateTime.toLocaleString(
    
-               "en-IN",
+           "en-IN",
    
-               {
+           {
    
-                   day:"2-digit",
+               day:"2-digit",
    
-                   month:"short",
+               month:"short",
    
-                   year:"numeric",
+               year:"numeric",
    
-                   hour:"2-digit",
+               hour:"2-digit",
    
-                   minute:"2-digit",
+               minute:"2-digit",
    
-                   hour12:true
+               hour12:true
    
-               }
+           }
    
-           );
+       );
    
    }
 
@@ -965,61 +972,106 @@ function applyOrderType(){
 }
 
 /* ==========================================================
-   INITIALIZE PICKUP / SERVE TIME
+   INITIALIZE PICKUP / SERVE DATE & TIME
 
    PURPOSE:
-   Automatically sets default time
-   30 minutes from now.
+   • Automatically selects today's date.
+   • Creates a 12-hour AM/PM time dropdown.
+   • Default selection is 30 minutes from now.
 
 ========================================================== */
 
 function initializePickupServeTime(){
 
-    const timeBox = document.getElementById(
-        "pickup-serve-time"
+    const dateBox =
+    document.getElementById(
+        "pickup-date"
     );
 
+    const timeBox =
+    document.getElementById(
+        "pickup-time"
+    );
 
-    if(!timeBox){
+    if(!dateBox || !timeBox){
 
         return;
 
     }
 
+    /* ------------------------------------------------------
+       Default Date = Today
+    ------------------------------------------------------ */
 
     const now = new Date();
 
+    dateBox.value =
+    now.toISOString().split("T")[0];
 
-    now.setMinutes(
-        now.getMinutes() + 30
+    /* ------------------------------------------------------
+       Build Time Dropdown
+       Every 15 Minutes
+    ------------------------------------------------------ */
+
+    timeBox.innerHTML = "";
+
+    for(let hour = 0; hour < 24; hour++){
+
+        for(let minute = 0; minute < 60; minute += 15){
+
+            const option =
+            document.createElement("option");
+
+            const displayHour =
+            hour % 12 || 12;
+
+            const period =
+            hour >= 12 ? "PM" : "AM";
+
+            option.value =
+            `${String(hour).padStart(2,"0")}:${String(minute).padStart(2,"0")}`;
+
+            option.textContent =
+            `${String(displayHour).padStart(2,"0")}:${String(minute).padStart(2,"0")} ${period}`;
+
+            timeBox.appendChild(option);
+
+        }
+
+    }
+
+    /* ------------------------------------------------------
+       Default Time = Current Time + 30 Minutes
+       Rounded to Next 15 Minute Slot
+    ------------------------------------------------------ */
+
+    const future = new Date();
+
+    future.setMinutes(
+        future.getMinutes() + 30
     );
 
+    future.setSeconds(0);
+    future.setMilliseconds(0);
 
-    const year = now.getFullYear();
+    future.setMinutes(
+        Math.ceil(future.getMinutes()/15)*15
+    );
 
+    if(future.getMinutes() === 60){
 
-    const month = String(
-        now.getMonth() + 1
-    ).padStart(2,"0");
+        future.setHours(
+            future.getHours()+1
+        );
 
+        future.setMinutes(0);
 
-    const day = String(
-        now.getDate()
-    ).padStart(2,"0");
+    }
 
+    const defaultTime =
+    `${String(future.getHours()).padStart(2,"0")}:${String(future.getMinutes()).padStart(2,"0")}`;
 
-    const hours = String(
-        now.getHours()
-    ).padStart(2,"0");
-
-
-    const minutes = String(
-        now.getMinutes()
-    ).padStart(2,"0");
-
-
-    timeBox.value =
-        `${year}-${month}-${day}T${hours}:${minutes}`;
+    timeBox.value = defaultTime;
 
 }
 
