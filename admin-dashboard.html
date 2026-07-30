@@ -273,50 +273,73 @@
 
                 <table class="orders-attention-table">
 
+                    <!-- ==========================================================
+                         ORDERS NEED ATTENTION TABLE HEADER
+                    
+                         PURPOSE:
+                         Allows the administrator to sort the table
+                         by clicking the column headings.
+                    
+                    ========================================================== -->
+                    
                     <thead>
-
+                    
                         <tr>
-
-                            <th>
-
-                                Order No
-
+                    
+                            <th
+                                onclick="sortAttentionOrders('orderId')"
+                                style="cursor:pointer;"
+                            >
+                    
+                                Order No ▲▼
+                    
                             </th>
-
-                            <th>
-
-                                Name
-
+                    
+                            <th
+                                onclick="sortAttentionOrders('customer')"
+                                style="cursor:pointer;"
+                            >
+                    
+                                Name ▲▼
+                    
                             </th>
-
-                            <th>
-
-                                Phone
-
+                    
+                            <th
+                                onclick="sortAttentionOrders('phone')"
+                                style="cursor:pointer;"
+                            >
+                    
+                                Phone ▲▼
+                    
                             </th>
-
-                            <th>
-
-                                Type
-
+                    
+                            <th
+                                onclick="sortAttentionOrders('type')"
+                                style="cursor:pointer;"
+                            >
+                    
+                                Type ▲▼
+                    
                             </th>
-
-                            <th>
-
-                                Pickup / Serve Time
-
+                    
+                            <th
+                                onclick="sortAttentionOrders('pickup')"
+                                style="cursor:pointer;"
+                            >
+                    
+                                Pickup / Serve Time ▲▼
+                    
                             </th>
-
+                    
                             <th>
-
+                    
                                 Ordered Items
-
+                    
                             </th>
-
+                    
                         </tr>
-
+                    
                     </thead>
-
 
                     <!-- ===========================================
                          TABLE BODY
