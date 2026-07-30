@@ -2071,15 +2071,15 @@ function loadDeliveryCharge(){
 
 }
 
-
 /* ==========================================================
    PAGE LOAD EVENT
 
    PURPOSE:
-   Loads restaurant tax settings.
+   Loads restaurant settings and automatically
+   opens the selected order when coming from
+   the Admin Dashboard.
 
 ========================================================== */
-
 
 window.addEventListener(
 
@@ -2087,9 +2087,48 @@ window.addEventListener(
 
     function(){
 
+        /* ----------------------------------------------
+           Load Restaurant Settings
+        ---------------------------------------------- */
+
         loadTaxPercentage();
 
         loadDeliveryCharge();
+
+
+        /* ----------------------------------------------
+           Check if Dashboard selected an order
+        ---------------------------------------------- */
+
+        const selectedOrderId =
+
+            localStorage.getItem(
+
+                "selectedDashboardOrder"
+
+            );
+
+
+         /* ----------------------------------------------
+            Automatically open the invoice
+         
+            After opening the invoice,
+            clear the saved Order ID so it
+            opens only once.
+         
+         ---------------------------------------------- */
+         
+         if(selectedOrderId){
+         
+             viewOrder(selectedOrderId);
+         
+             localStorage.removeItem(
+         
+                 "selectedDashboardOrder"
+         
+             );
+         
+         }
 
     }
 
