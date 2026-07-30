@@ -2615,15 +2615,15 @@ margin-bottom:20px;
 }
 
 /* ==========================================================
-   PREMIUM ADMIN DASHBOARD TILE
+   ADMIN DASHBOARD TILE
 
    PURPOSE:
-   Compact horizontal dashboard cards.
+   Compact dashboard tile layout.
 
-   The height is reduced so more space is
-   available for the live order table.
-
+   Icon and title are now displayed
+   on the same row to reduce height.
 ========================================================== */
+
 
 .admin-module-tile{
 
@@ -2633,21 +2633,21 @@ margin-bottom:20px;
 
     background:#ffffff;
 
-    padding:20px;
+    padding:18px;
 
     border-radius:18px;
 
-    text-align:center;
+    text-align:left;
 
     cursor:pointer;
 
     border:1px solid #E5E7EB;
 
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
 
     transition:all .35s ease;
 
-    min-height:170px;
+    min-height:140px;
 
     display:flex;
 
@@ -3049,7 +3049,14 @@ margin-bottom:20px;
 
 }
 /* ==========================================
-   LOGOUT BUTTON
+   DASHBOARD LOGOUT BUTTON
+
+   PURPOSE:
+   Keeps logout button aligned with
+   Admin Dashboard heading.
+
+   Removed bottom margin because the button
+   is now inside dashboard-header row.
 ========================================== */
 
 
@@ -3057,23 +3064,53 @@ margin-bottom:20px;
 
     background: var(--danger);
 
-    color: white;
+    color:white;
 
-    border: none;
+    border:none;
 
-    padding: 12px 25px;
+    padding:12px 25px;
 
-    border-radius: 25px;
+    border-radius:25px;
 
-    font-size: 16px;
+    font-size:16px;
 
-    font-weight: 600;
+    font-weight:600;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    margin-bottom: 25px;
+    /* Removed margin-bottom */
 
-    transition: all 0.3s ease;
+    transition:all .3s ease;
+
+}
+/* ==========================================
+   ADMIN DASHBOARD HEADER ROW
+
+   PURPOSE:
+   Places Admin Dashboard title and Logout
+   button on the same horizontal line.
+
+========================================== */
+
+
+.dashboard-header {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+
+/* Remove default heading spacing */
+
+.dashboard-header h2 {
+
+    margin:0;
 
 }
 
