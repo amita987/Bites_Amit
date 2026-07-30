@@ -732,7 +732,43 @@ function placeOrder(){
    
            ) || "Home Delivery",
 
-      pickupServeTime: pickupServeTime,
+      /* ------------------------------------------------------
+         PICKUP / SERVE DATE
+      
+         PURPOSE:
+         Stores the selected date separately.
+      
+         Example:
+         2026-07-30
+      
+      ------------------------------------------------------- */
+      
+      pickupServeDate: pickupDate,
+      
+      
+      
+      /* ------------------------------------------------------
+         PICKUP / SERVE TIME
+      
+         PURPOSE:
+         Stores only the customer's selected time.
+      
+         Example:
+         09:00 PM
+      
+      ------------------------------------------------------- */
+      
+      pickupServeTime:
+      
+          document.getElementById("pickup-time")
+      
+          .options[
+      
+              document.getElementById("pickup-time")
+      
+              .selectedIndex
+      
+          ].text,
    
        customer:{
    
