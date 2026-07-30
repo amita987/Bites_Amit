@@ -61,21 +61,49 @@
      <main>
     
         <!-- ======================================================
-             PAGE TITLE
+             DASHBOARD HEADER SECTION
+        
+             PURPOSE:
+             Keeps the page title and logout button
+             on the same horizontal line.
+        
+             BENEFIT:
+             Saves vertical screen space and allows
+             Orders Need Attention table to appear higher.
         ======================================================= -->
-    
-        <h2>
-    
-            Admin Dashboard
-    
-        </h2>
-        <button 
-            class="logout-btn"
-            onclick="adminLogout()">
         
-            🚪 Logout
+        <div class="dashboard-header">
         
-        </button>
+        
+            <!-- Dashboard Page Title -->
+            <h2>
+        
+                Admin Dashboard
+        
+            </h2>
+        
+        
+        
+            <!-- Logout Button
+        
+                 PURPOSE:
+                 Allows administrator to logout.
+        
+                 POSITION:
+                 Moved beside dashboard title
+                 to reduce unnecessary vertical space.
+            -->
+        
+            <button 
+                class="logout-btn"
+                onclick="adminLogout()">
+        
+                🚪 Logout
+        
+            </button>
+        
+        
+        </div>
     
     
         <!-- ======================================================
@@ -122,16 +150,40 @@
                  onclick="window.location.href='admin-menu.html'">
         
         
-                <div class="admin-module-icon">
-                    🍽️
+                <!-- =====================================
+                     TILE HEADER
+                
+                     PURPOSE:
+                     Places icon and title on the same line
+                     to reduce tile height.
+                ====================================== -->
+                
+                <div class="admin-module-title">
+                
+                
+                    <!-- Module Icon -->
+                    <div class="admin-module-icon">
+                        🍽️
+                    </div>
+                
+                
+                
+                    <!-- Module Name -->
+                    <h3>
+                        Manage Menu
+                    </h3>
+                
+                
                 </div>
-        
-        
-                <h3>
-                    Manage Menu
-                </h3>
-        
-        
+                
+                
+                
+                <!-- Module Description
+                
+                     PURPOSE:
+                     Gives short explanation of module.
+                -->
+                
                 <p>
                     Add, edit and manage restaurant menu items.
                 </p>
@@ -149,17 +201,35 @@
             <div class="admin-module-tile order-tile"
                  onclick="window.location.href='admin-orders.html'">
         
-        
-                <div class="admin-module-icon">
-                    📦
+                        
+                <!-- =====================================
+                     TILE HEADER
+                
+                     PURPOSE:
+                     Keeps icon and title on the same line
+                     to reduce tile height.
+                ====================================== -->
+                
+                <div class="admin-module-title">
+                
+                
+                    <!-- Module Icon -->
+                    <div class="admin-module-icon">
+                        📦
+                    </div>
+                
+                
+                    <!-- Module Name -->
+                    <h3>
+                        Order Management
+                    </h3>
+                
+                
                 </div>
-        
-        
-                <h3>
-                    Order Management
-                </h3>
-        
-        
+                
+                
+                
+                <!-- Module Description -->
                 <p>
                     View and manage customer orders.
                 </p>
@@ -178,16 +248,34 @@
                  onclick="window.location.href='admin-inventory.html'">
         
         
-                <div class="admin-module-icon">
-                    📋
+                <!-- =====================================
+                     TILE HEADER
+                
+                     PURPOSE:
+                     Keeps icon and title on the same line
+                     to reduce tile height.
+                ====================================== -->
+                
+                <div class="admin-module-title">
+                
+                
+                    <!-- Module Icon -->
+                    <div class="admin-module-icon">
+                        📋
+                    </div>
+                
+                
+                    <!-- Module Name -->
+                    <h3>
+                        Inventory Management
+                    </h3>
+                
+                
                 </div>
-        
-        
-                <h3>
-                    Inventory Management
-                </h3>
-        
-        
+                
+                
+                
+                <!-- Module Description -->
                 <p>
                     Manage ingredients and purchase records.
                 </p>
@@ -205,17 +293,34 @@
             <div class="admin-module-tile reports-tile"
                  onclick="window.location.href='admin-reports.html'">
         
-        
-                <div class="admin-module-icon">
-                    📊
+                <!-- =====================================
+                     TILE HEADER
+                
+                     PURPOSE:
+                     Keeps icon and title on the same line
+                     to reduce tile height.
+                ====================================== -->
+                
+                <div class="admin-module-title">
+                
+                
+                    <!-- Module Icon -->
+                    <div class="admin-module-icon">
+                        📊
+                    </div>
+                
+                
+                    <!-- Module Name -->
+                    <h3>
+                        Reports & Dashboard
+                    </h3>
+                
+                
                 </div>
-        
-        
-                <h3>
-                    Reports & Dashboard
-                </h3>
-        
-        
+                
+                
+                
+                <!-- Module Description -->
                 <p>
                     View sales reports and business insights.
                 </p>
