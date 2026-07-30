@@ -341,13 +341,58 @@ function placeOrder(){
     let address =
     document.getElementById("address").value;
    
-   let pickupServeTime =
+   let pickupServeTimeValue =
    
    document.getElementById(
    
        "pickup-serve-time"
    
    ).value;
+   
+   
+   
+   let pickupServeTime = "";
+   
+   
+   
+   if(pickupServeTimeValue){
+   
+       const selectedTime =
+   
+           new Date(
+   
+               pickupServeTimeValue
+   
+           );
+   
+   
+       pickupServeTime =
+   
+           selectedTime.toLocaleString(
+   
+               "en-IN",
+   
+               {
+   
+                   day:"2-digit",
+   
+                   month:"short",
+   
+                   year:"numeric",
+   
+                   hour:"2-digit",
+   
+                   minute:"2-digit",
+   
+                   hour12:true
+   
+               }
+   
+           );
+   
+   }
+
+   
    let payment =
    document.querySelector(
    'input[name="payment"]:checked'
