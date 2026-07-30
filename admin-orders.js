@@ -2182,17 +2182,35 @@ window.addEventListener(
                 });
             
             
-                /* ------------------------------------------
-                   Highlight the selected order
-            
-                   PURPOSE:
-                   Makes it easy for the admin to quickly
-                   identify the order after scrolling.
-                ------------------------------------------ */
-            
-                selectedRow.style.backgroundColor = "#FFF3CD";
-            
-                selectedRow.style.transition = "background-color 0.5s ease";
+               /* ------------------------------------------
+                  Highlight the selected order
+               
+                  PURPOSE:
+                  Makes it easy for the admin to quickly
+                  identify the selected order.
+               
+                  The highlight automatically disappears
+                  after a few seconds.
+               ------------------------------------------ */
+               
+               selectedRow.style.backgroundColor = "#FFF3CD";
+               
+               selectedRow.style.transition = "background-color 0.5s ease";
+               
+               
+               /* ------------------------------------------
+                  Remove the highlight after 3 seconds
+               
+                  PURPOSE:
+                  Keeps the table clean after the admin
+                  has located the selected order.
+               ------------------------------------------ */
+               
+               setTimeout(function(){
+               
+                   selectedRow.style.backgroundColor = "";
+               
+               }, 3000);
             
             }
          
