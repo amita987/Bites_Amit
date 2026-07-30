@@ -321,9 +321,10 @@ function displayOrders(){
             <td>
             
             ${
-            
-                order.pickupServeTime || "-"
-            
+                (order.pickupServeTime || "-")
+                    .replace(/^-\s*\n?/, "")
+                    .trim()
+                    || "-"
             }
             
             </td>
@@ -1105,15 +1106,16 @@ function viewOrder(orderId){
                    </td>
                
                
-                   <td>
-               
-                       ${
-                       
-                           order.pickupServeTime || "-"
-                       
-                       }
-               
-                   </td>
+                  <td>
+                  
+                  ${
+                      (order.pickupServeTime || "-")
+                          .replace(/^-\s*\n?/, "")
+                          .trim()
+                          || "-"
+                  }
+                  
+                  </td>
                
                </tr>
                
