@@ -294,6 +294,88 @@ function adminLogout(){
 }
 
 /* ==========================================================
+   ORDERS NEED ATTENTION SORT SETTINGS
+
+   PURPOSE:
+   Stores the currently selected column and
+   sorting direction for the dashboard table.
+
+   Default:
+   Pickup / Serve Time (Ascending)
+
+========================================================== */
+
+let attentionOrderSort = {
+
+    column : "pickup",
+
+    direction : "asc"
+
+};
+
+
+/* ==========================================================
+   SORT ATTENTION ORDERS
+
+   PURPOSE:
+   Called whenever the administrator clicks
+   a table heading.
+
+   Clicking the same heading again toggles:
+
+   Ascending ↔ Descending
+
+========================================================== */
+
+function sortAttentionOrders(column){
+
+    /* -----------------------------------------------
+       SAME COLUMN
+
+       Reverse the sort direction.
+    ----------------------------------------------- */
+
+    if(attentionOrderSort.column === column){
+
+        attentionOrderSort.direction =
+
+            attentionOrderSort.direction === "asc"
+
+            ?
+
+            "desc"
+
+            :
+
+            "asc";
+
+    }
+
+    /* -----------------------------------------------
+       NEW COLUMN
+
+       Start with ascending order.
+    ----------------------------------------------- */
+
+    else{
+
+        attentionOrderSort.column = column;
+
+        attentionOrderSort.direction = "asc";
+
+    }
+
+
+    /* -----------------------------------------------
+       Reload dashboard table
+
+    ----------------------------------------------- */
+
+    loadOrdersNeedAttention();
+
+}
+
+/* ==========================================================
    ORDERS NEED ATTENTION
 
    PURPOSE:
