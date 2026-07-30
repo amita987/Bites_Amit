@@ -2167,17 +2167,34 @@ window.addEventListener(
                 Scroll smoothly to the selected row
              ---------------------------------------------- */
          
-             if(selectedRow){
-         
-                 selectedRow.scrollIntoView({
-         
-                     behavior: "smooth",
-         
-                     block: "center"
-         
-                 });
-         
-             }
+            if(selectedRow){
+            
+                /* ------------------------------------------
+                   Scroll to the selected order
+                ------------------------------------------ */
+            
+                selectedRow.scrollIntoView({
+            
+                    behavior: "smooth",
+            
+                    block: "center"
+            
+                });
+            
+            
+                /* ------------------------------------------
+                   Highlight the selected order
+            
+                   PURPOSE:
+                   Makes it easy for the admin to quickly
+                   identify the order after scrolling.
+                ------------------------------------------ */
+            
+                selectedRow.style.backgroundColor = "#FFF3CD";
+            
+                selectedRow.style.transition = "background-color 0.5s ease";
+            
+            }
          
          
              /* ----------------------------------------------
