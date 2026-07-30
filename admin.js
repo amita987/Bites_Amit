@@ -293,7 +293,177 @@ function adminLogout(){
 
 }
 
+/* ==========================================================
+   ORDERS NEED ATTENTION
 
+   PURPOSE:
+   Displays active customer orders on the
+   Admin Dashboard.
+
+   Only orders that still require attention
+   are shown.
+
+   Hidden Orders:
+
+   • Delivered
+   • Cancelled
+
+========================================================== */
+
+function loadOrdersNeedAttention(){
+
+    /* ------------------------------------------------------
+       Dashboard Table Body
+
+    ------------------------------------------------------ */
+
+    const tableBody =
+
+        document.getElementById(
+
+            "orders-attention-body"
+
+        );
+
+
+    /* ------------------------------------------------------
+       Exit if this page doesn't contain the table.
+
+    ------------------------------------------------------ */
+
+    if(!tableBody){
+
+        return;
+
+    }
+
+
+    /* ------------------------------------------------------
+       Load Orders
+
+    ------------------------------------------------------ */
+
+    const orders =
+
+        JSON.parse(
+
+            localStorage.getItem("orders")
+
+        ) || [];
+
+
+    /* ------------------------------------------------------
+       Keep only Active Orders
+
+    ------------------------------------------------------ */
+
+    const activeOrders =
+
+        orders.filter(function(order){
+
+            return(
+
+                order.status !== "Delivered"
+
+                &&
+
+                order.status !== "Cancelled"
+
+            );
+
+        });
+
+
+    /* ------------------------------------------------------
+       No Active Orders
+
+    ------------------------------------------------------ */
+
+    if(activeOrders.length === 0){
+
+        tableBody.innerHTML =
+
+        `
+        <tr>
+
+            <td colspan="6" style="text-align:center;">
+
+                🎉 No orders require attention.
+
+            </td>
+
+        </tr>
+        `;
+
+        return;
+
+    }
+
+
+    /* ------------------------------------------------------
+       Build Table
+
+    ------------------------------------------------------ */
+
+    let html = "";
+
+
+    activeOrders.forEach(function(order){
+
+        html += `
+
+        <tr>
+
+            <td>
+
+                ${order.orderId}
+
+            </td>
+
+            <td>
+
+                ${order.customer?.name || "-"}
+
+            </td>
+
+            <td>
+
+                ${order.customer?.mobile || "-"}
+
+            </td>
+
+            <td>
+
+                ${order.orderType || "-"}
+
+            </td>
+
+            <td>
+
+                ${(order.pickupServeDate || "-")}
+
+                <br>
+
+                ${(order.pickupServeTime || "-")}
+
+            </td>
+
+            <td>
+
+                Loading...
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+
+    tableBody.innerHTML = html;
+
+}
 
 
 
