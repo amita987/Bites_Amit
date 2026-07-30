@@ -169,7 +169,23 @@ function displayOrders(){
          Order Type
          
          </th>
+
+         <!-- ==========================================================
+              PICKUP / SERVE TIME
          
+              PURPOSE:
+              Shows when the customer wants:
+              - Food served (Dine In)
+              - Food picked up (Take Away)
+              - Food delivered (Home Delivery)
+         
+         ========================================================== -->
+         
+         <th>
+         
+         Pickup / Serve Time
+         
+         </th>
          
          <th
          
@@ -302,6 +318,15 @@ function displayOrders(){
             
             </td>
             
+            <td>
+            
+            ${
+            
+                order.pickupServeTime || "-"
+            
+            }
+            
+            </td>
             
             <td>₹${order.total}</td>
             
@@ -1057,6 +1082,35 @@ function viewOrder(orderId){
                
                            order.orderType || "Home Delivery"
                
+                       }
+               
+                   </td>
+               
+               </tr>
+
+               <!-- ==========================================================
+                    PICKUP / SERVE TIME
+               
+                    PURPOSE:
+                    Shows customer's requested timing.
+               
+               ========================================================== -->
+               
+               <tr>
+               
+                   <td>
+               
+                       <strong>Pickup / Serve Time</strong>
+               
+                   </td>
+               
+               
+                   <td>
+               
+                       ${
+                       
+                           order.pickupServeTime || "-"
+                       
                        }
                
                    </td>
