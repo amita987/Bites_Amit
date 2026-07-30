@@ -988,3 +988,24 @@ function openDashboardOrder(orderId){
         "admin-orders.html";
 
 }
+
+/* ==========================================================
+   AUTO REFRESH DASHBOARD
+
+   PURPOSE:
+   Refreshes the "Orders Need Attention"
+   table every 30 seconds.
+
+   BENEFITS:
+   • New customer orders appear automatically.
+   • Delivered / Cancelled orders disappear.
+   • No need to refresh the page.
+   • Only the dashboard table is refreshed.
+
+========================================================== */
+
+setInterval(function(){
+
+    loadOrdersNeedAttention();
+
+}, 30000);
