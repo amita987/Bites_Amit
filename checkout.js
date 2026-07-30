@@ -340,7 +340,14 @@ function placeOrder(){
 
     let address =
     document.getElementById("address").value;
-
+   
+   let pickupServeTime =
+   
+   document.getElementById(
+   
+       "pickup-serve-time"
+   
+   ).value;
    let payment =
    document.querySelector(
    'input[name="payment"]:checked'
@@ -348,7 +355,15 @@ function placeOrder(){
 
 
 
-   if(name==="" || mobile==="" || address===""){
+   if(
+       name===""
+       ||
+       mobile===""
+       ||
+       address===""
+       ||
+       pickupServeTime===""
+   ){
    
    
        alert("Please fill all required details");
@@ -664,7 +679,8 @@ function placeOrder(){
                "orderType"
    
            ) || "Home Delivery",
-   
+
+      pickupServeTime: pickupServeTime,
    
        customer:{
    
@@ -903,7 +919,64 @@ function applyOrderType(){
 
 }
 
+/* ==========================================================
+   INITIALIZE PICKUP / SERVE TIME
 
+   PURPOSE:
+   Automatically sets default time
+   30 minutes from now.
+
+========================================================== */
+
+function initializePickupServeTime(){
+
+    const timeBox = document.getElementById(
+        "pickup-serve-time"
+    );
+
+
+    if(!timeBox){
+
+        return;
+
+    }
+
+
+    const now = new Date();
+
+
+    now.setMinutes(
+        now.getMinutes() + 30
+    );
+
+
+    const year = now.getFullYear();
+
+
+    const month = String(
+        now.getMonth() + 1
+    ).padStart(2,"0");
+
+
+    const day = String(
+        now.getDate()
+    ).padStart(2,"0");
+
+
+    const hours = String(
+        now.getHours()
+    ).padStart(2,"0");
+
+
+    const minutes = String(
+        now.getMinutes()
+    ).padStart(2,"0");
+
+
+    timeBox.value =
+        `${year}-${month}-${day}T${hours}:${minutes}`;
+
+}
 
 /* ==========================================================
    BACK TO CHECKOUT
