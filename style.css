@@ -2592,13 +2592,13 @@ margin-bottom:20px;
    ADMIN MODULE CONTAINER
 
    PURPOSE:
-   Displays all four dashboard modules in one
-   horizontal row.
+   Controls spacing around dashboard tiles.
 
-   This creates more vertical space for the
-   Orders Need Attention table below.
-
+   Reduced vertical margin so the
+   Orders Need Attention table appears
+   higher on the screen.
 ========================================================== */
+
 
 .admin-module-container{
 
@@ -2610,7 +2610,10 @@ margin-bottom:20px;
 
     width:100%;
 
-    margin:30px 0;
+
+    /* Reduced from 30px
+       to remove unnecessary empty space */
+    margin:15px 0;
 
 }
 
@@ -2759,6 +2762,66 @@ margin-bottom:20px;
 
 }
 
+/* ==========================================================
+   TILE TITLE ROW
+
+   PURPOSE:
+   Places the icon and module name
+   on the same horizontal line.
+
+   Example:
+
+   🍽️ Manage Menu
+
+   This reduces dashboard tile height.
+========================================================== */
+
+
+.admin-module-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:10px;
+
+}
+
+
+/* ==========================================================
+   ICON POSITION FIX
+
+   PURPOSE:
+   Removes the old centered icon spacing
+   because the icon is now beside the title.
+========================================================== */
+
+
+.admin-module-title .admin-module-icon{
+
+    margin:0;
+
+    flex-shrink:0;
+
+}
+
+
+/* ==========================================================
+   TITLE SPACING FIX
+
+   PURPOSE:
+   Removes default heading margin
+   inside the tile title row.
+========================================================== */
+
+
+.admin-module-title h3{
+
+    margin:0;
+
+}
 
 /* ==========================================================
    ICON HOVER EFFECT
@@ -3123,17 +3186,21 @@ margin-bottom:20px;
 
 }
 /* ==========================================================
-   ORDERS NEED ATTENTION
+   ORDERS NEED ATTENTION SECTION
 
    PURPOSE:
-   Displays active customer orders in a
-   compact scrollable table.
+   Keeps live order monitoring close to
+   dashboard modules.
 
+   Reduced top margin saves screen space.
 ========================================================== */
+
 
 .orders-attention-section{
 
-    margin-top:35px;
+    /* Reduced from 35px */
+    margin-top:15px;
+
 
     background:#fff;
 
