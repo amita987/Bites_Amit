@@ -694,10 +694,32 @@ function loadOrdersNeedAttention(){
 
         <tr>
 
+            <!-- ==========================================================
+                 CLICKABLE ORDER NUMBER
+            
+                 PURPOSE:
+                 Allows the administrator to click the
+                 Order Number to immediately open the
+                 complete order in Order Management.
+            
+            ========================================================== -->
+            
             <td>
-
-                ${order.orderId}
-
+            
+                <a
+            
+                    href="#"
+            
+                    onclick="openDashboardOrder('${order.orderId}')"
+            
+                    class="dashboard-order-link"
+            
+                >
+            
+                    ${order.orderId}
+            
+                </a>
+            
             </td>
 
             <td>
@@ -923,5 +945,31 @@ function convertTo24Hour(time){
         +
 
         minute;
+
+}
+
+/* ==========================================================
+   OPEN DASHBOARD ORDER
+
+   PURPOSE:
+   Opens the selected dashboard order in the
+   Order Management page.
+
+   NOTE:
+   In the next step we will save the selected
+   Order ID before navigating.
+
+========================================================== */
+
+function openDashboardOrder(orderId){
+
+    /* ------------------------------------------------------
+       Navigate to Order Management
+
+    ------------------------------------------------------ */
+
+    window.location.href =
+
+        "admin-orders.html";
 
 }
