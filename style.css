@@ -3324,13 +3324,29 @@ margin-bottom:20px;
 
 }
 
+/* ==========================================================
+   ORDERS NEED ATTENTION TABLE HEADER
+
+   PURPOSE:
+   Compact header with better readability.
+
+========================================================== */
+
 .orders-attention-table th{
 
     background:#B91C1C;
 
     color:white;
 
-    padding:12px;
+    padding:10px;
+
+    font-size:13px;
+
+    line-height:1.2;
+
+    border:
+
+        1px solid #ffffff;
 
     position:sticky;
 
@@ -3340,11 +3356,31 @@ margin-bottom:20px;
 
 }
 
+/* ==========================================================
+   ORDERS NEED ATTENTION TABLE CELLS
+
+   PURPOSE:
+   Creates a compact dashboard table.
+
+   Changes:
+   ✓ Smaller font
+   ✓ Less padding
+   ✓ Clear grid lines
+   ✓ Better wrapped text spacing
+
+========================================================== */
+
 .orders-attention-table td{
 
-    padding:10px;
+    padding:8px 10px;
 
-    border-bottom:1px solid #ececec;
+    font-size:13px;
+
+    line-height:1.25;
+
+    border:
+
+        1px solid #e5e7eb;
 
     vertical-align:top;
 
@@ -3354,11 +3390,60 @@ margin-bottom:20px;
 
 }
 
+/* ==========================================================
+   ORDER TABLE ROW SEPARATION
+
+   PURPOSE:
+   Makes individual orders easier to identify.
+
+========================================================== */
+
 .orders-attention-table tr:nth-child(even){
 
     background:#fafafa;
 
 }
+
+
+.orders-attention-table tr:nth-child(odd){
+
+    background:#ffffff;
+
+}
+
+
+/* Strong row separation */
+
+.orders-attention-table tr{
+
+    border-bottom:1px solid #d1d5db;
+
+}
+
+/* ==========================================================
+   ORDER ITEMS TEXT
+
+   PURPOSE:
+   Keeps multiple items compact.
+
+   Example:
+
+   Burger x2 (Main Course)
+   ||
+   Fries x1 (Starter)
+
+   without large gaps.
+
+========================================================== */
+
+.orders-attention-table td:last-child{
+
+    line-height:1.15;
+
+    font-size:12.5px;
+
+}
+
 
 .orders-attention-table tr:hover{
 
