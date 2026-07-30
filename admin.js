@@ -952,19 +952,34 @@ function convertTo24Hour(time){
    OPEN DASHBOARD ORDER
 
    PURPOSE:
-   Opens the selected dashboard order in the
-   Order Management page.
-
-   NOTE:
-   In the next step we will save the selected
-   Order ID before navigating.
+   Saves the selected Order ID so that
+   Order Management can automatically
+   open the correct invoice.
 
 ========================================================== */
 
 function openDashboardOrder(orderId){
 
     /* ------------------------------------------------------
-       Navigate to Order Management
+       SAVE SELECTED ORDER
+
+       PURPOSE:
+       Remember which order the admin
+       clicked on.
+
+    ------------------------------------------------------ */
+
+    localStorage.setItem(
+
+        "dashboardSelectedOrder",
+
+        orderId
+
+    );
+
+
+    /* ------------------------------------------------------
+       OPEN ORDER MANAGEMENT
 
     ------------------------------------------------------ */
 
