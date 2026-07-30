@@ -315,6 +315,18 @@ loadCheckoutSummary();
 applyOrderType();
 
 
+/* ==========================================================
+   PICKUP / SERVE TIME
+
+   PURPOSE:
+   Sets default Pickup / Serve Time
+   to 30 minutes from current time.
+
+========================================================== */
+
+initializePickupServeTime();
+
+
 function placeOrder(){
 
 
