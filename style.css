@@ -3325,10 +3325,10 @@ margin-bottom:20px;
 }
 
 /* ==========================================================
-   ORDERS NEED ATTENTION TABLE HEADER
+   ORDERS NEED ATTENTION HEADER
 
    PURPOSE:
-   Compact header with better readability.
+   Stronger header separation.
 
 ========================================================== */
 
@@ -3346,7 +3346,7 @@ margin-bottom:20px;
 
     border:
 
-        1px solid #ffffff;
+        1px solid #7f1d1d;
 
     position:sticky;
 
@@ -3360,13 +3360,12 @@ margin-bottom:20px;
    ORDERS NEED ATTENTION TABLE CELLS
 
    PURPOSE:
-   Creates a compact dashboard table.
+   Stronger grid visibility.
 
    Changes:
-   ✓ Smaller font
-   ✓ Less padding
-   ✓ Clear grid lines
-   ✓ Better wrapped text spacing
+   ✓ Darker borders
+   ✓ Clear row separation
+   ✓ Compact spacing
 
 ========================================================== */
 
@@ -3380,7 +3379,7 @@ margin-bottom:20px;
 
     border:
 
-        1px solid #e5e7eb;
+        1px solid #cbd5e1;
 
     vertical-align:top;
 
@@ -3411,12 +3410,17 @@ margin-bottom:20px;
 
 }
 
+/* ==========================================================
+   ORDER ROW SEPARATION
 
-/* Strong row separation */
+   PURPOSE:
+   Makes each order visually independent.
+
+========================================================== */
 
 .orders-attention-table tr{
 
-    border-bottom:1px solid #d1d5db;
+    border-bottom:2px solid #cbd5e1;
 
 }
 
