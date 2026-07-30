@@ -2098,17 +2098,26 @@ window.addEventListener(
         loadDeliveryCharge();
 
 
-        /* ----------------------------------------------
-           Check if Dashboard selected an order
-        ---------------------------------------------- */
-
-        const selectedOrderId =
-
-            localStorage.getItem(
-
-                "selectedDashboardOrder"
-
-            );
+      /* ==========================================================
+         GET SELECTED ORDER FROM ADMIN DASHBOARD
+      
+         PURPOSE:
+         Reads the Order ID that was saved when the
+         administrator clicked an Order Number on the
+         Admin Dashboard.
+      
+         This allows Order Management to automatically
+         locate and open the correct order.
+      
+      ========================================================== */
+      
+      const selectedOrderId =
+      
+          localStorage.getItem(
+      
+              "dashboardSelectedOrder"
+      
+          );
 
 
          /* ----------------------------------------------
@@ -2124,11 +2133,24 @@ window.addEventListener(
          
              viewOrder(selectedOrderId);
          
-             localStorage.removeItem(
-         
-                 "selectedDashboardOrder"
-         
-             );
+            /* ==========================================================
+               CLEAR SAVED DASHBOARD ORDER
+            
+               PURPOSE:
+               Removes the saved Order ID after it has been
+               opened.
+            
+               This prevents the same order from opening
+               automatically every time Order Management
+               is visited.
+            
+            ========================================================== */
+            
+            localStorage.removeItem(
+            
+                "dashboardSelectedOrder"
+            
+            );
          
          }
 
