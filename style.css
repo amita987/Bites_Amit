@@ -3805,3 +3805,38 @@ margin-bottom:20px;
     margin:0;
 
 }
+/* ==========================================================
+   ORDER MANAGEMENT
+   STEP 1
+
+   PURPOSE:
+   Displays the Tax Percentage and Delivery
+   Charge settings on the same horizontal line.
+
+========================================================== */
+
+.restaurant-settings-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+    margin-top:15px;
+
+}
+
+.setting-group{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
