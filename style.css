@@ -3778,3 +3778,30 @@ margin-bottom:20px;
     width:320px;
 
 }
+/* ==========================================================
+   REPORTS & DASHBOARD
+   STEP 1
+
+   PURPOSE:
+   Display the Report Period "From" and "To"
+   values on the same horizontal line.
+
+========================================================== */
+
+.report-period-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:60px;
+
+    margin-top:10px;
+
+}
+
+.report-period-row p{
+
+    margin:0;
+
+}
