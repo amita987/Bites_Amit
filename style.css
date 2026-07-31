@@ -3712,3 +3712,24 @@ margin-bottom:20px;
     margin-top:0;
 
 }
+/* ==========================================================
+   MENU MANAGEMENT
+   STEP 1
+
+   PURPOSE:
+   Reduce the gap between the Search box
+   and the Menu table.
+
+========================================================== */
+
+#menuSearch{
+
+    margin-bottom:8px;
+
+}
+
+#admin-menu-container table{
+
+    margin-top:8px;
+
+}
