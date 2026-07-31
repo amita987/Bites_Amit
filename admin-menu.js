@@ -445,6 +445,14 @@ function displayAdminMenu(){
    </label>
    
    
+   <!-- ==========================================================
+        MENU TABLE
+   
+        PURPOSE:
+        Displays the complete restaurant menu.
+   
+   ========================================================== -->
+   
    <input
    
    type="text"
@@ -456,9 +464,6 @@ function displayAdminMenu(){
    onkeyup="searchAdminMenu()"
    
    >
-   
-   
-   <br><br>
    
    <table border="1" width="100%">
    
