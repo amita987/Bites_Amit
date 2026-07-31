@@ -1144,7 +1144,9 @@ if (mobileBox) {
 
     mobileBox.addEventListener("input", function () {
 
-        this.value = this.value.replace(/\D/g, "");
+         this.value = this.value
+             .replace(/\D/g, "")
+             .slice(0, 10);
 
     });
 
