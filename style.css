@@ -3628,3 +3628,66 @@ margin-bottom:20px;
     font-size:16px;
 
 }
+/* ==========================================================
+   INVENTORY MANAGEMENT
+   STEP 2
+
+   PURPOSE:
+   Make the Purchase Register table match the
+   Orders Need Attention table style.
+
+========================================================== */
+
+#purchaseRegisterTable{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:10px;
+
+    background:#ffffff;
+
+}
+
+#purchaseRegisterTable th{
+
+    background:#b91c1c;
+
+    color:#ffffff;
+
+    padding:12px;
+
+    text-align:left;
+
+    font-size:14px;
+
+    white-space:nowrap;
+
+}
+
+#purchaseRegisterTable td{
+
+    padding:10px 12px;
+
+    border-bottom:1px solid #e5e7eb;
+
+    font-size:13px;
+
+    vertical-align:middle;
+
+}
+
+#purchaseRegisterTable tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+#purchaseRegisterTable th,
+#purchaseRegisterTable td{
+
+    border-left:none;
+    border-right:none;
+
+}
