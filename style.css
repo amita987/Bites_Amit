@@ -3691,3 +3691,24 @@ margin-bottom:20px;
     border-right:none;
 
 }
+/* ==========================================================
+   INVENTORY MANAGEMENT
+   STEP 3
+
+   PURPOSE:
+   Reduce the space between the Search box
+   and the Purchase Register table.
+
+========================================================== */
+
+.purchase-register-header{
+
+    margin-bottom:8px;
+
+}
+
+#purchaseRegisterTable{
+
+    margin-top:0;
+
+}
