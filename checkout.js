@@ -1127,6 +1127,27 @@ function backToCheckout(){
 }
 
 
+/* ==========================================================
+   PROJECT 3
+   STEP 6.1
 
+   MOBILE NUMBER INPUT FILTER
+
+   PURPOSE:
+   Allows only digits while typing.
+
+========================================================== */
+
+const mobileBox = document.getElementById("mobile");
+
+if (mobileBox) {
+
+    mobileBox.addEventListener("input", function () {
+
+        this.value = this.value.replace(/\D/g, "");
+
+    });
+
+}
 
 
