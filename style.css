@@ -3460,3 +3460,10 @@ margin-bottom:20px;
     background:#fff7ed;
 
 }
+/* ===========================================
+   Pickup / Serve Time - Keep on One Line
+=========================================== */
+
+.pickup-serve-time {
+    white-space: nowrap;
+}
