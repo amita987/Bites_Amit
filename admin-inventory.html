@@ -284,26 +284,32 @@ Ingredient Purchase Register
 <br>
 
 <!-- ==========================================================
-     SEARCH PURCHASE REGISTER
+     PURCHASE REGISTER HEADER
 
      PURPOSE:
-     Allows the administrator to search
-     purchase records instantly.
+     Displays the Purchase Register heading and
+     Search box on the same horizontal line.
 
 ========================================================== -->
 
-<input
-type="text"
-id="searchPurchaseInput"
-placeholder="🔍 Search by Date, Ingredient or Unit..."
-style="
-width:350px;
-padding:10px;
-font-size:16px;
-margin-bottom:20px;
-">
+<div class="purchase-register-header">
 
-<br><br>
+    <h2>
+
+        Ingredient Purchase Register
+
+    </h2>
+
+    <!-- ======================================================
+         SEARCH PURCHASE REGISTER
+    ======================================================= -->
+
+    <input
+    type="text"
+    id="searchPurchaseInput"
+    placeholder="🔍 Search by Date, Ingredient or Unit...">
+
+</div>
 
 <table
 id="purchaseRegisterTable"
