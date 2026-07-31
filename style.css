@@ -3840,3 +3840,67 @@ margin-bottom:20px;
     gap:10px;
 
 }
+/* ==========================================================
+   ORDER MANAGEMENT
+   STEP 3
+
+   PURPOSE:
+   Make the Orders table match the
+   Orders Need Attention table.
+
+========================================================== */
+
+#adminOrdersTable{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:0;
+
+    background:#ffffff;
+
+}
+
+#adminOrdersTable th{
+
+    background:#b91c1c;
+
+    color:#ffffff;
+
+    padding:12px;
+
+    text-align:left;
+
+    font-size:14px;
+
+    white-space:nowrap;
+
+}
+
+#adminOrdersTable td{
+
+    padding:10px 12px;
+
+    border-bottom:1px solid #e5e7eb;
+
+    font-size:13px;
+
+    vertical-align:middle;
+
+}
+
+#adminOrdersTable tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+#adminOrdersTable th,
+#adminOrdersTable td{
+
+    border-left:none;
+
+    border-right:none;
+
+}
