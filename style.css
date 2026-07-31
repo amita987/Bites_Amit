@@ -3733,3 +3733,48 @@ margin-bottom:20px;
     margin-top:8px;
 
 }
+/* ==========================================================
+   MENU MANAGEMENT
+   STEP 2
+
+   PURPOSE:
+   Display the Add New Item button and
+   Search box on the same row.
+
+========================================================== */
+
+.menu-header-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:10px;
+
+}
+
+.menu-search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.menu-search-box label{
+
+    margin:0;
+
+}
+
+#menuSearch{
+
+    width:320px;
+
+}
