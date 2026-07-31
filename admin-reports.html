@@ -143,34 +143,41 @@ Back to 🏠 Admin Dashboard
          REPORT PERIOD
     
          PURPOSE:
-         Displays the selected From Date and To Date
-         on a single horizontal line.
+         Displays the selected report period in a
+         single line.
+    
+         Example:
+    
+         Report Period
+         (From: 01 Aug 2026    To: 31 Aug 2026)
     
     ========================================================== -->
     
     <div id="reportPeriod">
     
-        <h2>Report Period</h2>
+        <h2>
     
-        <div class="report-period-row">
+            Report Period
     
-            <p>
+        </h2>
     
-                <strong>From:</strong>
+        <p class="report-period-inline">
     
-                <span id="displayFromDate">-</span>
+            (
     
-            </p>
+            <strong>From:</strong>
     
-            <p>
+            <span id="displayFromDate">-</span>
     
-                <strong>To:</strong>
+            &nbsp;&nbsp;&nbsp;&nbsp;
     
-                <span id="displayToDate">-</span>
+            <strong>To:</strong>
     
-            </p>
+            <span id="displayToDate">-</span>
     
-        </div>
+            )
+    
+        </p>
     
     </div>
 
