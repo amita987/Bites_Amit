@@ -3520,3 +3520,72 @@ margin-bottom:20px;
     display:none;
 
 }
+/* ==========================================================
+   REPORTS & DASHBOARD
+   STEP 2
+
+   PURPOSE:
+   Reduce the vertical gap between
+   "Reports & Dashboard"
+   and
+   "Report Filters"
+
+========================================================== */
+
+.page-header-row{
+
+    margin-bottom:10px;
+
+}
+
+#reportFilters{
+
+    margin-top:0;
+
+}
+
+#reportFilters h2{
+
+    margin-top:0;
+
+}
+
+/* ==========================================================
+   REPORTS & DASHBOARD
+   STEP 3
+
+   PURPOSE:
+   Give Quick Filter buttons one consistent color
+   and Action buttons another consistent color.
+
+========================================================== */
+
+/* ----------------------------------------------------------
+   Quick Filter Buttons
+---------------------------------------------------------- */
+
+#todayBtn,
+#yesterdayBtn,
+#thisWeekBtn,
+#lastWeekBtn,
+#thisMonthBtn,
+#lastMonthBtn,
+#thisYearBtn,
+#lastYearBtn{
+
+    background:#2563eb;
+    color:#ffffff;
+
+}
+
+/* ----------------------------------------------------------
+   Action Buttons
+---------------------------------------------------------- */
+
+#generateReportBtn,
+#dailyReportBtn{
+
+    background:#16a34a;
+    color:#ffffff;
+
+}
