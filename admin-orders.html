@@ -76,82 +76,88 @@ Back to 🏠 Admin Dashboard
     </h3>
 
 
-    <label>
-
-        Tax Percentage:
-
-    </label>
-
-
-    <input
-
-        type="number"
-
-        id="taxPercentage"
-
-        value="5"
-
-        min="0"
-
-        max="100"
-
-    >
-
-
-    %
-
-
-
-    <button
-
-        onclick="saveTaxPercentage()"
-
-    >
-
-        💾 Save Tax
-
-    </button>
-     <!-- ==========================================================
-          DELIVERY CHARGE SETTINGS
-     
-          PURPOSE:
-          Allows administrator to set the restaurant's
-          standard delivery charge.
-     
-     ========================================================== -->
-     
-     <br><br>
-     
-     <label>
-     
-         Delivery Charge:
-     
-     </label>
-     
-     <input
-     
-         type="number"
-     
-         id="deliveryCharge"
-     
-         value="40"
-     
-         min="0"
-     
-     >
-     
-     ₹
-     
-     <button
-     
-         onclick="saveDeliveryCharge()"
-     
-     >
-     
-         🚚 Save Delivery
-     
-     </button>
-
+    <!-- ==========================================================
+         RESTAURANT SETTINGS ROW
+    
+         PURPOSE:
+         Displays Tax Percentage and Delivery Charge
+         on one horizontal line.
+    
+    ========================================================== -->
+    
+    <div class="restaurant-settings-row">
+    
+        <!-- ======================================================
+             TAX SETTINGS
+        ======================================================= -->
+    
+        <div class="setting-group">
+    
+            <label>
+    
+                Tax Percentage:
+    
+            </label>
+    
+            <input
+    
+                type="number"
+    
+                id="taxPercentage"
+    
+                value="5"
+    
+                min="0"
+    
+                max="100"
+    
+            >
+    
+            %
+    
+            <button onclick="saveTaxPercentage()">
+    
+                💾 Save Tax
+    
+            </button>
+    
+        </div>
+    
+        <!-- ======================================================
+             DELIVERY CHARGE SETTINGS
+        ======================================================= -->
+    
+        <div class="setting-group">
+    
+            <label>
+    
+                Delivery Charge:
+    
+            </label>
+    
+            <input
+    
+                type="number"
+    
+                id="deliveryCharge"
+    
+                value="40"
+    
+                min="0"
+    
+            >
+    
+            ₹
+    
+            <button onclick="saveDeliveryCharge()">
+    
+                🚚 Save Delivery
+    
+            </button>
+    
+        </div>
+    
+    </div>
 </div>
 
 
