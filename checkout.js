@@ -448,16 +448,13 @@ function placeOrder(){
    
    if(!mobilePattern.test(mobile)){
    
-   
        alert(
-   
            "Please enter a valid 10-digit mobile number."
-   
        );
    
+       document.getElementById("mobile").focus();
    
        return;
-   
    
    }
 
