@@ -410,60 +410,59 @@ function displayAdminMenu(){
    let table = `
    
    
-   <button
-   
-   onclick="showAddItemForm()"
-   
-   >
-   
-   ➕ Add New Item
-   
-   </button>
-   
-   
-   <br><br>
-   
-   
    <!-- ==========================================================
-        MENU SEARCH
+        MENU HEADER
    
         PURPOSE:
-        Allows admin to quickly find menu items.
-   
-        Searches:
-        - Item name
-        - Category
-        - Availability
-        - Price
-   
-        ========================================================== -->
-   
-   <label>
-   
-   🔍 Search Menu:
-   
-   </label>
-   
-   
-   <!-- ==========================================================
-        MENU TABLE
-   
-        PURPOSE:
-        Displays the complete restaurant menu.
+        Displays the Add New Item button and
+        Search box on the same horizontal line.
    
    ========================================================== -->
    
-   <input
+   <div class="menu-header-row">
    
-   type="text"
+       <!-- ======================================================
+            ADD NEW ITEM BUTTON
+       ======================================================= -->
    
-   id="menuSearch"
+       <button
    
-   placeholder="Search item, category, price..."
+       onclick="showAddItemForm()"
    
-   onkeyup="searchAdminMenu()"
+       >
    
-   >
+       ➕ Add New Item
+   
+       </button>
+   
+   
+       <!-- ======================================================
+            MENU SEARCH
+       ======================================================= -->
+   
+       <div class="menu-search-box">
+   
+           <label>
+   
+               🔍 Search Menu:
+   
+           </label>
+   
+           <input
+   
+           type="text"
+   
+           id="menuSearch"
+   
+           placeholder="Search item, category, price..."
+   
+           onkeyup="searchAdminMenu()"
+   
+           >
+   
+       </div>
+   
+   </div>
    
    <table border="1" width="100%">
    
