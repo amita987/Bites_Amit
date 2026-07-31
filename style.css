@@ -3467,3 +3467,13 @@ margin-bottom:20px;
 .pickup-serve-time {
     white-space: nowrap;
 }
+/* ==========================================
+   Validation Error Message
+========================================== */
+
+.validation-error{
+    color:#d32f2f;
+    font-size:12px;
+    margin-top:4px;
+    min-height:16px;
+}
