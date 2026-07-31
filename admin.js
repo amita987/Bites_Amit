@@ -740,14 +740,10 @@ function loadOrdersNeedAttention(){
 
             </td>
 
-            <td>
-
-                ${(order.pickupServeDate || "-")}
-
-                <br>
-
-                ${(order.pickupServeTime || "-")}
-
+            <td class="pickup-serve-time">
+            
+                ${(order.pickupServeDate || "-")}, ${(order.pickupServeTime || "-")}
+            
             </td>
 
             <td>
