@@ -3904,3 +3904,24 @@ margin-bottom:20px;
     border-right:none;
 
 }
+/* ==========================================================
+   REPORTS & DASHBOARD
+   STEP 5
+
+   PURPOSE:
+   Displays the Report Period as:
+
+   Report Period
+   (From: xx    To: xx)
+
+========================================================== */
+
+.report-period-inline{
+
+    margin-top:8px;
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
