@@ -63,9 +63,6 @@ function displayOrders(){
 
     }
 
-
-
-   let table = `
    
 /* ==========================================================
    ORDER REGISTER HEADER
@@ -76,6 +73,9 @@ function displayOrders(){
    matching the Inventory Management page.
 
 ========================================================== */
+
+   let table = `
+
 
 <div class="purchase-register-header">
 
