@@ -1129,24 +1129,50 @@ function backToCheckout(){
 
 /* ==========================================================
    PROJECT 3
-   STEP 6.1
+   STEP 6.3
 
-   MOBILE NUMBER INPUT FILTER
+   MOBILE NUMBER LIVE VALIDATION
 
    PURPOSE:
-   Allows only digits while typing.
+   • Only digits allowed
+   • Maximum 10 digits
+   • Shows message until exactly 10 digits are entered
 
 ========================================================== */
 
 const mobileBox = document.getElementById("mobile");
+const mobileError = document.getElementById("mobile-error");
 
 if (mobileBox) {
 
     mobileBox.addEventListener("input", function () {
 
-         this.value = this.value
-             .replace(/\D/g, "")
-             .slice(0, 10);
+        // Keep only digits and limit to 10 digits
+        this.value = this.value
+            .replace(/\D/g, "")
+            .slice(0, 10);
+
+        // No message if empty
+        if (this.value.length === 0) {
+
+            mobileError.textContent = "";
+
+        }
+
+        // Show message until 10 digits are entered
+        else if (this.value.length < 10) {
+
+            mobileError.textContent =
+                "Mobile number must be exactly 10 digits.";
+
+        }
+
+        // Valid mobile number
+        else {
+
+            mobileError.textContent = "";
+
+        }
 
     });
 
