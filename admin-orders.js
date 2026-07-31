@@ -67,39 +67,64 @@ function displayOrders(){
 
    let table = `
    
+/* ==========================================================
+   ORDER REGISTER HEADER
+
+   PURPOSE:
+   Displays the Order Register heading and
+   Search box on the same horizontal line,
+   matching the Inventory Management page.
+
+========================================================== */
+
+<div class="purchase-register-header">
+
+    <h2>
+
+        Order Register
+
+    </h2>
+
+    <!-- ======================================================
+         SEARCH ORDERS
+
+         PURPOSE:
+         Allows administrator to quickly search
+         orders by Order ID, Customer or Mobile.
+
+    ======================================================= -->
+
+    <input
+
+        type="text"
+
+        id="orderSearch"
+
+        placeholder="🔍 Search Order ID, Customer, Mobile..."
+
+        onkeyup="searchOrders()"
+
+    >
+
+</div>
+
+<!-- Small spacing before table -->
+
+<div style="height:10px;"></div>
+   
    <!-- ==========================================================
-        ORDER SEARCH
+        ORDER MANAGEMENT TABLE
    
         PURPOSE:
-        Search orders by:
-        - Order ID
-        - Customer Name
-        - Mobile Number
-        - Status
+        Uses the same modern styling as the
+        "Orders Need Attention" table on the
+        Admin Dashboard.
    
-        ========================================================== -->
+   ========================================================== -->
    
-   <label>
-   
-   🔍 Search Orders:
-   
-   </label>
-   
-   <input
-   
-   type="text"
-   
-   id="orderSearch"
-   
-   placeholder="Search Order ID, Customer, Mobile..."
-   
-   onkeyup="searchOrders()"
-   
-   >
-   
-   <br><br>
-   
-   <table border="1" width="100%">
+   <table
+   id="adminOrdersTable"
+   class="admin-table">
    
    <tr>
 
