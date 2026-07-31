@@ -3477,3 +3477,46 @@ margin-bottom:20px;
     margin-top:4px;
     min-height:16px;
 }
+/* ==========================================================
+   REPORTS & DASHBOARD
+   STEP 1
+
+   PURPOSE:
+   Display "From Date" and "To Date"
+   on the same line.
+
+========================================================== */
+
+#reportFilters{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:flex-end;
+
+    gap:12px;
+
+}
+
+#reportFilters h2{
+
+    width:100%;
+
+}
+
+#reportFilters label{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin:0;
+
+}
+
+#reportFilters br{
+
+    display:none;
+
+}
