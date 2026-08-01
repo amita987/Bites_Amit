@@ -1172,10 +1172,25 @@ td button:hover{
 
 }
 /* ==========================================================
-PREMIUM FORM CONTROLS
+   PROJECT 4 - STEP 4
+   COMPACT FORM CONTROLS
 
-Purpose:
-Creates a consistent modern dashboard form appearance.
+   PURPOSE:
+   Creates a compact, professional appearance for
+   all input controls across the application.
+
+   AFFECTS:
+   ✓ Text Boxes
+   ✓ Search Boxes
+   ✓ Drop-down Lists
+   ✓ Date Pickers
+   ✓ Time Pickers
+   ✓ Text Areas
+
+   FUTURE EDITING:
+   - Increase padding for larger controls.
+   - Increase font-size for larger text.
+   - Increase border-radius for a softer look.
 
 ========================================================== */
 
@@ -1183,31 +1198,32 @@ input,
 select,
 textarea{
 
-```
-width:100%;
+    width:100%;
 
-padding:14px 16px;
+    /* Reduced from 14px 16px */
+    padding:10px 12px;
 
-font-size:15px;
+    /* Reduced from 15px */
+    font-size:14px;
 
-font-weight:500;
+    font-weight:500;
 
-color:var(--text);
+    color:var(--text);
 
-background:#ffffff;
+    background:#ffffff;
 
-border:1px solid #dbe3ef;
+    border:1px solid #dbe3ef;
 
-border-radius:12px;
+    /* Reduced from 12px */
+    border-radius:10px;
 
-box-shadow:
-    0 2px 8px rgba(15,23,42,.04);
+    box-shadow:
+        0 2px 6px rgba(15,23,42,.04);
 
-transition:
-    border-color .25s ease,
-    box-shadow .25s ease,
-    transform .25s ease;
-```
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
 
 }
 
@@ -1297,27 +1313,29 @@ cursor:pointer;
 
 }
 
-
-
 /* ==========================================================
-PREMIUM FORM LABELS
+   PROJECT 4 - STEP 4
+   COMPACT FORM LABELS
+
+   PURPOSE:
+   Keeps labels readable while reducing
+   vertical space between controls.
+
 ========================================================== */
 
 label{
 
-```
-display:block;
+    display:block;
 
-margin-bottom:8px;
+    margin-bottom:5px;
 
-font-size:14px;
+    font-size:13px;
 
-font-weight:700;
+    font-weight:700;
 
-color:var(--text);
+    color:var(--text);
 
-letter-spacing:.2px;
-```
+    letter-spacing:.2px;
 
 }
 
@@ -2479,39 +2497,47 @@ td{
 
 }
 /* ==========================================================
-PREMIUM SEARCH BOXES
+   PROJECT 4 - STEP 4
+   COMPACT SEARCH BOX
+
+   PURPOSE:
+   Reduces the height of all search boxes
+   while maintaining the premium design.
+
 ========================================================== */
 
 input[type="search"]{
 
-```
-padding-left:18px;
+    padding-left:14px;
 
-height:46px;
+    height:38px;
 
-border-radius:999px;
+    border-radius:999px;
 
-background:#ffffff;
+    background:#ffffff;
 
-box-shadow:
-    0 4px 12px rgba(15,23,42,.06);
-```
+    box-shadow:
+        0 2px 8px rgba(15,23,42,.06);
 
 }
 
 /* ==========================================================
-PREMIUM DROPDOWNS
+   PROJECT 4 - STEP 4
+   COMPACT DROPDOWN
+
+   PURPOSE:
+   Creates compact dropdown controls that
+   match the new input design.
+
 ========================================================== */
 
 select{
 
-```
-height:46px;
+    height:38px;
 
-cursor:pointer;
+    cursor:pointer;
 
-appearance:auto;
-```
+    appearance:auto;
 
 }
 
