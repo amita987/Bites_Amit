@@ -2634,41 +2634,43 @@ margin-bottom:20px;
 }
 /* END: Styles to make the header link look like normal text */
 /* ==========================================================
-   ADMIN DASHBOARD MODULE TILES
-
-   PURPOSE:
-   Creates a responsive tile layout for admin modules.
-
-   FUTURE:
-   New dashboard tiles automatically follow the same design.
-========================================================== */
-
-/* ==========================================================
+   PROJECT 4 - STEP 6
    ADMIN MODULE CONTAINER
 
    PURPOSE:
-   Controls spacing around dashboard tiles.
+   Controls the layout and spacing of the
+   dashboard module tiles.
 
-   Reduced vertical margin so the
-   Orders Need Attention table appears
-   higher on the screen.
+   DESIGN GOAL:
+   - Keep four equal-width tiles.
+   - Reduce empty space.
+   - Keep the dashboard balanced.
+   - Leave more room for the
+     "Orders Need Attention" section.
+
+   FUTURE EDITING:
+   - Change grid-template-columns if more
+     dashboard modules are added.
+   - Increase gap for more spacing.
+   - Increase margin for more space above
+     and below the dashboard tiles.
+
 ========================================================== */
-
 
 .admin-module-container{
 
     display:grid;
 
+    /* Four equal-width dashboard tiles */
     grid-template-columns:repeat(4,1fr);
 
-    gap:18px;
+    /* Slightly tighter spacing between tiles */
+    gap:15px;
 
     width:100%;
 
-
-    /* Reduced from 30px
-       to remove unnecessary empty space */
-    margin:15px 0;
+    /* Compact spacing above and below tiles */
+    margin:12px 0;
 
 }
 
