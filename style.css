@@ -569,26 +569,43 @@ button:active{
 }
 
 /* ==========================================================
-   COMMON PAGE SECTIONS
+   PROJECT 4 - STEP 3
+   COMPACT PAGE SECTION SPACING
+
+   PURPOSE:
+   Reduces unnecessary white space between
+   major sections throughout the website.
+
+   AFFECTS:
+   ✓ Home Page
+   ✓ Menu
+   ✓ Contact
+   ✓ About
+   ✓ Customer Pages
+
+   FUTURE EDITING:
+   Increase the first value for more vertical spacing.
+   Increase the second value for more horizontal spacing.
+
 ========================================================== */
 
 section{
 
-    padding:50px 20px;
+    /* Reduced from 50px 20px */
+    padding:30px 20px;
+
     text-align:center;
 
 }
 
 /* ==========================================================
-   PREMIUM SECTION HEADINGS
+   PROJECT 4 - STEP 3
+   COMPACT SECTION HEADINGS
 
-   Purpose:
-   Gives every section heading a cleaner, more premium look
-   with improved spacing and a decorative accent line.
+   PURPOSE:
+   Makes section headings more compact while
+   maintaining a premium appearance.
 
-   Future Editing:
-   - Increase font-size for larger headings.
-   - Change the accent width or color below.
 ========================================================== */
 
 section h2{
@@ -597,15 +614,17 @@ section h2{
 
     display:inline-block;
 
-    font-size:38px;
+    /* Reduced from 38px */
+    font-size:32px;
 
     font-weight:700;
 
     color:var(--primary);
 
-    margin-bottom:50px;
+    /* Reduced from 50px */
+    margin-bottom:30px;
 
-    letter-spacing:.4px;
+    letter-spacing:.3px;
 
 }
 /* ==========================================================
@@ -2364,40 +2383,25 @@ td{
 }
 
 /* ==========================================================
-   PREMIUM ADMIN PAGE CONTAINER
+   PROJECT 4 - STEP 3
+   COMPACT ADMIN PAGE SPACING
 
-   Purpose:
-   Creates a consistent application-style layout
-   for all admin pages.
-
-   Used for:
-   - Menu Management
-   - Orders
-   - Inventory
-   - Reports
-   - Settings
-   - Daily Closing Report
-
-
-   Future Editing:
-   - Increase max-width for larger screens.
-   - Adjust padding for more/less page breathing space.
+   PURPOSE:
+   Reduces empty space around admin pages
+   so more information is visible.
 
 ========================================================== */
-
 
 .admin-page{
 
     /* Controls maximum page width */
     max-width:1400px;
 
-
     /* Centers content */
     margin:auto;
 
-
-    /* Creates page spacing */
-    padding:var(--space-xl);
+    /* Reduced from var(--space-xl) */
+    padding:20px;
 
 }
 
@@ -2523,34 +2527,22 @@ margin-bottom:20px;
 
 }
 /* ==========================================================
-   PREMIUM FORM CARD
+   PROJECT 4 - STEP 3
+   COMPACT FORM CARD
 
-   Purpose:
-   Creates a dashboard-style container around forms.
-
-   Usage:
-   Wrap any form inside:
-   
-   <div class="form-card">
-        Form content
-   </div>
-
-   Future Editing:
-   - Change background for different form themes.
-   - Adjust shadow for stronger/weaker depth.
-   - Change border-left colour for different sections.
+   PURPOSE:
+   Reduces internal spacing inside form cards
+   while keeping the premium appearance.
 
 ========================================================== */
 
 .form-card{
 
-    /* White card background */
     background:var(--card);
 
-    /* Internal spacing */
-    padding:var(--space-xl);
+    /* Reduced from var(--space-xl) */
+    padding:20px;
 
-    /* Rounded premium corners */
     border-radius:var(--radius-large);
 
     /* Soft dashboard shadow */
