@@ -484,15 +484,25 @@ nav a:hover::after{
 }
 
 /* ==========================================================
-   PREMIUM GLOBAL BUTTONS
+   PROJECT 4 - STEP 1
+   COMPACT GLOBAL BUTTON SYSTEM
 
-   Purpose:
-   Gives all buttons a modern premium appearance.
+   PURPOSE:
+   Creates a compact, professional button style
+   across the entire restaurant application.
 
-   Future Editing:
-   - Change gradient colours for a different theme.
-   - Increase padding for larger buttons.
-   - Adjust border-radius for more or less rounded buttons.
+   AFFECTS:
+   ✓ Customer Pages
+   ✓ Admin Pages
+   ✓ Forms
+   ✓ Tables
+   ✓ Dashboard
+
+   FUTURE EDITING:
+   - Increase padding to make buttons larger.
+   - Decrease padding for a more compact UI.
+   - Increase font-size if larger text is preferred.
+
 ========================================================== */
 
 button{
@@ -509,25 +519,27 @@ button{
 
     border:none;
 
-    padding:14px 28px;
+    /* Reduced size for a compact UI */
+    padding:8px 16px;
 
     border-radius:999px;
 
-    font-size:15px;
+    font-size:13px;
 
     font-weight:700;
 
-    letter-spacing:.3px;
+    letter-spacing:.2px;
 
     cursor:pointer;
 
+    /* Smaller shadow */
     box-shadow:
-        0 8px 18px rgba(0,0,0,.15);
+        0 4px 10px rgba(0,0,0,.12);
 
     transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        filter .25s ease;
+        transform .20s ease,
+        box-shadow .20s ease,
+        filter .20s ease;
 
 }
 
@@ -1052,15 +1064,40 @@ td img{
     border-radius:10px;
 }
 
+/* ==========================================================
+   PROJECT 4 - STEP 2
+   COMPACT TABLE BUTTONS
+
+   PURPOSE:
+   Creates a consistent compact button style
+   inside all tables across the application.
+
+   USED IN:
+   - Menu Management
+   - Order Management
+   - Inventory
+   - Reports
+
+   FUTURE EDITING:
+   Adjust padding below to resize every
+   button that appears inside a table.
+
+========================================================== */
+
 td button{
 
-    padding:8px 16px;
+    /* Compact size */
+    padding:6px 12px;
 
     border-radius:999px;
 
-    font-size:13px;
+    font-size:12px;
 
-    margin:3px;
+    font-weight:600;
+
+    margin:2px;
+
+    min-width:70px;
 
 }
 
@@ -3000,33 +3037,39 @@ margin-bottom:20px;
     background:linear-gradient(135deg,#F5F3FF,#FAE8FF);
 
 }
-/* ==========================================
-   ORDER MORE BUTTON
-========================================== */
+/* ==========================================================
+   PROJECT 4 - STEP 2
+   COMPACT ORDER MORE BUTTON
 
-.order-more-btn {
+   PURPOSE:
+   Makes the "Order More" button match the
+   compact design used throughout the website.
 
-    display: inline-block;
+========================================================== */
 
-    margin-top: 30px;
+.order-more-btn{
 
-    padding: 14px 35px;
+    display:inline-block;
 
-    background: var(--primary);
+    margin-top:20px;
 
-    color: white;
+    padding:10px 18px;
 
-    text-decoration: none;
+    background:var(--primary);
 
-    font-size: 18px;
+    color:white;
 
-    font-weight: 600;
+    text-decoration:none;
 
-    border-radius: 30px;
+    font-size:13px;
 
-    box-shadow: var(--shadow-medium);
+    font-weight:700;
 
-    transition: all 0.3s ease;
+    border-radius:999px;
+
+    box-shadow:var(--shadow-small);
+
+    transition:all .25s ease;
 
 }
 
@@ -3111,39 +3154,35 @@ margin-bottom:20px;
     font-size: 20px;
 
 }
-/* ==========================================
-   DASHBOARD LOGOUT BUTTON
+/* ==========================================================
+   PROJECT 4 - STEP 2
+   COMPACT LOGOUT BUTTON
 
    PURPOSE:
-   Keeps logout button aligned with
-   Admin Dashboard heading.
+   Keeps the Admin Dashboard logout button
+   consistent with the global compact style.
 
-   Removed bottom margin because the button
-   is now inside dashboard-header row.
-========================================== */
+========================================================== */
 
+.logout-btn{
 
-.logout-btn {
-
-    background: var(--danger);
+    background:var(--danger);
 
     color:white;
 
     border:none;
 
-    padding:12px 25px;
+    padding:8px 16px;
 
-    border-radius:25px;
+    border-radius:999px;
 
-    font-size:16px;
+    font-size:13px;
 
-    font-weight:600;
+    font-weight:700;
 
     cursor:pointer;
 
-    /* Removed margin-bottom */
-
-    transition:all .3s ease;
+    transition:all .25s ease;
 
 }
 /* ==========================================
